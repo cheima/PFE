@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -38,6 +39,12 @@ public class NewFilter implements Filter {
         if (debug) {
             log("NewFilter:DoBeforeProcessing");
         }
+
+        HttpServletResponse res = (HttpServletResponse) response;
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+        res.setHeader("Access-Control-Allow-Headers", "content-type");
+
 
 	// Write code here to process the request and/or response before
         // the rest of the filter chain is invoked.
@@ -66,6 +73,11 @@ public class NewFilter implements Filter {
         if (debug) {
             log("NewFilter:DoAfterProcessing");
         }
+        HttpServletResponse res = (HttpServletResponse) response;
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+        res.setHeader("Access-Control-Allow-Headers", "content-type");
+
 
 	// Write code here to process the request and/or response after
         // the rest of the filter chain is invoked.
