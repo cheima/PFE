@@ -28,3 +28,11 @@
   content: "";
   padding: 0;
 }
+.odd{
+   background-color: aqua; 
+}
+
+.even{
+    background-color: buttonface;
+    
+}

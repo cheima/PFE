@@ -1,3 +1,19 @@
-<ul>
-    <li ng-repeat="onetraffic in alltraffics">nnnnn</li>
-</ul>
+<p> Filter <input type="text" ng-model="time"/> </p>
+
+<p>Selected Item is :<b>{{selected.siguName}}</b></p>
+<table border="1">
+    <tr>
+        <th>SIGU_NAME</th>
+        <th>PACKET_RECEIVED</th>
+        <th>TIME</th>
+    </tr>
+    
+    <tr ng-repeat="onetraffic in alltraffics | filter:time"
+        ng-click="showSelectedElement(onetraffic)"
+        ng-class-even="'even'" 
+        ng-class-odd="'odd'">
+        <td>{{onetraffic.siguName}}</td>
+        <td>{{onetraffic.packetreceived}}</td>
+        <td>{{onetraffic.dateExec}}</td>
+    </tr>
+</table>
