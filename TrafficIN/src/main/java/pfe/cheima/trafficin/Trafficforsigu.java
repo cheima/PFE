@@ -35,7 +35,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Trafficforsigu.findBySiguName", query = "SELECT t FROM Trafficforsigu t WHERE t.siguName = :siguName"),
     @NamedQuery(name = "Trafficforsigu.findByDateExec", query = "SELECT t FROM Trafficforsigu t WHERE t.dateExec = :dateExec"),
     @NamedQuery(name = "Trafficforsigu.findByPacketreceived", query = "SELECT t FROM Trafficforsigu t WHERE t.packetreceived = :packetreceived"),
-    @NamedQuery(name = "Trafficforsigu.findByPacketsent", query = "SELECT t FROM Trafficforsigu t WHERE t.packetsent = :packetsent")})
+    @NamedQuery(name = "Trafficforsigu.findByPacketsent", query = "SELECT t FROM Trafficforsigu t WHERE t.packetsent = :packetsent"),
+    @NamedQuery(name = "Trafficforsigu.findByTime", query = "SELECT t FROM Trafficforsigu t WHERE t.dateExec > :dateExec")
+})
 public class Trafficforsigu implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
