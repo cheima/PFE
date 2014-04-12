@@ -56,10 +56,14 @@ public class GestionTraffic {
         return "test";
                 }
        
-       public String  getReultat(Trafficforsigu t){
-           net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        List<Trafficforsigu> entityList = pu.createQuery("select a.id from trafficforsigu a ").getEntityList();
-        return t.getSiguName();
+       public List<Trafficforsigu> getEntities() {
+            net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        Trafficforsigu entity;
+      //  entity = pu.createQuery("Select a from Trafficforsigu a where a.id=:v")
+        //        .setParameter("v", 110)
+          //      .getEntity();
+        List<Trafficforsigu> entityList = pu.createQuery("select a from Trafficforsigu a ").getEntityList();
+            return entityList;
        }
 
   /*  public int copierClient(int id) {
