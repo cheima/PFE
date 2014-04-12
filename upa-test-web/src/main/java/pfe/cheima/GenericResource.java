@@ -52,10 +52,6 @@ public class GenericResource {
     @Produces("application/xml")
     public String getXml() throws ParseException, IOException {
         GestionTraffic m=new GestionTraffic();
-//        Trafficforsigu t=new Trafficforsigu();
-//        t.setPacketreceived(55555);
-//        t.setPacketsent(1);
-//        int id=m.ajouterTraffic(t);
         String text = m.getText();
         return "<xml><value>"+text+"</value></xml>";
     }
@@ -70,19 +66,6 @@ public class GenericResource {
     @Consumes("application/xml")
     public void putXml(String content) {
     }
-   
-    @Path("ch")
-    @GET
-     public String getRes() throws ParseException, IOException {
-    
-        Trafficforsigu t = new Trafficforsigu();
-        t.setSiguName("cccc");
-        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        pu.insert(t);
-        int id = t.getId();
-        return "<xml>"+id+"</xml>";
-    
-     }
      
      @Path("traffic")
      @GET
@@ -90,25 +73,15 @@ public class GenericResource {
     @Produces(MediaType.APPLICATION_JSON)
 
      public List<Trafficforsigu> findAllTraffic() {
-       
-       net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+       GestionTraffic m=new GestionTraffic();
+     /*  net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         Trafficforsigu entity;
         entity = pu.createQuery("Select a from Trafficforsigu a where a.id=:v")
                 .setParameter("v", 110)
                 .getEntity();
-        List<Trafficforsigu> entityList = pu.createQuery("select a from Trafficforsigu a ").getEntityList();
-     //  ****
-        /* JSONObject myObject = new JSONObject();
-  
-   try {
-    myObject.put("name", "Agamemnon");
-    myObject.put("age", 32);
-   } catch (JSONException ex) {
-    
-   }*/
-       return entityList;
-      //// return entity.getSiguName();
-       //return myObject.toString();
+        List<Trafficforsigu> entityList = pu.createQuery("select a from Trafficforsigu a ").getEntityList();*/
+            return m.getEntities();
+
       
 
 }
