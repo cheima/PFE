@@ -1,9 +1,9 @@
-
-
 package pfe.cheima;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import javax.persistence.PersistenceUnit;
@@ -20,10 +20,6 @@ import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import pfe.cheima.service.GestionTraffic;
 import pfe.cheima.service.model.Trafficforsigu;
-
-
-
-
 
 /**
  * REST Web Service
@@ -44,6 +40,7 @@ public class GenericResource {
 
     /**
      * Retrieves representation of an instance of pfe.cheima.GenericResource
+     *
      * @return an instance of java.lang.String
      * @throws java.text.ParseException
      * @throws java.io.IOException
@@ -51,14 +48,14 @@ public class GenericResource {
     @GET
     @Produces("application/xml")
     public String getXml() throws ParseException, IOException {
-        GestionTraffic m=new GestionTraffic();
+        GestionTraffic m = new GestionTraffic();
         String text = m.getText();
-        return "<xml><value>"+text+"</value></xml>";
+        return "<xml><value>" + text + "</value></xml>";
     }
-    
 
     /**
      * PUT method for updating or creating an instance of GenericResource
+     *
      * @param content representation for the resource
      * @return an HTTP response with content of the updated or created resource.
      */
@@ -66,24 +63,48 @@ public class GenericResource {
     @Consumes("application/xml")
     public void putXml(String content) {
     }
-     
-     @Path("traffic")
-     @GET
-     // @Produces("application/xml")doesn't work!!!
+
+    @Path("traffic")
+    @GET
+    // @Produces("application/xml")doesn't work!!!
     @Produces(MediaType.APPLICATION_JSON)
 
-     public List<Trafficforsigu> findAllTraffic() {
-       GestionTraffic m=new GestionTraffic();
-     /*  net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        Trafficforsigu entity;
-        entity = pu.createQuery("Select a from Trafficforsigu a where a.id=:v")
-                .setParameter("v", 110)
-                .getEntity();
-        List<Trafficforsigu> entityList = pu.createQuery("select a from Trafficforsigu a ").getEntityList();*/
-            return m.getEntities();
+    public List<Trafficforsigu> findAllTraffic() {
+       // GestionTraffic m = new GestionTraffic();
+        /*  net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+         Trafficforsigu entity;
+         entity = pu.createQuery("Select a from Trafficforsigu a where a.id=:v")
+         .setParameter("v", 110)
+         .getEntity();
+         List<Trafficforsigu> entityList = pu.createQuery("select a from Trafficforsigu a ").getEntityList();*/
+      //  return m.getEntities();
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+     //   Trafficforsigu entity;
+      //  entity = pu.createQuery("Select a from Trafficforsigu a where a.id=:v")
+        //        .setParameter("v", 110)
+          //      .getEntity();
+        List<Trafficforsigu> entityList = pu.createQuery("select a from Trafficforsigu a ").getEntityList();
+            return entityList;
+    }
 
-      
+     @Path("time")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
 
-}
-   
+    public List<Trafficforsigu> findTrafficByTime() {
+                    // 1) create a java calendar instance
+            Calendar calendar = Calendar.getInstance();
+// 2) get a java.util.Date from the calendar instance.
+//    this date will represent the current instant, or "now".
+            Date date = calendar.getTime();
+              Calendar cal = Calendar.getInstance();
+  cal.setTime(date);
+  cal.add(Calendar.HOUR, -1);
+        Date time = cal.getTime();
+         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        List<Trafficforsigu> entityList = pu.createQuery("select a from trafficforsigu a where a.dateExec > :v")
+                .setParameter("v",time)
+                .getEntityList();
+        return entityList;
+    }
 }
