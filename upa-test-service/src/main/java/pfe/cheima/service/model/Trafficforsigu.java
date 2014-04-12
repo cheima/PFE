@@ -3,11 +3,13 @@ package pfe.cheima.service.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 import net.vpc.upa.config.Entity;
 import net.vpc.upa.config.Id;
 import net.vpc.upa.config.Sequence;
 
 @Entity
+@XmlRootElement
 public class Trafficforsigu implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id  @Sequence

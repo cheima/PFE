@@ -13,6 +13,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import net.vpc.upa.PersistenceUnit;
 import net.vpc.upa.UPA;
 import pfe.cheima.service.model.Trafficforsigu;
@@ -29,6 +30,7 @@ public class GestionTraffic {
     }
     
        public String getText() throws ParseException, IOException {
+          
            PersistenceUnit pu = UPA.getPersistenceUnit();
         NewClasse bre = new NewClasse();
         ArrayList<Trafficforsigu> Lecture = bre.Lecture();
@@ -36,6 +38,7 @@ public class GestionTraffic {
             Trafficforsigu traffic = new Trafficforsigu();
            // traffic.setId(g);
             traffic.setSiguName("SIGU "+g);
+           
             traffic.setPacketreceived(Lecture.get(g).getPacketreceived());
             traffic.setPacketsent(Lecture.get(g).getPacketsent());
             // 1) create a java calendar instance
@@ -51,7 +54,13 @@ public class GestionTraffic {
         }
        
         return "test";
-    }
+                }
+       
+       public String  getReultat(Trafficforsigu t){
+           net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        List<Trafficforsigu> entityList = pu.createQuery("select a.id from trafficforsigu a ").getEntityList();
+        return t.getSiguName();
+       }
 
   /*  public int copierClient(int id) {
         PersistenceUnit pu = UPA.getPersistenceUnit();
