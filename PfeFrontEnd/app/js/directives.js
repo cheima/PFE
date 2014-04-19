@@ -1,8 +1,6 @@
 'use strict';
 
 
-
-
 /* Directives */
 
 
@@ -46,6 +44,3 @@ directive('appVersion', ['version',
       }
     }
   });
-
-
-

@@ -15,6 +15,6 @@
          ng-class-odd="'odd'">
         <td>{{onetraffic.siguName}}</td>
         <td>{{onetraffic.packetsent}}</td>
-        <td>{{onetraffic.dateExec}}</td>
+        <td>{{onetraffic.dateExec | date:'yyyy-MM-dd @ HH:mm '}}</td>
     </tr>
 </table>
