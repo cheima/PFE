@@ -5,19 +5,16 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import javax.persistence.PersistenceUnit;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.GET;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import net.vpc.upa.UPA;
-import org.codehaus.jettison.json.JSONException;
-import org.codehaus.jettison.json.JSONObject;
 import pfe.cheima.service.GestionTraffic;
 import pfe.cheima.service.model.Trafficforsigu;
 
@@ -38,13 +35,6 @@ public class GenericResource {
     public GenericResource() {
     }
 
-    /**
-     * Retrieves representation of an instance of pfe.cheima.GenericResource
-     *
-     * @return an instance of java.lang.String
-     * @throws java.text.ParseException
-     * @throws java.io.IOException
-     */
     @GET
     @Produces("application/xml")
     public String getXml() throws ParseException, IOException {
@@ -87,7 +77,7 @@ public class GenericResource {
             return entityList;
     }
 
-     @Path("time")
+    @Path("time")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
 
@@ -107,4 +97,31 @@ public class GenericResource {
                 .getEntityList();
         return entityList;
     }
+    
+    @Path("siguname")
+    @GET
+    // @Produces("application/xml")doesn't work!!!
+    @Produces(MediaType.APPLICATION_JSON)
+
+    public List<Trafficforsigu> TrafficBySiguName() {
+         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        List<Trafficforsigu> entityList = pu.createQuery("select a from trafficforsigu a inner join trafficforsigu b on  a.siguName = b.siguName and b.id = :v ")
+                .setParameter("v",2482)
+                .getEntityList();
+        return entityList;
+    }
+    
+    @Path("/{siguName}")
+    @GET
+    // @Produces("application/xml")doesn't work!!!
+    @Produces(MediaType.APPLICATION_JSON)
+
+    public List<Trafficforsigu> TrafficBySiguName1(@PathParam("siguName") String sigu) {
+         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        List<Trafficforsigu> entityList = pu.createQuery("select a from trafficforsigu a where a.siguName = :v ")
+                .setParameter("v",sigu)
+                .getEntityList();
+        return entityList;
+    }
+    
 }
