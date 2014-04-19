@@ -34,7 +34,7 @@ public class NewClasse {
         Calculator calcUDP6 = new Calculator(Protocol.UDP6);
         Calculator calcEMB = new Calculator(Protocol.EMB);
 
-        BufferedReader br = new BufferedReader(new FileReader("F:\\PFE\\tajribi.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("F:\\PFE\\test.txt"));
 
         String sCurrentLine;
         Protocol pr = NONE;
@@ -43,6 +43,10 @@ public class NewClasse {
         int somsent=0;
         while ((sCurrentLine = br.readLine()) != null) {
             //System.out.println(sCurrentLine);
+            ///
+            Pattern p20 = Pattern.compile(sCurrentLine);
+            Matcher m20 = p20.matcher(sCurrentLine);
+            ///
             Pattern p = Pattern.compile("^ip:$");
             Matcher m = p.matcher(sCurrentLine);
 
@@ -197,7 +201,7 @@ public class NewClasse {
                 Trafficforsigu ModuleSigu6 = new Trafficforsigu();
                 ModuleSigu6.setPacketreceived(calcIP6.received);
                 System.out.println("total IP6 received for SIGU " + ModuleSigu6.getPacketreceived());
-                somreceived+=ModuleSigu6.getPacketreceived();
+                somreceived+=ModuleSigu6.getPacketreceived() ;
                 ModuleSigu6.setPacketsent(calcIP6.sent);
                 System.out.println("total IP6 sent for SIGU " + ModuleSigu6.getPacketsent());
                 somsent+=ModuleSigu6.getPacketsent();
@@ -267,8 +271,8 @@ public class NewClasse {
                 calcEMB.received = 0;
                 calcEMB.sent = 0;
             Trafficforsigu trafficSIGU = new Trafficforsigu();
-            trafficSIGU.setPacketreceived(somreceived);
-            trafficSIGU.setPacketsent(somsent);
+            trafficSIGU.setPacketreceived((int)(somreceived *0.000012));
+            trafficSIGU.setPacketsent((int)(somsent *0.000012));
             ListSigu.add(trafficSIGU);
              somsent=0;
             somreceived=0;

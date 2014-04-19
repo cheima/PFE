@@ -58,7 +58,7 @@ public class GestionTraffic {
        
        public List<Trafficforsigu> getEntities() {
             net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        Trafficforsigu entity;
+     //   Trafficforsigu entity;
       //  entity = pu.createQuery("Select a from Trafficforsigu a where a.id=:v")
         //        .setParameter("v", 110)
           //      .getEntity();
