@@ -36,7 +36,7 @@ public class NewClasse {
         Calculator calcUDP6 = new Calculator(Protocol.UDP6);
         Calculator calcEMB = new Calculator(Protocol.EMB);
 
-        BufferedReader br = new BufferedReader(new FileReader("F:\\PFE\\FolderForGit\\test.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("F:\\PFE\\FolderForGit\\upa-test-service\\test.txt"));
 
         String sCurrentLine;
         Protocol pr = NONE;
