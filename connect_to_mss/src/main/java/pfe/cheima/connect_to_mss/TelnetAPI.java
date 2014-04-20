@@ -23,7 +23,7 @@ import pfe.cheima.service.TelnetClient;
 public class TelnetAPI {
     TelnetClient tc = new TelnetClient();
    public  ArrayList<String> ListCmdSigu() throws IOException{
-       
+          ArrayList<String> ListExecSIGU = new ArrayList();
        ArrayList<String> ListCmdSIGU = new ArrayList();
         GenerateCmd gc = new GenerateCmd();
         Pattern pa = Pattern.compile("ZQRS: SIGU,[0-9].*::PRO::;");
@@ -38,9 +38,9 @@ public class TelnetAPI {
         {
             System.out.println(ListCmdSIGU.get(k)); 
             String s =tc.SendCmdTelnet(ListCmdSIGU.get(k));
-            ListCmdSIGU.add(s);
+            ListExecSIGU.add(s);
         }
        // System.out.println(ListCmdSIGU.size());
-        return ListCmdSIGU;
+        return ListExecSIGU;
    }
 }
