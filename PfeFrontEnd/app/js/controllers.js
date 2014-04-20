@@ -1,5 +1,4 @@
 'use strict';
-
 /* Controllers */
 //load the visualization API and the linechart package
 google.load('visualization', '1', {packages: ['corechart']});
@@ -11,9 +10,9 @@ google.setOnLoadCallback(function() {
 angular.module('myApp.controllers', []).
         controller('MyCtrl1', function($scope, trafficforsigu) {
            // var nom = "SIGU 0";
-            $scope.alltraffics = trafficforsigu.query({nom : "SIGU 0"});
+            $scope.alltraffics = trafficforsigu.query({siguName : "SIGU-3"});
 
-            //$scope.alltraffics = trafficforsigu.query();
+         //$scope.alltraffics = trafficforsigu.query();
             $scope.showSelectedElement = function(s) {
                 $scope.selected = s;
             };
@@ -28,7 +27,7 @@ angular.module('myApp.controllers', []).
                         i = i + 5;
                         val.push([i, obj["packetreceived"]]);
                    // }
-                }
+                    }
                 var data = google.visualization.arrayToDataTable(val);
                 var options = {
                     title: 'TrafficIN for SIGU'
@@ -64,9 +63,9 @@ angular.module('myApp.controllers', []).
                 var val = [['Time', 'TrafficOUT']];
                 for (var key in result) {
                     var obj = result[key];
-                    if (obj["siguName"] == "SIGU 0") {
-                        i = i + 5;
-                        val.push([i, obj["packetsent"]]);
+                    if (obj["siguName"] == "SIGU-3") {
+                       // i = i + 5;
+                        val.push([obj["dateExec"], obj["packetsent"]]);
                     }
                 }
                 var data = google.visualization.arrayToDataTable(val);
