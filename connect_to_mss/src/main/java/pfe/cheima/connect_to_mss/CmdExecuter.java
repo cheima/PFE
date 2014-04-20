@@ -27,9 +27,13 @@ public class CmdExecuter {
       
         
         
-       public List<String> OutputCmdSigu() throws IOException{
-             TelnetAPI ta = new TelnetAPI();
-           ArrayList<String> ListCmdSigu = ta.ListCmdSigu();
-           return ListCmdSigu;
+       public List<Trafficforsigu> getAllSiguTraffic() throws IOException{
+             TelnetAPI_Impl1 ta = new TelnetAPI_Impl1();
+        CmdParser cp = new CmdParser();
+        ArrayList<String> ListCmdSigu = ta.getAllSiguTraffic();
+        List<Trafficforsigu> allStats = cp.parseSiguTraffic(ListCmdSigu);
+        allStats.addAll(allStats);
+        return allStats;
+
        }
 }

@@ -38,7 +38,7 @@ public class CmdParser {
        
         return parse(s);
     }
-      public List<Trafficforsigu> parse(ArrayList<String> s) throws IOException{
+      public List<Trafficforsigu> parseSiguTraffic(ArrayList<String> s) throws IOException{
            ArrayList ListSigu = new ArrayList<Trafficforsigu>();
        // ArrayList<String> ListCmdSIGU = new ArrayList();
        // ArrayList ListSIGU = new ArrayList<Trafficforsigu>();
