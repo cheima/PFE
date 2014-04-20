@@ -33,7 +33,7 @@ public class GestionTraffic {
           
            PersistenceUnit pu = UPA.getPersistenceUnit();
         NewClasse bre = new NewClasse();
-        ArrayList<Trafficforsigu> Lecture = bre.Lecture();
+       List<Trafficforsigu> Lecture = bre.Lecture();
         for (int g = 0; g < Lecture.size(); g++) {
             Trafficforsigu traffic = new Trafficforsigu();
            // traffic.setId(g);
