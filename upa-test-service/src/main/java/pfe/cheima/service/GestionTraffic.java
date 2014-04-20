@@ -37,8 +37,7 @@ public class GestionTraffic {
         for (int g = 0; g < Lecture.size(); g++) {
             Trafficforsigu traffic = new Trafficforsigu();
            // traffic.setId(g);
-            traffic.setSiguName("SIGU "+g);
-           
+            traffic.setSiguName((String) bre.siguName.get(g));          
             traffic.setPacketreceived(Lecture.get(g).getPacketreceived());
             traffic.setPacketsent(Lecture.get(g).getPacketsent());
             // 1) create a java calendar instance

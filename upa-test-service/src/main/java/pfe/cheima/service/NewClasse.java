@@ -16,6 +16,8 @@ import static pfe.cheima.service.Protocol.NONE;
 import pfe.cheima.service.model.Trafficforsigu;
 
 public class NewClasse {
+    
+    ArrayList siguName = new ArrayList<String>();
 
     public ArrayList<Trafficforsigu> Lecture() throws FileNotFoundException, IOException {
         // array for each protocol 
@@ -34,7 +36,7 @@ public class NewClasse {
         Calculator calcUDP6 = new Calculator(Protocol.UDP6);
         Calculator calcEMB = new Calculator(Protocol.EMB);
 
-        BufferedReader br = new BufferedReader(new FileReader("F:\\PFE\\test.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("F:\\PFE\\FolderForGit\\test.txt"));
 
         String sCurrentLine;
         Protocol pr = NONE;
@@ -44,7 +46,7 @@ public class NewClasse {
         while ((sCurrentLine = br.readLine()) != null) {
             //System.out.println(sCurrentLine);
             ///
-            Pattern p20 = Pattern.compile(sCurrentLine);
+            Pattern p20 = Pattern.compile("UNIT:.*");
             Matcher m20 = p20.matcher(sCurrentLine);
             ///
             Pattern p = Pattern.compile("^ip:$");
@@ -82,8 +84,15 @@ public class NewClasse {
 
             Pattern p12 = Pattern.compile("^emb:$");
             Matcher m12 = p12.matcher(sCurrentLine);
+            ////
+            if(m20.find()){
+              String tab[] = m20.group().split(" ");
+              siguName.add(tab[1]);
+              
+            }
+            ////
 
-            if (m7.find()) {
+            else if (m7.find()) {
                 pr = Protocol.UDP;
             } else if (m8.find()) {
                 pr = Protocol.TCP;
@@ -276,12 +285,13 @@ public class NewClasse {
             ListSigu.add(trafficSIGU);
              somsent=0;
             somreceived=0;
-            }
-            ////
-            
+            } 
         }
         // for(int g=0;g<ListSIGU.size()<g++)
-        System.out.println(ListSigu.size());
+        //System.out.println(ListSigu.size());
+        for(int g=0;g<siguName.size();g++){
+        System.out.println(siguName.get(g));
+        }
         return ListSigu;
     }
 }
