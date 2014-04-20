@@ -17,6 +17,7 @@ import java.util.List;
 import net.vpc.upa.PersistenceUnit;
 import net.vpc.upa.UPA;
 import pfe.cheima.connect_to_mss.CmdExecuter;
+import pfe.cheima.connect_to_mss.CmdParser;
 import pfe.cheima.service.model.Trafficforsigu;
 /**
  *
@@ -33,13 +34,14 @@ public class GestionTraffic {
        public String getText() throws ParseException, IOException {
           
            PersistenceUnit pu = UPA.getPersistenceUnit();
-       NewClasse bre = new NewClasse();
+      // NewClasse bre = new NewClasse();
            CmdExecuter ce = new  CmdExecuter();
+           CmdParser cp = new CmdParser();
        List<Trafficforsigu> Lecture = ce.getAllSiguTraffic();
         for (int g = 0; g < Lecture.size(); g++) {
             Trafficforsigu traffic = new Trafficforsigu();
            // traffic.setId(g);
-            traffic.setSiguName((String) bre.siguName.get(g));          
+            traffic.setSiguName((String) cp.siguName.get(g));          
             traffic.setPacketreceived(Lecture.get(g).getPacketreceived());
             traffic.setPacketsent(Lecture.get(g).getPacketsent());
             // 1) create a java calendar instance
