@@ -1,0 +1,59 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package pfe.cheima.connect_to_mss;
+
+import java.io.IOException;
+import java.util.List;
+import pfe.cheima.service.ExecuteCmdBSU;
+import pfe.cheima.service.ExecuteCmdCPU;
+import pfe.cheima.service.NewClasse;
+import pfe.cheima.service.TelnetClient;
+import pfe.cheima.service.model.Trafficforsigu;
+
+/**
+ *
+ * @author Cheima
+ */
+public class MSSFacade {
+
+    TelnetClient tc = new TelnetClient();
+
+    public void ConnectMSS(String MssAdrIp, String MssLogin, String MssPssword) {
+        //tc.ConnectMSS("10.106.120.4", "STAG01", "AZERTY");
+        if (MssAdrIp == null) {
+            MssAdrIp = "10.106.120.4";
+        }
+        if (MssLogin == null) {
+            MssLogin = "STAG01";
+        }
+        if (MssPssword == null) {
+            MssPssword = "MssPssword";
+        }
+        tc.ConnectMSS(MssAdrIp, MssLogin, MssPssword);
+    }
+    
+    public void ConnectBuffer(){
+        
+    }
+
+    public List<String> CmdBSU() throws IOException {
+        ExecuteCmdBSU b = new ExecuteCmdBSU();
+        return b.CmdBSU(tc);
+    }
+
+    public int CmdCPU() throws IOException {
+        ExecuteCmdCPU b = new ExecuteCmdCPU();
+        return b.ExecuteZDOI(tc);
+    }
+
+  //  public List<String> CmdSIGU() throws IOException {
+    public List<Trafficforsigu> CmdSIGU() throws IOException {
+       // ExecuteCmdSIGU b = new ExecuteCmdSIGU();
+        NewClasse b = new NewClasse();
+       // return b.CmdSIGU(tc);
+        return b.Lecture();
+    }
+}
