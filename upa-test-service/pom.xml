@@ -32,6 +32,11 @@
       <version>3.3</version>
       <type>jar</type>
     </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>connect_to_mss</artifactId>
+      <version>${project.version}</version>
+    </dependency>
   </dependencies>
   
    <repositories>
