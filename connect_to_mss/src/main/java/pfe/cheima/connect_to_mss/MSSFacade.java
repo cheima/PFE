@@ -5,11 +5,23 @@
  */
 package pfe.cheima.connect_to_mss;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.StringReader;
+import java.util.ArrayList;
+import static java.util.Date.parse;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import pfe.cheima.service.Calculator;
 import pfe.cheima.service.ExecuteCmdBSU;
 import pfe.cheima.service.ExecuteCmdCPU;
+import pfe.cheima.service.GenerateCmd;
 import pfe.cheima.service.NewClasse;
+import pfe.cheima.service.Protocol;
+import static pfe.cheima.service.Protocol.NONE;
 import pfe.cheima.service.TelnetClient;
 import pfe.cheima.service.model.Trafficforsigu;
 
@@ -34,9 +46,9 @@ public class MSSFacade {
         }
         tc.ConnectMSS(MssAdrIp, MssLogin, MssPssword);
     }
-    
-    public void ConnectBuffer(){
-        
+
+    public void ConnectBuffer() {
+
     }
 
     public List<String> CmdBSU() throws IOException {
@@ -49,11 +61,11 @@ public class MSSFacade {
         return b.ExecuteZDOI(tc);
     }
 
-  //  public List<String> CmdSIGU() throws IOException {
-    public List<Trafficforsigu> CmdSIGU() throws IOException {
-       // ExecuteCmdSIGU b = new ExecuteCmdSIGU();
-        NewClasse b = new NewClasse();
-       // return b.CmdSIGU(tc);
-        return b.Lecture();
+    public List<String> CmdSIGU() throws IOException {
+   // public List<Trafficforsigu> CmdSIGU() throws IOException {
+        ExecuteCmdSIGU b = new ExecuteCmdSIGU();
+        //NewClasse b = new NewClasse();
+         return b.CmdSIGU(tc);
+       // return b.Lecture();
     }
-}
+            }
