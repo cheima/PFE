@@ -22,8 +22,9 @@ import pfe.cheima.service.TelnetClient;
 //execute les cmdes sigus
 public class TelnetAPI_Impl1 implements TelnetAPI{
     TelnetClient tc = new TelnetClient();
-   public  ArrayList<String> getAllSiguTraffic() throws IOException{
-          ArrayList<String> ListExecSIGU = new ArrayList();
+   public  String getAllSiguTraffic() throws IOException{
+        String ListExecSIGU = "";
+         // ArrayList<String> ListExecSIGU = new ArrayList();
        ArrayList<String> ListCmdSIGU = new ArrayList();
         GenerateCmd gc = new GenerateCmd();
         Pattern pa = Pattern.compile("ZQRS: SIGU,[0-9].*::PRO::;");
@@ -38,7 +39,8 @@ public class TelnetAPI_Impl1 implements TelnetAPI{
         {
             System.out.println(ListCmdSIGU.get(k)); 
             String s =tc.SendCmdTelnet(ListCmdSIGU.get(k));
-            ListExecSIGU.add(s);
+           // ListExecSIGU.add(s);
+            ListExecSIGU+= "\n"+ s;
         }
        // System.out.println(ListCmdSIGU.size());
         return ListExecSIGU;

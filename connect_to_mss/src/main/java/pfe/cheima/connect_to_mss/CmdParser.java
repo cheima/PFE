@@ -40,7 +40,7 @@ public class CmdParser {
         return parse(s);
     }
 
-    public List<Trafficforsigu> parseSiguTraffic(ArrayList<String> s) throws IOException {
+    public List<Trafficforsigu> parseSiguTraffic(String s) throws IOException {
         ArrayList ListSigu = new ArrayList<Trafficforsigu>();
        // ArrayList<String> ListCmdSIGU = new ArrayList();
         // ArrayList ListSIGU = new ArrayList<Trafficforsigu>();
@@ -57,8 +57,8 @@ public class CmdParser {
         Calculator calcUDP6 = new Calculator(Protocol.UDP6);
         Calculator calcEMB = new Calculator(Protocol.EMB);
 
-        for (int i = 0; i < s.size(); i++) {
-            StringReader sr = new StringReader(s.get(i)); // wrap your String
+      //  for (int i = 0; i < s.size(); i++) {
+            StringReader sr = new StringReader(s); // wrap your String
             BufferedReader buff = new BufferedReader(sr); // wrap your StringReader
             String sCurrentLine;
             Protocol pr = NONE;
@@ -306,7 +306,7 @@ public class CmdParser {
 
                 }
             }
-        }
+     //   }
 
         // System.out.println(ListCmdSIGU.size());
         return ListSigu;

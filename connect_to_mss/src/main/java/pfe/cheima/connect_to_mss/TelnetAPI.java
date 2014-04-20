@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author Cheima
  */
 public interface TelnetAPI {
-      public  ArrayList<String> getAllSiguTraffic() throws IOException;
+      public  String getAllSiguTraffic() throws IOException;
           
      
 }

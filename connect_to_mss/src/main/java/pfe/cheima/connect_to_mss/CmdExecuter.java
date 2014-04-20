@@ -28,9 +28,11 @@ public class CmdExecuter {
         
         
        public List<Trafficforsigu> getAllSiguTraffic() throws IOException{
-             TelnetAPI_Impl1 ta = new TelnetAPI_Impl1();
+            // TelnetAPI_Impl1 ta = new TelnetAPI_Impl1();
+           
+           TelnetAPI_Impl2 ta = new TelnetAPI_Impl2();
         CmdParser cp = new CmdParser();
-        ArrayList<String> ListCmdSigu = ta.getAllSiguTraffic();
+        String ListCmdSigu = ta.getAllSiguTraffic();
         List<Trafficforsigu> allStats = cp.parseSiguTraffic(ListCmdSigu);
         allStats.addAll(allStats);
         return allStats;
