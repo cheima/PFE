@@ -123,5 +123,18 @@ public class GenericResource {
                 .getEntityList();
         return entityList;
     }
-    
+   
+    @Path("/{siguRange}")
+    @GET
+    // @Produces("application/xml")doesn't work!!!
+    @Produces(MediaType.APPLICATION_JSON)
+
+    public List<Trafficforsigu> TrafficBySiguRange(@PathParam("siguRange") String range) {
+         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        List<Trafficforsigu> entityList = pu.createQuery("select a from trafficforsigu inner join trafficsigu b on a.id >= b.id where a.siguName = :v inner join trafficforsigu "
+                + "c on a.id<= c.id where c.siguname= :t")
+                .setParameter("v","SIGU-3").setParameter("t", "SIGU-9")
+                .getEntityList();
+        return entityList;
+    }
 }
