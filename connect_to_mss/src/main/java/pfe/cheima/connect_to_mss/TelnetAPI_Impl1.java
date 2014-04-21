@@ -8,11 +8,9 @@ package pfe.cheima.connect_to_mss;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import static java.util.Date.parse;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import pfe.cheima.service.GenerateCmd;
-import pfe.cheima.service.TelnetClient;
+
 
 
 /**

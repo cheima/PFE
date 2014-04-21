@@ -15,12 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import pfe.cheima.service.Calculator;
-import pfe.cheima.service.GenerateCmd;
-import pfe.cheima.service.Protocol;
-import static pfe.cheima.service.Protocol.NONE;
-import pfe.cheima.service.TelnetClient;
-import pfe.cheima.service.model.Trafficforsigu;
+import static pfe.cheima.connect_to_mss.Protocol.NONE;
+
 
 /**
  *
