@@ -1,6 +1,8 @@
 package pfe.cheima.service;
 
 
+import pfe.cheima.connect_to_mss.Protocol;
+import pfe.cheima.connect_to_mss.Calculator;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -11,7 +13,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 
 import java.util.regex.Pattern;
-import static pfe.cheima.service.Protocol.NONE;
+import static pfe.cheima.connect_to_mss.Protocol.NONE;
 
 
 import pfe.cheima.service.model.Trafficforsigu;

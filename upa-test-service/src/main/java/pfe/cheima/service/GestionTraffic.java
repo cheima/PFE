@@ -10,7 +10,6 @@ package pfe.cheima.service;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -37,7 +36,7 @@ public class GestionTraffic {
       // NewClasse bre = new NewClasse();
            CmdExecuter ce = new  CmdExecuter();
            CmdParser cp = new CmdParser();
-       List<Trafficforsigu> Lecture = ce.getAllSiguTraffic();
+       List<pfe.cheima.connect_to_mss.Trafficforsigu> Lecture = ce.getAllSiguTraffic();
         for (int g = 0; g < Lecture.size(); g++) {
             Trafficforsigu traffic = new Trafficforsigu();
            // traffic.setId(g);
