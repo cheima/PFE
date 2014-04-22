@@ -124,7 +124,7 @@ public class GenericResource {
         return entityList;
     }
    
-    @Path("/{siguRange}")
+   /* @Path("/{siguRange}")
     @GET
     // @Produces("application/xml")doesn't work!!!
     @Produces(MediaType.APPLICATION_JSON)
@@ -136,5 +136,9 @@ public class GenericResource {
                 .setParameter("v","SIGU-3").setParameter("t", "SIGU-9")
                 .getEntityList();
         return entityList;
-    }
+    }*/
+    /*
+    @Path("/{siguFrom}/{siguTo}")
+    public List<Trafficforsigu> TrafficBySiguRange(@PathParam("siguFrom") int from, @PathParam("siguTo") int to) {
+    */
 }
