@@ -117,7 +117,7 @@ public class GenericResource {
     // @Produces("application/xml")doesn't work!!!
     @Produces(MediaType.APPLICATION_JSON)
 
-    public List<Trafficforsigu> TrafficBySiguName1(@PathParam("siguId") String sigu) {
+    public List<Trafficforsigu> TrafficBySiguName1(@PathParam("siguId") int sigu) {
          net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         List<Trafficforsigu> entityList = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
                 .setParameter("v",sigu)
