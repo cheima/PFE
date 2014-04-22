@@ -43,7 +43,7 @@ public class MSSFacade {
 
     }
 
-    public List<String> CmdBSU() throws IOException {
+   /* public List<String> CmdBSU() throws IOException {
         ExecuteCmdBSU b = new ExecuteCmdBSU();
         return b.CmdBSU(tc);
     }
@@ -51,7 +51,7 @@ public class MSSFacade {
     public int CmdCPU() throws IOException {
         ExecuteCmdCPU b = new ExecuteCmdCPU();
         return b.ExecuteZDOI(tc);
-    }
+    }*/
 
     public List<String> CmdSIGU() throws IOException {
    // public List<Trafficforsigu> CmdSIGU() throws IOException {

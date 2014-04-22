@@ -18,7 +18,11 @@ public class TelnetAPI_Impl2 implements TelnetAPI{
 
     public String getAllSiguTraffic() throws IOException {
       BufferedReader br = new BufferedReader(new FileReader("F:\\PFE\\FolderForGit\\upa-test-service\\test.txt"));
-      return (br.toString());
+     String s = "";
+        while (br.ready()) {
+            s += "\n" + br.readLine();
+        }
+        return s;
     }
     
     

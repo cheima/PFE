@@ -23,10 +23,11 @@ import static pfe.cheima.connect_to_mss.Protocol.NONE;
  */
 public class CmdParser {
 
-    public ArrayList siguName = new ArrayList<String>();
+   // public ArrayList siguName = new ArrayList<String>();
 
     public List<String> parse(File s) throws IOException {
         // TelnetAPI ta = new TelnetAPI();
+       
         StringBuilder str = new StringBuilder();
         FileReader fr = new FileReader(s);
         char[] buffer = new char[1024];
@@ -42,6 +43,7 @@ public class CmdParser {
         ArrayList ListSigu = new ArrayList<Trafficforsigu>();
        // ArrayList<String> ListCmdSIGU = new ArrayList();
         // ArrayList ListSIGU = new ArrayList<Trafficforsigu>();
+         ArrayList siguName = new ArrayList<String>();
         Calculator calcSCTP = new Calculator(Protocol.SCTP);
         Calculator calcIP = new Calculator(Protocol.IP);
         Calculator calcARP = new Calculator(Protocol.ARP);
@@ -60,6 +62,7 @@ public class CmdParser {
             BufferedReader buff = new BufferedReader(sr); // wrap your StringReader
             String sCurrentLine;
             Protocol pr = NONE;
+            int k= 0;
             int somreceived = 0;
             int somsent = 0;
             while ((sCurrentLine = buff.readLine()) != null) {
@@ -298,6 +301,8 @@ public class CmdParser {
                     Trafficforsigu trafficSIGU = new Trafficforsigu();
                     trafficSIGU.setPacketreceived((int) (somreceived * 0.000012));
                     trafficSIGU.setPacketsent((int) (somsent * 0.000012));
+                    trafficSIGU.setSiguName((String) siguName.get(k));
+                    k++;
                     ListSigu.add(trafficSIGU);
                     somsent = 0;
                     somreceived = 0;
