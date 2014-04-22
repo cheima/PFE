@@ -8,9 +8,11 @@ google.setOnLoadCallback(function() {
 });
 
 angular.module('myApp.controllers', []).
-        controller('MyCtrl1', function($scope, trafficforsigu) {
+        controller('MyCtrl1', function($scope, trafficforsigu, getsigunames) {
            // var nom = "SIGU 0";
-            $scope.alltraffics = trafficforsigu.query({siguName : "SIGU-3"});
+          //  $scope.alltraffics = trafficforsigu.query({siguId : "SIGU-3"});
+          $scope.alltraffics = trafficforsigu.query({siguId : 5});
+          $scope.sigunames=getsigunames.query();
 
          //$scope.alltraffics = trafficforsigu.query();
             $scope.showSelectedElement = function(s) {
@@ -52,7 +54,7 @@ angular.module('myApp.controllers', []).
             });
         })
         .controller('MyCtrl2', function($scope, trafficforsigu) {
-            $scope.alltraffics = trafficforsigu.query({siguName : "SIGU-3"});
+            $scope.alltraffics = trafficforsigu.query({siguName : "SIGU-4"});
             $scope.showSelectedElement = function(s) {
                 $scope.selected = s;
             };
@@ -63,7 +65,7 @@ angular.module('myApp.controllers', []).
                 var val = [['Time', 'TrafficOUT']];
                 for (var key in result) {
                     var obj = result[key];
-                    if (obj["siguName"] == "SIGU-3") {
+                    if (obj["siguName"] == "SIGU-4") {
                        // i = i + 5;
                         val.push([obj["dateExec"], obj["packetsent"]]);
                     }
