@@ -14,10 +14,13 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import net.vpc.upa.PersistenceUnit;
+import net.vpc.upa.Query;
+import net.vpc.upa.Record;
 import net.vpc.upa.UPA;
 import pfe.cheima.connect_to_mss.CmdExecuter;
 import pfe.cheima.connect_to_mss.CmdParser;
 import pfe.cheima.service.model.Trafficforsigu;
+import pfe.cheima.service.model.modules;
 /**
  *
  * @author Cheima
@@ -35,15 +38,22 @@ public class GestionTraffic {
            PersistenceUnit pu = UPA.getPersistenceUnit();
       // NewClasse bre = new NewClasse();
            CmdExecuter ce = new  CmdExecuter();
-           CmdParser cp = new CmdParser();
        List<pfe.cheima.connect_to_mss.Trafficforsigu> Lecture = ce.getAllSiguTraffic();
-        for (int g = 0; g < Lecture.size(); g++) {
+       // for (int g = 0; g < Lecture.size(); g++) {
             Trafficforsigu traffic = new Trafficforsigu();
-           // traffic.setId(g);
-           // traffic.setSiguName((String) cp.siguName.get(g));  
-            traffic.setSiguName(Lecture.get(g).getSiguName());
-            traffic.setPacketreceived(Lecture.get(g).getPacketreceived());
-            traffic.setPacketsent(Lecture.get(g).getPacketsent());
+            modules m = new modules(); 
+            m.setSiguName("sigu0");
+             /* modules module = pu.createQuery("select m from modules m where m.nom LIKE :v ")
+                       .setParameter("v",Lecture.get(g).getSiguName()).getEntity();
+             if( module.getId()== null ){
+             m.setSiguName(Lecture.get(g).getSiguName());
+             }*/
+            //m.setSiguName("sigu1");
+            traffic.setSiguId(2);
+            traffic.setPacketreceived(10000);
+            traffic.setPacketsent(50000);
+           // traffic.setPacketreceived(Lecture.get(g).getPacketreceived());
+            //traffic.setPacketsent(Lecture.get(g).getPacketsent());
             // 1) create a java calendar instance
             Calendar calendar = Calendar.getInstance();
 // 2) get a java.util.Date from the calendar instance.
@@ -54,7 +64,8 @@ public class GestionTraffic {
             traffic.setDateExec(currentTimestamp);
          //   pu.createQuery((EntityStatement) traffic);
             pu.insert(traffic);
-        }
+           pu.insert(m);
+      //  }
        
         return "test";
                 }

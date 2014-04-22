@@ -1,18 +1,458 @@
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,0::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:36
+
+UNIT: SIGU-0           
+
+ip:
+
+        293411914 total packets received
+
+        436383 fragments received       218189 packets reassembled ok
+
+        293193720 packets for this host
+
+        4792725 packets sent from this host
+
+        2 packets sent with fabricated ip header
+
+        1249534 output datagrams fragmented
+
+        2499068 fragments created
+
+        4792726 local ip address based default gw used
+
+        6 don't override routing table
+
+        1109582 routing table next-hop decision overridden
+
+icmp:
+
+        Input histogram:
+
+                echo reply: 1
+
+                destination unreachable: 33
+
+igmp:
+
+udp:
+
+        6271833 datagrams received
+
+        6271833 delivered
+
+        6222419 PCB hash misses
+
+        4792725 datagrams output
+
+tcp:
+
+        104 connections closed (including 0 drops)
+
+sctp:
+
+        260184582 packets sent
+
+                2513022220 bytes sent
+
+                152677363 control packets sent
+
+                296385952 data chunks sent
+
+                145975933 sacks sent
+
+                2889103 heartbeat requests sent
+
+                3812323 heartbeat acks sent
+
+                5 data chunks retransmitted
+
+                3 no outqueue fill due to cwnd
+
+                1 blocked by congestion window
+
+        286921853 packets received
+
+                1354058284 bytes received
+
+                286921853 valid packets received
+
+                140101249 control packets received
+
+                205934102 data chunks received
+
+                133399911 sacks received
+
+                3812323 heartbeat requests received
+
+                2889011 heartbeat acks received
+
+ip6:
+
+        3 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 3
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        6116 packets sent
+
+                6116 request packets
+
+        482593 packets received
+
+                6101 reply packets
+
+                476433 valid request packets
+
+                476492 broadcast/multicast packets
+
+                44 could not be mapped to an interface
+
+                15 packets sourced from a local hardware address
+
+                559 packets deferred pending ARP resolution
+
+                        328 sent
+
+                        231 dropped
+
+                797002 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,1::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:36
+
+UNIT: SIGU-0           
+
+ip:
+
+        173705344 total packets received
+
+        173705323 packets for this host
+
+        21 packets not forwardable
+
+        1 packet sent from this host
+
+        12996376 local ip address based default gw used
+
+        64 don't override routing table
+
+        2 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+        174290815 packets sent
+
+                1481435928 bytes sent
+
+                153289148 control packets sent
+
+                233091961 data chunks sent
+
+                141307337 sacks sent
+
+                5442397 heartbeat requests sent
+
+                6539307 heartbeat acks sent
+
+                5 aborts sent:
+
+                        1 retrans limit reached
+
+                        4 no endpoint found
+
+                169 data chunks retransmitted
+
+                8 no outqueue fill due to cwnd
+
+                8 blocked by congestion window
+
+        173705323 packets received
+
+                685129988 bytes received
+
+                173705319 valid packets received
+
+                151788668 control packets received
+
+                221077607 data chunks received
+
+                140901846 sacks received
+
+                6539309 heartbeat requests received
+
+                4347411 heartbeat acks received
+
+                4 dropped due to no endpoint
+
+ip6:
+
+        3 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 3
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3956 packets sent
+
+                3956 request packets
+
+        482594 packets received
+
+                3946 reply packets
+
+                478606 valid request packets
+
+                478648 broadcast/multicast packets
+
+                32 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                749752 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,2::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:36
+
+UNIT: SIGU-0           
+
+ip:
+
+        202691898 total packets received
+
+        202691862 packets for this host
+
+        36 packets not forwardable
+
+        1 packet sent from this host
+
+        660 don't override routing table
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        236 connections closed (including 0 drops)
+
+sctp:
+
+        202464047 packets sent
+
+                4101785352 bytes sent
+
+                193892511 control packets sent
+
+                270706602 data chunks sent
+
+                182331283 sacks sent
+
+                5777108 heartbeat requests sent
+
+                5782575 heartbeat acks sent
+
+                15 aborts sent:
+
+                        2 retrans limit reached
+
+                        3 initiated by user
+
+                        7 no endpoint found
+
+                        2 ootb
+
+                        1 other
+
+                12686 data chunks retransmitted
+
+                931 no outqueue fill due to cwnd
+
+                833 blocked by congestion window
+
+        202691861 packets received
+
+                3504306572 bytes received
+
+                202691854 valid packets received
+
+                193351701 control packets received
+
+                262665277 data chunks received
+
+                181791784 sacks received
+
+                5782666 heartbeat requests received
+
+                5776153 heartbeat acks received
+
+                1 abort received
+
+                7 dropped due to no endpoint
+
+ip6:
+
+        5 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 3
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        484164 packets received
+
+                3946 reply packets
+
+                480200 valid request packets
+
+                480202 broadcast/multicast packets
+
+                8 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                751936 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
 
 TCP/IP STACK DATA HANDLING COMMAND <QR_>
 < ZQRS: SIGU,3::PRO::;
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:35
+MSCi      MSSGB01                   2014-04-07  09:31:36
 
-UNIT: SIGU-3           
+UNIT: SIGU-0           
 
 ip:
 
-        291693470 total packets received
+        208304286 total packets received
 
-        291693421 packets for this host
+        208304237 packets for this host
 
         49 packets not forwardable
 
@@ -40,19 +480,19 @@ tcp:
 
 sctp:
 
-        292296132 packets sent
+        208911885 packets sent
 
-                1165302124 bytes sent
+                309429416 bytes sent
 
-                219437001 control packets sent
+                157100672 control packets sent
 
-                388182353 data chunks sent
+                278345707 data chunks sent
 
-                199148396 sacks sent
+                142641319 sacks sent
 
-                10132474 heartbeat requests sent
+                7221279 heartbeat requests sent
 
-                10154770 heartbeat acks sent
+                7236713 heartbeat acks sent
 
                 10 aborts sent:
 
@@ -64,29 +504,27 @@ sctp:
 
                         1 ootb
 
-                290 data chunks retransmitted
+                181 data chunks retransmitted
 
-                1 fast retransmission
+                20 no outqueue fill due to cwnd
 
-                28 no outqueue fill due to cwnd
+                12 blocked by congestion window
 
-                18 blocked by congestion window
+        208304236 packets received
 
-        291693420 packets received
+                3406684824 bytes received
 
-                3783122064 bytes received
+                208304231 valid packets received
 
-                291693415 valid packets received
+                156255898 control packets received
 
-                218284053 control packets received
+                264252742 data chunks received
 
-                368434588 data chunks received
+                141797728 sacks received
 
-                197997100 sacks received
+                7236720 heartbeat requests received
 
-                10154777 heartbeat requests received
-
-                10131040 heartbeat acks received
+                7220314 heartbeat acks received
 
                 2 aborts received
 
@@ -122,19 +560,19 @@ emb:
 
 arp:
 
-        5558 packets sent
+        3968 packets sent
 
                 12 reply packets
 
-                5546 request packets
+                3956 request packets
 
-        678505 packets received
+        484164 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                672681 valid request packets
+                479930 valid request packets
 
-                672953 broadcast/multicast packets
+                480202 broadcast/multicast packets
 
                 278 could not be mapped to an interface
 
@@ -144,7 +582,7 @@ arp:
 
                         2 sent
 
-                1053588 failures to allocate llinfo
+                751488 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -155,31 +593,27 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:35
+MSCi      MSSGB01                   2014-04-07  09:31:36
 
-UNIT: SIGU-4           
+UNIT: SIGU-0           
 
 ip:
 
-        249676519 total packets received
+        179211707 total packets received
 
-        249676502 packets for this host
+        179211690 packets for this host
 
         17 packets not forwardable
 
         1 packet sent from this host
 
-        17661252 local ip address based default gw used
+        12691694 local ip address based default gw used
 
         132 don't override routing table
 
         2 routing table next-hop decision overridden
 
 icmp:
-
-        Input histogram:
-
-                destination unreachable: 1
 
 igmp:
 
@@ -199,19 +633,19 @@ tcp:
 
 sctp:
 
-        250354074 packets sent
+        179711540 packets sent
 
-                1565919516 bytes sent
+                3072354056 bytes sent
 
-                217141537 control packets sent
+                155963754 control packets sent
 
-                338228153 data chunks sent
+                242780269 data chunks sent
 
-                195787676 sacks sent
+                140751247 sacks sent
 
-                10132471 heartbeat requests sent
+                7221174 heartbeat requests sent
 
-                11220996 heartbeat acks sent
+                7990939 heartbeat acks sent
 
                 6 aborts sent:
 
@@ -219,29 +653,27 @@ sctp:
 
                         4 no endpoint found
 
-                5046 data chunks retransmitted
+                3528 data chunks retransmitted
 
-                1 fast retransmission
+                290 no outqueue fill due to cwnd
 
-                412 no outqueue fill due to cwnd
+                266 blocked by congestion window
 
-                382 blocked by congestion window
+        179211689 packets received
 
-        249676500 packets received
+                2355782504 bytes received
 
-                556457428 bytes received
+                179211685 valid packets received
 
-                249676496 valid packets received
+                155168115 control packets received
 
-                216048339 control packets received
+                232343921 data chunks received
 
-                323672410 data chunks received
+                139957108 sacks received
 
-                194696450 sacks received
+                7990939 heartbeat requests received
 
-                11220996 heartbeat requests received
-
-                10130762 heartbeat acks received
+                7219937 heartbeat acks received
 
                 2 aborts received
 
@@ -275,17 +707,17 @@ emb:
 
 arp:
 
-        5546 packets sent
+        3956 packets sent
 
-                5546 request packets
+                3956 request packets
 
-        676935 packets received
+        482594 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                671353 valid request packets
+                478602 valid request packets
 
-                671399 broadcast/multicast packets
+                478648 broadcast/multicast packets
 
                 36 could not be mapped to an interface
 
@@ -295,7 +727,7 @@ arp:
 
                         2 sent
 
-                1051844 failures to allocate llinfo
+                749744 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -306,27 +738,27 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:35
+MSCi      MSSGB01                   2014-04-07  09:31:36
 
-UNIT: SIGU-5           
+UNIT: SIGU-0           
 
 ip:
 
-        560728642 total packets received
+        401588792 total packets received
 
-        560728606 packets for this host
+        401588756 packets for this host
 
         36 packets not forwardable
 
         1 packet sent from this host
 
-        154 don't override routing table
+        151 don't override routing table
 
 icmp:
 
         Input histogram:
 
-                destination unreachable: 13
+                destination unreachable: 1
 
 igmp:
 
@@ -346,21 +778,21 @@ tcp:
 
 sctp:
 
-        431778930 packets sent
+        309098418 packets sent
 
-                2007415604 bytes sent
+                3974082572 bytes sent
 
-                315096800 control packets sent
+                225703066 control packets sent
 
-                259104444 data chunks sent
+                185476122 data chunks sent
 
-                298707834 sacks sent
+                214023130 sacks sent
 
-                8106000 heartbeat requests sent
+                5777127 heartbeat requests sent
 
-                8282473 heartbeat acks sent
+                5902330 heartbeat acks sent
 
-                26 aborts sent:
+                14 aborts sent:
 
                         2 retrans limit reached
 
@@ -368,31 +800,29 @@ sctp:
 
                         7 no endpoint found
 
-                        12 ootb
-
-                5980 data chunks retransmitted
+                4116 data chunks retransmitted
 
                 2 fast retransmissions
 
-                539 no outqueue fill due to cwnd
+                385 no outqueue fill due to cwnd
 
-                492 blocked by congestion window
+                349 blocked by congestion window
 
-        560728594 packets received
+        401588755 packets received
 
-                1141814864 bytes received
+                2793899460 bytes received
 
-                560728587 valid packets received
+                401588748 valid packets received
 
-                148560558 control packets received
+                106267610 control packets received
 
-                537151348 data chunks received
+                384808117 data chunks received
 
-                132172848 sacks received
+                94588491 sacks received
 
-                8282473 heartbeat requests received
+                5902330 heartbeat requests received
 
-                8104828 heartbeat acks received
+                5776382 heartbeat acks received
 
                 3 aborts received
 
@@ -428,17 +858,17 @@ emb:
 
 arp:
 
-        5546 packets sent
+        3956 packets sent
 
-                5546 request packets
+                3956 request packets
 
-        676911 packets received
+        482570 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                671267 valid request packets
+                478516 valid request packets
 
-                671375 broadcast/multicast packets
+                478624 broadcast/multicast packets
 
                 98 could not be mapped to an interface
 
@@ -448,7 +878,7 @@ arp:
 
                         2 sent
 
-                1051700 failures to allocate llinfo
+                749600 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -459,25 +889,25 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:35
+MSCi      MSSGB01                   2014-04-07  09:31:36
 
-UNIT: SIGU-6           
+UNIT: SIGU-0           
 
 ip:
 
-        453574939 total packets received
+        328443615 total packets received
 
-        453574910 packets for this host
+        328443586 packets for this host
 
         29 packets not forwardable
 
         1 packet sent from this host
 
-        189473389 local ip address based default gw used
+        138591845 local ip address based default gw used
 
         162 don't override routing table
 
-        32 routing table next-hop decision overridden
+        29 routing table next-hop decision overridden
 
 icmp:
 
@@ -503,23 +933,23 @@ tcp:
 
 sctp:
 
-        454085347 packets sent
+        328801309 packets sent
 
-                2294201468 bytes sent
+                4188609792 bytes sent
 
-                433490125 control packets sent
+                314086746 control packets sent
 
-                673613677 data chunks sent
+                489887784 data chunks sent
 
-                408065484 sacks sent
+                295970893 sacks sent
 
-                12159417 heartbeat requests sent
+                8666508 heartbeat requests sent
 
-                13264667 heartbeat acks sent
+                9448791 heartbeat acks sent
 
-                23 aborts sent:
+                22 aborts sent:
 
-                        2 retrans limit reached
+                        1 retrans limit reached
 
                         8 initiated by user
 
@@ -527,29 +957,29 @@ sctp:
 
                         2 ootb
 
-                4599 data chunks retransmitted
+                3586 data chunks retransmitted
 
-                234 fast retransmissions
+                183 fast retransmissions
 
                 1 no outqueue fill due to cwnd
 
                 1 blocked by congestion window
 
-        453574909 packets received
+        328443584 packets received
 
-                4228720048 bytes received
+                2500331364 bytes received
 
-                453574898 valid packets received
+                328443574 valid packets received
 
-                432324904 control packets received
+                313244018 control packets received
 
-                634039289 data chunks received
+                461317223 data chunks received
 
-                406900362 sacks received
+                295128261 sacks received
 
-                13264667 heartbeat requests received
+                9448791 heartbeat requests received
 
-                12159411 heartbeat acks received
+                8666504 heartbeat acks received
 
                 3 aborts received
 
@@ -583,17 +1013,17 @@ emb:
 
 arp:
 
-        5546 packets sent
+        3956 packets sent
 
-                5546 request packets
+                3956 request packets
 
-        676911 packets received
+        482570 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                671271 valid request packets
+                478520 valid request packets
 
-                671375 broadcast/multicast packets
+                478624 broadcast/multicast packets
 
                 94 could not be mapped to an interface
 
@@ -603,7 +1033,7 @@ arp:
 
                         2 sent
 
-                1051708 failures to allocate llinfo
+                749608 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -614,27 +1044,27 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:35
+MSCi      MSSGB01                   2014-04-07  09:31:36
 
-UNIT: SIGU-7           
+UNIT: SIGU-0           
 
 ip:
 
-        299457015 total packets received
+        214678921 total packets received
 
-        299456967 packets for this host
+        214678873 packets for this host
 
         48 packets not forwardable
 
         1 packet sent from this host
 
-        163 don't override routing table
+        160 don't override routing table
 
 icmp:
 
         Input histogram:
 
-                destination unreachable: 28
+                destination unreachable: 22
 
 igmp:
 
@@ -652,53 +1082,53 @@ tcp:
 
 sctp:
 
-        310466297 packets sent
+        222607823 packets sent
 
-                1179019556 bytes sent
+                4059346208 bytes sent
 
-                254804370 control packets sent
+                182765449 control packets sent
 
-                470819749 data chunks sent
+                337596160 data chunks sent
 
-                232223287 sacks sent
+                166672682 sacks sent
 
-                10132640 heartbeat requests sent
+                7221358 heartbeat requests sent
 
-                12447899 heartbeat acks sent
+                8870875 heartbeat acks sent
 
-                52 aborts sent:
+                44 aborts sent:
 
-                        5 retrans limit reached
+                        4 retrans limit reached
 
                         5 initiated by user
 
                         12 no endpoint found
 
-                        30 ootb
+                        23 ootb
 
-                14682 data chunks retransmitted
+                9855 data chunks retransmitted
 
                 4 fast retransmissions
 
-                1139 no outqueue fill due to cwnd
+                801 no outqueue fill due to cwnd
 
-                1019 blocked by congestion window
+                699 blocked by congestion window
 
-        299456939 packets received
+        214678850 packets received
 
-                834530708 bytes received
+                91131536 bytes received
 
-                299456927 valid packets received
+                214678838 valid packets received
 
-                272061976 control packets received
+                195118600 control packets received
 
-                372099908 data chunks received
+                266883111 data chunks received
 
-                249481772 sacks received
+                179026470 sacks received
 
-                12447899 heartbeat requests received
+                8870875 heartbeat requests received
 
-                10131850 heartbeat acks received
+                7220802 heartbeat acks received
 
                 1 abort received
 
@@ -734,17 +1164,17 @@ emb:
 
 arp:
 
-        5546 packets sent
+        3956 packets sent
 
-                5546 request packets
+                3956 request packets
 
-        676811 packets received
+        482467 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                671203 valid request packets
+                478449 valid request packets
 
-                671275 broadcast/multicast packets
+                478521 broadcast/multicast packets
 
                 62 could not be mapped to an interface
 
@@ -754,7 +1184,7 @@ arp:
 
                         2 sent
 
-                1051588 failures to allocate llinfo
+                749488 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -765,31 +1195,31 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:35
+MSCi      MSSGB01                   2014-04-07  09:31:36
 
-UNIT: SIGU-8           
+UNIT: SIGU-0           
 
 ip:
 
-        412538315 total packets received
+        298851638 total packets received
 
-        412538288 packets for this host
+        298851611 packets for this host
 
         27 packets not forwardable
 
         1 packet sent from this host
 
-        174439607 local ip address based default gw used
+        127639450 local ip address based default gw used
 
         122 don't override routing table
 
-        18 routing table next-hop decision overridden
+        15 routing table next-hop decision overridden
 
 icmp:
 
         Input histogram:
 
-                destination unreachable: 2
+                destination unreachable: 1
 
 igmp:
 
@@ -807,51 +1237,47 @@ tcp:
 
 sctp:
 
-        412101522 packets sent
+        298566211 packets sent
 
-                4285758676 bytes sent
+                2541447544 bytes sent
 
-                361064221 control packets sent
+                262071976 control packets sent
 
-                668943086 data chunks sent
+                486572304 data chunks sent
 
-                339706819 sacks sent
+                246855547 sacks sent
 
-                10132884 heartbeat requests sent
+                7221942 heartbeat requests sent
 
-                11224101 heartbeat acks sent
+                7994073 heartbeat acks sent
 
-                10 aborts sent:
+                9 aborts sent:
 
-                        2 retrans limit reached
+                        1 retrans limit reached
 
                         2 initiated by user
 
                         6 no endpoint found
 
-                4058 data chunks retransmitted
+                3345 data chunks retransmitted
 
-                208 fast retransmissions
+                171 fast retransmissions
 
-                1 no outqueue fill due to cwnd
+        298851609 packets received
 
-                1 blocked by congestion window
+                472850044 bytes received
 
-        412538285 packets received
+                298851603 valid packets received
 
-                1382076520 bytes received
+                261505440 control packets received
 
-                412538279 valid packets received
+                448779267 data chunks received
 
-                360299578 control packets received
+                246289282 sacks received
 
-                616266336 data chunks received
+                7994073 heartbeat requests received
 
-                338942450 sacks received
-
-                11224101 heartbeat requests received
-
-                10132788 heartbeat acks received
+                7221848 heartbeat acks received
 
                 3 aborts received
 
@@ -887,17 +1313,17 @@ emb:
 
 arp:
 
-        5546 packets sent
+        3956 packets sent
 
-                5546 request packets
+                3956 request packets
 
-        676837 packets received
+        482493 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                671215 valid request packets
+                478461 valid request packets
 
-                671301 broadcast/multicast packets
+                478547 broadcast/multicast packets
 
                 76 could not be mapped to an interface
 
@@ -907,7 +1333,7 @@ arp:
 
                         2 sent
 
-                1051612 failures to allocate llinfo
+                749512 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -918,25 +1344,25 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:35
+MSCi      MSSGB01                   2014-04-07  09:31:37
 
-UNIT: SIGU-9           
+UNIT: SIGU-0           
 
 ip:
 
-        335928829 total packets received
+        239906596 total packets received
 
-        335928803 packets for this host
+        239906570 packets for this host
 
         26 packets not forwardable
 
         1 packet sent from this host
 
-        38426543 local ip address based default gw used
+        26949714 local ip address based default gw used
 
         124 don't override routing table
 
-        6 routing table next-hop decision overridden
+        3 routing table next-hop decision overridden
 
 icmp:
 
@@ -958,51 +1384,51 @@ tcp:
 
 sctp:
 
-        328507402 packets sent
+        234750385 packets sent
 
-                1183857412 bytes sent
+                3333693712 bytes sent
 
-                273088484 control packets sent
+                195557598 control packets sent
 
-                404712515 data chunks sent
+                289787419 data chunks sent
 
-                252802910 sacks sent
+                181100495 sacks sent
 
-                10132212 heartbeat requests sent
+                7221301 heartbeat requests sent
 
-                10152927 heartbeat acks sent
+                7235370 heartbeat acks sent
 
-                21 aborts sent:
+                20 aborts sent:
 
-                        3 retrans limit reached
+                        2 retrans limit reached
 
                         7 initiated by user
 
                         11 no endpoint found
 
-                5619 data chunks retransmitted
+                3894 data chunks retransmitted
 
                 2 fast retransmissions
 
-                459 no outqueue fill due to cwnd
+                331 no outqueue fill due to cwnd
 
-                427 blocked by congestion window
+                310 blocked by congestion window
 
-        335928802 packets received
+        239906569 packets received
 
-                3872530316 bytes received
+                2215881928 bytes received
 
-                335928791 valid packets received
+                239906558 valid packets received
 
-                273896235 control packets received
+                196105206 control packets received
 
-                393046999 data chunks received
+                281558987 data chunks received
 
-                253612065 sacks received
+                181649125 sacks received
 
-                10152927 heartbeat requests received
+                7235370 heartbeat requests received
 
-                10130945 heartbeat acks received
+                7220415 heartbeat acks received
 
                 1 abort received
 
@@ -1036,17 +1462,17 @@ emb:
 
 arp:
 
-        5546 packets sent
+        3956 packets sent
 
-                5546 request packets
+                3956 request packets
 
-        676761 packets received
+        482417 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                671135 valid request packets
+                478381 valid request packets
 
-                671225 broadcast/multicast packets
+                478471 broadcast/multicast packets
 
                 80 could not be mapped to an interface
 
@@ -1056,7 +1482,7 @@ arp:
 
                         2 sent
 
-                1051468 failures to allocate llinfo
+                749368 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -1067,25 +1493,25 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:35
+MSCi      MSSGB01                   2014-04-07  09:31:37
 
-UNIT: SIGU-10          
+UNIT: SIGU-0          
 
 ip:
 
-        283317439 total packets received
+        202611534 total packets received
 
-        283317408 packets for this host
+        202611503 packets for this host
 
         31 packets not forwardable
 
         1 packet sent from this host
 
-        53883008 local ip address based default gw used
+        38057501 local ip address based default gw used
 
         33 don't override routing table
 
-        8 routing table next-hop decision overridden
+        5 routing table next-hop decision overridden
 
 icmp:
 
@@ -1107,43 +1533,43 @@ tcp:
 
 sctp:
 
-        278589937 packets sent
+        199327172 packets sent
 
-                3552354560 bytes sent
+                157903528 bytes sent
 
-                231540663 control packets sent
+                165828564 control packets sent
 
-                345942551 data chunks sent
+                248173751 data chunks sent
 
-                210182137 sacks sent
+                150611602 sacks sent
 
-                10133140 heartbeat requests sent
+                7222126 heartbeat requests sent
 
-                11225330 heartbeat acks sent
+                7994783 heartbeat acks sent
 
-                8 aborts sent:
+                7 aborts sent:
 
-                        2 retrans limit reached
+                        1 retrans limit reached
 
                         6 no endpoint found
 
-                24 data chunks retransmitted
+                12 data chunks retransmitted
 
-        283317407 packets received
+        202611504 packets received
 
-                1714999032 bytes received
+                3153572772 bytes received
 
-                283317401 valid packets received
+                202611498 valid packets received
 
-                232646829 control packets received
+                166620241 control packets received
 
-                329307413 data chunks received
+                236175628 data chunks received
 
-                211288315 sacks received
+                151403287 sacks received
 
-                11225330 heartbeat requests received
+                7994783 heartbeat requests received
 
-                10133135 heartbeat acks received
+                7222124 heartbeat acks received
 
                 1 abort received
 
@@ -1163,7 +1589,6 @@ icmp6:
 
                 multicast listener report: 3
 
-
                 neighbor solicitation: 2
 
         Histogram of error messages to be generated:
@@ -1180,17 +1605,17 @@ emb:
 
 arp:
 
-        5546 packets sent
+        3956 packets sent
 
-                5546 request packets
+                3956 request packets
 
-        676811 packets received
+        482467 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                671207 valid request packets
+                478453 valid request packets
 
-                671275 broadcast/multicast packets
+                478521 broadcast/multicast packets
 
                 58 could not be mapped to an interface
 
@@ -1200,7 +1625,7 @@ arp:
 
                         2 sent
 
-                1051596 failures to allocate llinfo
+                749496 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -1211,25 +1636,25 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:36
+MSCi      MSSGB01                   2014-04-07  09:31:37
 
 UNIT: SIGU-11          
 
 ip:
 
-        862830378 total packets received
+        623675373 total packets received
 
-        862830355 packets for this host
+        623675350 packets for this host
 
         23 packets not forwardable
 
         1 packet sent from this host
 
-        177634470 local ip address based default gw used
+        130262099 local ip address based default gw used
 
         392 don't override routing table
 
-        202 routing table next-hop decision overridden
+        199 routing table next-hop decision overridden
 
 icmp:
 
@@ -1251,51 +1676,51 @@ tcp:
 
 sctp:
 
-        692417452 packets sent
+        500929016 packets sent
 
-                805198988 bytes sent
+                3187227124 bytes sent
 
-                539837903 control packets sent
+                390981148 control packets sent
 
-                960524745 data chunks sent
+                701001963 data chunks sent
 
-                514399123 sacks sent
+                372855072 sacks sent
 
-                12160009 heartbeat requests sent
+                8666833 heartbeat requests sent
 
-                13277887 heartbeat acks sent
+                9458362 heartbeat acks sent
 
-                11 aborts sent:
+                10 aborts sent:
 
-                        2 retrans limit reached
+                        1 retrans limit reached
 
                         3 no endpoint found
 
                         6 ootb
 
-                4094 data chunks retransmitted
+                3230 data chunks retransmitted
 
-                200 fast retransmissions
+                158 fast retransmissions
 
                 5 no outqueue fill due to cwnd
 
                 3 blocked by congestion window
 
-        862830354 packets received
+        623675350 packets received
 
-                2950713700 bytes received
+                941539220 bytes received
 
-                862830351 valid packets received
+                623675348 valid packets received
 
-                539542520 control packets received
+                390694152 control packets received
 
-                913073604 data chunks received
+                666585175 data chunks received
 
-                514104721 sacks received
+                372568732 sacks received
 
-                13277899 heartbeat requests received
+                9458374 heartbeat requests received
 
-                12159032 heartbeat acks received
+                8666180 heartbeat acks received
 
                 3 dropped due to no endpoint
 
@@ -1329,19 +1754,19 @@ emb:
 
 arp:
 
-        5558 packets sent
+        3968 packets sent
 
                 12 reply packets
 
-                5546 request packets
+                3956 request packets
 
-        678499 packets received
+        484155 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                672935 valid request packets
+                480181 valid request packets
 
-                672947 broadcast/multicast packets
+                480193 broadcast/multicast packets
 
                 18 could not be mapped to an interface
 
@@ -1351,7 +1776,7 @@ arp:
 
                         2 sent
 
-                1054016 failures to allocate llinfo
+                751916 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -1362,19 +1787,19 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:36
+MSCi      MSSGB01                   2014-04-07  09:31:37
 
 UNIT: SIGU-12          
 
 ip:
 
-        333449549 total packets received
+        238368694 total packets received
 
-        333449549 packets for this host
+        238368694 packets for this host
 
         1 packet sent from this host
 
-        183912466 local ip address based default gw used
+        131172622 local ip address based default gw used
 
         2 don't override routing table
 
@@ -1400,45 +1825,41 @@ tcp:
 
 sctp:
 
-        291361792 packets sent
+        208150588 packets sent
 
-                4282725240 bytes sent
+                3431309312 bytes sent
 
-                235146138 control packets sent
+                168064275 control packets sent
 
-                435994280 data chunks sent
+                312239649 data chunks sent
 
-                225190086 sacks sent
+                160968200 sacks sent
 
-                4053940 heartbeat requests sent
+                2889325 heartbeat requests sent
 
-                5902108 heartbeat acks sent
+                4206746 heartbeat acks sent
 
-                3114 data chunks retransmitted
+                2114 data chunks retransmitted
 
-                460 fast retransmissions
+                307 fast retransmissions
 
-                1 no outqueue fill due to cwnd
+        238368693 packets received
 
-                1 blocked by congestion window
+                2765710276 bytes received
 
-        333449548 packets received
+                238368693 valid packets received
 
-                437585728 bytes received
+                156472123 control packets received
 
-                333449548 valid packets received
+                222371834 data chunks received
 
-                218997248 control packets received
+                149376050 sacks received
 
-                310936255 data chunks received
+                4206746 heartbeat requests received
 
-                209041198 sacks received
+                2889323 heartbeat acks received
 
-                5902108 heartbeat requests received
-
-                4053938 heartbeat acks received
-
-                706786 duplicate TSN received
+                512002 duplicate TSN received
 
 ip6:
 
@@ -1470,19 +1891,19 @@ emb:
 
 arp:
 
-        5554 packets sent
+        3964 packets sent
 
                 8 reply packets
 
-                5546 request packets
+                3956 request packets
 
-        677649 packets received
+        483305 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                672087 valid request packets
+                479333 valid request packets
 
-                672105 broadcast/multicast packets
+                479351 broadcast/multicast packets
 
                 16 could not be mapped to an interface
 
@@ -1492,7 +1913,7 @@ arp:
 
                         2 sent
 
-                1052984 failures to allocate llinfo
+                750884 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -1503,15 +1924,15 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:36
+MSCi      MSSGB01                   2014-04-07  09:31:37
 
 UNIT: SIGU-13          
 
 ip:
 
-        177866939 total packets received
+        127616988 total packets received
 
-        177866939 packets for this host
+        127616988 packets for this host
 
         1 packet sent from this host
 
@@ -1537,39 +1958,39 @@ tcp:
 
 sctp:
 
-        150928480 packets sent
+        108251770 packets sent
 
-                275164624 bytes sent
+                2176962788 bytes sent
 
-                124371882 control packets sent
+                89186785 control packets sent
 
-                233941247 data chunks sent
+                167959531 data chunks sent
 
-                114969189 sacks sent
+                82485346 sacks sent
 
-                4053501 heartbeat requests sent
+                2888939 heartbeat requests sent
 
-                5349188 heartbeat acks sent
+                3812496 heartbeat acks sent
 
                 6 data chunks retransmitted
 
                 1 fast retransmission
 
-        177866938 packets received
+        127616987 packets received
 
-                3098286848 bytes received
+                4206304960 bytes received
 
-                177866938 valid packets received
+                127616987 valid packets received
 
-                112264532 control packets received
+                80502579 control packets received
 
-                184192728 data chunks received
+                132382858 data chunks received
 
-                102861839 sacks received
+                73801140 sacks received
 
-                5349188 heartbeat requests received
+                3812496 heartbeat requests received
 
-                4053501 heartbeat acks received
+                2888939 heartbeat acks received
 
 ip6:
 
@@ -1601,19 +2022,19 @@ emb:
 
 arp:
 
-        5550 packets sent
+        3960 packets sent
 
                 4 reply packets
 
-                5546 request packets
+                3956 request packets
 
-        677346 packets received
+        483002 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                671808 valid request packets
+                479054 valid request packets
 
-                671806 broadcast/multicast packets
+                479052 broadcast/multicast packets
 
                 2 packets sourced from a local hardware address
 
@@ -1621,7 +2042,7 @@ arp:
 
                         2 sent
 
-                1052564 failures to allocate llinfo
+                750464 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -1632,15 +2053,15 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:36
+MSCi      MSSGB01                   2014-04-07  09:31:37
 
 UNIT: SIGU-14          
 
 ip:
 
-        432428300 total packets received
+        312104058 total packets received
 
-        432428293 packets for this host
+        312104051 packets for this host
 
         7 packets not forwardable
 
@@ -1668,39 +2089,39 @@ tcp:
 
 sctp:
 
-        375536149 packets sent
+        270863970 packets sent
 
-                3003917668 bytes sent
+                4012123352 bytes sent
 
-                309461802 control packets sent
+                223350306 control packets sent
 
-                487737095 data chunks sent
+                351920209 data chunks sent
 
-                300058974 sacks sent
+                216648761 sacks sent
 
-                4053508 heartbeat requests sent
+                2889045 heartbeat requests sent
 
-                5349314 heartbeat acks sent
+                3812494 heartbeat acks sent
 
-                211 data chunks retransmitted
+                171 data chunks retransmitted
 
-                30 fast retransmissions
+                24 fast retransmissions
 
-        432428295 packets received
+        312104051 packets received
 
-                3687766888 bytes received
+                3763419924 bytes received
 
-                432428295 valid packets received
+                312104051 valid packets received
 
-                281441600 control packets received
+                203020565 control packets received
 
-                431790903 data chunks received
+                311871474 data chunks received
 
-                272038771 sacks received
+                196319019 sacks received
 
-                5349314 heartbeat requests received
+                3812494 heartbeat requests received
 
-                4053508 heartbeat acks received
+                2889045 heartbeat acks received
 
                 1 abort received
 
@@ -1734,19 +2155,19 @@ emb:
 
 arp:
 
-        5550 packets sent
+        3960 packets sent
 
                 4 reply packets
 
-                5546 request packets
+                3956 request packets
 
-        677459 packets received
+        483119 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                671851 valid request packets
+                479101 valid request packets
 
-                671919 broadcast/multicast packets
+                479169 broadcast/multicast packets
 
                 62 could not be mapped to an interface
 
@@ -1756,7 +2177,7 @@ arp:
 
                         2 sent
 
-                1052600 failures to allocate llinfo
+                750500 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -1767,15 +2188,15 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:36
+MSCi      MSSGB01                   2014-04-07  09:31:37
 
 UNIT: SIGU-15          
 
 ip:
 
-        554173004 total packets received
+        397794228 total packets received
 
-        554173004 packets for this host
+        397794228 packets for this host
 
         1 packet sent from this host
 
@@ -1801,39 +2222,39 @@ tcp:
 
 sctp:
 
-        461087901 packets sent
+        330885473 packets sent
 
-                3682650560 bytes sent
+                1095743472 bytes sent
 
-                275339531 control packets sent
+                197574457 control packets sent
 
-                462776396 data chunks sent
+                332232129 data chunks sent
 
-                265936730 sacks sent
+                190872861 sacks sent
 
-                4053705 heartbeat requests sent
+                2889242 heartbeat requests sent
 
-                5349092 heartbeat acks sent
+                3812350 heartbeat acks sent
 
-                314 data chunks retransmitted
+                225 data chunks retransmitted
 
-                45 fast retransmissions
+                32 fast retransmissions
 
-        554173003 packets received
+        397794227 packets received
 
-                2081159116 bytes received
+                2371652632 bytes received
 
-                554173003 valid packets received
+                397794227 valid packets received
 
-                267426921 control packets received
+                191868787 control packets received
 
-                407670952 data chunks received
+                292839249 data chunks received
 
-                258024217 sacks received
+                185167286 sacks received
 
-                5349092 heartbeat requests received
+                3812350 heartbeat requests received
 
-                4053608 heartbeat acks received
+                2889147 heartbeat acks received
 
 ip6:
 
@@ -1865,19 +2286,19 @@ emb:
 
 arp:
 
-        5558 packets sent
+        3968 packets sent
 
                 12 reply packets
 
-                5546 request packets
+                3956 request packets
 
-        678499 packets received
+        484159 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                672799 valid request packets
+                480049 valid request packets
 
-                672947 broadcast/multicast packets
+                480197 broadcast/multicast packets
 
                 154 could not be mapped to an interface
 
@@ -1887,7 +2308,7 @@ arp:
 
                         2 sent
 
-                1053772 failures to allocate llinfo
+                751672 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -1898,33 +2319,33 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:37
+MSCi      MSSGB01                   2014-04-07  09:31:38
 
 UNIT: SIGU-16          
 
 ip:
 
-        371028852 total packets received
+        267240562 total packets received
 
-        606842 fragments received       303419 packets reassembled ok
+        435595 fragments received       217796 packets reassembled ok
 
-        370725399 packets for this host
+        267022733 packets for this host
 
         30 packets not forwardable
 
-        6667983 packets sent from this host
+        4795423 packets sent from this host
 
         2 packets sent with fabricated ip header
 
-        1730906 output datagrams fragmented
+        1250097 output datagrams fragmented
 
-        3461812 fragments created
+        2500194 fragments created
 
-        234252413 local ip address based default gw used
+        168149283 local ip address based default gw used
 
         194 don't override routing table
 
-        1556377 routing table next-hop decision overridden
+        1108032 routing table next-hop decision overridden
 
 icmp:
 
@@ -1938,13 +2359,13 @@ igmp:
 
 udp:
 
-        8714557 datagrams received
+        6273511 datagrams received
 
-        8714557 delivered
+        6273511 delivered
 
-        8645382 PCB hash misses
+        6224230 PCB hash misses
 
-        6667983 datagrams output
+        4795423 datagrams output
 
 tcp:
 
@@ -1952,51 +2373,51 @@ tcp:
 
 sctp:
 
-        319512384 packets sent
+        230097112 packets sent
 
-                3518438840 bytes sent
+                1317393900 bytes sent
 
-                222774391 control packets sent
+                160189307 control packets sent
 
-                499513407 data chunks sent
+                360362839 data chunks sent
 
-                205151208 sacks sent
+                147631564 sacks sent
 
-                8107773 heartbeat requests sent
+                5778680 heartbeat requests sent
 
-                9515065 heartbeat acks sent
+                6778718 heartbeat acks sent
 
                 2 aborts sent:
 
                         2 no endpoint found
 
-                8802 data chunks retransmitted
+                7563 data chunks retransmitted
 
-                759 fast retransmissions
+                591 fast retransmissions
 
-                2 no outqueue fill due to cwnd
+                1 no outqueue fill due to cwnd
 
                 1 blocked by congestion window
 
-        362010814 packets received
+        260749193 packets received
 
-                178247920 bytes received
+                2872155872 bytes received
 
-                362010812 valid packets received
+                260749191 valid packets received
 
-                200087799 control packets received
+                143783059 control packets received
 
-                451068234 data chunks received
+                325600119 data chunks received
 
-                182464625 sacks received
+                131225324 sacks received
 
-                9515079 heartbeat requests received
+                6778732 heartbeat requests received
 
-                8107763 heartbeat acks received
+                5778671 heartbeat acks received
 
                 1 abort received
 
-                733846 duplicate TSN received
+                528173 duplicate TSN received
 
                 2 dropped due to no endpoint
 
@@ -2030,31 +2451,31 @@ emb:
 
 arp:
 
-        8565 packets sent
+        6113 packets sent
 
                 18 reply packets
 
-                8547 request packets
+                6095 request packets
 
-        678502 packets received
+        484162 packets received
 
-                8532 reply packets
+                6080 reply packets
 
-                669915 valid request packets
+                478027 valid request packets
 
-                669946 broadcast/multicast packets
+                478058 broadcast/multicast packets
 
                 40 could not be mapped to an interface
 
                 15 packets sourced from a local hardware address
 
-                829 packets deferred pending ARP resolution
+                593 packets deferred pending ARP resolution
 
-                        480 sent
+                        342 sent
 
-                        349 dropped
+                        251 dropped
 
-                1120344 failures to allocate llinfo
+                799284 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -2065,19 +2486,19 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:37
+MSCi      MSSGB01                   2014-04-07  09:31:38
 
 UNIT: SIGU-17          
 
 ip:
 
-        322180553 total packets received
+        227034125 total packets received
 
-        322180553 packets for this host
+        227034125 packets for this host
 
         1 packet sent from this host
 
-        176193052 local ip address based default gw used
+        123039588 local ip address based default gw used
 
         2 don't override routing table
 
@@ -2103,41 +2524,41 @@ tcp:
 
 sctp:
 
-        283184173 packets sent
+        199748002 packets sent
 
-                2476834484 bytes sent
+                1549511656 bytes sent
 
-                227956092 control packets sent
+                160759853 control packets sent
 
-                425953740 data chunks sent
+                301793422 data chunks sent
 
-                218001433 sacks sent
+                153665171 sacks sent
 
-                4053768 heartbeat requests sent
+                2889136 heartbeat requests sent
 
-                5900887 heartbeat acks sent
+                4205542 heartbeat acks sent
 
-                1300 data chunks retransmitted
+                898 data chunks retransmitted
 
-                193 fast retransmissions
+                130 fast retransmissions
 
-        322180552 packets received
+        227034125 packets received
 
-                3193521200 bytes received
+                1251350388 bytes received
 
-                322180552 valid packets received
+                227034125 valid packets received
 
-                213555378 control packets received
+                150809229 control packets received
 
-                300339784 data chunks received
+                211719997 data chunks received
 
-                203600814 sacks received
+                143714642 sacks received
 
-                5900887 heartbeat requests received
+                4205542 heartbeat requests received
 
-                4053673 heartbeat acks received
+                2889041 heartbeat acks received
 
-                705567 duplicate TSN received
+                515851 duplicate TSN received
 
 ip6:
 
@@ -2169,19 +2590,19 @@ emb:
 
 arp:
 
-        5558 packets sent
+        3968 packets sent
 
                 12 reply packets
 
-                5546 request packets
+                3956 request packets
 
-        678499 packets received
+        484159 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                672905 valid request packets
+                480155 valid request packets
 
-                672947 broadcast/multicast packets
+                480197 broadcast/multicast packets
 
                 48 could not be mapped to an interface
 
@@ -2191,7 +2612,7 @@ arp:
 
                         2 sent
 
-                1053960 failures to allocate llinfo
+                751860 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -2202,31 +2623,31 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:37
+MSCi      MSSGB01                   2014-04-07  09:31:38
 
 UNIT: SIGU-19          
 
 ip:
 
-        638177354 total packets received
+        457993460 total packets received
 
-        607125 fragments received       303560 packets reassembled ok
+        435154 fragments received       217576 packets reassembled ok
 
-        637873772 packets for this host
+        457775865 packets for this host
 
         17 packets not forwardable
 
-        6664938 packets sent from this host
+        4793936 packets sent from this host
 
-        1730651 output datagrams fragmented
+        1250591 output datagrams fragmented
 
-        3461302 fragments created
+        2501182 fragments created
 
-        212608683 local ip address based default gw used
+        155027166 local ip address based default gw used
 
         70 don't override routing table
 
-        1476905 routing table next-hop decision overridden
+        1050129 routing table next-hop decision overridden
 
 icmp:
 
@@ -2238,13 +2659,13 @@ igmp:
 
 udp:
 
-        8712114 datagrams received
+        6271679 datagrams received
 
-        8712114 delivered
+        6271679 delivered
 
-        8642737 PCB hash misses
+        6222322 PCB hash misses
 
-        6664938 datagrams output
+        4793936 datagrams output
 
 tcp:
 
@@ -2252,51 +2673,51 @@ tcp:
 
 sctp:
 
-        589536717 packets sent
+        423661871 packets sent
 
-                3534940328 bytes sent
+                3262733700 bytes sent
 
-                380642246 control packets sent
+                274454494 control packets sent
 
-                732518256 data chunks sent
+                533510861 data chunks sent
 
-                350480897 sacks sent
+                252965995 sacks sent
 
-                14185693 heartbeat requests sent
+                10110682 heartbeat requests sent
 
-                15975462 heartbeat acks sent
+                11377626 heartbeat acks sent
 
-                7 aborts sent:
+                6 aborts sent:
 
-                        2 retrans limit reached
+                        1 retrans limit reached
 
                         4 no endpoint found
 
                         1 ootb
 
-                4151 data chunks retransmitted
+                3175 data chunks retransmitted
 
-                197 fast retransmissions
+                152 fast retransmissions
 
-                34 no outqueue fill due to cwnd
+                15 no outqueue fill due to cwnd
 
-                28 blocked by congestion window
+                10 blocked by congestion window
 
-        629161632 packets received
+        451504159 packets received
 
-                4291933208 bytes received
+                3196382320 bytes received
 
-                629161628 valid packets received
+                451504155 valid packets received
 
-                367326276 control packets received
+                265385896 control packets received
 
-                701811377 data chunks received
+                511257134 data chunks received
 
-                337168639 sacks received
+                243899871 sacks received
 
-                15975463 heartbeat requests received
+                11377627 heartbeat requests received
 
-                14181986 heartbeat acks received
+                10108212 heartbeat acks received
 
                 4 dropped due to no endpoint
 
@@ -2328,27 +2749,27 @@ emb:
 
 arp:
 
-        8572 packets sent
+        6121 packets sent
 
-                8572 request packets
+                6121 request packets
 
-        677104 packets received
+        482764 packets received
 
-                8557 reply packets
+                6106 reply packets
 
-                668532 valid request packets
+                476643 valid request packets
 
-                668547 broadcast/multicast packets
+                476658 broadcast/multicast packets
 
                 15 packets sourced from a local hardware address
 
-                830 packets deferred pending ARP resolution
+                571 packets deferred pending ARP resolution
 
-                        473 sent
+                        325 sent
 
-                        357 dropped
+                        246 dropped
 
-                1118418 failures to allocate llinfo
+                797356 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -2359,33 +2780,33 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:37
+MSCi      MSSGB01                   2014-04-07  09:31:38
 
 UNIT: SIGU-20          
 
 ip:
 
-        504324181 total packets received
+        366882086 total packets received
 
-        606510 fragments received       303254 packets reassembled ok
+        435738 fragments received       217868 packets reassembled ok
 
-        504020907 packets for this host
+        366664198 packets for this host
 
         18 packets not forwardable
 
-        6664425 packets sent from this host
+        4793122 packets sent from this host
 
         1 packet sent with fabricated ip header
 
-        1729757 output datagrams fragmented
+        1249274 output datagrams fragmented
 
-        3459514 fragments created
+        2498548 fragments created
 
-        178902514 local ip address based default gw used
+        128027536 local ip address based default gw used
 
-        201 don't override routing table
+        199 don't override routing table
 
-        1476283 routing table next-hop decision overridden
+        1050158 routing table next-hop decision overridden
 
 icmp:
 
@@ -2397,13 +2818,13 @@ igmp:
 
 udp:
 
-        8710527 datagrams received
+        6270084 datagrams received
 
-        8710527 delivered
+        6270084 delivered
 
-        8641289 PCB hash misses
+        6220796 PCB hash misses
 
-        6664425 datagrams output
+        4793122 datagrams output
 
 tcp:
 
@@ -2411,19 +2832,19 @@ tcp:
 
 sctp:
 
-        455632033 packets sent
+        330558241 packets sent
 
-                1628545472 bytes sent
+                1543606440 bytes sent
 
-                351332360 control packets sent
+                255057679 control packets sent
 
-                612833933 data chunks sent
+                449335418 data chunks sent
 
-                325910928 sacks sent
+                236945623 sacks sent
 
-                12155919 heartbeat requests sent
+                8663733 heartbeat requests sent
 
-                13265213 heartbeat acks sent
+                9448023 heartbeat acks sent
 
                 2 aborts sent:
 
@@ -2431,29 +2852,29 @@ sctp:
 
                         1 no endpoint found
 
-                29940 data chunks retransmitted
+                20830 data chunks retransmitted
 
-                54 fast retransmissions
+                45 fast retransmissions
 
-                2622 no outqueue fill due to cwnd
+                1838 no outqueue fill due to cwnd
 
-                2317 blocked by congestion window
+                1641 blocked by congestion window
 
-        495310348 packets received
+        360394083 packets received
 
-                280480108 bytes received
+                818892352 bytes received
 
-                495310347 valid packets received
+                360394082 valid packets received
 
-                330226199 control packets received
+                238959295 control packets received
 
-                590296892 data chunks received
+                432865979 data chunks received
 
-                304820133 sacks received
+                220858225 sacks received
 
-                13265223 heartbeat requests received
+                9448033 heartbeat requests received
 
-                12140544 heartbeat acks received
+                8652738 heartbeat acks received
 
                 1 dropped due to no endpoint
 
@@ -2487,31 +2908,31 @@ emb:
 
 arp:
 
-        8569 packets sent
+        6128 packets sent
 
                 18 reply packets
 
-                8551 request packets
+                6110 request packets
 
-        678502 packets received
+        484162 packets received
 
-                8536 reply packets
+                6095 reply packets
 
-                669659 valid request packets
+                477760 valid request packets
 
-                669942 broadcast/multicast packets
+                478043 broadcast/multicast packets
 
                 292 could not be mapped to an interface
 
                 15 packets sourced from a local hardware address
 
-                826 packets deferred pending ARP resolution
+                595 packets deferred pending ARP resolution
 
-                        477 sent
+                        339 sent
 
-                        349 dropped
+                        256 dropped
 
-                1119904 failures to allocate llinfo
+                798822 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -2522,33 +2943,33 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:37
+MSCi      MSSGB01                   2014-04-07  09:31:38
 
 UNIT: SIGU-21          
 
 ip:
 
-        287302167 total packets received
+        207308362 total packets received
 
-        606599 fragments received       303298 packets reassembled ok
+        435045 fragments received       217521 packets reassembled ok
 
-        286998843 packets for this host
+        207090815 packets for this host
 
         23 packets not forwardable
 
-        6662653 packets sent from this host
+        4792417 packets sent from this host
 
         1 packet sent with fabricated ip header
 
-        1729504 output datagrams fragmented
+        1249806 output datagrams fragmented
 
-        3459008 fragments created
+        2499612 fragments created
 
-        162608318 local ip address based default gw used
+        116712842 local ip address based default gw used
 
-        110 don't override routing table
+        108 don't override routing table
 
-        1559420 routing table next-hop decision overridden
+        1109186 routing table next-hop decision overridden
 
 icmp:
 
@@ -2556,19 +2977,19 @@ icmp:
 
                 echo reply: 1
 
-                destination unreachable: 27
+                destination unreachable: 26
 
 igmp:
 
 udp:
 
-        8708686 datagrams received
+        6270008 datagrams received
 
-        8708686 delivered
+        6270008 delivered
 
-        8639331 PCB hash misses
+        6220696 PCB hash misses
 
-        6662653 datagrams output
+        4792417 datagrams output
 
 tcp:
 
@@ -2576,19 +2997,19 @@ tcp:
 
 sctp:
 
-        279110464 packets sent
+        201612468 packets sent
 
-                3269001516 bytes sent
+                4064047116 bytes sent
 
-                163674825 control packets sent
+                117903460 control packets sent
 
-                425414090 data chunks sent
+                309769053 data chunks sent
 
-                142703357 sacks sent
+                102959750 sacks sent
 
-                10129918 heartbeat requests sent
+                7219531 heartbeat requests sent
 
-                10841381 heartbeat acks sent
+                7724010 heartbeat acks sent
 
                 5 aborts sent:
 
@@ -2598,29 +3019,27 @@ sctp:
 
                         3 ootb
 
-                26061 data chunks retransmitted
+                18130 data chunks retransmitted
 
-                1 fast retransmission
+                1773 no outqueue fill due to cwnd
 
-                2492 no outqueue fill due to cwnd
+                1499 blocked by congestion window
 
-                2106 blocked by congestion window
+        200820780 packets received
 
-        278290129 packets received
+                1963685116 bytes received
 
-                2923258848 bytes received
+                200820779 valid packets received
 
-                278290128 valid packets received
+                116711828 control packets received
 
-                161925200 control packets received
+                293277641 data chunks received
 
-                402485727 data chunks received
+                101777290 sacks received
 
-                140966427 sacks received
+                7724013 heartbeat requests received
 
-                10841384 heartbeat requests received
-
-                10117225 heartbeat acks received
+                7210361 heartbeat acks received
 
                 1 dropped due to no endpoint
 
@@ -2654,31 +3073,31 @@ emb:
 
 arp:
 
-        8580 packets sent
+        6120 packets sent
 
                 6 reply packets
 
-                8574 request packets
+                6114 request packets
 
-        677468 packets received
+        483128 packets received
 
-                8559 reply packets
+                6099 reply packets
 
-                668874 valid request packets
+                476994 valid request packets
 
-                668903 broadcast/multicast packets
+                477023 broadcast/multicast packets
 
                 20 could not be mapped to an interface
 
                 15 packets sourced from a local hardware address
 
-                748 packets deferred pending ARP resolution
+                531 packets deferred pending ARP resolution
 
-                        441 sent
+                        312 sent
 
-                        307 dropped
+                        219 dropped
 
-                1118926 failures to allocate llinfo
+                797882 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -2689,21 +3108,21 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:38
+MSCi      MSSGB01                   2014-04-07  09:31:38
 
 UNIT: SIGU-22          
 
 ip:
 
-        218263725 total packets received
+        156772283 total packets received
 
-        218263711 packets for this host
+        156772269 packets for this host
 
         14 packets not forwardable
 
         1 packet sent from this host
 
-        46463445 local ip address based default gw used
+        33431816 local ip address based default gw used
 
         192 don't override routing table
 
@@ -2727,19 +3146,19 @@ tcp:
 
 sctp:
 
-        165985804 packets sent
+        119099925 packets sent
 
-                1303493060 bytes sent
+                4181880256 bytes sent
 
-                129356718 control packets sent
+                92916227 control packets sent
 
-                316771098 data chunks sent
+                228203682 data chunks sent
 
-                117186866 sacks sent
+                84242526 sacks sent
 
-                6077853 heartbeat requests sent
+                4331731 heartbeat requests sent
 
-                6091702 heartbeat acks sent
+                4341673 heartbeat acks sent
 
                 4 aborts sent:
 
@@ -2747,29 +3166,29 @@ sctp:
 
                         2 ootb
 
-                11112 data chunks retransmitted
+                8040 data chunks retransmitted
 
-                161 fast retransmissions
+                129 fast retransmissions
 
-                800 no outqueue fill due to cwnd
+                557 no outqueue fill due to cwnd
 
-                726 blocked by congestion window
+                507 blocked by congestion window
 
-        218263712 packets received
+        156772268 packets received
 
-                1172600364 bytes received
+                4109240172 bytes received
 
-                218263710 valid packets received
+                156772266 valid packets received
 
-                131786883 control packets received
+                94702463 control packets received
 
-                301455998 data chunks received
+                217347107 data chunks received
 
-                119625252 sacks received
+                86034713 sacks received
 
-                6091712 heartbeat requests received
+                4341683 heartbeat requests received
 
-                6069627 heartbeat acks received
+                4325775 heartbeat acks received
 
                 2 dropped due to no endpoint
 
@@ -2803,19 +3222,19 @@ emb:
 
 arp:
 
-        5558 packets sent
+        3968 packets sent
 
                 12 reply packets
 
-                5546 request packets
+                3956 request packets
 
-        678499 packets received
+        484159 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                672885 valid request packets
+                480135 valid request packets
 
-                672947 broadcast/multicast packets
+                480197 broadcast/multicast packets
 
                 68 could not be mapped to an interface
 
@@ -2825,7 +3244,7 @@ arp:
 
                         2 sent
 
-                1053924 failures to allocate llinfo
+                751824 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -2836,21 +3255,21 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:38
+MSCi      MSSGB01                   2014-04-07  09:31:38
 
 UNIT: SIGU-23          
 
 ip:
 
-        170815015 total packets received
+        122938610 total packets received
 
-        170814998 packets for this host
+        122938593 packets for this host
 
         17 packets not forwardable
 
         1 packet sent from this host
 
-        48460827 local ip address based default gw used
+        34851044 local ip address based default gw used
 
         193 don't override routing table
 
@@ -2876,47 +3295,47 @@ tcp:
 
 sctp:
 
-        171852079 packets sent
+        123666913 packets sent
 
-                2134813520 bytes sent
+                482252736 bytes sent
 
-                113116799 control packets sent
+                81324153 control packets sent
 
-                324059769 data chunks sent
+                233393009 data chunks sent
 
-                96878975 sacks sent
+                69750890 sacks sent
 
-                8105903 heartbeat requests sent
+                5777409 heartbeat requests sent
 
-                8131632 heartbeat acks sent
+                5795565 heartbeat acks sent
 
                 1 abort sent:
 
                         1 no endpoint found
 
-                32326 data chunks retransmitted
+                22395 data chunks retransmitted
 
                 1 fast retransmission
 
-                2633 no outqueue fill due to cwnd
+                1879 no outqueue fill due to cwnd
 
-                2106 blocked by congestion window
+                1505 blocked by congestion window
 
-        170814997 packets received
+        122938592 packets received
 
-                1555533904 bytes received
+                79686000 bytes received
 
-                170814996 valid packets received
+                122938591 valid packets received
 
-                111825074 control packets received
+                80363340 control packets received
 
-                318527435 data chunks received
+                229444535 data chunks received
 
-                95591674 sacks received
+                68793011 sacks received
 
-                8131634 heartbeat requests received
+                5795567 heartbeat requests received
 
-                8101478 heartbeat acks received
+                5774474 heartbeat acks received
 
                 1 dropped due to no endpoint
 
@@ -2950,19 +3369,19 @@ emb:
 
 arp:
 
-        5558 packets sent
+        3968 packets sent
 
                 12 reply packets
 
-                5546 request packets
+                3956 request packets
 
-        678499 packets received
+        484159 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                672671 valid request packets
+                479921 valid request packets
 
-                672947 broadcast/multicast packets
+                480197 broadcast/multicast packets
 
                 282 could not be mapped to an interface
 
@@ -2972,7 +3391,7 @@ arp:
 
                         2 sent
 
-                1053580 failures to allocate llinfo
+                751480 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -2983,21 +3402,21 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:38
+MSCi      MSSGB01                   2014-04-07  09:31:38
 
 UNIT: SIGU-24          
 
 ip:
 
-        160126573 total packets received
+        115306718 total packets received
 
-        160126559 packets for this host
+        115306704 packets for this host
 
         14 packets not forwardable
 
         1 packet sent from this host
 
-        46920355 local ip address based default gw used
+        33709392 local ip address based default gw used
 
         192 don't override routing table
 
@@ -3025,47 +3444,47 @@ tcp:
 
 sctp:
 
-        159052557 packets sent
+        114532157 packets sent
 
-                811600752 bytes sent
+                3834520324 bytes sent
 
-                103324081 control packets sent
+                74314136 control packets sent
 
-                317272876 data chunks sent
+                228549073 data chunks sent
 
-                91152314 sacks sent
+                65639184 sacks sent
 
-                6079760 heartbeat requests sent
+                4333022 heartbeat requests sent
 
-                6091716 heartbeat acks sent
+                4341639 heartbeat acks sent
 
                 1 abort sent:
 
                         1 no endpoint found
 
-                25145 data chunks retransmitted
+                17742 data chunks retransmitted
 
-                153 fast retransmissions
+                117 fast retransmissions
 
-                1935 no outqueue fill due to cwnd
+                1419 no outqueue fill due to cwnd
 
-                1739 blocked by congestion window
+                1275 blocked by congestion window
 
-        160126557 packets received
+        115306702 packets received
 
-                903414832 bytes received
+                3912555664 bytes received
 
-                160126556 valid packets received
+                115306701 valid packets received
 
-                101625006 control packets received
+                73065786 control packets received
 
-                315600234 data chunks received
+                227386755 data chunks received
 
-                89455299 sacks received
+                64392264 sacks received
 
-                6091720 heartbeat requests received
+                4341643 heartbeat requests received
 
-                6077696 heartbeat acks received
+                4331588 heartbeat acks received
 
                 1 dropped due to no endpoint
 
@@ -3099,19 +3518,19 @@ emb:
 
 arp:
 
-        5558 packets sent
+        3968 packets sent
 
                 12 reply packets
 
-                5546 request packets
+                3956 request packets
 
-        678499 packets received
+        484159 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                672879 valid request packets
+                480129 valid request packets
 
-                672947 broadcast/multicast packets
+                480197 broadcast/multicast packets
 
                 74 could not be mapped to an interface
 
@@ -3121,7 +3540,7 @@ arp:
 
                         2 sent
 
-                1053912 failures to allocate llinfo
+                751812 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -3132,23 +3551,23 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:38
+MSCi      MSSGB01                   2014-04-07  09:31:38
 
 UNIT: SIGU-25          
 
 ip:
 
-        339250807 total packets received
+        243645408 total packets received
 
-        339250788 packets for this host
+        243645389 packets for this host
 
         19 packets not forwardable
 
         1 packet sent from this host
 
-        45463451 local ip address based default gw used
+        32625563 local ip address based default gw used
 
-        157 don't override routing table
+        155 don't override routing table
 
         2 routing table next-hop decision overridden
 
@@ -3172,19 +3591,19 @@ tcp:
 
 sctp:
 
-        340371706 packets sent
+        244495989 packets sent
 
-                3560969536 bytes sent
+                1236240872 bytes sent
 
-                267916180 control packets sent
+                192512205 control packets sent
 
-                560601409 data chunks sent
+                404319322 data chunks sent
 
-                251677564 sacks sent
+                180938590 sacks sent
 
-                8106805 heartbeat requests sent
+                5777879 heartbeat requests sent
 
-                8131577 heartbeat acks sent
+                5795502 heartbeat acks sent
 
                 3 aborts sent:
 
@@ -3192,29 +3611,29 @@ sctp:
 
                         2 ootb
 
-                30858 data chunks retransmitted
+                22116 data chunks retransmitted
 
                 1 fast retransmission
 
-                2871 no outqueue fill due to cwnd
+                2025 no outqueue fill due to cwnd
 
-                2466 blocked by congestion window
+                1733 blocked by congestion window
 
-        339250787 packets received
+        243645389 packets received
 
-                2475609168 bytes received
+                975943524 bytes received
 
-                339250786 valid packets received
+                243645388 valid packets received
 
-                270848715 control packets received
+                194634334 control packets received
 
-                530940138 data chunks received
+                383124584 data chunks received
 
-                254611818 sacks received
+                183062163 sacks received
 
-                8131579 heartbeat requests received
+                5795504 heartbeat requests received
 
-                8105086 heartbeat acks received
+                5776435 heartbeat acks received
 
                 1 dropped due to no endpoint
 
@@ -3248,19 +3667,19 @@ emb:
 
 arp:
 
-        5554 packets sent
+        3964 packets sent
 
                 8 reply packets
 
-                5546 request packets
+                3956 request packets
 
-        677695 packets received
+        483355 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                672137 valid request packets
+                479387 valid request packets
 
-                672147 broadcast/multicast packets
+                479397 broadcast/multicast packets
 
                 12 could not be mapped to an interface
 
@@ -3270,7 +3689,7 @@ arp:
 
                         2 sent
 
-                1053056 failures to allocate llinfo
+                750956 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -3281,21 +3700,21 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:38
+MSCi      MSSGB01                   2014-04-07  09:31:38
 
 UNIT: SIGU-26          
 
 ip:
 
-        478970258 total packets received
+        345033275 total packets received
 
-        478970238 packets for this host
+        345033255 packets for this host
 
         20 packets not forwardable
 
         1 packet sent from this host
 
-        45582638 local ip address based default gw used
+        32760016 local ip address based default gw used
 
         272 don't override routing table
 
@@ -3321,19 +3740,19 @@ tcp:
 
 sctp:
 
-        481118905 packets sent
+        346588181 packets sent
 
-                966825360 bytes sent
+                95977024 bytes sent
 
-                464741109 control packets sent
+                334870233 control packets sent
 
-                727269814 data chunks sent
+                525036561 data chunks sent
 
-                448488699 sacks sent
+                323286795 sacks sent
 
-                8107223 heartbeat requests sent
+                5778048 heartbeat requests sent
 
-                8144782 heartbeat acks sent
+                5804985 heartbeat acks sent
 
                 3 aborts sent:
 
@@ -3341,29 +3760,29 @@ sctp:
 
                         1 ootb
 
-                22857 data chunks retransmitted
+                15327 data chunks retransmitted
 
-                135 fast retransmissions
+                92 fast retransmissions
 
-                1859 no outqueue fill due to cwnd
+                1272 no outqueue fill due to cwnd
 
-                1704 blocked by congestion window
+                1171 blocked by congestion window
 
-        478970237 packets received
+        345033255 packets received
 
-                923406876 bytes received
+                600382008 bytes received
 
-                478970235 valid packets received
+                345033253 valid packets received
 
-                465348751 control packets received
+                335310362 control packets received
 
-                690546684 data chunks received
+                498676206 data chunks received
 
-                449096488 sacks received
+                323727027 sacks received
 
-                8144785 heartbeat requests received
+                5804988 heartbeat requests received
 
-                8107076 heartbeat acks received
+                5777945 heartbeat acks received
 
                 1 abort received
 
@@ -3399,19 +3818,19 @@ emb:
 
 arp:
 
-        5554 packets sent
+        3964 packets sent
 
                 8 reply packets
 
-                5546 request packets
+                3956 request packets
 
-        677655 packets received
+        483315 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                672011 valid request packets
+                479261 valid request packets
 
-                672111 broadcast/multicast packets
+                479361 broadcast/multicast packets
 
                 98 could not be mapped to an interface
 
@@ -3421,7 +3840,7 @@ arp:
 
                         2 sent
 
-                1052856 failures to allocate llinfo
+                750756 failures to allocate llinfo
 
 COMMAND EXECUTED
 
@@ -3432,25 +3851,25 @@ TCP/IP STACK DATA HANDLING COMMAND <QR_>
 
 LOADING PROGRAM VERSION 12.37-0
 
-MSCi      MSSGB01                   2014-04-18  09:39:38
+MSCi      MSSGB01                   2014-04-07  09:31:38
 
 UNIT: SIGU-27          
 
 ip:
 
-        615502912 total packets received
+        441924872 total packets received
 
-        615502870 packets for this host
+        441924830 packets for this host
 
         42 packets not forwardable
 
         1 packet sent from this host
 
-        126623027 local ip address based default gw used
+        89907012 local ip address based default gw used
 
         227 don't override routing table
 
-        228 routing table next-hop decision overridden
+        225 routing table next-hop decision overridden
 
 icmp:
 
@@ -3476,19 +3895,19 @@ tcp:
 
 sctp:
 
-        551298943 packets sent
+        395206275 packets sent
 
-                1839602048 bytes sent
+                3720177756 bytes sent
 
-                499769994 control packets sent
+                358176624 control packets sent
 
-                749031856 data chunks sent
+                537643104 data chunks sent
 
-                480676992 sacks sent
+                344568395 sacks sent
 
-                10134029 heartbeat requests sent
+                7222866 heartbeat requests sent
 
-                8958251 heartbeat acks sent
+                6384643 heartbeat acks sent
 
                 10 aborts sent:
 
@@ -3496,31 +3915,31 @@ sctp:
 
                         3 ootb
 
-                329 data chunks retransmitted
+                221 data chunks retransmitted
 
-                16 fast retransmissions
+                12 fast retransmissions
 
                 2 no outqueue fill due to cwnd
 
                 2 blocked by congestion window
 
-        615502867 packets received
+        441924828 packets received
 
-                3579656096 bytes received
+                2282029192 bytes received
 
-                615502860 valid packets received
+                441924821 valid packets received
 
-                466211804 control packets received
+                333755810 control packets received
 
-                717757884 data chunks received
+                514415307 data chunks received
 
-                447118803 sacks received
+                320147582 sacks received
 
-                8958317 heartbeat requests received
+                6384709 heartbeat requests received
 
-                10134025 heartbeat acks received
+                7222863 heartbeat acks received
 
-                2 aborts received
+                1 abort received
 
                 1 duplicate TSN received
 
@@ -3556,19 +3975,19 @@ emb:
 
 arp:
 
-        5550 packets sent
+        3960 packets sent
 
                 4 reply packets
 
-                5546 request packets
+                3956 request packets
 
-        677488 packets received
+        483140 packets received
 
-                5536 reply packets
+                3946 reply packets
 
-                671938 valid request packets
+                479180 valid request packets
 
-                671948 broadcast/multicast packets
+                479190 broadcast/multicast packets
 
                 4 could not be mapped to an interface
 
@@ -3578,7 +3997,4545 @@ arp:
 
                         2 sent
 
-                1052720 failures to allocate llinfo
+                750620 failures to allocate llinfo
 
 COMMAND EXECUTED
 
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,28::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:38
+
+UNIT: SIGU-28          
+
+ip:
+
+        627540873 total packets received
+
+        627540809 packets for this host
+
+        64 packets not forwardable
+
+        1 packet sent from this host
+
+        114133805 local ip address based default gw used
+
+        570 don't override routing table
+
+        188 routing table next-hop decision overridden
+
+icmp:
+
+        Input histogram:
+
+                destination unreachable: 1
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        420 connections closed (including 0 drops)
+
+sctp:
+
+        619687463 packets sent
+
+                33417988 bytes sent
+
+                476676461 control packets sent
+
+                932797808 data chunks sent
+
+                459286717 sacks sent
+
+                8667828 heartbeat requests sent
+
+                8720781 heartbeat acks sent
+
+                9 aborts sent:
+
+                        4 no endpoint found
+
+                        5 ootb
+
+                7208 data chunks retransmitted
+
+                368 fast retransmissions
+
+                3 no outqueue fill due to cwnd
+
+                2 blocked by congestion window
+
+        627540809 packets received
+
+                1040479544 bytes received
+
+                627540805 valid packets received
+
+                474023210 control packets received
+
+                861713185 data chunks received
+
+                456633472 sacks received
+
+                8720794 heartbeat requests received
+
+                8667820 heartbeat acks received
+
+                1 abort received
+
+                4 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        484160 packets received
+
+                3946 reply packets
+
+                479984 valid request packets
+
+                480198 broadcast/multicast packets
+
+                220 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                751584 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,29::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:39
+
+UNIT: SIGU-29          
+
+ip:
+
+        539459177 total packets received
+
+        539459132 packets for this host
+
+        45 packets not forwardable
+
+        1 packet sent from this host
+
+        199764246 local ip address based default gw used
+
+        495 don't override routing table
+
+        332 routing table next-hop decision overridden
+
+icmp:
+
+        Input histogram:
+
+                destination unreachable: 1
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        232 connections closed (including 0 drops)
+
+sctp:
+
+        503228938 packets sent
+
+                1451170172 bytes sent
+
+                390449164 control packets sent
+
+                934359012 data chunks sent
+
+                373059832 sacks sent
+
+                8667293 heartbeat requests sent
+
+                8720805 heartbeat acks sent
+
+                12 aborts sent:
+
+                        10 no endpoint found
+
+                        2 ootb
+
+                7303 data chunks retransmitted
+
+                414 fast retransmissions
+
+                5 no outqueue fill due to cwnd
+
+                4 blocked by congestion window
+
+        539459130 packets received
+
+                3836608552 bytes received
+
+                539459120 valid packets received
+
+                372746845 control packets received
+
+                885717456 data chunks received
+
+                355357615 sacks received
+
+                8720819 heartbeat requests received
+
+                8667190 heartbeat acks received
+
+                1 abort received
+
+                10 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        483510 packets received
+
+                3946 reply packets
+
+                479536 valid request packets
+
+                479552 broadcast/multicast packets
+
+                18 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                751180 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,30::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:39
+
+UNIT: SIGU-30          
+
+ip:
+
+        546926712 total packets received
+
+        546926653 packets for this host
+
+        59 packets not forwardable
+
+        1 packet sent from this host
+
+        87501465 local ip address based default gw used
+
+        384 don't override routing table
+
+        383 routing table next-hop decision overridden
+
+icmp:
+
+        Input histogram:
+
+                destination unreachable: 1
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        232 connections closed (including 0 drops)
+
+sctp:
+
+        514358618 packets sent
+
+                1437006012 bytes sent
+
+                394560846 control packets sent
+
+                622581782 data chunks sent
+
+                380951741 sacks sent
+
+                7222890 heartbeat requests sent
+
+                6384976 heartbeat acks sent
+
+                7 aborts sent:
+
+                        4 no endpoint found
+
+                        3 ootb
+
+                871 data chunks retransmitted
+
+                77 fast retransmissions
+
+                3 no outqueue fill due to cwnd
+
+                3 blocked by congestion window
+
+        546926652 packets received
+
+                3257413840 bytes received
+
+                546926648 valid packets received
+
+                375416079 control packets received
+
+                574746384 data chunks received
+
+                361806976 sacks received
+
+                6385087 heartbeat requests received
+
+                7222881 heartbeat acks received
+
+                1 abort received
+
+                1 duplicate TSN received
+
+                4 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        484160 packets received
+
+                3946 reply packets
+
+                480112 valid request packets
+
+                480198 broadcast/multicast packets
+
+                92 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                751780 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,31::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:39
+
+UNIT: SIGU-31          
+
+ip:
+
+        561448597 total packets received
+
+        561448544 packets for this host
+
+        53 packets not forwardable
+
+        1 packet sent from this host
+
+        204152631 local ip address based default gw used
+
+        169 don't override routing table
+
+        260 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        368 connections closed (including 0 drops)
+
+sctp:
+
+        528285325 packets sent
+
+                3444784600 bytes sent
+
+                424037997 control packets sent
+
+                676883342 data chunks sent
+
+                407532139 sacks sent
+
+                8667159 heartbeat requests sent
+
+                7838025 heartbeat acks sent
+
+                13 aborts sent:
+
+                        9 no endpoint found
+
+                        4 ootb
+
+                6768 data chunks retransmitted
+
+                418 fast retransmissions
+
+                8 no outqueue fill due to cwnd
+
+                7 blocked by congestion window
+
+        561448543 packets received
+
+                3339605044 bytes received
+
+                561448534 valid packets received
+
+                412049807 control packets received
+
+                642109125 data chunks received
+
+                395543962 sacks received
+
+                7838076 heartbeat requests received
+
+                8667151 heartbeat acks received
+
+                1 duplicate TSN received
+
+                9 dropped due to no endpoint
+
+ip6:
+
+        5 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 1
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3956 packets sent
+
+                3956 request packets
+
+        482954 packets received
+
+                3946 reply packets
+
+                478990 valid request packets
+
+                479004 broadcast/multicast packets
+
+                8 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                750372 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,32::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:39
+
+UNIT: SIGU-32          
+
+ip:
+
+        644503017 total packets received
+
+        644502965 packets for this host
+
+        52 packets not forwardable
+
+        1 packet sent from this host
+
+        205147243 local ip address based default gw used
+
+        269 don't override routing table
+
+        403 routing table next-hop decision overridden
+
+icmp:
+
+        Input histogram:
+
+                destination unreachable: 2
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        368 connections closed (including 0 drops)
+
+sctp:
+
+        598926265 packets sent
+
+                413041328 bytes sent
+
+                430162214 control packets sent
+
+                737735255 data chunks sent
+
+                413655844 sacks sent
+
+                8667173 heartbeat requests sent
+
+                7838134 heartbeat acks sent
+
+                6 aborts sent:
+
+                        5 no endpoint found
+
+                        1 ootb
+
+                5352 data chunks retransmitted
+
+                344 fast retransmissions
+
+                5 no outqueue fill due to cwnd
+
+                4 blocked by congestion window
+
+        644502968 packets received
+
+                2694256388 bytes received
+
+                644502963 valid packets received
+
+                417134725 control packets received
+
+                701935339 data chunks received
+
+                400628355 sacks received
+
+                7838210 heartbeat requests received
+
+                8667171 heartbeat acks received
+
+                1 duplicate TSN received
+
+                5 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3964 packets sent
+
+                8 reply packets
+
+                3956 request packets
+
+        483316 packets received
+
+                3946 reply packets
+
+                479266 valid request packets
+
+                479362 broadcast/multicast packets
+
+                94 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                750764 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,34::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:39
+
+UNIT: SIGU-34          
+
+ip:
+
+        87371855 total packets received
+
+        87371854 packets for this host
+
+        1 packet not forwardable
+
+        1 packet sent from this host
+
+        6 don't override routing table
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        236 connections closed (including 0 drops)
+
+sctp:
+
+        82207402 packets sent
+
+                1503814396 bytes sent
+
+                65346156 control packets sent
+
+                168043504 data chunks sent
+
+                58644505 sacks sent
+
+                2889157 heartbeat requests sent
+
+                3812490 heartbeat acks sent
+
+                3 data chunks retransmitted
+
+                1 fast retransmission
+
+        87371853 packets received
+
+                4293331720 bytes received
+
+                87371853 valid packets received
+
+                65703038 control packets received
+
+                81281589 data chunks received
+
+                59001387 sacks received
+
+                3812490 heartbeat requests received
+
+                2889157 heartbeat acks received
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3956 packets sent
+
+                3956 request packets
+
+        482946 packets received
+
+                3946 reply packets
+
+                478956 valid request packets
+
+                479000 broadcast/multicast packets
+
+                34 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                750312 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,35::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:39
+
+UNIT: SIGU-35          
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        483448 packets received
+
+                483442 valid request packets
+
+                483448 broadcast/multicast packets
+
+                6 packets sourced from a local hardware address
+
+                759042 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,36::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:39
+
+UNIT: SIGU-36          
+
+ip:
+
+        333718750 total packets received
+
+        435982 fragments received       217989 packets reassembled ok
+
+        333500714 packets for this host
+
+        43 packets not forwardable
+
+        4794052 packets sent from this host
+
+        5 packets sent with fabricated ip header
+
+        1249947 output datagrams fragmented
+
+        2499894 fragments created
+
+        92387386 local ip address based default gw used
+
+        332 don't override routing table
+
+        1112223 routing table next-hop decision overridden
+
+icmp:
+
+        Input histogram:
+
+                echo reply: 2
+
+                destination unreachable: 41
+
+igmp:
+
+udp:
+
+        6272208 datagrams received
+
+        6272208 delivered
+
+        6222713 PCB hash misses
+
+        4794052 datagrams output
+
+tcp:
+
+        372 connections closed (including 0 drops)
+
+sctp:
+
+        321923744 packets sent
+
+                93724164 bytes sent
+
+                304145121 control packets sent
+
+                462632489 data chunks sent
+
+                290536297 sacks sent
+
+                7223039 heartbeat requests sent
+
+                6384708 heartbeat acks sent
+
+                13 aborts sent:
+
+                        7 no endpoint found
+
+                        6 ootb
+
+                534 data chunks retransmitted
+
+                26 fast retransmissions
+
+                1 no outqueue fill due to cwnd
+
+                1 blocked by congestion window
+
+        327228463 packets received
+
+                264783840 bytes received
+
+                327228456 valid packets received
+
+                302938350 control packets received
+
+                430040078 data chunks received
+
+                289329525 sacks received
+
+                6384805 heartbeat requests received
+
+                7223037 heartbeat acks received
+
+                1 abort received
+
+                7 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        6122 packets sent
+
+                18 reply packets
+
+                6104 request packets
+
+        483511 packets received
+
+                6089 reply packets
+
+                477387 valid request packets
+
+                477404 broadcast/multicast packets
+
+                20 could not be mapped to an interface
+
+                15 packets sourced from a local hardware address
+
+                561 packets deferred pending ARP resolution
+
+                        333 sent
+
+                        228 dropped
+
+                798538 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,37::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:39
+
+UNIT: SIGU-37          
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        482936 packets received
+
+                482878 valid request packets
+
+                482936 broadcast/multicast packets
+
+                48 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                758184 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,38::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:39
+
+UNIT: SIGU-38          
+
+ip:
+
+        563759786 total packets received
+
+        563759733 packets for this host
+
+        53 packets not forwardable
+
+        1 packet sent from this host
+
+        90040423 local ip address based default gw used
+
+        208 don't override routing table
+
+        207 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        236 connections closed (including 0 drops)
+
+sctp:
+
+        527088955 packets sent
+
+                661128116 bytes sent
+
+                333480104 control packets sent
+
+                564336304 data chunks sent
+
+                316973971 sacks sent
+
+                8667370 heartbeat requests sent
+
+                7838105 heartbeat acks sent
+
+                7 aborts sent:
+
+                        4 no endpoint found
+
+                        3 ootb
+
+                1150 data chunks retransmitted
+
+                67 fast retransmissions
+
+                7 no outqueue fill due to cwnd
+
+                2 blocked by congestion window
+
+        563759733 packets received
+
+                2018718780 bytes received
+
+                563759729 valid packets received
+
+                309050149 control packets received
+
+                540865490 data chunks received
+
+                292544119 sacks received
+
+                7838159 heartbeat requests received
+
+                8667271 heartbeat acks received
+
+                4 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3960 packets sent
+
+                4 reply packets
+
+                3956 request packets
+
+        483122 packets received
+
+                3946 reply packets
+
+                479140 valid request packets
+
+                479172 broadcast/multicast packets
+
+                26 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                750564 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,39::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:39
+
+UNIT: SIGU-39          
+
+ip:
+
+        361735671 total packets received
+
+        361735628 packets for this host
+
+        43 packets not forwardable
+
+        1 packet sent from this host
+
+        87623969 local ip address based default gw used
+
+        333 don't override routing table
+
+        338 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        372 connections closed (including 0 drops)
+
+sctp:
+
+        333148867 packets sent
+
+                2240140560 bytes sent
+
+                304850354 control packets sent
+
+                459183743 data chunks sent
+
+                288343573 sacks sent
+
+                8667351 heartbeat requests sent
+
+                7838355 heartbeat acks sent
+
+                11 aborts sent:
+
+                        7 no endpoint found
+
+                        4 ootb
+
+                329 data chunks retransmitted
+
+                18 fast retransmissions
+
+                2 no outqueue fill due to cwnd
+
+                2 blocked by congestion window
+
+        361735628 packets received
+
+                4113543204 bytes received
+
+                361735621 valid packets received
+
+                289432908 control packets received
+
+                436540607 data chunks received
+
+                272926218 sacks received
+
+                7838450 heartbeat requests received
+
+                8667257 heartbeat acks received
+
+                1 abort received
+
+                7 dropped due to no endpoint
+
+ip6:
+
+        5 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 1
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        483508 packets received
+
+                3946 reply packets
+
+                479524 valid request packets
+
+                479550 broadcast/multicast packets
+
+                28 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                751172 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,40::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:39
+
+UNIT: SIGU-40          
+
+ip:
+
+        273170134 total packets received
+
+        273170092 packets for this host
+
+        42 packets not forwardable
+
+        1 packet sent from this host
+
+        83365082 local ip address based default gw used
+
+        154 don't override routing table
+
+        156 routing table next-hop decision overridden
+
+icmp:
+
+        Input histogram:
+
+                destination unreachable: 1
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        232 connections closed (including 0 drops)
+
+sctp:
+
+        263987991 packets sent
+
+                2375314860 bytes sent
+
+                232909753 control packets sent
+
+                365866054 data chunks sent
+
+                219302362 sacks sent
+
+                7222440 heartbeat requests sent
+
+                6384461 heartbeat acks sent
+
+                6 aborts sent:
+
+                        1 retrans limit reached
+
+                        5 no endpoint found
+
+                273 data chunks retransmitted
+
+                11 fast retransmissions
+
+                2 no outqueue fill due to cwnd
+
+                2 blocked by congestion window
+
+        273170090 packets received
+
+                136128244 bytes received
+
+                273170085 valid packets received
+
+                233218462 control packets received
+
+                347327552 data chunks received
+
+                219611074 sacks received
+
+                6384505 heartbeat requests received
+
+                7222436 heartbeat acks received
+
+                5 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3956 packets sent
+
+                3956 request packets
+
+        482936 packets received
+
+                3946 reply packets
+
+                478922 valid request packets
+
+                478990 broadcast/multicast packets
+
+                58 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                750272 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,41::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:39
+
+UNIT: SIGU-41          
+
+ip:
+
+        342576590 total packets received
+
+        342576560 packets for this host
+
+        30 packets not forwardable
+
+        1 packet sent from this host
+
+        51149598 local ip address based default gw used
+
+        336 don't override routing table
+
+        167 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        368 connections closed (including 0 drops)
+
+sctp:
+
+        320726726 packets sent
+
+                1462031632 bytes sent
+
+                226617357 control packets sent
+
+                445375354 data chunks sent
+
+                212126194 sacks sent
+
+                7223144 heartbeat requests sent
+
+                7267278 heartbeat acks sent
+
+                8 aborts sent:
+
+                        6 no endpoint found
+
+                        2 ootb
+
+                3456 data chunks retransmitted
+
+                176 fast retransmissions
+
+                1 no outqueue fill due to cwnd
+
+                1 blocked by congestion window
+
+        342576561 packets received
+
+                232023320 bytes received
+
+                342576555 valid packets received
+
+                220094107 control packets received
+
+                421191390 data chunks received
+
+                205603030 sacks received
+
+                7267290 heartbeat requests received
+
+                7223054 heartbeat acks received
+
+                6 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        483506 packets received
+
+                3946 reply packets
+
+                479520 valid request packets
+
+                479548 broadcast/multicast packets
+
+                30 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                751164 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,42::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:39
+
+UNIT: SIGU-42          
+
+ip:
+
+        332556251 total packets received
+
+        332556218 packets for this host
+
+        33 packets not forwardable
+
+        1 packet sent from this host
+
+        82385404 local ip address based default gw used
+
+        273 don't override routing table
+
+        137 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        364 connections closed (including 0 drops)
+
+sctp:
+
+        297668000 packets sent
+
+                2013299312 bytes sent
+
+                227012362 control packets sent
+
+                520008202 data chunks sent
+
+                215419859 sacks sent
+
+                5778140 heartbeat requests sent
+
+                5813748 heartbeat acks sent
+
+                4 aborts sent:
+
+                        3 no endpoint found
+
+                        1 ootb
+
+                2553 data chunks retransmitted
+
+                135 fast retransmissions
+
+                1 no outqueue fill due to cwnd
+
+                1 blocked by congestion window
+
+        332556220 packets received
+
+                2494511120 bytes received
+
+                332556217 valid packets received
+
+                208406253 control packets received
+
+                488245154 data chunks received
+
+                196813741 sacks received
+
+                5813765 heartbeat requests received
+
+                5778138 heartbeat acks received
+
+                3 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3964 packets sent
+
+                8 reply packets
+
+                3956 request packets
+
+        483308 packets received
+
+                3946 reply packets
+
+                479342 valid request packets
+
+                479354 broadcast/multicast packets
+
+                10 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                750908 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,43::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:39
+
+UNIT: SIGU-43          
+
+ip:
+
+        303940262 total packets received
+
+        303940236 packets for this host
+
+        26 packets not forwardable
+
+        1 packet sent from this host
+
+        72332002 local ip address based default gw used
+
+        273 don't override routing table
+
+        133 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        372 connections closed (including 0 drops)
+
+sctp:
+
+        307859951 packets sent
+
+                3011067472 bytes sent
+
+                221077186 control packets sent
+
+                494935033 data chunks sent
+
+                209484429 sacks sent
+
+                5778346 heartbeat requests sent
+
+                5813792 heartbeat acks sent
+
+                7 aborts sent:
+
+                        2 no endpoint found
+
+                        5 ootb
+
+                1926 data chunks retransmitted
+
+                230 fast retransmissions
+
+                4 no outqueue fill due to cwnd
+
+                4 blocked by congestion window
+
+        303940235 packets received
+
+                175510192 bytes received
+
+                303940233 valid packets received
+
+                222684316 control packets received
+
+                467062990 data chunks received
+
+                211091554 sacks received
+
+                5813813 heartbeat requests received
+
+                5778344 heartbeat acks received
+
+                2 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3964 packets sent
+
+                8 reply packets
+
+                3956 request packets
+
+        483308 packets received
+
+                3946 reply packets
+
+                479338 valid request packets
+
+                479354 broadcast/multicast packets
+
+                14 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                750900 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,44::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:40
+
+UNIT: SIGU-44          
+
+ip:
+
+        211118264 total packets received
+
+        211118228 packets for this host
+
+        36 packets not forwardable
+
+        1 packet sent from this host
+
+        35425114 local ip address based default gw used
+
+        205 don't override routing table
+
+        105 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        236 connections closed (including 0 drops)
+
+sctp:
+
+        194738877 packets sent
+
+                1590850856 bytes sent
+
+                145679316 control packets sent
+
+                369815353 data chunks sent
+
+                134087671 sacks sent
+
+                5777746 heartbeat requests sent
+
+                5813441 heartbeat acks sent
+
+                4 aborts sent:
+
+                        1 retrans limit reached
+
+                        3 no endpoint found
+
+                1577 data chunks retransmitted
+
+                77 fast retransmissions
+
+                1 no outqueue fill due to cwnd
+
+                1 blocked by congestion window
+
+        211118228 packets received
+
+                639332756 bytes received
+
+                211118225 valid packets received
+
+                145270704 control packets received
+
+                348561703 data chunks received
+
+                133679068 sacks received
+
+                5813447 heartbeat requests received
+
+                5777735 heartbeat acks received
+
+                3 dropped due to no endpoint
+
+ip6:
+
+        5 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 1
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3960 packets sent
+
+                4 reply packets
+
+                3956 request packets
+
+        483122 packets received
+
+                3946 reply packets
+
+                479132 valid request packets
+
+                479172 broadcast/multicast packets
+
+                34 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                750556 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,45::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:40
+
+UNIT: SIGU-45          
+
+ip:
+
+        252333134 total packets received
+
+        252333083 packets for this host
+
+        51 packets not forwardable
+
+        1 packet sent from this host
+
+        72702225 local ip address based default gw used
+
+        377 don't override routing table
+
+        188 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        424 connections closed (including 0 drops)
+
+sctp:
+
+        255144741 packets sent
+
+                809705136 bytes sent
+
+                124909390 control packets sent
+
+                494464229 data chunks sent
+
+                113316278 sacks sent
+
+                5778425 heartbeat requests sent
+
+                5813843 heartbeat acks sent
+
+                4 aborts sent:
+
+                        3 no endpoint found
+
+                        1 ootb
+
+                697 data chunks retransmitted
+
+                98 fast retransmissions
+
+        252333082 packets received
+
+                2353100180 bytes received
+
+                252333079 valid packets received
+
+                127008214 control packets received
+
+                467601345 data chunks received
+
+                115415103 sacks received
+
+                5813852 heartbeat requests received
+
+                5778419 heartbeat acks received
+
+                3 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        484152 packets received
+
+                3946 reply packets
+
+                479910 valid request packets
+
+                480190 broadcast/multicast packets
+
+                286 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                751472 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,46::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:40
+
+UNIT: SIGU-46          
+
+ip:
+
+        413622092 total packets received
+
+        413622047 packets for this host
+
+        45 packets not forwardable
+
+        1 packet sent from this host
+
+        1 output packet discarded due to no route
+
+        50616636 local ip address based default gw used
+
+        392 don't override routing table
+
+        189 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        416 connections closed (including 0 drops)
+
+sctp:
+
+        382282253 packets sent
+
+                3329152844 bytes sent
+
+                227128584 control packets sent
+
+                517347924 data chunks sent
+
+                215535633 sacks sent
+
+                5778325 heartbeat requests sent
+
+                5813769 heartbeat acks sent
+
+                7 aborts sent:
+
+                        4 no endpoint found
+
+                        3 ootb
+
+                1191 data chunks retransmitted
+
+                26 fast retransmissions
+
+                2 no outqueue fill due to cwnd
+
+                2 blocked by congestion window
+
+        413622048 packets received
+
+                3378279376 bytes received
+
+                413622044 valid packets received
+
+                213893206 control packets received
+
+                487004792 data chunks received
+
+                202300258 sacks received
+
+                5813782 heartbeat requests received
+
+                5778319 heartbeat acks received
+
+                4 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        484152 packets received
+
+                3946 reply packets
+
+                479980 valid request packets
+
+                480190 broadcast/multicast packets
+
+                216 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                751592 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,47::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:40
+
+UNIT: SIGU-47          
+
+ip:
+
+        406833919 total packets received
+
+        406833919 packets for this host
+
+        1 packet sent from this host
+
+        3132023 local ip address based default gw used
+
+        342 don't override routing table
+
+        24 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        232 connections closed (including 0 drops)
+
+sctp:
+
+        372700082 packets sent
+
+                3332328380 bytes sent
+
+                260053161 control packets sent
+
+                512156692 data chunks sent
+
+                245467485 sacks sent
+
+                7222963 heartbeat requests sent
+
+                7362170 heartbeat acks sent
+
+                4 aborts sent:
+
+                        3 no endpoint found
+
+                        1 ootb
+
+                1416 data chunks retransmitted
+
+                68 fast retransmissions
+
+                5 no outqueue fill due to cwnd
+
+                5 blocked by congestion window
+
+        406833918 packets received
+
+                1588675764 bytes received
+
+                406833915 valid packets received
+
+                242794176 control packets received
+
+                491795270 data chunks received
+
+                228208507 sacks received
+
+                7362189 heartbeat requests received
+
+                7222953 heartbeat acks received
+
+                3 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        483397 packets received
+
+                3946 reply packets
+
+                479449 valid request packets
+
+                479439 broadcast/multicast packets
+
+                2 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                751042 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,48::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:40
+
+UNIT: SIGU-48          
+
+ip:
+
+        410688345 total packets received
+
+        410688317 packets for this host
+
+        28 packets not forwardable
+
+        1 packet sent from this host
+
+        83338081 local ip address based default gw used
+
+        149 don't override routing table
+
+        75 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        232 connections closed (including 0 drops)
+
+sctp:
+
+        382700016 packets sent
+
+                801968796 bytes sent
+
+                303054617 control packets sent
+
+                494312172 data chunks sent
+
+                291462670 sacks sent
+
+                5778037 heartbeat requests sent
+
+                5813578 heartbeat acks sent
+
+                8 aborts sent:
+
+                        6 no endpoint found
+
+                        2 ootb
+
+                85 data chunks retransmitted
+
+                10 fast retransmissions
+
+        410688321 packets received
+
+                2029049644 bytes received
+
+                410688315 valid packets received
+
+                294505580 control packets received
+
+                464919948 data chunks received
+
+                282913734 sacks received
+
+                5813580 heartbeat requests received
+
+                5777942 heartbeat acks received
+
+                6 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3956 packets sent
+
+                3956 request packets
+
+        482921 packets received
+
+                3946 reply packets
+
+                478921 valid request packets
+
+                478975 broadcast/multicast packets
+
+                44 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                750300 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,49::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:40
+
+UNIT: SIGU-49          
+
+ip:
+
+        398280107 total packets received
+
+        398280074 packets for this host
+
+        33 packets not forwardable
+
+        1 packet sent from this host
+
+        411 don't override routing table
+
+icmp:
+
+        Input histogram:
+
+                destination unreachable: 1
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        372 connections closed (including 0 drops)
+
+sctp:
+
+        359952446 packets sent
+
+                3423836068 bytes sent
+
+                261840291 control packets sent
+
+                551721121 data chunks sent
+
+                250248074 sacks sent
+
+                5777954 heartbeat requests sent
+
+                5813639 heartbeat acks sent
+
+                5 aborts sent:
+
+                        1 retrans limit reached
+
+                        3 no endpoint found
+
+                        1 ootb
+
+                1857 data chunks retransmitted
+
+                121 fast retransmissions
+
+        398280072 packets received
+
+                2676698408 bytes received
+
+                398280069 valid packets received
+
+                242577705 control packets received
+
+                515734736 data chunks received
+
+                230985461 sacks received
+
+                5813672 heartbeat requests received
+
+                5777953 heartbeat acks received
+
+                1 duplicate TSN received
+
+                3 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3964 packets sent
+
+                8 reply packets
+
+                3956 request packets
+
+        483293 packets received
+
+                3946 reply packets
+
+                479321 valid request packets
+
+                479339 broadcast/multicast packets
+
+                16 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                750892 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,50::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:40
+
+UNIT: SIGU-50          
+
+ip:
+
+        222358726 total packets received
+
+        222358725 packets for this host
+
+        1 packet not forwardable
+
+        1 packet sent from this host
+
+        76879011 local ip address based default gw used
+
+        6 don't override routing table
+
+        2 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        232 connections closed (including 0 drops)
+
+sctp:
+
+        188440162 packets sent
+
+                3829143744 bytes sent
+
+                152309665 control packets sent
+
+                294916265 data chunks sent
+
+                145608710 sacks sent
+
+                2888767 heartbeat requests sent
+
+                3812181 heartbeat acks sent
+
+                1 abort sent:
+
+                        1 retrans limit reached
+
+                33 data chunks retransmitted
+
+                2 fast retransmissions
+
+                1 no outqueue fill due to cwnd
+
+                1 blocked by congestion window
+
+        222358724 packets received
+
+                287401920 bytes received
+
+                222358724 valid packets received
+
+                138801718 control packets received
+
+                204599038 data chunks received
+
+                132100765 sacks received
+
+                3812181 heartbeat requests received
+
+                2888766 heartbeat acks received
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3956 packets sent
+
+                3956 request packets
+
+        482921 packets received
+
+                3946 reply packets
+
+                478913 valid request packets
+
+                478975 broadcast/multicast packets
+
+                52 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                750284 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,51::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:40
+
+UNIT: SIGU-51          
+
+ip:
+
+        276676635 total packets received
+
+        276676635 packets for this host
+
+        1 packet sent from this host
+
+        76891779 local ip address based default gw used
+
+        6 don't override routing table
+
+        2 routing table next-hop decision overridden
+
+icmp:
+
+        Input histogram:
+
+                destination unreachable: 1
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        232 connections closed (including 0 drops)
+
+sctp:
+
+        241724330 packets sent
+
+                3392313548 bytes sent
+
+                144261219 control packets sent
+
+                289123072 data chunks sent
+
+                137559653 sacks sent
+
+                2889113 heartbeat requests sent
+
+                3812446 heartbeat acks sent
+
+                1 abort sent:
+
+                        1 retrans limit reached
+
+                379 data chunks retransmitted
+
+                52 fast retransmissions
+
+        276676635 packets received
+
+                198849848 bytes received
+
+                276676636 valid packets received
+
+                135781015 control packets received
+
+                199240003 data chunks received
+
+                129079454 sacks received
+
+                3812446 heartbeat requests received
+
+                2889109 heartbeat acks received
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        484137 packets received
+
+                3946 reply packets
+
+                480177 valid request packets
+
+                480175 broadcast/multicast packets
+
+                4 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                751944 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,52::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:40
+
+UNIT: SIGU-52          
+
+ip:
+
+        209105810 total packets received
+
+        209105809 packets for this host
+
+        1 packet not forwardable
+
+        1 packet sent from this host
+
+        181227147 local ip address based default gw used
+
+        5 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        232 connections closed (including 0 drops)
+
+sctp:
+
+        181227147 packets sent
+
+                2983431912 bytes sent
+
+                123644953 control packets sent
+
+                218234938 data chunks sent
+
+                116943250 sacks sent
+
+                2889273 heartbeat requests sent
+
+                3812426 heartbeat acks sent
+
+                10 data chunks retransmitted
+
+                2 fast retransmissions
+
+        209105808 packets received
+
+                2703196264 bytes received
+
+                209105808 valid packets received
+
+                118398887 control packets received
+
+                178080467 data chunks received
+
+                111697184 sacks received
+
+                3812426 heartbeat requests received
+
+                2889273 heartbeat acks received
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3956 packets sent
+
+                3956 request packets
+
+        482921 packets received
+
+                3946 reply packets
+
+                478927 valid request packets
+
+                478975 broadcast/multicast packets
+
+                38 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                134148 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,53::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:41
+
+UNIT: SIGU-53          
+
+ip:
+
+        126854482 total packets received
+
+        126854482 packets for this host
+
+        1 packet sent from this host
+
+        108432165 local ip address based default gw used
+
+        5 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        424 connections closed (including 0 drops)
+
+sctp:
+
+        108432165 packets sent
+
+                2187827028 bytes sent
+
+                89550663 control packets sent
+
+                167959756 data chunks sent
+
+                82848896 sacks sent
+
+                2889200 heartbeat requests sent
+
+                3812563 heartbeat acks sent
+
+                1 data chunk retransmitted
+
+                1 fast retransmission
+
+        126854481 packets received
+
+                4283156240 bytes received
+
+                126854481 valid packets received
+
+                81530132 control packets received
+
+                132762308 data chunks received
+
+                74828370 sacks received
+
+                3812563 heartbeat requests received
+
+                2889195 heartbeat acks received
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        484137 packets received
+
+                3946 reply packets
+
+                479885 valid request packets
+
+                480175 broadcast/multicast packets
+
+                296 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                134772 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,54::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:41
+
+UNIT: SIGU-54          
+
+ip:
+
+        125314343 total packets received
+
+        125314335 packets for this host
+
+        8 packets not forwardable
+
+        1 packet sent from this host
+
+        108198810 local ip address based default gw used
+
+        5 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        236 connections closed (including 0 drops)
+
+sctp:
+
+        108198810 packets sent
+
+                2188848080 bytes sent
+
+                89425557 control packets sent
+
+                168000296 data chunks sent
+
+                82723613 sacks sent
+
+                2889353 heartbeat requests sent
+
+                3812587 heartbeat acks sent
+
+                13 data chunks retransmitted
+
+                5 fast retransmissions
+
+        125314334 packets received
+
+                4144853508 bytes received
+
+                125314334 valid packets received
+
+                81430352 control packets received
+
+                132082723 data chunks received
+
+                74728410 sacks received
+
+                3812587 heartbeat requests received
+
+                2889351 heartbeat acks received
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        483828 packets received
+
+                3946 reply packets
+
+                479560 valid request packets
+
+                479870 broadcast/multicast packets
+
+                312 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                134388 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,55::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:41
+
+UNIT: SIGU-55          
+
+ip:
+
+        360480569 total packets received
+
+        360480564 packets for this host
+
+        5 packets not forwardable
+
+        1 packet sent from this host
+
+        282139000 local ip address based default gw used
+
+        7 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        232 connections closed (including 0 drops)
+
+sctp:
+
+        282139000 packets sent
+
+                330716460 bytes sent
+
+                234339589 control packets sent
+
+                382650527 data chunks sent
+
+                227638162 sacks sent
+
+                2889117 heartbeat requests sent
+
+                3812306 heartbeat acks sent
+
+                3216 data chunks retransmitted
+
+                544 fast retransmissions
+
+                31 no outqueue fill due to cwnd
+
+                22 blocked by congestion window
+
+        360480563 packets received
+
+                4016993172 bytes received
+
+                360480563 valid packets received
+
+                194918392 control packets received
+
+                341466482 data chunks received
+
+                188217062 sacks received
+
+                3812306 heartbeat requests received
+
+                2889020 heartbeat acks received
+
+                1 duplicate TSN received
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3960 packets sent
+
+                4 reply packets
+
+                3956 request packets
+
+        483118 packets received
+
+                3946 reply packets
+
+                479132 valid request packets
+
+                479168 broadcast/multicast packets
+
+                30 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                134244 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,56::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:41
+
+UNIT: SIGU-56          
+
+ip:
+
+        330342894 total packets received
+
+        330342894 packets for this host
+
+        1 packet sent from this host
+
+        264043209 local ip address based default gw used
+
+        5 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        372 connections closed (including 0 drops)
+
+sctp:
+
+        264043209 packets sent
+
+                1337632988 bytes sent
+
+                216873567 control packets sent
+
+                391830886 data chunks sent
+
+                210171766 sacks sent
+
+                2889243 heartbeat requests sent
+
+                3812554 heartbeat acks sent
+
+                3180 data chunks retransmitted
+
+                554 fast retransmissions
+
+                24 no outqueue fill due to cwnd
+
+                20 blocked by congestion window
+
+        330342893 packets received
+
+                1060363448 bytes received
+
+                330342893 valid packets received
+
+                185997242 control packets received
+
+                299010872 data chunks received
+
+                179295442 sacks received
+
+                3812554 heartbeat requests received
+
+                2889242 heartbeat acks received
+
+                1 duplicate TSN received
+
+ip6:
+
+        4 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        483500 packets received
+
+                3946 reply packets
+
+                479532 valid request packets
+
+                479542 broadcast/multicast packets
+
+                12 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                134348 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,57::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:42
+
+UNIT: SIGU-57          
+
+ip:
+
+        331178405 total packets received
+
+        331178400 packets for this host
+
+        5 packets not forwardable
+
+        1 packet sent from this host
+
+        262135303 local ip address based default gw used
+
+        7 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+        236 connections closed (including 0 drops)
+
+sctp:
+
+        262135304 packets sent
+
+                1246511988 bytes sent
+
+                215703979 control packets sent
+
+                391596090 data chunks sent
+
+                209002440 sacks sent
+
+                2889265 heartbeat requests sent
+
+                3812270 heartbeat acks sent
+
+                1833 data chunks retransmitted
+
+                316 fast retransmissions
+
+                15 no outqueue fill due to cwnd
+
+                14 blocked by congestion window
+
+        331178399 packets received
+
+                893037816 bytes received
+
+                331178399 valid packets received
+
+                183079150 control packets received
+
+                298467913 data chunks received
+
+                176377707 sacks received
+
+                3812270 heartbeat requests received
+
+                2889169 heartbeat acks received
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3960 packets sent
+
+                4 reply packets
+
+                3956 request packets
+
+        483106 packets received
+
+                3946 reply packets
+
+                479092 valid request packets
+
+                479156 broadcast/multicast packets
+
+                58 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                134224 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,58::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:42
+
+UNIT: SIGU-58          
+
+ip:
+
+        121254801 total packets received
+
+        121254801 packets for this host
+
+        1 packet sent from this host
+
+        102977126 local ip address based default gw used
+
+        2 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+        102977126 packets sent
+
+                1866315832 bytes sent
+
+                85280998 control packets sent
+
+                166764907 data chunks sent
+
+                81477530 sacks sent
+
+                1444507 heartbeat requests sent
+
+                2358959 heartbeat acks sent
+
+        121254801 packets received
+
+                3883630512 bytes received
+
+                121254801 valid packets received
+
+                77323168 control packets received
+
+                131067273 data chunks received
+
+                73519700 sacks received
+
+                2358959 heartbeat requests received
+
+                1444507 heartbeat acks received
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        484146 packets received
+
+                3946 reply packets
+
+                480028 valid request packets
+
+                480184 broadcast/multicast packets
+
+                162 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                134832 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,59::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:42
+
+UNIT: SIGU-59          
+
+ip:
+
+        83360746 total packets received
+
+        83360735 packets for this host
+
+        11 packets not forwardable
+
+        1 packet sent from this host
+
+        3132593 local ip address based default gw used
+
+        166 don't override routing table
+
+        2 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+        82713791 packets sent
+
+                2748716720 bytes sent
+
+                80739848 control packets sent
+
+                122771455 data chunks sent
+
+                71673587 sacks sent
+
+                4332906 heartbeat requests sent
+
+                4733143 heartbeat acks sent
+
+                2 aborts sent:
+
+                        1 retrans limit reached
+
+                        1 no endpoint found
+
+                13 data chunks retransmitted
+
+                1 no outqueue fill due to cwnd
+
+                1 blocked by congestion window
+
+        83360734 packets received
+
+                2416233132 bytes received
+
+                83360733 valid packets received
+
+                80231348 control packets received
+
+                116576181 data chunks received
+
+                71166522 sacks received
+
+                4733151 heartbeat requests received
+
+                4331466 heartbeat acks received
+
+                82846 duplicate TSN received
+
+                1 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3964 packets sent
+
+                8 reply packets
+
+                3956 request packets
+
+        483302 packets received
+
+                3946 reply packets
+
+                479342 valid request packets
+
+                479348 broadcast/multicast packets
+
+                4 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                134292 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: SIGU,60::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-07  09:31:42
+
+UNIT: SIGU-60          
+
+ip:
+
+        58188953 total packets received
+
+        58188939 packets for this host
+
+        14 packets not forwardable
+
+        1 packet sent from this host
+
+        3132276 local ip address based default gw used
+
+        194 don't override routing table
+
+        2 routing table next-hop decision overridden
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+        57363983 packets sent
+
+                1678397936 bytes sent
+
+                32676222 control packets sent
+
+                122802847 data chunks sent
+
+                23609524 sacks sent
+
+                4333313 heartbeat requests sent
+
+                4733087 heartbeat acks sent
+
+                5 aborts sent:
+
+                        1 retrans limit reached
+
+                        1 no endpoint found
+
+                        3 ootb
+
+                5 data chunks retransmitted
+
+        58188938 packets received
+
+                1351103120 bytes received
+
+                58188937 valid packets received
+
+                32426890 control packets received
+
+                116605016 data chunks received
+
+                23360202 sacks received
+
+                4733098 heartbeat requests received
+
+                4333299 heartbeat acks received
+
+                83165 duplicate TSN received
+
+                1 dropped due to no endpoint
+
+ip6:
+
+        6 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 4
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        3968 packets sent
+
+                12 reply packets
+
+                3956 request packets
+
+        484160 packets received
+
+                3946 reply packets
+
+                480060 valid request packets
+
+                480198 broadcast/multicast packets
+
+                144 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                2 packets deferred pending ARP resolution
+
+                        2 sent
+
+                134844 failures to allocate llinfo
+COMMAND EXECUTED

@@ -13,27 +13,32 @@ import net.vpc.upa.config.Sequence;
 public class Trafficforsigu implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id  @Sequence
-    private Integer id;
-    private String siguName;
+    private Integer Id;
     private Date dateExec;
     private Integer packetreceived;
     private Integer packetsent;
+    private Integer siguId;
 
     public Integer getId() {
-        return id;
+        return Id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer Id) {
+        this.Id = Id;
+    }
+    
+
+    public Integer getSiguId() {
+        return siguId;
     }
 
-    public String getSiguName() {
-        return siguName;
+    public void setSiguId(Integer siguId) {
+        this.siguId = siguId;
     }
+    //private String siguName;
+   
 
-    public void setSiguName(String siguName) {
-        this.siguName = siguName;
-    }
+   
 
     public Date getDateExec() {
         return dateExec;
