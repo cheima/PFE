@@ -52,7 +52,7 @@ angular.module('myApp.controllers', []).
             });
         })
         .controller('MyCtrl2', function($scope, trafficforsigu) {
-            $scope.alltraffics = trafficforsigu.query();
+            $scope.alltraffics = trafficforsigu.query({siguName : "SIGU-3"});
             $scope.showSelectedElement = function(s) {
                 $scope.selected = s;
             };
