@@ -165,6 +165,7 @@ public class CmdParser {
                  /////   
 
                 if (m6.find()) {
+                    
                     //FOR SCTP size 1500 octet
                     Trafficforsigu ModuleSigu = new Trafficforsigu();
                     ModuleSigu.setPacketreceived(calcSCTP.received);

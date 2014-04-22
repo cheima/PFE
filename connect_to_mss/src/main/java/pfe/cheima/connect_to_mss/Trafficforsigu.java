@@ -19,6 +19,16 @@ public class Trafficforsigu implements Serializable {
     private Date dateExec;
     private Integer packetreceived;
     private Integer packetsent;
+    private Integer SiguId;
+
+    public Integer getSiguId() {
+        return SiguId;
+    }
+
+    public void setSiguId(Integer SiguId) {
+        this.SiguId = SiguId;
+    }
+    
 
     public Integer getId() {
         return id;
