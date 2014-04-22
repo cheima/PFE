@@ -17,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 import net.vpc.upa.UPA;
 import pfe.cheima.service.GestionTraffic;
 import pfe.cheima.service.model.Trafficforsigu;
+import pfe.cheima.service.model.modules;
 
 /**
  * REST Web Service
@@ -111,14 +112,14 @@ public class GenericResource {
         return entityList;
     }
     
-    @Path("/{siguName}")
+    @Path("/{siguId}")
     @GET
     // @Produces("application/xml")doesn't work!!!
     @Produces(MediaType.APPLICATION_JSON)
 
-    public List<Trafficforsigu> TrafficBySiguName1(@PathParam("siguName") String sigu) {
+    public List<Trafficforsigu> TrafficBySiguName1(@PathParam("siguId") String sigu) {
          net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        List<Trafficforsigu> entityList = pu.createQuery("select a from trafficforsigu a where a.siguName = :v ")
+        List<Trafficforsigu> entityList = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
                 .setParameter("v",sigu)
                 .getEntityList();
         return entityList;
@@ -141,4 +142,14 @@ public class GenericResource {
     @Path("/{siguFrom}/{siguTo}")
     public List<Trafficforsigu> TrafficBySiguRange(@PathParam("siguFrom") int from, @PathParam("siguTo") int to) {
     */
+    
+    @Path("getsiguname")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+
+    public List<modules> getSiguName() {
+         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        List<modules> entityList = pu.createQuery("select a from modules a").getEntityList();
+        return entityList;
+    }
 }
