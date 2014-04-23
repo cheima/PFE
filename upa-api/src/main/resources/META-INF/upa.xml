@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<arg>
+   <upa version="1.0">
+    <persistencegroup>
+        <persistenceunit>
+            <connection>
+                <connectionstring>
+                    WAMPSERVER:default://localhost/upatutorial;structure=create
+                </connectionstring>
+                <!--username>me</username-->
+                <username>root</username>
+                <password>never</password>
+            </connection>
+        </persistenceunit>
+    </persistencegroup>
+</upa> 
+</arg>
