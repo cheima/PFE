@@ -22,7 +22,7 @@ angular.module('myApp.controllers', []).
                 $scope.selected = s;
             };
              $scope.selectSIGUupdate = function(s) {
-                 $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});
+             $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});            
             };
             $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});
            // $scope.alltraffics = trafficforsigu.query({siguId: 54});
