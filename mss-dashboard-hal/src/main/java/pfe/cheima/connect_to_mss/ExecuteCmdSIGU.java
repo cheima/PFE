@@ -264,29 +264,32 @@ public class ExecuteCmdSIGU {
                     ListSIGU.add(ModuleSigu10);
                     
                     pr = Protocol.NONE;
-                    calcSCTP.received = 0;
-                    calcSCTP.sent = 0;
-                    calcIP.received = 0;
-                    calcIP.sent = 0;
-                    calcARP.received=0;
-                    calcARP.sent=0;                   
-                    calcICMP.received = 0;
-                    calcICMP.sent = 0;
-                    calcIP6.received = 0;
-                    calcIP6.sent = 0;
-                    calcUDP.received=0;
-                    calcUDP.sent=0;
-                    calcTCP.received = 0;
-                    calcTCP.sent = 0;
-                    calcIGMP.received = 0;
-                    calcIGMP.sent = 0;
-                    calcICMP6.received=0;
-                    calcICMP6.sent=0;
-                    calcUDP6.received = 0;
-                    calcUDP6.sent = 0;
-                    calcEMB.received = 0;
-                    calcEMB.sent = 0;
-                                      
+                    //Integer y = 0;
+                   // Long x = y.longValue();
+                    int j= 0;
+                    Long e = (long)j;
+                    calcSCTP.received = e;
+                    calcSCTP.sent = e;
+                    calcIP.received = e;
+                    calcIP.sent = e;
+                    calcARP.received=e;
+                    calcARP.sent=e;                   
+                    calcICMP.received = e;
+                    calcICMP.sent = e;
+                    calcIP6.received = e;
+                    calcIP6.sent = e;
+                    calcUDP.received=e;
+                    calcUDP.sent=e;
+                    calcTCP.received = e;
+                    calcTCP.sent = e;
+                    calcIGMP.received = e;
+                    calcIGMP.sent = e;
+                    calcICMP6.received=e;
+                    calcICMP6.sent=e;
+                    calcUDP6.received = e;
+                    calcUDP6.sent = e;
+                    calcEMB.received = e;
+                    calcEMB.sent = e;                                      
                 }
              }
         

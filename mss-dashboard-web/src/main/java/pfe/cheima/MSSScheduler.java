@@ -35,7 +35,7 @@ public class MSSScheduler implements ServletContextListener {
                 GatherDataTask t = UPA.makeSessionAware(new GatherDataTask());
                 t.populate();
             }
-        }, 5000, 1800000);
+        }, 5000, 36000000);
     }
 
     @Override

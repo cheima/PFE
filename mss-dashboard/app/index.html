@@ -13,26 +13,32 @@
             <li><a href="#/LoadCPU">LoadCPU</a></li>
             <li><a href="#/Bandwidth">Bandwidth</a></li>
         </ul>
-        <p>Range SIGU from :
-            <!--select ng-model="sigu1">
-                <option ng-repeat="onetraffic in alltraffics" value="{{onetraffic.siguName}}">{{onetraffic.siguName}}</option>
-                <option value="">-- choose SIGU Name --</option>
-            </select--> 
-               <!--select ng-change="selectSIGUupdate()" ng-model="siguSelected" -->
-                   <select ng-model="siguSelected" >
-                   <option value="">-- choose SIGU Name --</option>
-                <option ng-repeat="onesigu in sigunames"  value="{{onesigu.siguName}}">{{onesigu.siguName}}</option>
-                
-            </select>  to :
-           <select ng-model="sigu2">
-                <option ng-repeat="onesigu in sigunames" value="{{onesigu.siguName}}">{{onesigu.siguName}}</option>
-                <option value="">-- choose SIGU Name --</option>
-            </select> 
-             <p> Name For First Sigu: <input ng-model="siguSelected"></p>
-        <p> Name For Last Sigu: <input ng-model="sigu2"></p>
-       
+        <form>
+            <fieldset>
+                 <legend>Traffic Management</legend>
+        <p>
+            <input type = "submit" ng-model="display10sigu" value="Top 10 SIGU" />
+        </p>       
+                <p>Range SIGU from :
+                    <!--select ng-model="sigu1">
+                        <option ng-repeat="onetraffic in alltraffics" value="{{onetraffic.siguName}}">{{onetraffic.siguName}}</option>
+                        <option value="">-- choose SIGU Name --</option>
+                    </select--> 
+                    <!--select ng-change="selectSIGUupdate()" ng-model="siguSelected" -->
+                    <select ng-model="siguSelected" >
+                        <option value="">-- choose SIGU Name --</option>
+                        <option ng-repeat="onesigu in sigunames"  value="{{onesigu.siguName}}">{{onesigu.siguName}}</option>
 
-       
+                    </select>  to :
+                    <select ng-model="sigu2">
+                        <option ng-repeat="onesigu in sigunames" value="{{onesigu.siguName}}">{{onesigu.siguName}}</option>
+                        <option value="">-- choose SIGU Name --</option>
+                    </select> 
+                <p> Name For First Sigu: <input ng-model="siguSelected"></p>
+                <p> Name For Last Sigu: <input ng-model="sigu2"></p>
+            </fieldset>
+        </form>
+
 
 
         <div ng-view></div>

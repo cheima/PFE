@@ -15,8 +15,8 @@ public class Trafficforsigu implements Serializable {
     @Id  @Sequence
     private Integer Id;
     private Date dateExec;
-    private Integer packetreceived;
-    private Integer packetsent;
+    private Long packetreceived;
+    private Long packetsent;
     private Integer siguId;
 
     public Integer getId() {
@@ -48,19 +48,19 @@ public class Trafficforsigu implements Serializable {
         this.dateExec = dateExec;
     }
 
-    public Integer getPacketreceived() {
+    public Long getPacketreceived() {
         return packetreceived;
     }
 
-    public void setPacketreceived(Integer packetreceived) {
+    public void setPacketreceived(Long packetreceived) {
         this.packetreceived = packetreceived;
     }
 
-    public Integer getPacketsent() {
+    public Long getPacketsent() {
         return packetsent;
     }
 
-    public void setPacketsent(Integer packetsent) {
+    public void setPacketsent(Long packetsent) {
         this.packetsent = packetsent;
     }
     

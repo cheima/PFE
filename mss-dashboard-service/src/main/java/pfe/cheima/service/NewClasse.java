@@ -20,7 +20,7 @@ import pfe.cheima.service.model.Trafficforsigu;
 
 public class NewClasse {
     
-    ArrayList siguName = new ArrayList<String>();
+    /*ArrayList siguName = new ArrayList<String>();
 
     public List<Trafficforsigu> Lecture() throws FileNotFoundException, IOException {
         // array for each protocol 
@@ -296,5 +296,5 @@ public class NewClasse {
         System.out.println(siguName.get(g));
         }
         return ListSigu;
-    }
+    }*/
 }

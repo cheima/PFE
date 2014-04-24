@@ -152,4 +152,6 @@ public class GenericResource {
         List<modules> entityList = pu.createQuery("select a from modules a").getEntityList();
         return entityList;
     }
+    
+    
 }

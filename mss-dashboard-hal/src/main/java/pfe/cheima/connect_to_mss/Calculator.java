@@ -16,45 +16,48 @@ import java.util.regex.Pattern;
  */
 public class Calculator {
 
-    public int received;
-    public int sent;
+    public long received;
+    public long sent;
     public Protocol pr;
 
     public Calculator(Protocol pr) {
         this.pr = pr;
     }
 
-    public int getSent() {
+    public long getSent() {
         return sent;
     }
 
-    public void setSent(int sent) {
+    public void setSent(long sent) {
         this.sent = sent;
     }
 
-    public int getReceived() {
+    public long getReceived() {
         return received;
     }
 
-    public void setReceived(int received) {
+    public void setReceived(long received) {
         this.received = received;
     }
 
     //calc packet received
     public void CalcPackets(String CurrentLine) {
-        int ind1;
+        
+        long ind1;
         Pattern p = Pattern.compile("(\\s{1,16})([0-9]+).*[^:;]$");
         Matcher m = p.matcher(CurrentLine);
         if (m.find() && 8 >= m.group(1).length()) {
-            if (m.group().contains("received")) {
-                ind1 = Integer.parseInt(m.group(2));
-                received += ind1;
-            }
+          
 
             if (m.group().contains("sent")) {
-                ind1 = Integer.parseInt(m.group(2));
+                ind1 = Long.parseLong(m.group(2));
                 sent += ind1;
 
+            }
+              if (m.group().contains("received")) {
+               // ind1 = Integer.parseInt(m.group(2));
+                ind1 =  Long.parseLong(m.group(2));
+                received += ind1;
             }
 
         }
