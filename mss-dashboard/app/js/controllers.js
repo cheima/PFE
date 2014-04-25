@@ -8,32 +8,22 @@ google.setOnLoadCallback(function() {
 });
 
 angular.module('myApp.controllers', []).
-        controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, getalltraffic) {
+        controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, getalltraffic, courbes) {
           
             // var nom = "SIGU 0";
             //  $scope.alltraffics = trafficforsigu.query({siguId : "SIGU-3"});
-            $scope.siguSelected = -1;
+         // $scope.siguSelected = 56;
             $scope.sigunames = getsigunames.query();
             $scope.traffic = getalltraffic.query();
               /*  $scope.update = function() {
                 $scope.sigu = $scope.selectedItem;
             };*/
-             $scope.showSelectedElement = function(s) {
-                $scope.selected = s;
-            };
-             $scope.selectSIGUupdate = function(s) {
-             $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});            
-            };
+            
+      $scope.update = function() {
+
+            alert($scope.siguSelected);
             $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});
-           // $scope.alltraffics = trafficforsigu.query({siguId: 54});
-          
-            //$scope.alltraffics = trafficforsigu.query();
-            ////
-          
-////
-           
-           // $scope.alltraffics.$promise.then(function(result) {
-             //   $scope.alltraffics = result;
+           // $scope.sigu = $scope.siguSelected;
              $scope.alltraffics.$promise.then(function(result) {
              $scope.alltraffics = result;   
           //  var i = 0;
@@ -51,10 +41,14 @@ angular.module('myApp.controllers', []).
                         var curr_year =d.getFullYear();
                         var datenow = curr_date + "-" + curr_month + "-" + curr_year;
  
-                        val.push([datenow+"@"+d1+":"+d2,obj["packetreceived"]]);
+                        val.push([d1+":"+d2,obj["packetreceived"]]);
                    // val.push([i, obj["packetreceived"]]);
-                    // }
-                }
+                    //}
+               // }
+               // else {
+                //    i++;
+               // }
+            }
                 var data = google.visualization.arrayToDataTable(val);
                 var options = {
                     title: 'TrafficIN for SIGU'
@@ -77,6 +71,21 @@ angular.module('myApp.controllers', []).
 
                 $scope.chart = chart;
             });
+
+};
+
+
+           // $scope.alltraffics = trafficforsigu.query({siguId: $scope.sigu});
+           // $scope.alltraffics = trafficforsigu.query({siguId: 54});
+          
+            //$scope.alltraffics = trafficforsigu.query();
+            ////
+          
+////
+           
+           // $scope.alltraffics.$promise.then(function(result) {
+             //   $scope.alltraffics = result;
+    
         })
         .controller('MyCtrl2', function($scope, trafficforsigu, getalltraffic) {
             $scope.alltraffics = getalltraffic.query({siguName: "SIGU-4"});

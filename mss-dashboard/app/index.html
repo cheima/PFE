@@ -25,17 +25,17 @@
                         <option value="">-- choose SIGU Name --</option>
                     </select--> 
                     <!--select ng-change="selectSIGUupdate()" ng-model="siguSelected" -->
-                    <select ng-model="siguSelected" >
+                    <select ng-model="siguSelected"  ng-change="update()">
                         <option value="">-- choose SIGU Name --</option>
-                        <option ng-repeat="onesigu in sigunames"  value="{{onesigu.siguName}}">{{onesigu.siguName}}</option>
-
+                        <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
+                       
                     </select>  to :
-                    <select ng-model="sigu2">
-                        <option ng-repeat="onesigu in sigunames" value="{{onesigu.siguName}}">{{onesigu.siguName}}</option>
+                    <select ng-model="siguSelected2" ng-change="update()">
                         <option value="">-- choose SIGU Name --</option>
+                        <option ng-repeat="onesigu in sigunames" value="{{onesigu.id}}">{{onesigu.siguName}}</option>          
                     </select> 
                 <p> Name For First Sigu: <input ng-model="siguSelected"></p>
-                <p> Name For Last Sigu: <input ng-model="sigu2"></p>
+                <p> Name For Last Sigu: <input ng-model="siguSelected2"></p>
             </fieldset>
         </form>
 
