@@ -32,19 +32,27 @@
                     </select>  to :
                     <select ng-model="siguSelected2" ng-change="update()">
                         <option value="">-- choose SIGU Name --</option>
-                        <option ng-repeat="onesigu in sigunames" value="{{onesigu.id}}">{{onesigu.siguName}}</option>          
+                        <option ng-rat="onesigu in sigunames" value="{{onesigu.id}}">{{onesigu.siguName}}</option>          
                     </select> 
                 <p> Name For First Sigu: <input ng-model="siguSelected"></p>
                 <p> Name For Last Sigu: <input ng-model="siguSelected2"></p>
+        
+        <P>Select the SIGU you want to see
+        <select ng-model="siguSelected"  ng-change="update()">
+                        <option value="">-- choose SIGU Name --</option>
+                        <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
+                       
+        </select>
+        </p>    
+        <p>
+             <select id="chartType" ng-change="selectType(chartType)" ng-model="chartType" ng-options="c.typeName for c in chartTypes">
+        </select> 
+        </p>
             </fieldset>
         </form>
-
-
-
         <div ng-view></div>
 
-        <select id="chartType" ng-change="selectType(chartType)" ng-model="chartType" ng-options="c.typeName for c in chartTypes">
-        </select>
+      
 
         <!-- In production use:
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>

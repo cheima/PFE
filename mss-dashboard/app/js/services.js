@@ -24,10 +24,10 @@ trafficServices.factory('getalltraffic',function($resource){
     }));
 });
 
-
-trafficServices.factory('courbes',function($resource){
+//Display the graph of all sigus
+trafficServices.factory('allgraphs',function($resource){
    
-    return($resource('http://localhost:9999/mss-dashboard-web/webresources/generic/ch',{},{
+    return($resource('http://localhost:9999/mss-dashboard-web/webresources/generic/alltraffic',{},{
       query:{method:'GET',isArray:true}  
     }));
 });
