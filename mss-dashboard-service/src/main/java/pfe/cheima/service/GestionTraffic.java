@@ -13,6 +13,8 @@ import java.util.List;
 import net.vpc.upa.PersistenceUnit;
 import net.vpc.upa.UPA;
 import pfe.cheima.connect_to_mss.CmdExecuter;
+import pfe.cheima.connect_to_mss.CmdParser;
+import pfe.cheima.service.model.TimePoint;
 import pfe.cheima.service.model.Trafficforsigu;
 import pfe.cheima.service.model.modules;
 
@@ -34,6 +36,18 @@ public class GestionTraffic {
         // NewClasse bre = new NewClasse();
         CmdExecuter ce = new CmdExecuter();
         List<pfe.cheima.connect_to_mss.Trafficforsigu> Lecture = ce.getAllSiguTraffic();
+
+        // 1) create a java calendar instance
+        Calendar calendar = Calendar.getInstance();
+// 2) get a java.util.Date from the calendar instance.
+//    this date will represent the current instant, or "now".
+        Date now = calendar.getTime();
+// 3) a java current time (now) instance
+        java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+        TimePoint tp = new TimePoint();
+        tp.setAtTime(currentTimestamp);
+        pu.insert(tp);
+
         for (int g = 0; g < Lecture.size(); g++) {
             Trafficforsigu traffic = new Trafficforsigu();
             modules m = new modules();
@@ -55,14 +69,7 @@ public class GestionTraffic {
             traffic.setPacketsent(Lecture.get(g).getPacketsent());
             // traffic.setPacketreceived(Lecture.get(g).getPacketreceived());
             //traffic.setPacketsent(Lecture.get(g).getPacketsent());
-            // 1) create a java calendar instance
-            Calendar calendar = Calendar.getInstance();
-// 2) get a java.util.Date from the calendar instance.
-//    this date will represent the current instant, or "now".
-            Date now = calendar.getTime();
-// 3) a java current time (now) instance
-            java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
-            traffic.setDateExec(currentTimestamp);
+            traffic.setDateExec(tp.getId());
             //   pu.createQuery((EntityStatement) traffic);
             pu.insert(traffic);
         }

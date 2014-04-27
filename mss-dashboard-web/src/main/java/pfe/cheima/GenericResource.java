@@ -17,8 +17,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import net.vpc.upa.Query;
 import net.vpc.upa.UPA;
+import pfe.cheima.decorators.JsonMultiSiguTraffic_Response;
 import pfe.cheima.service.GestionTraffic;
-import pfe.cheima.service.model.GetAllSigu;
+import pfe.cheima.decorators.JsonSiguTraffic;
+import pfe.cheima.service.model.TimePoint;
 import pfe.cheima.service.model.Trafficforsigu;
 import pfe.cheima.service.model.modules;
 
@@ -93,10 +95,10 @@ public class GenericResource {
         Date date = calendar.getTime();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.add(Calendar.HOUR, -1);
+        cal.add(Calendar.MINUTE, -15);
         Date time = cal.getTime();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        List<Trafficforsigu> entityList = pu.createQuery("select a from trafficforsigu a where a.dateExec > :v")
+        List<Trafficforsigu> entityList = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where t.atTime >= :v")
                 .setParameter("v", time)
                 .getEntityList();
         return entityList;
@@ -176,24 +178,31 @@ public class GenericResource {
     @Path("alltraffic")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<GetAllSigu> getSigu1() {
-        List<GetAllSigu> gas = new ArrayList<GetAllSigu>();
+    public JsonMultiSiguTraffic_Response getSigu1() {
+        List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
         //  List<List<GetAllSigu>> listegas = new ArrayList<List<GetAllSigu>>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
         List<modules> List = pu.createQuery("select a from modules a").getEntityList();
         //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
 
-        //  for (int i = 0; i < List.size(); i++) {
+        Date time = lastHour();
+        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")
+                .setParameter("v", time)
+                .getEntityList();
         for (int i = 0; i < 10; i++) {
-            GetAllSigu sigu = new GetAllSigu();
+            JsonSiguTraffic sigu = new JsonSiguTraffic();
             sigu.setSiguid(List.get(i).getId());
             //gas.get(i).setSiguid(List.get(i).getId());
             sigu.setSiguname(List.get(i).getSiguName());
             // gas.get(i).setSiguname(List.get(i).getSiguName());
-            List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
-                    .setParameter("v", List.get(i).getId())
-                    .getEntityList();
+//            List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
+//                    .setParameter("v", List.get(i).getId())
+//                    .getEntityList();
+                List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v")
+                        .setParameter("v", time)
+                        .setParameter("id", List.get(i).getId())
+                        .getEntityList();
             sigu.setListe(entityList2);
             //  gas.get(i).setListe(entityList2);
 
@@ -201,39 +210,66 @@ public class GenericResource {
 
         }
 
-        return (gas);
+        JsonMultiSiguTraffic_Response ret = new JsonMultiSiguTraffic_Response();
+        ret.setSigus(gas);
+        ret.setTimes(times);
+        return (ret);
 
     }
 
     @Path("alltraffic/{list}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<GetAllSigu> getList(@PathParam("list") String list) {
+    public JsonMultiSiguTraffic_Response getList(@PathParam("list") String list) {
+
         String[] siguIdsAsStrings = list.split(",");
         List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
         for (String siguIdsAsString : siguIdsAsStrings) {
             siguIds.add(Integer.parseInt(siguIdsAsString));
         }
 
-        List<GetAllSigu> gas = new ArrayList<GetAllSigu>();
+        List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
 
+        Date time = lastHour();
+        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")
+                .setParameter("v", time)
+                .getEntityList();
         for (int id : siguIds) {
             modules m = pu.createQuery("select a from modules a where a.id = :id").setParameter("id", id).getEntity();
             if (m != null) {
-                GetAllSigu sigu = new GetAllSigu();
+                JsonSiguTraffic sigu = new JsonSiguTraffic();
                 sigu.setSiguid(id);
                 sigu.setSiguname(m.getSiguName());
-                List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
-                        .setParameter("v", id)
+                List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v")
+                        .setParameter("v", time)
+                        .setParameter("id", id)
                         .getEntityList();
+//                List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
+//                        .setParameter("v", id)
+//                        .getEntityList();
                 sigu.setListe(entityList2);
                 gas.add(sigu);
             }
         }
 
-        return (gas);
+        JsonMultiSiguTraffic_Response ret = new JsonMultiSiguTraffic_Response();
+        ret.setSigus(gas);
+        ret.setTimes(times);
+        return (ret);
 
+    }
+
+    private Date lastHour() {
+        Calendar calendar = Calendar.getInstance();
+// 2) get a java.util.Date from the calendar instance.
+//    this date will represent the current instant, or "now".
+        Date date = calendar.getTime();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.MINUTE, -15);
+        Date time = cal.getTime();
+        return time;
     }
 
 }

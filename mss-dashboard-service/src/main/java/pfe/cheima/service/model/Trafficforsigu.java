@@ -14,7 +14,7 @@ public class Trafficforsigu implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id  @Sequence
     private Integer Id;
-    private Date dateExec;
+    private Integer dateExec;
     private Long packetreceived;
     private Long packetsent;
     private Integer siguId;
@@ -40,11 +40,11 @@ public class Trafficforsigu implements Serializable {
 
    
 
-    public Date getDateExec() {
+    public Integer getDateExec() {
         return dateExec;
     }
 
-    public void setDateExec(Date dateExec) {
+    public void setDateExec(Integer dateExec) {
         this.dateExec = dateExec;
     }
 

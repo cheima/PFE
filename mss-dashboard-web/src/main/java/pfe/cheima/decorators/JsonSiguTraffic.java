@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 
-package pfe.cheima.service.model;
+package pfe.cheima.decorators;
 
 import java.io.Serializable;
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 import net.vpc.upa.config.Entity;
+import pfe.cheima.service.model.TimePoint;
+import pfe.cheima.service.model.Trafficforsigu;
 
 
 
@@ -17,14 +19,14 @@ import net.vpc.upa.config.Entity;
  *
  * @author Cheima
  */
-@Entity
 @XmlRootElement
-public class GetAllSigu implements Serializable{
+public class JsonSiguTraffic implements Serializable{
      private static final long serialVersionUID = 1L;
     private String siguname;
     private int siguid;
     private List<Trafficforsigu> liste;
-
+    private List<TimePoint> times;
+    
     public String getSiguname() {
         return siguname;
     }
@@ -47,6 +49,14 @@ public class GetAllSigu implements Serializable{
 
     public void setListe(List<Trafficforsigu> liste) {
         this.liste = liste;
+    }
+
+    public List<TimePoint> getTimes() {
+        return times;
+    }
+
+    public void setTimes(List<TimePoint> times) {
+        this.times = times;
     }
     
     
