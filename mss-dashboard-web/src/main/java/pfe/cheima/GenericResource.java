@@ -177,15 +177,16 @@ public class GenericResource {
     @Path("alltraffic")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<List<GetAllSigu>> getSigu1() {
+    public List<GetAllSigu> getSigu1() {
         List<GetAllSigu> gas = new ArrayList<GetAllSigu>();
-        List<List<GetAllSigu>> listegas = new ArrayList<List<GetAllSigu>>();
+      //  List<List<GetAllSigu>> listegas = new ArrayList<List<GetAllSigu>>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
         List<modules> List = pu.createQuery("select a from modules a").getEntityList();
         //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
        
-        for (int i = 0; i < List.size(); i++) {
+      //  for (int i = 0; i < List.size(); i++) {
+        for (int i = 0; i < 10; i++) {
             GetAllSigu sigu = new GetAllSigu();
             sigu.setSiguid(List.get(i).getId());
             //gas.get(i).setSiguid(List.get(i).getId());
@@ -198,10 +199,10 @@ public class GenericResource {
           //  gas.get(i).setListe(entityList2);
 
             gas.add(sigu);
-            listegas.add(gas);
+          
         }
 
-        return (listegas);
+        return (gas);
 
     }
 }
