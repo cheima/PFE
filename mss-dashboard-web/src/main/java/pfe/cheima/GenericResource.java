@@ -88,15 +88,8 @@ public class GenericResource {
     @Produces(MediaType.APPLICATION_JSON)
 
     public List<Trafficforsigu> findTrafficByTime() {
-        // 1) create a java calendar instance
-        Calendar calendar = Calendar.getInstance();
-// 2) get a java.util.Date from the calendar instance.
-//    this date will represent the current instant, or "now".
-        Date date = calendar.getTime();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        cal.add(Calendar.MINUTE, -15);
-        Date time = cal.getTime();
+
+        Date time = lastHour();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         List<Trafficforsigu> entityList = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where t.atTime >= :v")
                 .setParameter("v", time)
@@ -267,7 +260,7 @@ public class GenericResource {
         Date date = calendar.getTime();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.add(Calendar.MINUTE, -15);
+        cal.add(Calendar.MINUTE, -60);
         Date time = cal.getTime();
         return time;
     }

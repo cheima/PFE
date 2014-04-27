@@ -1,3 +1,7 @@
 /connect_to_mss/target/
 /upa-test-service/target/
 /charisma/nbproject/private/
+/mss-dashboard/nbproject/private/
+/mss-dashboard-hal/target/
+/mss-dashboard-service/target/
+/mss-dashboard-web/target/

@@ -25,7 +25,6 @@ public class JsonSiguTraffic implements Serializable{
     private String siguname;
     private int siguid;
     private List<Trafficforsigu> liste;
-    private List<TimePoint> times;
     
     public String getSiguname() {
         return siguname;
@@ -51,14 +50,6 @@ public class JsonSiguTraffic implements Serializable{
         this.liste = liste;
     }
 
-    public List<TimePoint> getTimes() {
-        return times;
-    }
-
-    public void setTimes(List<TimePoint> times) {
-        this.times = times;
-    }
-    
-    
+   
     
 }
