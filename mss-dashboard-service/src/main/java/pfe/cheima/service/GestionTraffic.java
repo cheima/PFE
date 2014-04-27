@@ -11,11 +11,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import net.vpc.upa.PersistenceUnit;
-import net.vpc.upa.Query;
-import net.vpc.upa.Record;
 import net.vpc.upa.UPA;
 import pfe.cheima.connect_to_mss.CmdExecuter;
-import pfe.cheima.connect_to_mss.CmdParser;
 import pfe.cheima.service.model.Trafficforsigu;
 import pfe.cheima.service.model.modules;
 
