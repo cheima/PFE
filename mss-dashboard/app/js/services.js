@@ -1,17 +1,18 @@
 'use strict';
 
 var trafficServices =angular.module('myApp.services', ['ngResource']);
+var host = 'http://localhost:8080';
 
 trafficServices.factory('trafficforsigu',function($resource){
    
-    return($resource('http://localhost:9999/mss-dashboard-web/webresources/generic/:siguId',{siguId : '@siguId'},{
+    return($resource(host+'/mss-dashboard-web/webresources/generic/:siguId',{siguId : '@siguId'},{
       query:{method:'GET',isArray:true}  
     }));
 });
 
 trafficServices.factory('getsigunames',function($resource){
    
-    return($resource('http://localhost:9999/mss-dashboard-web/webresources/generic/getsiguname',{},{
+    return($resource(host+'/mss-dashboard-web/webresources/generic/getsiguname',{},{
       query:{method:'GET',isArray:true}  
     }));
 });
@@ -19,7 +20,7 @@ trafficServices.factory('getsigunames',function($resource){
 
 trafficServices.factory('getalltraffic',function($resource){
    
-    return($resource('http://localhost:9999/mss-dashboard-web/webresources/generic/traffic',{},{
+    return($resource(host+'/mss-dashboard-web/webresources/generic/traffic',{},{
       query:{method:'GET',isArray:true}  
     }));
 });
@@ -27,7 +28,7 @@ trafficServices.factory('getalltraffic',function($resource){
 //Display the graph of all sigus
 trafficServices.factory('allgraphs',function($resource){
    
-    return($resource('http://localhost:9999/mss-dashboard-web/webresources/generic/alltraffic',{},{
+    return($resource(host+'/mss-dashboard-web/webresources/generic/alltraffic',{},{
       query:{method:'GET',isArray:true}  
     }));
 });
