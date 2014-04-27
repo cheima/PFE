@@ -17,8 +17,11 @@
             <fieldset>
                  <legend>Traffic Management</legend>
         <p>
-            <input type = "submit" ng-model="display10sigu" value="Top 10 SIGU" />
-        </p>       
+            <input type = "submit" ng-model="display10sigu"  ng-click="updateShowAll()" value="Top 10 SIGU" />
+        </p>     
+         <p>
+            <input type = "submit" ng-model="displayallsigu"  ng-click="updateShowAll()" value="Show All SIGUs" />
+        </p> 
                 <p>Range SIGU from :
                     <!--select ng-model="sigu1">
                         <option ng-repeat="onetraffic in alltraffics" value="{{onetraffic.siguName}}">{{onetraffic.siguName}}</option>
@@ -34,8 +37,8 @@
                         <option value="">-- choose SIGU Name --</option>
                         <option ng-repeat="onesigu in sigunames" value="{{onesigu.id}}">{{onesigu.siguName}}</option>          
                     </select> 
-                     <p>
-            <input type = "submit" ng-model="submit" ng-change="updateRange()"value="Submit" />
+                     
+            <input type = "submit" ng-click="updateRange()"value="Submit" />
         </p> 
                 <p> Name For First Sigu: <input ng-model="siguSelected"></p>
                 <p> Name For Last Sigu: <input ng-model="siguSelected2"></p>

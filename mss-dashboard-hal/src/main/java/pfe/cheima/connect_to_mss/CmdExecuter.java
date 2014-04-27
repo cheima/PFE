@@ -26,7 +26,7 @@ public class CmdExecuter {
         CmdParser cp = new CmdParser();
         String ListCmdSigu = ta.getAllSiguTraffic();
         List<Trafficforsigu> allStats = cp.parseSiguTraffic(ListCmdSigu);
-        allStats.addAll(allStats);
+       // allStats.addAll(allStats);
         return allStats;
 
        }
