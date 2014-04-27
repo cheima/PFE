@@ -8,7 +8,7 @@ google.setOnLoadCallback(function() {
 });
 
 angular.module('myApp.controllers', []).
-        controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, getalltraffic, allgraphs) {
+        controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, getalltraffic, allgraphs, siguranged) {
             $scope.graphs = allgraphs.query();
 
             $scope.graphs.$promise.then(function(result) {
@@ -85,12 +85,30 @@ angular.module('myApp.controllers', []).
 
             $scope.sigunames = getsigunames.query();
             $scope.traffic = getalltraffic.query();
-            $scope.update = function() {
+            
+          //  $scope.rangesigu= siguranged.query({list: liste});   
+                    $scope.update = function() {
                 //alert($scope.siguSelected);
                 $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});
                 $scope.alltraffics.$promise.then(function(result) {
                     $scope.alltraffics = result;
                     //  var i = 0;
+                    var range;
+            var chaine = $scope.siguSelected;
+            var chaine2 = $scope.siguSelected2;
+            var j = chaine;
+            //var liste="from "+chaine+"to"+chaine2+"there are:";
+           var liste="";
+         for(var k = 0; k <= Math.abs(chaine2-chaine);k++){
+             if(parseInt(chaine) < parseInt(chaine2))
+            var j = parseInt(k) + parseInt(chaine); 
+        else 
+           var j = parseInt(k) + parseInt(chaine2); 
+           liste+=parseInt(j)+",";
+         }
+                  
+            alert(liste);
+            $scope.rangesigu= siguranged.query({list: liste});
                     var val = [['Time', 'TrafficIN']];
                     // key = i && tab[i]=result[key]
                     for (var key in result) {

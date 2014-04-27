@@ -32,7 +32,7 @@
                     </select>  to :
                     <select ng-model="siguSelected2" ng-change="update()">
                         <option value="">-- choose SIGU Name --</option>
-                        <option ng-rat="onesigu in sigunames" value="{{onesigu.id}}">{{onesigu.siguName}}</option>          
+                        <option ng-repeat="onesigu in sigunames" value="{{onesigu.id}}">{{onesigu.siguName}}</option>          
                     </select> 
                 <p> Name For First Sigu: <input ng-model="siguSelected"></p>
                 <p> Name For Last Sigu: <input ng-model="siguSelected2"></p>

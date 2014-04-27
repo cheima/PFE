@@ -1,7 +1,7 @@
 'use strict';
 
 var trafficServices =angular.module('myApp.services', ['ngResource']);
-var host = 'http://localhost:8080';
+var host = 'http://localhost:9999';
 
 trafficServices.factory('trafficforsigu',function($resource){
    
@@ -29,6 +29,13 @@ trafficServices.factory('getalltraffic',function($resource){
 trafficServices.factory('allgraphs',function($resource){
    
     return($resource(host+'/mss-dashboard-web/webresources/generic/alltraffic',{},{
+      query:{method:'GET',isArray:true}  
+    }));
+});
+
+trafficServices.factory('siguranged',function($resource){
+   
+    return($resource(host+'/mss-dashboard-web/webresources/generic/alltraffic/:list',{list: '@list'},{
       query:{method:'GET',isArray:true}  
     }));
 });
