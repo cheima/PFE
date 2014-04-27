@@ -155,54 +155,85 @@ public class GenericResource {
         return entityList;
     }
 
-   /* @Path("alltraffic")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
+    /* @Path("alltraffic")
+     @GET
+     @Produces(MediaType.APPLICATION_JSON)
 
-    public List<List<Trafficforsigu>> getSigu() {
-        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
-        List<modules> entityList = pu.createQuery("select a.id from modules a").getIdList();
+     public List<List<Trafficforsigu>> getSigu() {
+     net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+     List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
+     List<modules> entityList = pu.createQuery("select a.id from modules a").getIdList();
 
-        for (int i = 0; i < entityList.size(); i++) {
-            List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
-                    .setParameter("v", entityList.get(i))
-                    .getEntityList();
-            liste.add(entityList2);
-        }
-        return (liste);
+     for (int i = 0; i < entityList.size(); i++) {
+     List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
+     .setParameter("v", entityList.get(i))
+     .getEntityList();
+     liste.add(entityList2);
+     }
+     return (liste);
 
-    }*/
-
+     }*/
     @Path("alltraffic")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<GetAllSigu> getSigu1() {
         List<GetAllSigu> gas = new ArrayList<GetAllSigu>();
-      //  List<List<GetAllSigu>> listegas = new ArrayList<List<GetAllSigu>>();
+        //  List<List<GetAllSigu>> listegas = new ArrayList<List<GetAllSigu>>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
         List<modules> List = pu.createQuery("select a from modules a").getEntityList();
         //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
-       
-      //  for (int i = 0; i < List.size(); i++) {
+
+        //  for (int i = 0; i < List.size(); i++) {
         for (int i = 0; i < 10; i++) {
             GetAllSigu sigu = new GetAllSigu();
             sigu.setSiguid(List.get(i).getId());
             //gas.get(i).setSiguid(List.get(i).getId());
             sigu.setSiguname(List.get(i).getSiguName());
-           // gas.get(i).setSiguname(List.get(i).getSiguName());
+            // gas.get(i).setSiguname(List.get(i).getSiguName());
             List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
                     .setParameter("v", List.get(i).getId())
                     .getEntityList();
             sigu.setListe(entityList2);
-          //  gas.get(i).setListe(entityList2);
+            //  gas.get(i).setListe(entityList2);
 
             gas.add(sigu);
-          
+
         }
 
         return (gas);
 
     }
+
+    @Path("alltraffic/{list}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<GetAllSigu> getList(@PathParam("list") String list) {
+        String[] siguIdsAsStrings = list.split(",");
+        List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
+        for (String siguIdsAsString : siguIdsAsStrings) {
+            siguIds.add(Integer.parseInt(siguIdsAsString));
+        }
+
+        List<GetAllSigu> gas = new ArrayList<GetAllSigu>();
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+
+        for (int id : siguIds) {
+            modules m = pu.createQuery("select a from modules a where a.id = :id").setParameter("id", id).getEntity();
+            if (m != null) {
+                GetAllSigu sigu = new GetAllSigu();
+                sigu.setSiguid(id);
+                sigu.setSiguname(m.getSiguName());
+                List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
+                        .setParameter("v", id)
+                        .getEntityList();
+                sigu.setListe(entityList2);
+                gas.add(sigu);
+            }
+        }
+
+        return (gas);
+
+    }
+
 }
