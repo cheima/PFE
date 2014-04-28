@@ -17,7 +17,7 @@ import java.io.IOException;
 public class TelnetAPI_Impl2 implements TelnetAPI{
 
     public String getAllSiguTraffic() throws IOException {
-      BufferedReader br = new BufferedReader(new FileReader("M:\\Users\\Ilyes\\Projects\\Java\\PFE_ch\\mss-dashboard-service\\test.txt"));
+      BufferedReader br = new BufferedReader(new FileReader("F:\\PFE\\FolderForGit\\mss-dashboard-service\\test.txt"));
      String s = "";
         while (br.ready()) {
             s += "\n" + br.readLine();
