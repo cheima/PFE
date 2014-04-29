@@ -12,6 +12,7 @@ angular.module('myApp.controllers', []).
 
             $scope.sigunames = getsigunames.query();
             //                    
+
             $scope.update = function() {
                 //alert($scope.siguSelected);
                 $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});
@@ -65,54 +66,158 @@ angular.module('myApp.controllers', []).
             };
 
             var showFromList = function(result) {
-                    $scope.graphs = result;
+                $scope.graphs = result;
 
-                    var tab = [['date']];
-                    for (var i = 0; i < 10; i++) // 10 = nombre de valeurs horizontales
-                        tab.push([i * 5]);
+                var tab = [['date']];
+                for (var i = 0; i < 10; i++) // 10 = nombre de valeurs horizontales
+                    tab.push([i * 5]);
 
-                    var sigus = result["sigus"];
-                    // key = i && tab[i]=result[key]
-                    for (var key in sigus) { // pour tout sigu dans result
-                        var obj = sigus[key]; // le sigu 
-                        var liste = obj["liste"]; // ses stats
-                        var siguname = obj["siguname"];
-                        if (!siguname)
-                            siguname = "inconnu id:" + obj["siguid"];
-                        tab[0].push(siguname);
-                        var index = 0;
-                        for (var key1 in liste) // pour tout traffic de ce sigu
-                        {
-                            if (index >= 10)
-                                break;
+                var sigus = result["sigus"];
+                // key = i && tab[i]=result[key]
+                for (var key in sigus) { // pour tout sigu dans result
+                    var obj = sigus[key]; // le sigu 
+                    var liste = obj["liste"]; // ses stats
+                    var siguname = obj["siguname"];
+                    if (!siguname)
+                        siguname = "inconnu id:" + obj["siguid"];
+                    tab[0].push(siguname);
+                    var index = 0;
+                    for (var key1 in liste) // pour tout traffic de ce sigu
+                    {
+                        if (index >= 10)
+                            break;
 
-                            var val = [['Time', obj["siguname"]]];
-                            var obj1 = liste[key1];
-                            var d = new Date(obj1["dateExec"]);
-                            var d1 = d.getHours();
-                            var d2 = d.getMinutes();
-                            var curr_date = d.getDate();
-                            var curr_month = d.getMonth() + 1; //Months are zero based
-                            var curr_year = d.getFullYear();
-                            var datenow = curr_date + "-" + curr_month + "-" + curr_year;
+                        var val = [['Time', obj["siguname"]]];
+                        var obj1 = liste[key1];
+                        var d = new Date(obj1["dateExec"]);
+                        var d1 = d.getHours();
+                        var d2 = d.getMinutes();
+                        var curr_date = d.getDate();
+                        var curr_month = d.getMonth() + 1; //Months are zero based
+                        var curr_year = d.getFullYear();
+                        var datenow = curr_date + "-" + curr_month + "-" + curr_year;
 
-                            val.push([d1 + ":" + d2, obj1["packetreceived"]]);
+                        val.push([d1 + ":" + d2, obj1["packetreceived"]]);
 
-                            tab[index + 1].push(obj1["packetreceived"]);
-                            index = index + 1;
-                        }
-
-                        // si le sigu a moin que 10 valeurs, remplir avec des zeros
-                        if (index < 10)
-                            for (var i = index; i < 10; i++) {
-                                tab[i + 1].push(0);
-                            }
+                        tab[index + 1].push(obj1["packetreceived"]);
+                        index = index + 1;
                     }
-                    var data = google.visualization.arrayToDataTable(tab);
+
+                    // si le sigu a moin que 10 valeurs, remplir avec des zeros
+                    if (index < 10)
+                        for (var i = index; i < 10; i++) {
+                            tab[i + 1].push(0);
+                        }
+                }
+                var data = google.visualization.arrayToDataTable(tab);
 
 
 
 
+                var options = {
+                    title: 'TrafficIN for SIGU'
+                };
+                var chart = {};
+                chart.data = data;
+                chart.options = options;
+
+                $scope.chartTypes = [
+                    {typeName: 'LineChart', typeValue: '1'},
+                    {typeName: 'BarChart', typeValue: '2'},
+                    {typeName: 'ColumnChart', typeValue: '3'},
+                    {typeName: 'PieChart', typeValue: '4'}
+                ];
+                $scope.selectType = function(type) {
+                    $scope.chart.type = type.typeValue;
+                };
+                chart.type = $scope.chartTypes[0].typeValue;
+                $scope.chartType = $scope.chartTypes[0];
+
+                $scope.chart = chart;
+
+
+            };
+
+            $scope.updateShowAll = function() {
+                var allsigu = allgraphs.query();
+                allsigu.$promise.then(showFromList);
+
+            };
+
+            $scope.updateRange = function() {
+                var list = "";
+
+                var start = 0;
+                var i = 0;
+                while (i < $scope.sigunames.length) {
+                    if ($scope.sigunames[i].id == $scope.siguSelected) {
+                        start = i;
+                        break;
+                    } else
+                        i = i + 1;
+                }
+
+                // juska ? et créer la liste en parallèle
+                for (i = start; i < $scope.sigunames.length; i++) {
+                    if (list === "")
+                        list = $scope.sigunames[i].id;
+                    else
+                        list = list + "," + $scope.sigunames[i].id;
+
+                    if ($scope.sigunames[i].id == $scope.siguSelected2)
+                        break;
+                }
+
+                alert(list);
+                var rangesigu = siguranged.query({list: list});
+                rangesigu.$promise.then(showFromList);
+
+            };
+
+
+            $scope.updateRange11 = function() {
+                $scope.display = allgraphs.query();
+                $scope.display.$promise.then(function(result) {
+                    $scope.display = result;
+                    var val = [['Time', 'TrafficIN']];
+                    // key = i && tab[i]=result[key]
+                    var obj1;
+                    var obj2;
+                    var i =0;
+                    var tab = [['date']];
+                    for (var key in result) {
+                        var obj = result[key];
+                        for (obj1 in obj["times"])
+                        {
+                            val.push(obj1["atTime"]);
+                            for( obj2 in obj["sigus"]){
+                                if(obj2[siguId]==obj1["id"]){
+                                    tab[i].push(obj2["packetreceived"])
+                                    i++;
+                                }
+                            }
+                        }
+                     
+
+                        //  if (obj["siguName"] == nom) {                   
+                        //  i = i + 5;
+                        var d = new Date(obj["dateExec"]);
+                        var d1 = d.getHours();
+                        var d2 = d.getMinutes();
+                        var curr_date = d.getDate();
+                        var curr_month = d.getMonth() + 1; //Months are zero based
+                        var curr_year = d.getFullYear();
+                        var datenow = curr_date + "-" + curr_month + "-" + curr_year;
+
+                        val.push([d1 + ":" + d2, obj["packetreceived"]]);
+                        // val.push([i, obj["packetreceived"]]);
+                        //}
+                        // }
+                        // else {
+                        //    i++;
+                        // }
+                    }
+                    var data = google.visualization.arrayToDataTable(val);
                     var options = {
                         title: 'TrafficIN for SIGU'
                     };
@@ -133,43 +238,7 @@ angular.module('myApp.controllers', []).
                     $scope.chartType = $scope.chartTypes[0];
 
                     $scope.chart = chart;
-
-
-                };
-
-            $scope.updateShowAll = function() {
-                var allsigu = allgraphs.query();
-                allsigu.$promise.then(showFromList);
-
-            };
-
-            $scope.updateRange = function() {
-                var list = "";
-
-                var start = 0;
-                var i = 0;
-                while (i < $scope.sigunames.length) {
-                    if ($scope.sigunames[i].id == $scope.siguSelected) {
-                        start = i;
-                        break;
-                    } else
-                        i = i + 1;
-                }
-                
-                // juska ? et créer la liste en parallèle
-                for (i = start; i < $scope.sigunames.length; i++) {
-                    if (list === "")
-                        list = $scope.sigunames[i].id;
-                    else
-                        list = list + "," + $scope.sigunames[i].id;
-
-                    if ($scope.sigunames[i].id == $scope.siguSelected2)
-                        break;
-                }
-
-                alert(list);
-                var rangesigu = siguranged.query({list: list});
-                rangesigu.$promise.then(showFromList);
+                });
 
             };
         })

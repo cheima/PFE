@@ -39,3 +39,18 @@ trafficServices.factory('siguranged',function($resource){
       query:{method:'GET',isArray:false}  
     }));
 });
+
+trafficServices.factory('getbsunames',function($resource){
+   
+    return($resource(host+'/mss-dashboard-web/webresources/generic/getbsuname',{},{
+      query:{method:'GET',isArray:true}  
+    }));
+});
+
+
+trafficServices.factory('display',function($resource){
+   
+    return($resource(host+'/mss-dashboard-web/webresources/generic/display',{},{
+      query:{method:'GET',isArray:true}  
+    }));
+});
