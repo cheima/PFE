@@ -30,4 +30,13 @@ public class CmdExecuter {
         return allStats;
 
        }
+       
+       public List<Trafficforsigu> getAllBsuTraffic() throws IOException{
+           
+           TelnetAPI_Impl2 ta = new TelnetAPI_Impl2();
+           CmdParser cp = new CmdParser();
+           String ListCmdBsu = ta.getAllBsuTraffic();
+           List<Trafficforsigu> allStats = cp.parseSiguTraffic(ListCmdBsu);
+           return allStats;
+       }
 }

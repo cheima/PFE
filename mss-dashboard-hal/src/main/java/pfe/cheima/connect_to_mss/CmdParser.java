@@ -70,6 +70,8 @@ public class CmdParser {
             while ((sCurrentLine = buff.readLine()) != null) {
                 Pattern p20 = Pattern.compile("UNIT:.*");
                 Matcher m20 = p20.matcher(sCurrentLine);
+                
+                
 
                 Pattern p = Pattern.compile("^ip:$");
                 Matcher m = p.matcher(sCurrentLine);

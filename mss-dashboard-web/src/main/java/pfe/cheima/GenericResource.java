@@ -15,8 +15,10 @@ import javax.ws.rs.GET;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import net.vpc.upa.PersistenceUnit;
 import net.vpc.upa.Query;
 import net.vpc.upa.UPA;
+import pfe.cheima.decorators.JsonDisplayGraphs;
 import pfe.cheima.decorators.JsonMultiSiguTraffic_Response;
 import pfe.cheima.service.GestionTraffic;
 import pfe.cheima.decorators.JsonSiguTraffic;
@@ -146,10 +148,20 @@ public class GenericResource {
 
     public List<modules> getSiguName() {
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        List<modules> entityList = pu.createQuery("select a from modules a").getEntityList();
+        List<modules> entityList = pu.createQuery("select a from modules a WHERE a.type = :v")
+                .setParameter("v", 0).getEntityList();
         return entityList;
     }
+  @Path("getbsuname")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
 
+    public List<modules> getBsuName() {
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        List<modules> entityList = pu.createQuery("select a from modules a WHERE a.type = :v")
+                .setParameter("v", 1).getEntityList();
+        return entityList;
+    }
     /* @Path("alltraffic")
      @GET
      @Produces(MediaType.APPLICATION_JSON)
@@ -168,6 +180,27 @@ public class GenericResource {
      return (liste);
 
      }*/
+    @Path("display")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<JsonDisplayGraphs> liste(){
+        
+        List<JsonDisplayGraphs> liste = new ArrayList<JsonDisplayGraphs>();
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        List<TimePoint> entityList = pu.createQuery("select t from TimePoint t left join modules m ON t.id = m.id ").getEntityList();
+        List<Trafficforsigu> entityList1 = pu.createQuery("select t from Trafficforsigu t ")
+                .getEntityList();
+        List<modules> entitymodule = pu.createQuery("select m from modules m where m.type = :v").setParameter("v", 0).getEntityList();
+        for(int i = 0;i<entityList.size();i++){
+            JsonDisplayGraphs listejson = new JsonDisplayGraphs();
+           listejson.setAtTime(entityList.get(i).getAtTime());
+           listejson.setSiguName(entitymodule.get(i).getSiguName());
+           listejson.setPacketreceived(entityList1.get(i).getPacketreceived());
+           listejson.setPacketsent(entityList1.get(i).getPacketsent());
+           liste.add(listejson);
+        }
+        return liste;
+    }
     @Path("alltraffic")
     @GET
     @Produces(MediaType.APPLICATION_JSON)

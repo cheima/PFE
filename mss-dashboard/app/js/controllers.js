@@ -203,76 +203,13 @@ angular.module('myApp.controllers', []).
                 }
 
                 alert(list);
+               // i =0;
                 var rangesigu = siguranged.query({list: list});
                 rangesigu.$promise.then(showFromList);
-
-            };
-
-
-            $scope.updateRange11 = function() {
-                $scope.display = allgraphs.query();
-                $scope.display.$promise.then(function(result) {
-                    $scope.display = result;
-                    var val = [['Time', 'TrafficIN']];
-                    // key = i && tab[i]=result[key]
-                    var obj1;
-                    var obj2;
-                    var i = 0;
-                    var tab = [['date']];
-                    for (var key in result) {
-                        var obj = result[key];
-                        for (obj1 in obj["times"])
-                        {
-                            val.push(obj1["atTime"]);
-                            for (obj2 in obj["sigus"]) {
-                                if (obj2[siguId] == obj1["id"]) {
-                                    tab[i].push(obj2["packetreceived"])
-                                    i++;
-                                }
-                            }
-                        }
-
-
-                        //  if (obj["siguName"] == nom) {                   
-                        //  i = i + 5;
-                        var d = new Date(obj["dateExec"]);
-                        var d1 = d.getHours();
-                        var d2 = d.getMinutes();
-                        var curr_date = d.getDate();
-                        var curr_month = d.getMonth() + 1; //Months are zero based
-                        var curr_year = d.getFullYear();
-                        var datenow = curr_date + "-" + curr_month + "-" + curr_year;
-
-                        val.push([d1 + ":" + d2, obj["packetreceived"]]);
-                        // val.push([i, obj["packetreceived"]]);
-                        //}
-                        // }
-                        // else {
-                        //    i++;
-                        // }
-                    }
-                    var data = google.visualization.arrayToDataTable(val);
-                    var options = {
-                        title: 'TrafficIN for SIGU'
-                    };
-                    var chart = {};
-                    chart.data = data;
-                    chart.options = options;
-
-                    $scope.chartTypes = [
-                        {typeName: 'LineChart', typeValue: '1'},
-                        {typeName: 'BarChart', typeValue: '2'},
-                        {typeName: 'ColumnChart', typeValue: '3'},
-                        {typeName: 'PieChart', typeValue: '4'}
-                    ];
-                    $scope.selectType = function(type) {
-                        $scope.chart.type = type.typeValue;
-                    };
-                    chart.type = $scope.chartTypes[0].typeValue;
-                    $scope.chartType = $scope.chartTypes[0];
-
-                    $scope.chart = chart;
-                });
+                if($scope.sigunames[i].id == $scope.siguSelected3){
+                     var rangesigu = siguranged.query({list: $scope.siguSelected3});
+                             rangesigu.$promise.then(showFromList);
+                }
 
             };
         })

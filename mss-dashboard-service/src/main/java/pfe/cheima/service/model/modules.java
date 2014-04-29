@@ -22,7 +22,16 @@ public class modules implements Serializable {
     @Id @Sequence
     private Integer Id;
     private String siguName;
+    private Integer type;
 
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+    
     public Integer getId() {
         return Id;
     }

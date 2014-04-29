@@ -44,7 +44,7 @@
                 <p> Name For Last Sigu: <input ng-model="siguSelected2"></p-->
         
         <P>Select the SIGU you want to see
-        <select ng-model="siguSelected"  ng-change="update()">
+        <select ng-model="siguSelected3"  ng-change="updateShowAll()">
                         <option value="">-- choose SIGU Name --</option>
                         <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
                        

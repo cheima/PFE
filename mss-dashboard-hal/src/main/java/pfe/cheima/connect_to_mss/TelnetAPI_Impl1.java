@@ -43,4 +43,7 @@ public class TelnetAPI_Impl1 implements TelnetAPI{
        // System.out.println(ListCmdSIGU.size());
         return ListExecSIGU;
    }
+   
+   
+   
 }

@@ -1,0 +1,1441 @@
+< ZQRS: BSU,1::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:24
+
+UNIT: BSU-1            
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        7 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 5
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        855242 packets received
+
+                855233 valid request packets
+
+                855242 broadcast/multicast packets
+
+                9 packets sourced from a local hardware address
+
+                1342512 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,2::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:25
+
+UNIT: BSU-2            
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        7 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 5
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        854121 packets received
+
+                854083 valid request packets
+
+                854121 broadcast/multicast packets
+
+                28 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                1341016 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,3::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:25
+
+UNIT: BSU-3            
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        7 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 5
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        854265 packets received
+
+                854207 valid request packets
+
+                854265 broadcast/multicast packets
+
+                48 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                1341216 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,4::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:25
+
+UNIT: BSU-4            
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        7 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 5
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        854265 packets received
+
+                854203 valid request packets
+
+                854265 broadcast/multicast packets
+
+                52 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                1341208 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,5::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:25
+
+UNIT: BSU-5            
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        7 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 5
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        854265 packets received
+
+                854211 valid request packets
+
+                854265 broadcast/multicast packets
+
+                44 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                1341224 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,6::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:26
+
+UNIT: BSU-6            
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        7 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 5
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        854121 packets received
+
+                854087 valid request packets
+
+                854121 broadcast/multicast packets
+
+                24 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                1341024 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,7::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:26
+
+UNIT: BSU-7            
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        7 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 5
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        854119 packets received
+
+                854097 valid request packets
+
+                854119 broadcast/multicast packets
+
+                12 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                1341064 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,8::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:26
+
+UNIT: BSU-8            
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        7 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 5
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        854255 packets received
+
+                854165 valid request packets
+
+                854255 broadcast/multicast packets
+
+                80 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                1341152 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,9::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:26
+
+UNIT: BSU-9            
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        7 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 5
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        286 packets sent
+
+                276 reply packets
+
+                10 request packets
+
+        854531 packets received
+
+                854437 valid request packets
+
+                854255 broadcast/multicast packets
+
+                84 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                251360 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,10::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:26
+
+UNIT: BSU-10           
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        5 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 3
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        855631 packets received
+
+                855129 valid request packets
+
+                855631 broadcast/multicast packets
+
+                492 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                251864 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,11::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:27
+
+UNIT: BSU-11           
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        5 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 3
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        855631 packets received
+
+                855125 valid request packets
+
+                855631 broadcast/multicast packets
+
+                496 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                251856 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,12::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:27
+
+UNIT: BSU-12           
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        5 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 3
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        855631 packets received
+
+                855209 valid request packets
+
+                855631 broadcast/multicast packets
+
+                412 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                251952 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,13::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:27
+
+UNIT: BSU-13           
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        5 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 3
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        855631 packets received
+
+                855239 valid request packets
+
+                855631 broadcast/multicast packets
+
+                382 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                251988 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,15::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:27
+
+UNIT: BSU-15           
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        5 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 3
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        855645 packets received
+
+                855147 valid request packets
+
+                855645 broadcast/multicast packets
+
+                488 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                251872 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,16::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:28
+
+UNIT: BSU-16           
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        5 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 3
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        855645 packets received
+
+                855243 valid request packets
+
+                855645 broadcast/multicast packets
+
+                392 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                251976 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,17::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:28
+
+UNIT: BSU-17           
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        5 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 3
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        855643 packets received
+
+                855225 valid request packets
+
+                855643 broadcast/multicast packets
+
+                408 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                251960 failures to allocate llinfo
+
+COMMAND EXECUTED
+
+
+
+TCP/IP STACK DATA HANDLING COMMAND <QR_>
+< ZQRS: BSU,18::PRO::;
+
+LOADING PROGRAM VERSION 12.37-0
+
+MSCi      MSSGB01                   2014-04-28  10:06:28
+
+UNIT: BSU-18           
+
+ip:
+
+        1 total packet received
+
+        1 packet for this host
+
+        1 packet sent from this host
+
+icmp:
+
+igmp:
+
+udp:
+
+        1 datagram received
+
+        1 delivered
+
+        1 PCB hash miss
+
+        1 datagram output
+
+tcp:
+
+sctp:
+
+ip6:
+
+        5 packets sent from this host
+
+        Mbuf statistics:
+
+                0 one mbuf
+
+icmp6:
+
+        Output histogram:
+
+                multicast listener report: 3
+
+                neighbor solicitation: 2
+
+        Histogram of error messages to be generated:
+
+udp6:
+
+emb:
+
+        dropped by filter:
+
+        icmp from emb:
+
+        arp:
+
+arp:
+
+        10 packets sent
+
+                10 request packets
+
+        855643 packets received
+
+                855149 valid request packets
+
+                855643 broadcast/multicast packets
+
+                484 could not be mapped to an interface
+
+                10 packets sourced from a local hardware address
+
+                251880 failures to allocate llinfo
+
+COMMAND EXECUTED

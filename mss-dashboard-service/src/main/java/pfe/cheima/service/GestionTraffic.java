@@ -13,11 +13,9 @@ import java.util.List;
 import net.vpc.upa.PersistenceUnit;
 import net.vpc.upa.UPA;
 import pfe.cheima.connect_to_mss.CmdExecuter;
-import pfe.cheima.connect_to_mss.CmdParser;
 import pfe.cheima.service.model.TimePoint;
 import pfe.cheima.service.model.Trafficforsigu;
 import pfe.cheima.service.model.modules;
-
 /**
  *
  * @author Cheima
@@ -36,7 +34,7 @@ public class GestionTraffic {
         // NewClasse bre = new NewClasse();
         CmdExecuter ce = new CmdExecuter();
         List<pfe.cheima.connect_to_mss.Trafficforsigu> Lecture = ce.getAllSiguTraffic();
-
+        List<pfe.cheima.connect_to_mss.Trafficforsigu> LectureBSU = ce.getAllBsuTraffic();
         // 1) create a java calendar instance
         Calendar calendar = Calendar.getInstance();
 // 2) get a java.util.Date from the calendar instance.
@@ -51,6 +49,7 @@ public class GestionTraffic {
         for (int g = 0; g < Lecture.size(); g++) {
             Trafficforsigu traffic = new Trafficforsigu();
             modules m = new modules();
+           
             //m.setSiguName("sigu0");
             modules module = pu.createQuery("select m from modules m where m.SIGUNAME LIKE :v ")
                     .setParameter("v", Lecture.get(g).getSiguName()).getEntity();
@@ -58,6 +57,35 @@ public class GestionTraffic {
             int siguId;
             if (module == null) {
                 m.setSiguName(Lecture.get(g).getSiguName());
+                m.setType(0);
+                pu.insert(m);
+                siguId = m.getId();
+            } else {
+                siguId = module.getId();
+            }
+            //m.setSiguName("sigu1");
+            traffic.setSiguId(siguId);
+            traffic.setPacketreceived(Lecture.get(g).getPacketreceived());
+            traffic.setPacketsent(Lecture.get(g).getPacketsent());
+            // traffic.setPacketreceived(Lecture.get(g).getPacketreceived());
+            //traffic.setPacketsent(Lecture.get(g).getPacketsent());
+            traffic.setDateExec(tp.getId());
+            //   pu.createQuery((EntityStatement) traffic);
+            pu.insert(traffic);
+        }
+        
+        for (int g = 0; g < LectureBSU.size(); g++) {
+            Trafficforsigu traffic = new Trafficforsigu();
+            modules m = new modules();
+           
+            //m.setSiguName("sigu0");
+            modules module = pu.createQuery("select m from modules m where m.SIGUNAME LIKE :v ")
+                    .setParameter("v", LectureBSU.get(g).getSiguName()).getEntity();
+
+            int siguId;
+            if (module == null) {
+                m.setSiguName(LectureBSU.get(g).getSiguName());
+                m.setType(1);
                 pu.insert(m);
                 siguId = m.getId();
             } else {
