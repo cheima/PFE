@@ -68,47 +68,81 @@ angular.module('myApp.controllers', []).
             var showFromList = function(result) {
                 $scope.graphs = result;
 
-                var tab = [['date']];
-                for (var i = 0; i < 10; i++) // 10 = nombre de valeurs horizontales
-                    tab.push([i * 5]);
-
                 var sigus = result["sigus"];
-                // key = i && tab[i]=result[key]
-                for (var key in sigus) { // pour tout sigu dans result
-                    var obj = sigus[key]; // le sigu 
-                    var liste = obj["liste"]; // ses stats
-                    var siguname = obj["siguname"];
-                    if (!siguname)
-                        siguname = "inconnu id:" + obj["siguid"];
-                    tab[0].push(siguname);
-                    var index = 0;
-                    for (var key1 in liste) // pour tout traffic de ce sigu
-                    {
-                        if (index >= 10)
-                            break;
+                var times = result["times"]; // liste des TimePoint
 
-                        var val = [['Time', obj["siguname"]]];
-                        var obj1 = liste[key1];
-                        var d = new Date(obj1["dateExec"]);
-                        var d1 = d.getHours();
-                        var d2 = d.getMinutes();
-                        var curr_date = d.getDate();
-                        var curr_month = d.getMonth() + 1; //Months are zero based
-                        var curr_year = d.getFullYear();
-                        var datenow = curr_date + "-" + curr_month + "-" + curr_year;
+                var tab = [];
 
-                        val.push([d1 + ":" + d2, obj1["packetreceived"]]);
-
-                        tab[index + 1].push(obj1["packetreceived"]);
-                        index = index + 1;
-                    }
-
-                    // si le sigu a moin que 10 valeurs, remplir avec des zeros
-                    if (index < 10)
-                        for (var i = index; i < 10; i++) {
-                            tab[i + 1].push(0);
-                        }
+                /* Ligne 1 de la matrice */
+                var ligne1 = [['time']];
+                for (var s in sigus) {
+                    var sigu = sigus[s]; // le sigu 
+                    var siguname = sigu["siguname"];
+                    ligne1.push(siguname);
                 }
+                tab.push(ligne1);
+//                for (var i = 0; i < 10; i++) // 10 = nombre de valeurs horizontales
+//                    tab.push([i * 5]);
+
+                /* Le reste des lignes, une ligne pour chaque TimePoint */
+                for (var t in times) {
+                    var time = times[t];
+                    var timeId = time["id"];
+                    var timeValeur = time["atTime"];
+
+                    var ligne = [timeValeur];
+                    for (var s in sigus) {
+                        var sigu = sigus[s]; // le sigu 
+                        var trafficsent = 0;
+                        var traffics = sigu["liste"];
+                        for (var trafficKey in traffics) {
+                            var traffic = traffics[trafficKey];
+                            if(traffic["dateExec"]==timeId){
+                                trafficsent = traffic["packetreceived"];
+                                break;
+                            }
+                        }
+                        ligne.push(trafficsent);
+                    }
+                    tab.push(ligne);
+
+                }
+//                // key = i && tab[i]=result[key]
+//                for (var key in sigus) { // pour tout sigu dans result
+//                    var obj = sigus[key]; // le sigu 
+//                    var liste = obj["liste"]; // ses stats
+//                    var siguname = obj["siguname"];
+//                    if (!siguname)
+//                        siguname = "inconnu id:" + obj["siguid"];
+//                    tab[0].push(siguname);
+//                    var index = 0;
+//                    for (var key1 in liste) // pour tout traffic de ce sigu
+//                    {
+//                        if (index >= 10)
+//                            break;
+//
+//                        var val = [['Time', obj["siguname"]]];
+//                        var obj1 = liste[key1];
+//                        var d = new Date(obj1["dateExec"]);
+//                        var d1 = d.getHours();
+//                        var d2 = d.getMinutes();
+//                        var curr_date = d.getDate();
+//                        var curr_month = d.getMonth() + 1; //Months are zero based
+//                        var curr_year = d.getFullYear();
+//                        var datenow = curr_date + "-" + curr_month + "-" + curr_year;
+//
+//                        val.push([d1 + ":" + d2, obj1["packetreceived"]]);
+//
+//                        tab[index + 1].push(obj1["packetreceived"]);
+//                        index = index + 1;
+//                    }
+//
+//                    // si le sigu a moin que 10 valeurs, remplir avec des zeros
+//                    if (index < 10)
+//                        for (var i = index; i < 10; i++) {
+//                            tab[i + 1].push(0);
+//                        }
+//                }
                 var data = google.visualization.arrayToDataTable(tab);
 
 
@@ -183,21 +217,21 @@ angular.module('myApp.controllers', []).
                     // key = i && tab[i]=result[key]
                     var obj1;
                     var obj2;
-                    var i =0;
+                    var i = 0;
                     var tab = [['date']];
                     for (var key in result) {
                         var obj = result[key];
                         for (obj1 in obj["times"])
                         {
                             val.push(obj1["atTime"]);
-                            for( obj2 in obj["sigus"]){
-                                if(obj2[siguId]==obj1["id"]){
+                            for (obj2 in obj["sigus"]) {
+                                if (obj2[siguId] == obj1["id"]) {
                                     tab[i].push(obj2["packetreceived"])
                                     i++;
                                 }
                             }
                         }
-                     
+
 
                         //  if (obj["siguName"] == nom) {                   
                         //  i = i + 5;
