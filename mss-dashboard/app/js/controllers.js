@@ -8,7 +8,7 @@ google.setOnLoadCallback(function() {
 });
 
 angular.module('myApp.controllers', []).
-        controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, getalltraffic, allgraphs, siguranged) {
+        controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, toptraffic, allgraphs, siguranged) {
 
             $scope.sigunames = getsigunames.query();
             //                    
@@ -185,6 +185,11 @@ angular.module('myApp.controllers', []).
 
             };
 
+            $scope.updateShowTop10 = function() {
+                var allsigu = toptraffic.query();
+                allsigu.$promise.then(showFromList);
+            };
+
             $scope.updateRange = function() {
                 var list = "";
 
@@ -205,7 +210,7 @@ angular.module('myApp.controllers', []).
                     else
                         list = list + "," + $scope.sigunames[i].id;
 
-                    if ($scope.sigunames[i].id == $scope.siguSelected2)
+                    if ($scope.sigunames[i].id === $scope.siguSelected2)
                         break;
                 }
 
@@ -213,7 +218,17 @@ angular.module('myApp.controllers', []).
                 // i =0;
                 var rangesigu = siguranged.query({list: list});
                 rangesigu.$promise.then(showFromList);
-                };
+            };
+
+            $scope.updateRange11 = function() {
+                var list = "";
+                var start = 0;
+                start = $scope.siguSelected3;
+                list = start + ",";
+                alert(list);
+                var rangesigu = siguranged.query({list: list});
+                rangesigu.$promise.then(showFromList);
+            };
         })
         .controller('MyCtrl2', function($scope, trafficforsigu, getalltraffic) {
             $scope.alltraffics = getalltraffic.query({siguName: "SIGU-4"});

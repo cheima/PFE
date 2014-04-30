@@ -54,3 +54,10 @@ trafficServices.factory('display',function($resource){
       query:{method:'GET',isArray:true}  
     }));
 });
+
+trafficServices.factory('toptraffic',function($resource){
+   
+    return($resource(host+'/mss-dashboard-web/webresources/generic/toptraffic',{},{
+      query:{method:'GET',isArray:true}  
+    }));
+});
