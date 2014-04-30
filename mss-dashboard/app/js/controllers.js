@@ -88,7 +88,14 @@ angular.module('myApp.controllers', []).
                 for (var t in times) {
                     var time = times[t];
                     var timeId = time["id"];
-                    var timeValeur = time["atTime"];
+                    var d = new Date(time["atTime"]);
+                    var d1 = d.getHours();
+                    var d2 = d.getMinutes();
+                    var curr_date = d.getDate();
+                    var curr_month = d.getMonth() + 1; //Months are zero based
+                    var curr_year = d.getFullYear();
+                    var datenow = curr_date + "-" + curr_month + "-" + curr_year;
+                    var timeValeur = d1 + ":" + d2;
 
                     var ligne = [timeValeur];
                     for (var s in sigus) {
@@ -97,7 +104,7 @@ angular.module('myApp.controllers', []).
                         var traffics = sigu["liste"];
                         for (var trafficKey in traffics) {
                             var traffic = traffics[trafficKey];
-                            if(traffic["dateExec"]==timeId){
+                            if (traffic["dateExec"] === timeId) {
                                 trafficsent = traffic["packetreceived"];
                                 break;
                             }
@@ -184,7 +191,7 @@ angular.module('myApp.controllers', []).
                 var start = 0;
                 var i = 0;
                 while (i < $scope.sigunames.length) {
-                    if ($scope.sigunames[i].id == $scope.siguSelected) {
+                    if ($scope.sigunames[i].id === $scope.siguSelected) {
                         start = i;
                         break;
                     } else
@@ -203,15 +210,10 @@ angular.module('myApp.controllers', []).
                 }
 
                 alert(list);
-               // i =0;
+                // i =0;
                 var rangesigu = siguranged.query({list: list});
                 rangesigu.$promise.then(showFromList);
-                if($scope.sigunames[i].id == $scope.siguSelected3){
-                     var rangesigu = siguranged.query({list: $scope.siguSelected3});
-                             rangesigu.$promise.then(showFromList);
-                }
-
-            };
+                };
         })
         .controller('MyCtrl2', function($scope, trafficforsigu, getalltraffic) {
             $scope.alltraffics = getalltraffic.query({siguName: "SIGU-4"});
