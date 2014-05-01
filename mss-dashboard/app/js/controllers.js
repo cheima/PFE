@@ -9,7 +9,14 @@ google.setOnLoadCallback(function() {
 
 angular.module('myApp.controllers', []).
         controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, toptraffic, allgraphs, siguranged) {
-
+            
+$scope.DropdownCtrl = function() {
+  $scope.items = [
+    "The first choice!",
+    "And another choice for you.",
+    "but wait! A third!"
+  ];
+};
             $scope.sigunames = getsigunames.query();
             //                    
 

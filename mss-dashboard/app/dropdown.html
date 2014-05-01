@@ -1,0 +1,23 @@
+<html ng-app="mss-dashboard">
+  <head>
+   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+  </head>
+  <body>
+
+<li class="dropdown" ng-controller="DropdownCtrl">
+  <a class="dropdown-toggle">
+    Click me for a dropdown, yo!
+  </a>
+  <ul>
+    <li ng-repeat="choice in items">
+      <a>{{choice}}</a>
+    </li>
+  </ul>
+</li>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-resource.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="myApp">
+    <head>
+         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+        <meta charset="utf-8">
+        <title>Monitoring of the traffic</title>
+        <link rel="stylesheet" href="css/app.css"/>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    </head>
+    <body ng-controller="MyCtrl1">
+        <br>
+            <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Traffic for SIGUs <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="index.html#/trafficIN">Only IN </a></li>
+            <li><a href="index.html#/trafficOUT">Traffic OUT</a></li>
+            <li><a href="#">Both</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Both</a></li>
+        </ul>
+    </div>
+        
+        <br/>
+        <br>
+            <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Action <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+    </div>
+        <br/>
+         <li class="dropdown" ng-controller="DropdownCtrl">
+        <a class="dropdown-toggle">
+            Click me for a dropdown, yo!
+        </a>
+        <ul class="dropdown-menu">
+            <li ng-repeat="choice in items">
+                <a>{{choice}}</a>
+            </li>
+        </ul>
+    </li>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-resource.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script src="lib/angular/angular-resource.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/directives.js"></script>
+    </body>
+</html>

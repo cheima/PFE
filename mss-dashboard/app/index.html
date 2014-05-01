@@ -1,76 +1,116 @@
 <!doctype html>
-<html lang="en">
+<html ng-app="myApp">
     <head>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
         <meta charset="utf-8">
         <title>Monitoring of the traffic</title>
         <link rel="stylesheet" href="css/app.css"/>
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     </head>
     <body ng-controller="MyCtrl1">
-        <ul class="menu">
-            <li><a href="#/trafficIN">Traffic IN for SIGU</a></li>
-            <li><a href="#/trafficOUT">Traffic OUT for SIGU</a></li>
-            <li><a href="#/LoadCPU">LoadCPU</a></li>
-            <li><a href="#/Bandwidth">Bandwidth</a></li>
+
+    <li class="dropdown" ng-controller="DropdownCtrl">
+        <a class="dropdown-toggle">
+            Click me for a dropdown, yo!
+        </a>
+        <ul class="dropdown-menu">
+            <li ng-repeat="choice in items">
+                <a>{{choice}}</a>
+            </li>
         </ul>
-        <form>
-            <fieldset>
-                 <legend>Traffic Management</legend>
-        <p>
-            <input type = "submit" ng-model="display10sigu"  ng-click="updateShowTop10()" value="Top 10 SIGU" />
-        </p>     
-         <p>
-            <input type = "submit" ng-model="displayallsigu"  ng-click="updateShowAll()" value="Show All SIGUs" />
-        </p> 
-                <p>Range SIGU from :
-                    <!--select ng-model="sigu1">
-                        <option ng-repeat="onetraffic in alltraffics" value="{{onetraffic.siguName}}">{{onetraffic.siguName}}</option>
-                        <option value="">-- choose SIGU Name --</option>
-                    </select--> 
-                    <!--select ng-change="selectSIGUupdate()" ng-model="siguSelected" -->
-                    <select ng-model="siguSelected"  ng-change="update()">
-                        <option value="">-- choose SIGU Name --</option>
-                        <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
-                       
-                    </select>  to :
-                    <select ng-model="siguSelected2" ng-change="update()">
-                        <option value="">-- choose SIGU Name --</option>
-                        <option ng-repeat="onesigu in sigunames" value="{{onesigu.id}}">{{onesigu.siguName}}</option>          
-                    </select> 
-                     
-            <input type = "submit" ng-click="updateRange()"value="Submit" />
-        </p> 
-                <!--p> Name For First Sigu: <input ng-model="siguSelected"></p>
-                <p> Name For Last Sigu: <input ng-model="siguSelected2"></p-->
-        
-        <P>Select the SIGU you want to see
-        <select ng-model="siguSelected3"  ng-change="updateRange11()">
-                        <option value="">-- choose SIGU Name --</option>
-                        <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
-                       
-        </select>
+    </li>
+
+    <!-- Single button -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Action <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+    </div>
+    <ul class="menu">
+        <li><a href="#/trafficIN">Traffic IN for SIGU</a></li>
+        <li><a href="#/trafficOUT">Traffic OUT for SIGU</a></li>
+        <li><a href="#/LoadCPU">LoadCPU</a></li>
+        <li><a href="#/Bandwidth">Bandwidth</a></li>
+    </ul>
+    <form>
+        <fieldset>
+            <legend>Traffic Management</legend>
+            <p>
+                <input type = "submit" ng-model="display10sigu"  ng-click="updateShowTop10()" value="Top 10 SIGU" />
+            </p>     
+            <p>
+                <input type = "submit" ng-model="displayallsigu"  ng-click="updateShowAll()" value="Show All SIGUs" />
+            </p> 
+            <p>Range SIGU from :
+                <!--select ng-model="sigu1">
+                    <option ng-repeat="onetraffic in alltraffics" value="{{onetraffic.siguName}}">{{onetraffic.siguName}}</option>
+                    <option value="">-- choose SIGU Name --</option>
+                </select--> 
+                <!--select ng-change="selectSIGUupdate()" ng-model="siguSelected" -->
+                <select ng-model="siguSelected"  ng-change="update()">
+                    <option value="">-- choose SIGU Name --</option>
+                    <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
+
+                </select>  to :
+                <select ng-model="siguSelected2" ng-change="update()">
+                    <option value="">-- choose SIGU Name --</option>
+                    <option ng-repeat="onesigu in sigunames" value="{{onesigu.id}}">{{onesigu.siguName}}</option>          
+                </select> 
+
+                <input type = "submit" ng-click="updateRange()"value="Submit" />
+            </p> 
+            <!--p> Name For First Sigu: <input ng-model="siguSelected"></p>
+            <p> Name For Last Sigu: <input ng-model="siguSelected2"></p-->
+
+            <P>Select the SIGU you want to see
+                <select ng-model="siguSelected3"  ng-change="updateRange11()">
+                    <option value="">-- choose SIGU Name --</option>
+                    <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
+
+                </select>
             <p> Name For Last Sigu: <input ng-model="siguSelected3"></p>
-          
-        <p>
-             <select id="chartType" ng-change="selectType(chartType)" ng-model="chartType" ng-options="c.typeName for c in chartTypes">
-        </select> 
-        </p>
-            </fieldset>
-        </form>
-        <div ng-view></div>
 
-      
+            <p>
+                <select id="chartType" ng-change="selectType(chartType)" ng-model="chartType" ng-options="c.typeName for c in chartTypes">
+                </select> 
+            </p>
+        </fieldset>
+    </form>
+    <div ng-view></div>
 
-        <!-- In production use:
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-        -->
-        <script src="lib/angular/angular.js"></script>
-        <script src="lib/angular/angular-route.js"></script>
-        <script src="lib/angular/angular-resource.js"></script>
-        <script src="js/app.js"></script>
-        <script src="js/services.js"></script>
-        <script src="js/controllers.js"></script>
-        <script src="js/filters.js"></script>
-        <script src="js/directives.js"></script>
-    </body>
+    <li class="dropdown">
+        <a class="dropdown-toggle">
+            Click me for a dropdown, yo!
+        </a>
+        <ul class="dropdown-menu">
+            <li ng-repeat="choice in items">
+                <a>{{choice}}</a>
+            </li>
+        </ul>
+    </li>
+
+    <!-- In production use:
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+    -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-resource.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script src="lib/angular/angular-resource.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/directives.js"></script>
+</body>
 </html>
