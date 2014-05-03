@@ -13,6 +13,7 @@ and open the template in the editor.
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     </head>
     <body>
+        <div ng-view></div>
         <nav class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -67,41 +68,22 @@ and open the template in the editor.
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Link</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-
-        <div class="btn-group-vertical">
-         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                            </ul>
-                        </li>
-                        <br/>
-                        <li><a href="#">Link</a></li>
-                       <br/>
-                       <ul class="nav nav-pills nav-stacked">
-  <li class="active"><a href="#">Home</a></li>
-  <li  class="active"><a href="#">Profile</a></li>
-  <li  class="active"><a href="#/trafficIN">Messages</a></li>
-</ul>
+<div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Dashboard</a></li>
+            <li><a href="#">SIGU</a></li>
+            <li><a href="#">BSU</a></li>
+            <li><a href="#">VLRU</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">OMU</a></li>
+            <li><a href="">Switch MSS</a></li>
+            <li><a href="">Logout</a></li>
+          </ul>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.js"></script>
