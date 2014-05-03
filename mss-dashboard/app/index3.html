@@ -45,7 +45,14 @@ and open the template in the editor.
         <!--[if lt IE 9]>
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+    <script src="lib/angular-ui/angular-ui-router.js"></script>
+    
+    <script>
+        var myApp = angular.module('myApp', ['ui.router']);
+        // For Component users, it should look like this:
+        // var myApp = angular.module('myApp', [require('angular-ui-router')]);
+    </script>
         <!-- The fav icon -->
         <link rel="shortcut icon" href="img/favicon.ico">
         <meta charset="utf-8">
@@ -53,7 +60,8 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/app.css"/>
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     </head>
-    <body  ng-controller="MyCtrl1">
+    <!--body  ng-controller="MyCtrl1"-->
+    <body>     
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="container-fluid">
@@ -122,7 +130,7 @@ and open the template in the editor.
                             <li class="nav-header hidden-tablet">Menu</li>
                             
                             <li><a class="ajax-link" href="index.html"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
-                            <li><a class="ajax-link" href="#/sigu.html"><i class="icon-eye-open"></i><span class="hidden-tablet">SIGU</span></a></li>
+                            <li><a class="ajax-link" href="#/sigu"><i class="icon-eye-open"></i><span class="hidden-tablet">SIGU</span></a></li>
                             <li><a class="ajax-link" href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> BSU</span></a></li>
                             <li><a class="ajax-link" href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet">VLRU</span></a></li>
                             <li><a class="ajax-link" href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> OMU</span></a></li>
@@ -142,7 +150,7 @@ and open the template in the editor.
                 </div>
                 </noscript>
 
-
+                <div ui-view></div>
 
             <hr>
 
@@ -173,6 +181,7 @@ and open the template in the editor.
         <script src="lib/angular/angular-route.js"></script>
         <script src="lib/angular/angular-resource.js"></script>
         <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+        <script src="lib/angular-ui/angular-ui-router.js"></script>
         <script src="js/app.js"></script>
         <script src="js/services.js"></script>
         <script src="js/controllers.js"></script>
