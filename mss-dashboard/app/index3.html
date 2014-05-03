@@ -114,14 +114,15 @@ and open the template in the editor.
         <!-- topbar ends -->
         <div class="container-fluid">
             <div class="row-fluid">
-
+             
                 <!-- left menu starts -->
                 <div class="span2 main-menu-span">
                     <div class="well nav-collapse sidebar-nav">
                         <ul class="nav nav-tabs nav-stacked main-menu">
                             <li class="nav-header hidden-tablet">Menu</li>
+                            
                             <li><a class="ajax-link" href="index.html"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
-                            <li><a class="ajax-link" href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet">SIGU</span></a></li>
+                            <li><a class="ajax-link" href="#/sigu.html"><i class="icon-eye-open"></i><span class="hidden-tablet">SIGU</span></a></li>
                             <li><a class="ajax-link" href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> BSU</span></a></li>
                             <li><a class="ajax-link" href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet">VLRU</span></a></li>
                             <li><a class="ajax-link" href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> OMU</span></a></li>
@@ -141,206 +142,7 @@ and open the template in the editor.
                 </div>
                 </noscript>
 
-                <div id="content" class="span10">
-                    <!-- content starts -->
-                    <nav class="navbar navbar-default" role="navigation">
-                        <div class="container-fluid">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand" href="#">KPIs</a>
-                            </div>
 
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li><a href="index.html#/LoadCPU">Load CPU</a></li>
-                                    <li><a href="#">Bandwidth</a></li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Traffic <b class="caret"></b></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="index.html#/trafficIN">TrafficIN</a></li>
-                                            <li><a href="index.html#/trafficOUT">TrafficOUT</a></li>
-                                            <li><a href="#">Both</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <form class="navbar-form navbar-left" role="search">
-                                </form>
-                            </div><!-- /.navbar-collapse -->
-                        </div><!-- /.container-fluid -->
-                    </nav>
-
-                    <!--div class="row-fluid">
-                        <div class="box span12">
-                            <div class="box-header well">
-                                <h2><i class="icon-info-sign"></i>Date</h2>
-                                <div class="box-icon">
-                                    <a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
-                                    <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
-                                    <a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
-                                          <div ng-controller="DatepickerDemoCtrl">
-    <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
-
-    <h4>Inline</h4>
-    <div style="display:inline-block; min-height:290px;">
-      <div class="well well-sm" ng-model="dt">
-          <datepicker min="minDate" show-weeks="showWeeks"></datepicker>
-      </div>
-    </div>
-
-    <h4>Popup</h4>
-    <div class="row">
-        <div class="col-md-6">
-            <p class="input-group">
-              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-              <span class="input-group-btn">
-                <button class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-              </span>
-            </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <label>Format:</label> <select class="form-control" ng-model="format" ng-options="f for f in formats"><option></option></select>
-        </div>
-    </div>
-
-    <hr />
-    <button class="btn btn-sm btn-info" ng-click="today()">Today</button>
-    <button class="btn btn-sm btn-default" ng-click="dt = '2009-08-24'">2009-08-24</button>
-    <button class="btn btn-sm btn-success" ng-click="toggleWeeks()" tooltip="For inline datepicker">Toggle Weeks</button>
-    <button class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
-    <button class="btn btn-sm btn-default" ng-click="toggleMin()" tooltip="After today restriction">Min date</button>
-</div>
-                                </div>
-                            </div>
-                        
-                        </div>
-                    </div-->
-
-
-                    <div class="row-fluid sortable">
-                        <div class="box span4">
-                            <div class="box-header well">
-                                <h2><i class="icon-th"></i> Tabs</h2>
-                            </div>
-                            <div class="box-content">
-
-
-                                <tabset>
-                                    <tab heading="All">Static content</tab>
-                                    <tab heading="Range">
-
-                                        <select ng-model="siguSelected"  ng-change="update()">
-                                            <option value="">-- choose SIGU Name --</option>
-                                            <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
-
-                                        </select>  to :
-                                        <select ng-model="siguSelected2" ng-change="update()">
-                                            <option value="">-- choose SIGU Name --</option>
-                                            <option ng-repeat="onesigu in sigunames" value="{{onesigu.id}}">{{onesigu.siguName}}</option>          
-                                        </select> 
-
-                                        <input type = "submit" ng-click="updateRange()"value="Submit" />
-
-                                    </tab>
-                                    <tab heading="Top">Static content</tab>
-                                    <tab heading="One">
-
-                                        <P>Select the SIGU you want to see</p>
-                                        <select ng-model="siguSelected3"  ng-change="updateRange11()">
-                                            <option value="">-- choose SIGU Name --</option>
-                                            <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
-
-                                        </select>
-
-                                    </tab>
-                                </tabset>
-
-                                <hr />
-
-
-
-
-                            </div>
-                        </div><!--/span-->
-
-                        <div class="box span4">
-                            <div class="box-header well" data-original-title>
-                                <h2><i class="icon-user"></i> Member Activity</h2>
-                                <div class="box-icon">
-                                    <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
-                                    <a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
-                                </div>
-                            </div>
-                            <div class="box-content">
-                                <div class="box-content">
-                                    <ul class="dashboard-list">
-                                        <li>
-                                            <a href="#">
-                                                <img class="dashboard-avatar" alt="Usman" src="http://www.gravatar.com/avatar/f0ea51fa1e4fae92608d8affee12f67b.png?s=50"></a>
-                                            <strong>Name:</strong> <a href="#">Usman
-                                            </a><br>
-                                            <strong>Since:</strong> 17/05/2012<br>
-                                            <strong>Status:</strong> <span class="label label-success">Approved</span>                                  
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img class="dashboard-avatar" alt="Sheikh Heera" src="http://www.gravatar.com/avatar/3232415a0380253cfffe19163d04acab.png?s=50"></a>
-                                            <strong>Name:</strong> <a href="#">Sheikh Heera
-                                            </a><br>
-                                            <strong>Since:</strong> 17/05/2012<br>
-                                            <strong>Status:</strong> <span class="label label-warning">Pending</span>                                 
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img class="dashboard-avatar" alt="Abdullah" src="http://www.gravatar.com/avatar/46056f772bde7c536e2086004e300a04.png?s=50"></a>
-                                            <strong>Name:</strong> <a href="#">Abdullah
-                                            </a><br>
-                                            <strong>Since:</strong> 25/05/2012<br>
-                                            <strong>Status:</strong> <span class="label label-important">Banned</span>                                  
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <img class="dashboard-avatar" alt="Saruar Ahmed" src="http://www.gravatar.com/avatar/564e1bb274c074dc4f6823af229d9dbb.png?s=50"></a>
-                                            <strong>Name:</strong> <a href="#">Saruar Ahmed
-                                            </a><br>
-                                            <strong>Since:</strong> 17/05/2012<br>
-                                            <strong>Status:</strong> <span class="label label-info">Updates</span>                                  
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!--/span-->
-
-                        <div class="box span4">
-                            <div class="box-header well" data-original-title>
-                                <h2><i class="icon-list-alt"></i> Realtime Traffic</h2>
-                                <div class="box-icon">
-                                    <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
-                                    <a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
-                                </div>
-                            </div>
-                            <div class="box-content">
-                                <div id="realtimechart" style="height:190px;"></div>
-                                <p class="clearfix">You can update a chart periodically to get a real-time effect by using a timer to insert the new data in the plot and redraw it.</p>
-                                <p>Time between updates: <input id="updateInterval" type="text" value="" style="text-align: right; width:5em"> milliseconds</p>
-                            </div>
-                        </div><!--/span-->
-                    </div><!--/row-->
-
-
-
-
-                    <!-- content ends -->
-                </div><!--/#content.span10-->
-            </div><!--/fluid-row-->
 
             <hr>
 
