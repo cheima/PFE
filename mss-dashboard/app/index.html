@@ -69,7 +69,7 @@
             <!--p> Name For First Sigu: <input ng-model="siguSelected"></p>
             <p> Name For Last Sigu: <input ng-model="siguSelected2"></p-->
 
-            <P>Select the SIGU you want to see
+            <P>Select the SIGU you want to see</p>
                 <select ng-model="siguSelected3"  ng-change="updateRange11()">
                     <option value="">-- choose SIGU Name --</option>
                     <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
@@ -96,6 +96,105 @@
         </ul>
     </li>
 
+    
+    
+    					
+			<div class="row-fluid sortable">
+				<div class="box span4">
+					<div class="box-header well">
+						<h2><i class="icon-th"></i> Tabs</h2>
+						<div class="box-icon">
+							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
+							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<ul class="nav nav-tabs" id="myTab">
+							<li class="active"><a href="#all">Show All</a></li>
+							<li><a href="#range">Range</a></li>
+							<li><a href="#top10">Top10</a></li>
+						</ul>
+						 
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane active" id="all">
+								<h3>Charisma the time thaht you want to display your chart</h3>
+								
+							</div>
+							<div class="tab-pane" id="range">
+								<h3>Range your SIGUs from .... to</h3>
+								
+							</div>
+							<div class="tab-pane" id="top10">
+								<h3>Here you will see your top 10 SIGU which have the maximum of traffic</h3>
+                                                        </div>
+						</div>
+					</div>
+				</div><!--/span-->
+						
+				<div class="box span4">
+					<div class="box-header well" data-original-title>
+						<h2><i class="icon-user"></i> Member Activity</h2>
+						<div class="box-icon">
+							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<div class="box-content">
+							<ul class="dashboard-list">
+								<li>
+									<a href="#">
+										<img class="dashboard-avatar" alt="Usman" src="http://www.gravatar.com/avatar/f0ea51fa1e4fae92608d8affee12f67b.png?s=50"></a>
+										<strong>Name:</strong> <a href="#">Usman
+									</a><br>
+									<strong>Since:</strong> 17/05/2012<br>
+									<strong>Status:</strong> <span class="label label-success">Approved</span>                                  
+								</li>
+								<li>
+									<a href="#">
+										<img class="dashboard-avatar" alt="Sheikh Heera" src="http://www.gravatar.com/avatar/3232415a0380253cfffe19163d04acab.png?s=50"></a>
+										<strong>Name:</strong> <a href="#">Sheikh Heera
+									</a><br>
+									<strong>Since:</strong> 17/05/2012<br>
+									<strong>Status:</strong> <span class="label label-warning">Pending</span>                                 
+								</li>
+								<li>
+									<a href="#">
+										<img class="dashboard-avatar" alt="Abdullah" src="http://www.gravatar.com/avatar/46056f772bde7c536e2086004e300a04.png?s=50"></a>
+										<strong>Name:</strong> <a href="#">Abdullah
+									</a><br>
+									<strong>Since:</strong> 25/05/2012<br>
+									<strong>Status:</strong> <span class="label label-important">Banned</span>                                  
+								</li>
+								<li>
+									<a href="#">
+										<img class="dashboard-avatar" alt="Saruar Ahmed" src="http://www.gravatar.com/avatar/564e1bb274c074dc4f6823af229d9dbb.png?s=50"></a>
+										<strong>Name:</strong> <a href="#">Saruar Ahmed
+									</a><br>
+									<strong>Since:</strong> 17/05/2012<br>
+									<strong>Status:</strong> <span class="label label-info">Updates</span>                                  
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div><!--/span-->
+						
+				<div class="box span4">
+					<div class="box-header well" data-original-title>
+						<h2><i class="icon-list-alt"></i> Realtime Traffic</h2>
+						<div class="box-icon">
+							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+							<a href="#" class="btn btn-close btn-round"><i class="icon-remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<div id="realtimechart" style="height:190px;"></div>
+							<p class="clearfix">You can update a chart periodically to get a real-time effect by using a timer to insert the new data in the plot and redraw it.</p>
+							<p>Time between updates: <input id="updateInterval" type="text" value="" style="text-align: right; width:5em"> milliseconds</p>
+					</div>
+				</div><!--/span-->
+			</div><!--/row-->
     <!-- In production use:
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
     -->

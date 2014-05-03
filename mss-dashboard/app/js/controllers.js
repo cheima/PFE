@@ -266,12 +266,22 @@ angular.module('myApp.controllers', []).
                 };
                 chart.type = $scope.chartTypes[0].typeValue;
                 $scope.chartType = $scope.chartTypes[0];
-
                 $scope.chart = chart;
             });
 
-        }).controller('MyCtrl3', function() {
+        }).controller('MyCtrl3', function($scope) {
+            $scope.TabsDemoCtrl = function () {
+        $scope.tabs = [
+    { title:'Dynamic Title 1', content:'Dynamic content 1' },
+    { title:'Dynamic Title 2', content:'Dynamic content 2', disabled: true }
+  ];
 
+  $scope.alertMe = function() {
+    setTimeout(function() {
+      alert('You\'ve selected the alert tab!');
+    });
+  };
+};
 
 }).controller('MyCtrl4', function() {
 
