@@ -28,12 +28,12 @@ angular.module('myApp', [
         controller: 'MyCtrl1'
     }).state('bsu', {
       url: "/bsu",
-      templateUrl: "partials/bsu.html",
-      controller : 'MyCtrl1'
+      templateUrl: "partials/sigu.html",
+      controller : 'MyCtrl2'
     }).state ('bsu.traffic', {
         url: "/traffic",
-        templateUrl: "partials/bsu.traffic.html",
-        controller: 'MyCtrl1'
+        templateUrl: "partials/sigu.traffic.html",
+        controller: 'MyCtrl2'
     });
            
    /* .state('state1.list', {
