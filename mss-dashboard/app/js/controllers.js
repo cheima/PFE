@@ -221,11 +221,8 @@ angular.module('myApp.controllers', []).
                 rangesigu.$promise.then(showFromList);
             };
 
-            $scope.updateRange11 = function(sigu) {
-                var list = "";
-                var start = 0;
-                start = sigu;
-                list = start + ",";
+            $scope.updateRange11 = function() {
+                var list = $scope.allvars.siguSelected3;
                  alert(list);
                 var rangesigu = siguranged.query({list: list});              
                 rangesigu.$promise.then(showFromList);

@@ -27,7 +27,7 @@ angular.module('myApp', [
         templateUrl: "partials/sigu.cpu.html",
         controller: 'MyCtrl1'
     }).state('sigu.traffic', {
-        url: "traffic",
+        url: "/traffic",
         templateUrl: "partials/sigu.traffic.html",
         controller: 'MyCtrl1'
     }).state('bsu', {
