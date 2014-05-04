@@ -10,6 +10,7 @@ google.setOnLoadCallback(function() {
 angular.module('myApp.controllers', []).
         controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, toptraffic, getbsunames, allgraphs, siguranged) {
              $scope.allvars = {};
+             $scope.allvars.Indi_Name = "SIGU";
             $scope.sigunames = getsigunames.query();
             //                    
             
@@ -231,7 +232,8 @@ angular.module('myApp.controllers', []).
             };
         })
         .controller('MyCtrl2', function($scope, trafficforsigu, getsigunames, toptraffic, getbsunames, allgraphs, siguranged) {
-            $scope.allvars = {};
+             $scope.allvars = {};
+             $scope.allvars.Indi_Name = "BSU";
             $scope.sigunames = getbsunames.query();
             //                    
             
