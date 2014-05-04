@@ -115,13 +115,13 @@
                     <tab heading="One">
 
                         <P>Select the SIGU you want to see</p>
-                        <select ng-model="siguSelected3"  ng-change="updateRange11()">
+                       <select ng-model="siguSelected3"  ng-change="updateRange11(siguSelected3)">
+                        
                             <option value="">-- choose SIGU Name --</option>
                             <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
 
                         </select>
-                        <input type = "submit" ng-click=""value="Submit" />
-
+                        <input type = "submit" ng-click="updateRange11(siguSelected3)" value="Submit" />
                     </tab>
                 </tabset>
 
