@@ -224,8 +224,8 @@ angular.module('myApp.controllers', []).
                 var start = 0;
                 start = $scope.siguSelected3;
                 list = start + ",";
-                alert(list);
-                var rangesigu = siguranged.query({list: list});
+                 alert(list);
+                var rangesigu = siguranged.query({list: list});              
                 rangesigu.$promise.then(showFromList);
             };
         })
