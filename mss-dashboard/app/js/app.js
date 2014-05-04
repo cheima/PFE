@@ -26,6 +26,14 @@ angular.module('myApp', [
         url: "/traffic",
         templateUrl: "partials/sigu.traffic.html",
         controller: 'MyCtrl1'
+    }).state('bsu', {
+      url: "/bsu",
+      templateUrl: "partials/bsu.html",
+      controller : 'MyCtrl1'
+    }).state ('bsu.traffic', {
+        url: "/traffic",
+        templateUrl: "partials/bsu.traffic.html",
+        controller: 'MyCtrl1'
     });
            
    /* .state('state1.list', {

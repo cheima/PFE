@@ -8,10 +8,11 @@ google.setOnLoadCallback(function() {
 });
 
 angular.module('myApp.controllers', []).
-        controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, toptraffic, allgraphs, siguranged) {
+        controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, toptraffic, getbsunames, allgraphs, siguranged) {
+             $scope.allvars = {};
             $scope.sigunames = getsigunames.query();
             //                    
-
+            
             $scope.update = function() {
                 //alert($scope.siguSelected);
                 $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});
