@@ -30,7 +30,6 @@ angular.module('myApp.controllers', []).
                         var curr_month = d.getMonth() + 1; //Months are zero based
                         var curr_year = d.getFullYear();
                         var datenow = curr_date + "-" + curr_month + "-" + curr_year;
-
                         val.push([d1 + ":" + d2, obj["packetreceived"]]);
                         // val.push([i, obj["packetreceived"]]);
                         //}
@@ -212,7 +211,7 @@ angular.module('myApp.controllers', []).
                         break;
                 }
 
-                alert(list);
+                //alert(list);
                 // i =0;
                 var rangesigu = siguranged.query({list: list});
                 rangesigu.$promise.then(showFromList);
@@ -220,7 +219,7 @@ angular.module('myApp.controllers', []).
 
             $scope.updateRange11 = function() {
                 var list = $scope.allvars.siguSelected3;
-                 alert(list);
+                 //alert(list);
                 var rangesigu = siguranged.query({list: list});              
                 rangesigu.$promise.then(showFromList);
             };
@@ -461,6 +460,7 @@ angular.module('myApp.controllers', []).
             $scope.updateShowAll = function() {
                 var allsigu = allbsu.query();
                 allsigu.$promise.then(showFromList);
+               
             };
 
             $scope.updateShowTop10 = function() {
@@ -492,7 +492,7 @@ angular.module('myApp.controllers', []).
                         break;
                 }
 
-                alert(list);
+              //  alert(list);
                 // i =0;
                 var rangesigu = siguranged.query({list: list});
                 rangesigu.$promise.then(showFromList);
@@ -500,7 +500,7 @@ angular.module('myApp.controllers', []).
 
               $scope.updateRange11 = function() {
                 var list = $scope.allvars.siguSelected3;
-                 alert(list);
+                // alert(list);
                 var rangesigu = siguranged.query({list: list});              
                 rangesigu.$promise.then(showFromList);
             };

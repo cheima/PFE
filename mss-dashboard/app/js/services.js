@@ -59,8 +59,8 @@ trafficServices.factory('toptraffic',function($resource){
 });
 
 trafficServices.factory('allbsu',function($resource){
-   
+   // isArray:false because it is an oject with two attributes (sigu which is an array and times)
     return($resource(host+'/mss-dashboard-web/webresources/generic/allbsu',{},{
-      query:{method:'GET',isArray:true}  
+      query:{method:'GET',isArray:false}  
     }));
 });

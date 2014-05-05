@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <div id="content" class="span10">
     <div class="row-fluid sortable">
-        <div class="box span6">
+        <div class="box span7">
             <div class="box-header well">
                 <h2><i class="icon-th"></i> Options</h2>
             </div>
@@ -14,6 +14,21 @@ and open the template in the editor.
 
 
                 <tabset>
+                    <tab heading="Traffic"  class="dropdown">Click SUBMIT to see all the traffic
+                        <ul class="nav nav-pills">
+                        <li  ng-class="{active: $state.includes('*.traffic') }" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Traffic <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a ui-sref=".traffic">Traffic IN</a></li>
+                                <li class="divider"></li>
+                                <li><a ui-sref=".traffic">Traffic OUT</a></li>
+                                <li class="divider"></li>
+                                <li><a ui-sref=".cpu">Both</a></li>
+                            </ul>
+
+                        </li>
+                        </ul>
+                        <input type = "submit" ng-click="updateShowAll()"value="Submit" /></tab>
                     <tab heading="All">Click SUBMIT to see all the traffic
                         <input type = "submit" ng-click="updateShowAll()"value="Submit" /></tab>
                     <tab heading="Range">
@@ -55,7 +70,7 @@ and open the template in the editor.
             </div>
         </div><!--/span-->
         <div class="row-fluid sortable">
-            <div class="box span6">
+            <div class="box span4">
                 <div class="box-header well" data-original-title>
                     <h2><i class="icon-th"></i>Date</h2>
 

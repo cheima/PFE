@@ -18,8 +18,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li ng-class="{active: $state.includes('*.cpu')}"><a ui-sref=".cpu">Load CPU</a></li>
-                    <li><a ui-sref=".cpu">Bandwidth</a></li>
-                    <li  ng-class="{active: $state.includes('*.traffic') }" class="dropdown">
+                    <li ng-class="{active: $state.includes('*.bp')}"><a ui-sref=".bp">Bandwidth</a></li>
+                    <li ng-class="{active: $state.includes('*.traffic')}"><a ui-sref=".traffic">Traffic</a></li>
+                    <!--li  ng-class="{active: $state.includes('*.traffic') }" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Traffic <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a ui-sref=".traffic">Traffic IN</a></li>
@@ -28,7 +29,7 @@
                             <li class="divider"></li>
                             <li><a ui-sref=".cpu">Both</a></li>
                         </ul>
-                    </li>
+                    </li-->
                 </ul>
                 <form class="navbar-form navbar-left" role="search">
                 </form>

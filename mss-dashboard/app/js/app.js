@@ -36,6 +36,10 @@ angular.module('myApp', [
         url: "/LoadCPU",
         templateUrl: "partials/sigu.cpu.html",
         controller: 'MyCtrl1'
+    }).state('sigu.bp', {
+        url: "/LoadBP",
+        templateUrl: "partials/sigu.bp.html",
+        controller: 'MyCtrl1'
     }).state('sigu.traffic', {
         url: "/Traffic",
         templateUrl: "partials/sigu.traffic.html",
