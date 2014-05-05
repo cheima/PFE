@@ -12,14 +12,12 @@ angular.module('myApp.controllers', []).
              $scope.allvars = {};
              $scope.allvars.Indi_Name = "SIGU";
             $scope.sigunames = getsigunames.query();
-            //                    
-            
             $scope.update = function() {
                 //alert($scope.siguSelected);
                 $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});
                 $scope.alltraffics.$promise.then(function(result) {
                     $scope.alltraffics = result;
-                    var val = [['Time', 'TrafficIN']];
+                    var val = [['Time', 'Traffic IN']];
                     // key = i && tab[i]=result[key]
                     for (var key in result) {
                         var obj = result[key];
@@ -43,7 +41,7 @@ angular.module('myApp.controllers', []).
                     }
                     var data = google.visualization.arrayToDataTable(val);
                     var options = {
-                        title: 'TrafficIN for SIGU'
+                        title: 'Traffic IN for SIGU'
                     };
                     var chart = {};
                     chart.data = data;
@@ -157,12 +155,11 @@ angular.module('myApp.controllers', []).
 
 
                 var options = {
-                    title: 'TrafficIN for SIGU'
+                    title: 'Traffic IN for SIGU'
                 };
                 var chart = {};
                 chart.data = data;
                 chart.options = options;
-
                 $scope.chartTypes = [
                     {typeName: 'LineChart', typeValue: '1'},
                     {typeName: 'BarChart', typeValue: '2'},
@@ -197,7 +194,7 @@ angular.module('myApp.controllers', []).
                 var start = 0;
                 var i = 0;
                 while (i < $scope.sigunames.length) {
-                    if ($scope.sigunames[i].id === $scope.siguSelected) {
+                    if ($scope.sigunames[i].id == $scope.allvars.siguSelected) {
                         start = i;
                         break;
                     } else
@@ -211,7 +208,7 @@ angular.module('myApp.controllers', []).
                     else
                         list = list + "," + $scope.sigunames[i].id;
 
-                    if ($scope.sigunames[i].id === $scope.siguSelected2)
+                    if ($scope.sigunames[i].id == $scope.allvars.siguSelected2)
                         break;
                 }
 
@@ -227,19 +224,126 @@ angular.module('myApp.controllers', []).
                 var rangesigu = siguranged.query({list: list});              
                 rangesigu.$promise.then(showFromList);
             };
+            
+            //////
+              /* $scope.updateout = function() {
+                $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});
+                $scope.alltraffics.$promise.then(function(result) {
+                    $scope.alltraffics = result;
+                    var val = [['Time', 'Traffic OUT']];
+                    for (var key in result) {
+                        var obj = result[key];
+                        var d = new Date(obj["dateExec"]);
+                        var d1 = d.getHours();
+                        var d2 = d.getMinutes();
+                        var curr_date = d.getDate();
+                        var curr_month = d.getMonth() + 1; //Months are zero based
+                        var curr_year = d.getFullYear();
+                        var datenow = curr_date + "-" + curr_month + "-" + curr_year;
+                        val.push([d1 + ":" + d2, obj["packetsent"]]);
+                    }
+                    var data = google.visualization.arrayToDataTable(val);
+                    var options = {
+                        title: 'Traffic OUT for SIGU'
+                    };
+                    var chart = {};
+                    chart.data = data;
+                    chart.options = options;
+
+                    $scope.chartTypes = [
+                        {typeName: 'LineChart', typeValue: '1'},
+                        {typeName: 'BarChart', typeValue: '2'},
+                        {typeName: 'ColumnChart', typeValue: '3'},
+                        {typeName: 'PieChart', typeValue: '4'}
+                    ];
+                    $scope.selectType = function(type) {
+                        $scope.chart.type = type.typeValue;
+                    };
+                    chart.type = $scope.chartTypes[0].typeValue;
+                    $scope.chartType = $scope.chartTypes[0];
+                    $scope.chart = chart;
+                });
+            };
+            
+              var showFromListout = function(result) {
+                $scope.graphs = result;
+
+                var sigus = result["sigus"];
+                var times = result["times"]; // liste des TimePoint
+
+                var tab = [];
+
+                // Ligne 1 de la matrice 
+                var ligne1 = [['time']];
+                for (var s in sigus) {
+                    var sigu = sigus[s]; // le sigu 
+                    var siguname = sigu["siguname"];
+                    ligne1.push(siguname);
+                }
+                tab.push(ligne1);
+                for (var t in times) {
+                    var time = times[t];
+                    var timeId = time["id"];
+                    var d = new Date(time["atTime"]);
+                    var d1 = d.getHours();
+                    var d2 = d.getMinutes();
+                    var curr_date = d.getDate();
+                    var curr_month = d.getMonth() + 1; //Months are zero based
+                    var curr_year = d.getFullYear();
+                    var datenow = curr_date + "-" + curr_month + "-" + curr_year;
+                    var timeValeur = d1 + ":" + d2;
+
+                    var ligne = [timeValeur];
+                    for (var s in sigus) {
+                        var sigu = sigus[s]; // le sigu 
+                        var trafficsent = 0;
+                        var traffics = sigu["liste"];
+                        for (var trafficKey in traffics) {
+                            var traffic = traffics[trafficKey];
+                            if (traffic["dateExec"] == timeId) {
+                                trafficsent = traffic["packetsent"];
+                                break;
+                            }
+                        }
+                        ligne.push(trafficsent);
+                    }
+                    tab.push(ligne);
+
+                }
+              };
+                var data = google.visualization.arrayToDataTable(tab);
+                var options = {
+                    title: 'Traffic OUT for SIGU'
+                };
+                var chart = {};
+                chart.data = data;
+                chart.options = options;
+
+                $scope.chartTypes = [
+                    {typeName: 'LineChart', typeValue: '1'},
+                    {typeName: 'BarChart', typeValue: '2'},
+                    {typeName: 'ColumnChart', typeValue: '3'},
+                    {typeName: 'PieChart', typeValue: '4'}
+                ];
+                $scope.selectType = function(type) {
+                    $scope.chart.type = type.typeValue;
+                };
+                chart.type = $scope.chartTypes[0].typeValue;
+                $scope.chartType = $scope.chartTypes[0];
+                $scope.chart = chart;*/
+            /////
         })
-        .controller('MyCtrl2', function($scope, trafficforsigu, getsigunames, toptraffic, getbsunames, allgraphs, siguranged) {
+        .controller('MyCtrl2', function($scope, trafficforsigu, getsigunames, toptraffic, getbsunames, allgraphs, siguranged, allbsu) {
              $scope.allvars = {};
              $scope.allvars.Indi_Name = "BSU";
             $scope.sigunames = getbsunames.query();
-            //                    
-            
+            //                             
             $scope.update = function() {
                 //alert($scope.siguSelected);
                 $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});
                 $scope.alltraffics.$promise.then(function(result) {
                     $scope.alltraffics = result;
-                    var val = [['Time', 'TrafficIN']];
+                    var val = [['Time', 'Traffic IN']];
                     // key = i && tab[i]=result[key]
                     for (var key in result) {
                         var obj = result[key];
@@ -256,7 +360,7 @@ angular.module('myApp.controllers', []).
                     }
                     var data = google.visualization.arrayToDataTable(val);
                     var options = {
-                        title: 'TrafficIN for SIGU'
+                        title: 'Traffic IN for SIGU'
                     };
                     var chart = {};
                     chart.data = data;
@@ -331,7 +435,7 @@ angular.module('myApp.controllers', []).
 
                 var data = google.visualization.arrayToDataTable(tab);
                 var options = {
-                    title: 'TrafficIN for SIGU'
+                    title: 'Traffic IN for SIGU'
                 };
                 var chart = {};
                 chart.data = data;
@@ -355,9 +459,8 @@ angular.module('myApp.controllers', []).
             };
 
             $scope.updateShowAll = function() {
-                var allsigu = allgraphs.query();
+                var allsigu = allbsu.query();
                 allsigu.$promise.then(showFromList);
-
             };
 
             $scope.updateShowTop10 = function() {
@@ -371,7 +474,7 @@ angular.module('myApp.controllers', []).
                 var start = 0;
                 var i = 0;
                 while (i < $scope.sigunames.length) {
-                    if ($scope.sigunames[i].id == $scope.siguSelected) {
+                    if ($scope.sigunames[i].id == $scope.allvars.siguSelected) {
                         start = i;
                         break;
                     } else
@@ -385,7 +488,7 @@ angular.module('myApp.controllers', []).
                     else
                         list = list + "," + $scope.sigunames[i].id;
 
-                    if ($scope.sigunames[i].id == $scope.siguSelected2)
+                    if ($scope.sigunames[i].id == $scope.allvars.siguSelected2)
                         break;
                 }
 
@@ -395,11 +498,8 @@ angular.module('myApp.controllers', []).
                 rangesigu.$promise.then(showFromList);
             };
 
-            $scope.updateRange11 = function(sigu) {
-                var list = "";
-                var start = 0;
-                start = sigu;
-                list = start + ",";
+              $scope.updateRange11 = function() {
+                var list = $scope.allvars.siguSelected3;
                  alert(list);
                 var rangesigu = siguranged.query({list: list});              
                 rangesigu.$promise.then(showFromList);
