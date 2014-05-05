@@ -15,21 +15,19 @@ and open the template in the editor.
 
                 <tabset>
                     <tab heading="All"  class="dropdown">Click SUBMIT to see all the traffic
-                        <ul class="nav nav-pills">
-                        <li  ng-class="{active: $state.includes('*.traffic') }" class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Traffic <b class="caret"></b></a>
+                      <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">Traffic {{ allvars.traff }}<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a ui-sref=".traffic">Traffic IN</a></li>
+                                <li><a ng-click="allvars.traff = 'in';">Traffic IN</a></li>
                                 <li class="divider"></li>
-                                <li><a ui-sref=".traffic">Traffic OUT</a></li>
+                                <li><a ng-click="allvars.traff = 'out';">Traffic OUT</a></li>
                                 <li class="divider"></li>
-                                <li><a ui-sref=".cpu">Both</a></li>
+                                <li><a ng-click="allvars.traff = 'both';">Both</a></li>
                             </ul>
 
                         </li>
-                        </ul>
                         <input type = "submit" ng-click="updateShowAll()"value="Submit" /></tab>
-                    <!tab heading="All">Click SUBMIT to see all the traffic
+                    <!--tab heading="All">Click SUBMIT to see all the traffic
                         <input type = "submit" ng-click="updateShowAll()"value="Submit" /></tab-->
                     <tab heading="Range">
 
