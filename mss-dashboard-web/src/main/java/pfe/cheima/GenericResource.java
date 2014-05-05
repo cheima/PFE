@@ -18,7 +18,7 @@ import javax.ws.rs.core.MediaType;
 import net.vpc.upa.PersistenceUnit;
 import net.vpc.upa.Query;
 import net.vpc.upa.UPA;
-import pfe.cheima.decorators.JsonDisplayGraphs;
+import pfe.cheima.decorators.trafficforsigu;
 import pfe.cheima.decorators.JsonMultiSiguTraffic_Response;
 import pfe.cheima.service.GestionTraffic;
 import pfe.cheima.decorators.JsonSiguTraffic;
@@ -33,10 +33,8 @@ import pfe.cheima.service.model.modules;
  */
 @Path("generic")
 public class GenericResource {
-
     @Context
     private UriInfo context;
-
     /**
      * Creates a new instance of GenericResource
      */
@@ -148,12 +146,15 @@ public class GenericResource {
 
     public List<modules> getSiguName() {
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        List<modules> entityList = pu.createQuery("select a from modules a WHERE a.type = :v")
+        /* List<modules> entityList = pu.createQuery("select a from modules a WHERE a.type = :v order by a.id DESC")
+        .setParameter("v", 0).getEntityList();*/
+        // List<Integer> idList = pu.createQuery("select a from modules a order by a.id DESC ").getIdList();
+        List<modules> get = pu.createQuery("select a from modules a WHERE a.type = :v order by a.id DESC")
                 .setParameter("v", 0).getEntityList();
-        return entityList;
+     return get;
     }
   @Path("getbsuname")
-    @GET
+  @GET
     @Produces(MediaType.APPLICATION_JSON)
 
     public List<modules> getBsuName() {
@@ -183,40 +184,27 @@ public class GenericResource {
     @Path("display")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<JsonDisplayGraphs> liste(){
-        
-        List<JsonDisplayGraphs> liste = new ArrayList<JsonDisplayGraphs>();
+    public List<trafficforsigu> liste(){
+      //  List<trafficforsigu> liste = new ArrayList<trafficforsigu>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        List<TimePoint> entityList = pu.createQuery("select t from TimePoint t left join modules m ON t.id = m.id ").getEntityList();
-        List<Trafficforsigu> entityList1 = pu.createQuery("select t from Trafficforsigu t ")
-                .getEntityList();
-        List<modules> entitymodule = pu.createQuery("select m from modules m where m.type = :v").setParameter("v", 0).getEntityList();
-        for(int i = 0;i<entityList.size();i++){
-            JsonDisplayGraphs listejson = new JsonDisplayGraphs();
-           listejson.setAtTime(entityList.get(i).getAtTime());
-           listejson.setSiguName(entitymodule.get(i).getSiguName());
-           listejson.setPacketreceived(entityList1.get(i).getPacketreceived());
-           listejson.setPacketsent(entityList1.get(i).getPacketsent());
-           liste.add(listejson);
-        }
+        List<trafficforsigu> liste = pu.createQuery("select t from trafficforsigu t order by packetreceived DESC").getEntityList();   
         return liste;
     }
-    @Path("alltraffic")
+    @Path("allbsu")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonMultiSiguTraffic_Response getSigu1() {
+    public JsonMultiSiguTraffic_Response getBsu() {
         List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
         //  List<List<GetAllSigu>> listegas = new ArrayList<List<GetAllSigu>>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
-        List<modules> List = pu.createQuery("select a from modules a").getEntityList();
+        List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", 1).getEntityList();
         //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
-
         Date time = lastHour();
         List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")
                 .setParameter("v", time)
                 .getEntityList();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < List.size(); i++) {
             JsonSiguTraffic sigu = new JsonSiguTraffic();
             sigu.setSiguid(List.get(i).getId());
             //gas.get(i).setSiguid(List.get(i).getId());
@@ -231,7 +219,6 @@ public class GenericResource {
                         .getEntityList();
             sigu.setListe(entityList2);
             //  gas.get(i).setListe(entityList2);
-
             gas.add(sigu);
 
         }
@@ -240,7 +227,46 @@ public class GenericResource {
         ret.setSigus(gas);
         ret.setTimes(times);
         return (ret);
+        
+    }
+    @Path("alltraffic")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonMultiSiguTraffic_Response getSigu1() {
+        List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
+        //  List<List<GetAllSigu>> listegas = new ArrayList<List<GetAllSigu>>();
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
+        List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", 0).getEntityList();
+        //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
+        Date time = lastHour();
+        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")
+                .setParameter("v", time)
+                .getEntityList();
+        for (int i = 0; i < List.size(); i++) {
+            JsonSiguTraffic sigu = new JsonSiguTraffic();
+            sigu.setSiguid(List.get(i).getId());
+            //gas.get(i).setSiguid(List.get(i).getId());
+            sigu.setSiguname(List.get(i).getSiguName());
+            // gas.get(i).setSiguname(List.get(i).getSiguName());
+//            List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
+//                    .setParameter("v", List.get(i).getId())
+//                    .getEntityList();
+                List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v")
+                        .setParameter("v", time)
+                        .setParameter("id", List.get(i).getId())
+                        .getEntityList();
+            sigu.setListe(entityList2);
+            //  gas.get(i).setListe(entityList2);
+            gas.add(sigu);
 
+        }
+
+        JsonMultiSiguTraffic_Response ret = new JsonMultiSiguTraffic_Response();
+        ret.setSigus(gas);
+        ret.setTimes(times);
+        return (ret);
+        
     }
 
     @Path("alltraffic/{list}")

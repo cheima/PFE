@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Cheima
  */
 @XmlRootElement
-public class JsonDisplayGraphs implements Serializable{
+public class trafficforsigu implements Serializable{
     private long packetsent;
     private long packetreceived;
     private Date atTime;
