@@ -14,7 +14,7 @@ and open the template in the editor.
 
 
                 <tabset>
-                    <tab heading="Traffic"  class="dropdown">Click SUBMIT to see all the traffic
+                    <tab heading="All"  class="dropdown">Click SUBMIT to see all the traffic
                         <ul class="nav nav-pills">
                         <li  ng-class="{active: $state.includes('*.traffic') }" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Traffic <b class="caret"></b></a>
@@ -29,8 +29,8 @@ and open the template in the editor.
                         </li>
                         </ul>
                         <input type = "submit" ng-click="updateShowAll()"value="Submit" /></tab>
-                    <tab heading="All">Click SUBMIT to see all the traffic
-                        <input type = "submit" ng-click="updateShowAll()"value="Submit" /></tab>
+                    <!tab heading="All">Click SUBMIT to see all the traffic
+                        <input type = "submit" ng-click="updateShowAll()"value="Submit" /></tab-->
                     <tab heading="Range">
 
                         <select ng-model="allvars.siguSelected"  ng-change="">
