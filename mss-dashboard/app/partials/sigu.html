@@ -17,9 +17,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a ui-sref=".cpu">Load CPU</a></li>
+                    <li ng-class="{active: $state.includes('*.cpu')}"><a ui-sref=".cpu">Load CPU</a></li>
                     <li><a ui-sref=".cpu">Bandwidth</a></li>
-                    <li class="dropdown">
+                    <li  ng-class="{active: $state.includes('*.traffic') }" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Traffic <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a ui-sref=".traffic">Traffic IN</a></li>
