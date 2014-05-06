@@ -18,14 +18,12 @@ and open the template in the editor.
                       <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown">Traffic {{ allvars.traff }}<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a ng-click="allvars.traff = 'in';">Traffic IN</a></li>
-                                <li class="divider"></li>
-                                <li><a ng-click="allvars.traff = 'out';">Traffic OUT</a></li>
-                                <li class="divider"></li>
+                                <li><a ng-click="allvars.traff = 'packetreceived';">Traffic IN</a></li>
+                                <li><a ng-click="allvars.traff = 'packetsent';">Traffic OUT</a></li>                             
                                 <li><a ng-click="allvars.traff = 'both';">Both</a></li>
                             </ul>
-
                         </li>
+                         <p> Name For Last Sigu: <input ng-model="allvars.traff"></p>
                         <input type = "submit" ng-click="updateShowAll()"value="Submit" /></tab>
                     <!--tab heading="All">Click SUBMIT to see all the traffic
                         <input type = "submit" ng-click="updateShowAll()"value="Submit" /></tab-->

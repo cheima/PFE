@@ -8,17 +8,23 @@
        
     </head>
     <body ng-controller="MyCtrl1">
-
-        <div class="dropdown" >
-            <a class="dropdown-toggle">
-                Click me for a dropdown, yo!
-            </a>
-            <ul class="dropdown-menu">
-                <li ng-repeat="choice in items">
-                    <a>{{choice}}</a>
-                </li>
-            </ul>
-        </div>
+         <!-- Split button -->
+         <div ng-controller="DropdownCtrl">
+    <div class="btn-group" dropdown>
+      <button type="button" class="btn btn-danger">Action</button>
+      <button type="button" class="btn btn-danger dropdown-toggle">
+        <span class="caret"></span>
+        <span class="sr-only">Split button!</span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+    </div>
 
         <!-- Single button -->
         <!--div class="btn-group">
