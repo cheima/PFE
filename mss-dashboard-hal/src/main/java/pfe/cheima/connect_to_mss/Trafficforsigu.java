@@ -19,8 +19,18 @@ public class Trafficforsigu implements Serializable {
     private Date dateExec;
     private Long packetreceived;
     private Long packetsent;
+    private Long somme;
     private Integer SiguId;
 
+    public Long getSomme() {
+        return somme;
+    }
+
+    public void setSomme(Long somme) {
+        this.somme = somme;
+    }
+
+    
     public Integer getSiguId() {
         return SiguId;
     }

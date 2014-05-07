@@ -47,14 +47,18 @@ public class CmdParser {
         Calculator calcSCTP = new Calculator(Protocol.SCTP);
         Calculator calcIP = new Calculator(Protocol.IP);
         Calculator calcARP = new Calculator(Protocol.ARP);
-
+        //0
         Calculator calcICMP = new Calculator(Protocol.ICMP);
+        // ip+24
         Calculator calcIP6 = new Calculator(Protocol.IP6);
         Calculator calcUDP = new Calculator(Protocol.UDP);
         Calculator calcTCP = new Calculator(Protocol.TCP);
+        //0
         Calculator calcIGMP = new Calculator(Protocol.IGMP);
         Calculator calcICMP6 = new Calculator(Protocol.ICMP6);
+        //0
         Calculator calcUDP6 = new Calculator(Protocol.UDP6);
+        //0
         Calculator calcEMB = new Calculator(Protocol.EMB);
 
       //  for (int i = 0; i < s.size(); i++) {
@@ -62,11 +66,16 @@ public class CmdParser {
             BufferedReader buff = new BufferedReader(sr); // wrap your StringReader
             String sCurrentLine;
             Protocol pr = NONE;
+            Integer ip = 28;
+                    long ip1 = ip.longValue();
+                    Integer sctp = 0;
+                    long sctp1 = sctp.longValue();
             int k= 0;
             Integer r = 0;
             Integer t = 0;
             long somreceived = r.longValue();
             long somsent = t.longValue();
+            long somme ;
             while ((sCurrentLine = buff.readLine()) != null) {
                 Pattern p20 = Pattern.compile("UNIT:.*");
                 Matcher m20 = p20.matcher(sCurrentLine);
@@ -172,20 +181,20 @@ public class CmdParser {
                     
                     //FOR SCTP size 1500 octet
                     Trafficforsigu ModuleSigu = new Trafficforsigu();
-                    ModuleSigu.setPacketreceived(calcSCTP.received);
+                    ModuleSigu.setPacketreceived(calcSCTP.received * sctp1);
                     System.out.println("total SCTP received for SIGU " + ModuleSigu.getPacketreceived());
                     somreceived += ModuleSigu.getPacketreceived();
-                    ModuleSigu.setPacketsent(calcSCTP.sent);
+                    ModuleSigu.setPacketsent(calcSCTP.sent * sctp1);
                     System.out.println("total SCTP sent for SIGU " + ModuleSigu.getPacketsent());
                     somsent += ModuleSigu.getPacketsent();
 //                ListSomProtocol.add(ModuleSigu);
 
                     //FOR IP size 1500 octet
                     Trafficforsigu ModuleSigu1 = new Trafficforsigu();
-                    ModuleSigu1.setPacketreceived(calcIP.received);
+                    ModuleSigu1.setPacketreceived(calcIP.received * ip1);
                     System.out.println("total IP received for SIGU " + ModuleSigu1.getPacketreceived());
                     somreceived += ModuleSigu1.getPacketreceived();
-                    ModuleSigu1.setPacketsent(calcIP.sent);
+                    ModuleSigu1.setPacketsent(calcIP.sent * ip1);
                     System.out.println("total IP sent for SIGU " + ModuleSigu1.getPacketsent());
                     somsent += ModuleSigu1.getPacketsent();
 //                ListSomProtocol.add(ModuleSigu1);
@@ -305,17 +314,19 @@ public class CmdParser {
                     calcUDP6.sent = x;
                     calcEMB.received = x;
                     calcEMB.sent = x;
-                    Double z = 0.000012;
-                    long q = z.longValue();
+                   // Double z = 0.000012;
+                   // long q = z.longValue();
+                    somme = somreceived + somsent ;
                     Trafficforsigu trafficSIGU = new Trafficforsigu();
-                    trafficSIGU.setPacketreceived ((long)(somreceived * 0.000012));
+                    trafficSIGU.setPacketreceived ((long)(somreceived * 0.000008));
                     trafficSIGU.setPacketsent((long)(somsent * 0.000012) );
                     trafficSIGU.setSiguName((String) siguName.get(k));
+                    trafficSIGU.setSomme((long)somme);
                     k++;
                     ListSigu.add(trafficSIGU);
                     somsent = x;
                     somreceived = x;
-
+                   
                 }
             }
      //   }

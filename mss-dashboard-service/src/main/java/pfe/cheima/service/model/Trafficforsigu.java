@@ -2,7 +2,6 @@ package pfe.cheima.service.model;
 
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 import net.vpc.upa.config.Entity;
 import net.vpc.upa.config.Id;
@@ -17,8 +16,18 @@ public class Trafficforsigu implements Serializable {
     private Integer dateExec;
     private Long packetreceived;
     private Long packetsent;
+    private Long somme;
     private Integer siguId;
 
+    public Long getSomme() {
+        return somme;
+    }
+
+    public void setSomme(Long somme) {
+        this.somme = somme;
+    }
+
+    
     public Integer getId() {
         return Id;
     }
