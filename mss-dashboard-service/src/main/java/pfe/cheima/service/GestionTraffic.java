@@ -17,6 +17,7 @@ import pfe.cheima.service.model.TimePoint;
 import pfe.cheima.service.model.TrafficTotal;
 import pfe.cheima.service.model.Trafficforsigu;
 import pfe.cheima.service.model.modules;
+
 /**
  *
  * @author Cheima
@@ -46,18 +47,18 @@ public class GestionTraffic {
         tp.setAtTime(currentTimestamp);
         pu.insert(tp);
 //codiiii
-       // pu.createQuery("select t from totaltraffic ")
+        // pu.createQuery("select t from totaltraffic ")
         ///********////
         for (int g = 0; g < Lecture.size(); g++) {
-            TrafficTotal traffic = new TrafficTotal();
-            modules m = new modules();
-           
-            //m.setSiguName("sigu0");
+            Trafficforsigu traffic = new Trafficforsigu();
+
+            //retrouver le sigu; créer un s'il nexiste pas.
             modules module = pu.createQuery("select m from modules m where m.SIGUNAME LIKE :v ")
                     .setParameter("v", Lecture.get(g).getSiguName()).getEntity();
 
             int siguId;
             if (module == null) {
+                modules m = new modules();
                 m.setSiguName(Lecture.get(g).getSiguName());
                 m.setType(0);
                 pu.insert(m);
@@ -65,23 +66,42 @@ public class GestionTraffic {
             } else {
                 siguId = module.getId();
             }
-            //m.setSiguName("sigu1");
             traffic.setSiguId(siguId);
-            traffic.setTotalreceived(Lecture.get(g).getTotalreceived());
-            traffic.setTotalsent(Lecture.get(g).getTotalsent());
-            traffic.setTotalsomme(Lecture.get(g).getTotalsomme());
-            // traffic.setPacketreceived(Lecture.get(g).getPacketreceived());
-            //traffic.setPacketsent(Lecture.get(g).getPacketsent());
-           // traffic.setDateExec(tp.getId());
-            //   pu.createQuery((EntityStatement) traffic);
-            traffic.setSiguName(Lecture.get(g).getSiguName());
+
+            //retrouver le dernier total 
+            TrafficTotal trafficTotal = pu.createQuery("select t from TrafficTotal t where t.siguId LIKE :v ")
+                    .setParameter("v", siguId).getEntity();
+            boolean update_or_insert;
+            if (trafficTotal == null) { // si un total nexiste pas, creer un nouveau
+                traffic.setPacketreceived(0L);
+                traffic.setPacketsent(0L);
+                traffic.setSomme(0L);
+
+                trafficTotal = new TrafficTotal();
+                update_or_insert = false;
+            } else {                    // si le total existe, utiliser (...=Nouvelle val - Dernier total)
+                traffic.setPacketreceived(Lecture.get(g).getTotalreceived() - trafficTotal.getTotalreceived());
+                traffic.setPacketsent(Lecture.get(g).getTotalsent() - trafficTotal.getTotalsent());
+                traffic.setSomme(Lecture.get(g).getTotalsomme() - trafficTotal.getTotalsomme());
+                update_or_insert = true;
+            }
+            //  le total prend les dernieres valeurs
+            trafficTotal.setTotalreceived(Lecture.get(g).getTotalreceived());
+            trafficTotal.setTotalsent(Lecture.get(g).getTotalsent());
+            trafficTotal.setTotalsomme(Lecture.get(g).getTotalsomme());
+            if (update_or_insert) {
+                pu.update(trafficTotal);
+            } else {
+                pu.insert(trafficTotal);
+            }
+
             pu.insert(traffic);
         }
-        
+
         for (int g = 0; g < LectureBSU.size(); g++) {
             TrafficTotal traffic = new TrafficTotal();
             modules m = new modules();
-           
+
             //m.setSiguName("sigu0");
             modules module = pu.createQuery("select m from modules m where m.SIGUNAME LIKE :v ")
                     .setParameter("v", LectureBSU.get(g).getSiguName()).getEntity();
@@ -100,7 +120,7 @@ public class GestionTraffic {
             traffic.setTotalreceived(LectureBSU.get(g).getTotalreceived());
             traffic.setTotalsent(LectureBSU.get(g).getTotalsent());
             traffic.setTotalsomme(LectureBSU.get(g).getTotalsomme());
-            traffic.setSiguName(LectureBSU.get(g).getSiguName());
+            //traffic.setSiguName(LectureBSU.get(g).getSiguName());
             // traffic.setPacketreceived(Lecture.get(g).getPacketreceived());
             //traffic.setPacketsent(Lecture.get(g).getPacketsent());
             //traffic.setDateExec(tp.getId());

@@ -27,15 +27,15 @@ public class TrafficTotal implements Serializable {
     private Long totalsent;
     private Long totalsomme;
     private Integer siguId;
-    private String SiguName;
+    //private String SiguName;
 
-    public String getSiguName() {
-        return SiguName;
-    }
-
-    public void setSiguName(String SiguName) {
-        this.SiguName = SiguName;
-    }
+//    public String getSiguName() {
+//        return SiguName;
+//    }
+//
+//    public void setSiguName(String SiguName) {
+//        this.SiguName = SiguName;
+//    }
     
     public Integer getId() {
         return id;
