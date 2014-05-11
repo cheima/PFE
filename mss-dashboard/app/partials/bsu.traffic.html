@@ -14,7 +14,7 @@ and open the template in the editor.
 
                 <tabset>
                     <tab heading="All">Click SUBMIT to see all the traffic
-                        <input type = "submit" ng-click=""value="Submit" /></tab>
+                        <input type = "submit" ng-click="" value="Submit" class="btn btn-primary" /></tab>
                     <tab heading="Range">
 
                         <select ng-model="siguSelected"  ng-change="update()">
@@ -27,7 +27,7 @@ and open the template in the editor.
                             <option ng-repeat="onesigu in sigunames" value="{{onesigu.id}}">{{onesigu.siguName}}</option>          
                         </select> 
 
-                        <input type = "submit" ng-click="updateRange()"value="Submit" />
+                        <input type = "submit" ng-click="updateRange()" class="btn btn-primary" value="Submitkkkk" />
                  
                     </tab>
                     <tab heading="Top">Click the button TOP to see the top 10 SIGUs which have the most traffic
