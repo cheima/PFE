@@ -13,9 +13,10 @@ public class TelnetUtils_1 {
     private TelnetClient telnet = new TelnetClient();
     private InputStream in;
     private PrintStream out;
-
+    
     public String testConnexion(String server, String username, String password) {
         try {
+            telnet = new TelnetClient();
             telnet.connect(server, 23);
             in = telnet.getInputStream();
             out = new PrintStream(telnet.getOutputStream());
@@ -41,7 +42,6 @@ public class TelnetUtils_1 {
             return e.getMessage();
         }
     }
-
     public String readUntil(String pattern) {
         StringBuffer sb = new StringBuffer();
         try {

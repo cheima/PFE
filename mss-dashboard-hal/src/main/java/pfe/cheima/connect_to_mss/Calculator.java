@@ -49,12 +49,12 @@ public class Calculator {
         if (m.find() && 8 >= m.group(1).length()) {
           
 
-            if (m.group().contains("sent")) {
+            if (m.group().contains("packets sent")) {
                 ind1 = Long.parseLong(m.group(2));
                 sent += ind1;
 
             }
-              if (m.group().contains("received")) {
+              if (m.group().contains("packets received")) {
                // ind1 = Integer.parseInt(m.group(2));
                 ind1 =  Long.parseLong(m.group(2));
                 received += ind1;

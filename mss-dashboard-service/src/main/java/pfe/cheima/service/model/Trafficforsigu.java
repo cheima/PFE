@@ -4,14 +4,17 @@ package pfe.cheima.service.model;
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlRootElement;
 import net.vpc.upa.config.Entity;
+import net.vpc.upa.config.FieldDesc;
 import net.vpc.upa.config.Id;
 import net.vpc.upa.config.Sequence;
 
 @Entity
+//@Entity(entityType = )
 @XmlRootElement
 public class Trafficforsigu implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id  @Sequence
+   // private FieldDesc Id;
     private Integer Id;
     private Integer dateExec;
     private Long packetreceived;

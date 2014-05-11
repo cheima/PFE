@@ -19,24 +19,25 @@ public class CmdExecuter {
       
         
         
-       public List<Trafficforsigu> getAllSiguTraffic() throws IOException{
+       public List<TrafficTotal> getAllSiguTraffic() throws IOException{
             // TelnetAPI_Impl1 ta = new TelnetAPI_Impl1();
            
         TelnetAPI_Impl2 ta = new TelnetAPI_Impl2();
         CmdParser cp = new CmdParser();
+       
         String ListCmdSigu = ta.getAllSiguTraffic();
-        List<Trafficforsigu> allStats = cp.parseSiguTraffic(ListCmdSigu);
+        List<TrafficTotal> allStats = cp.parseSiguTraffic(ListCmdSigu);
        // allStats.addAll(allStats);
         return allStats;
 
        }
        
-       public List<Trafficforsigu> getAllBsuTraffic() throws IOException{
+       public List<TrafficTotal> getAllBsuTraffic() throws IOException{
            
            TelnetAPI_Impl2 ta = new TelnetAPI_Impl2();
-           CmdParser cp = new CmdParser();
+           CmdParserBSU cp = new CmdParserBSU();
            String ListCmdBsu = ta.getAllBsuTraffic();
-           List<Trafficforsigu> allStats = cp.parseSiguTraffic(ListCmdBsu);
+           List<TrafficTotal> allStats = cp.parseSiguTraffic(ListCmdBsu);
            return allStats;
        }
 }

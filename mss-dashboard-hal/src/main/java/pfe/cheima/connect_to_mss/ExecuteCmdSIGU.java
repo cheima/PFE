@@ -60,7 +60,7 @@ public class ExecuteCmdSIGU {
     
     public List<String> parse(String s) throws IOException{
         ArrayList<String> ListCmdSIGU = new ArrayList();
-        ArrayList ListSIGU = new ArrayList<Trafficforsigu>();
+        ArrayList ListSIGU = new ArrayList<TrafficTotal>();
         Calculator calcSCTP = new Calculator(Protocol.SCTP);
         Calculator calcIP = new Calculator(Protocol.IP);
         Calculator calcARP = new Calculator(Protocol.ARP);
@@ -174,9 +174,9 @@ public class ExecuteCmdSIGU {
                  /////   
                     
                     
-                if (m6.find()) {
+              /*  if (m6.find()) {
                     //FOR SCTP
-                    Trafficforsigu ModuleSigu = new Trafficforsigu();
+                    TrafficTotal ModuleSigu = new TrafficTotal();
                     ModuleSigu.setPacketreceived(calcSCTP.received);
                     System.out.println( "total SCTP received for SIGU "+ModuleSigu.getPacketreceived());
                     ModuleSigu.setPacketsent(calcSCTP.sent);
@@ -184,7 +184,7 @@ public class ExecuteCmdSIGU {
                     ListSIGU.add(ModuleSigu);
                     
                     //FOR IP
-                    Trafficforsigu ModuleSigu1 = new Trafficforsigu();
+                    TrafficTotal ModuleSigu1 = new TrafficTotal();
                     ModuleSigu1.setPacketreceived(calcIP.received);
                     System.out.println( "total IP received for SIGU "+ModuleSigu1.getPacketreceived());
                     ModuleSigu1.setPacketsent(calcIP.sent);
@@ -192,7 +192,7 @@ public class ExecuteCmdSIGU {
                     ListSIGU.add(ModuleSigu1);
                     
                     //FOR ARP
-                    Trafficforsigu ModuleSigu2 = new Trafficforsigu();
+                    TrafficTotal ModuleSigu2 = new TrafficTotal();
                     ModuleSigu2.setPacketreceived(calcARP.received);
                     System.out.println( "total ARP received for SIGU "+ModuleSigu2.getPacketreceived());
                     ModuleSigu2.setPacketsent(calcARP.sent);
@@ -200,7 +200,7 @@ public class ExecuteCmdSIGU {
                     ListSIGU.add(ModuleSigu2);
                     
                     //FOR TCP
-                    Trafficforsigu ModuleSigu3 = new Trafficforsigu();
+                    TrafficTotal ModuleSigu3 = new TrafficTotal();
                     ModuleSigu3.setPacketreceived(calcTCP.received);
                     System.out.println( "total TCP received for SIGU "+ModuleSigu3.getPacketreceived());
                     ModuleSigu2.setPacketsent(calcTCP.sent);
@@ -208,7 +208,7 @@ public class ExecuteCmdSIGU {
                     ListSIGU.add(ModuleSigu3);
                     
                     // FOR IGMP
-                    Trafficforsigu ModuleSigu4 = new Trafficforsigu();
+                    TrafficTotal ModuleSigu4 = new TrafficTotal();
                     ModuleSigu4.setPacketreceived(calcIGMP.received);
                     System.out.println( "total IGMP received for SIGU "+ModuleSigu4.getPacketreceived());
                     ModuleSigu4.setPacketsent(calcIGMP.sent);
@@ -216,7 +216,7 @@ public class ExecuteCmdSIGU {
                     ListSIGU.add(ModuleSigu4);
                     
                     //FOR ICMP
-                    Trafficforsigu ModuleSigu5 = new Trafficforsigu();
+                    TrafficTotal ModuleSigu5 = new TrafficTotal();
                     ModuleSigu5.setPacketreceived(calcICMP.received);
                     System.out.println( "total ICMP received for SIGU "+ModuleSigu5.getPacketreceived());
                     ModuleSigu5.setPacketsent(calcICMP.sent);
@@ -224,7 +224,7 @@ public class ExecuteCmdSIGU {
                     ListSIGU.add(ModuleSigu5);
                     
                     //FOR IP6
-                    Trafficforsigu ModuleSigu6 = new Trafficforsigu();
+                    TrafficTotal ModuleSigu6 = new TrafficTotal();
                     ModuleSigu6.setPacketreceived(calcIP6.received);
                     System.out.println( "total IP6 received for SIGU "+ModuleSigu6.getPacketreceived());
                     ModuleSigu6.setPacketsent(calcIP6.sent);
@@ -232,7 +232,7 @@ public class ExecuteCmdSIGU {
                     ListSIGU.add(ModuleSigu6);
                     
                     //FOR UDP
-                    Trafficforsigu ModuleSigu7 = new Trafficforsigu();
+                    TrafficTotal ModuleSigu7 = new TrafficTotal();
                     ModuleSigu7.setPacketreceived(calcUDP.received);
                     System.out.println( "total UDP received for SIGU "+ModuleSigu7.getPacketreceived());
                     ModuleSigu7.setPacketsent(calcUDP.sent);
@@ -240,7 +240,7 @@ public class ExecuteCmdSIGU {
                     ListSIGU.add(ModuleSigu7);
                     
                     //ICMP6
-                    Trafficforsigu ModuleSigu8 = new Trafficforsigu();
+                    TrafficTotal ModuleSigu8 = new TrafficTotal();
                     ModuleSigu8.setPacketreceived(calcICMP6.received);
                     System.out.println( "total ICMP6 received for SIGU "+ModuleSigu8.getPacketreceived());
                     ModuleSigu8.setPacketsent(calcICMP6.sent);
@@ -248,7 +248,7 @@ public class ExecuteCmdSIGU {
                     ListSIGU.add(ModuleSigu8);
                     
                     //UDP6
-                    Trafficforsigu ModuleSigu9 = new Trafficforsigu();
+                    TrafficTotal ModuleSigu9 = new TrafficTotal();
                     ModuleSigu9.setPacketreceived(calcUDP6.received);
                     System.out.println( "total UDP6 received for SIGU "+ModuleSigu9.getPacketreceived());
                     ModuleSigu9.setPacketsent(calcUDP6.sent);
@@ -256,7 +256,7 @@ public class ExecuteCmdSIGU {
                     ListSIGU.add(ModuleSigu9);
                     
                     //EMB
-                    Trafficforsigu ModuleSigu10 = new Trafficforsigu();
+                    TrafficTotal ModuleSigu10 = new TrafficTotal();
                     ModuleSigu10.setPacketreceived(calcEMB.received);
                     System.out.println( "total EMB received for SIGU "+ModuleSigu10.getPacketreceived());
                     ModuleSigu10.setPacketsent(calcEMB.sent);
@@ -290,7 +290,7 @@ public class ExecuteCmdSIGU {
                     calcUDP6.sent = e;
                     calcEMB.received = e;
                     calcEMB.sent = e;                                      
-                }
+                }*/
              }
         
        // System.out.println(ListCmdSIGU.size());
