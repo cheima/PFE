@@ -149,7 +149,7 @@ arp:
 
                 10 request packets
 
-        854121 packets received
+        900000 packets received
 
                 854083 valid request packets
 
@@ -230,11 +230,11 @@ emb:
 
 arp:
 
-        10 packets sent
+        10000 packets sent
 
                 10 request packets
 
-        854265 packets received
+        8542651 packets received
 
                 854207 valid request packets
 
@@ -404,7 +404,7 @@ arp:
 
                 10 request packets
 
-        854265 packets received
+        8542650 packets received
 
                 854211 valid request packets
 
@@ -485,11 +485,11 @@ emb:
 
 arp:
 
-        10 packets sent
+        100 packets sent
 
                 10 request packets
 
-        854121 packets received
+        8541211 packets received
 
                 854087 valid request packets
 
@@ -740,13 +740,13 @@ emb:
 
 arp:
 
-        286 packets sent
+        2860 packets sent
 
                 276 reply packets
 
                 10 request packets
 
-        854531 packets received
+        8545310 packets received
 
                 854437 valid request packets
 

@@ -9,7 +9,7 @@ UNIT: SIGU-0
 
 ip:
 
-        293411914 total packets received
+        29341191400 total packets received
 
         436383 fragments received       218189 packets reassembled ok
 
@@ -55,7 +55,7 @@ tcp:
 
 sctp:
 
-        260184582 packets sent
+        2601845820 packets sent
 
                 2513022220 bytes sent
 
@@ -480,7 +480,7 @@ tcp:
 
 sctp:
 
-        208911885 packets sent
+        2089118850 packets sent
 
                 309429416 bytes sent
 
@@ -510,7 +510,7 @@ sctp:
 
                 12 blocked by congestion window
 
-        208304236 packets received
+        2083042360 packets received
 
                 3406684824 bytes received
 
@@ -599,7 +599,7 @@ UNIT: SIGU-4
 
 ip:
 
-        179211707 total packets received
+        17921170700 total packets received
 
         179211690 packets for this host
 
@@ -2373,7 +2373,7 @@ tcp:
 
 sctp:
 
-        230097112 packets sent
+        2300971120 packets sent
 
                 1317393900 bytes sent
 
@@ -2399,7 +2399,7 @@ sctp:
 
                 1 blocked by congestion window
 
-        260749193 packets received
+        2607491930 packets received
 
                 2872155872 bytes received
 
@@ -2524,7 +2524,7 @@ tcp:
 
 sctp:
 
-        199748002 packets sent
+        1997480020 packets sent
 
                 1549511656 bytes sent
 

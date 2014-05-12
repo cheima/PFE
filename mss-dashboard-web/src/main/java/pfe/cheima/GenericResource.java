@@ -40,7 +40,7 @@ public class GenericResource {
     @Produces("application/xml")
     public String getXml() throws ParseException, IOException {
         GestionTraffic m = new GestionTraffic();
-        m.populate();
+         m.populate();
         return "<xml><value>test</value></xml>";
     }
 
