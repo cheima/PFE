@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  * @author Cheima
  */
 //execute les cmdes sigus
-public class TelnetAPI_Impl1 implements TelnetAPI{
+public class TelnetAPI_Impl1 implements TelnetAPI {
     TelnetClient tc = new TelnetClient();
    public  String getAllSiguTraffic() throws IOException{
         String ListExecSIGU = "";

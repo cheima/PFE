@@ -34,5 +34,15 @@ public class TelnetAPI_Impl2 implements TelnetAPI {
         return s;
 
     }
+    
+    public  String getAllCPU() throws IOException{
+    
+    BufferedReader br = new BufferedReader (new FileReader ("F:\\PFE\\FolderForGit\\mss-dashboard-service\\CPU.txt"));
+    String s = "";
+    while(br.ready()){
+        s += "\n" +br.readLine();
+    }
+    return s;
+}
 
 }

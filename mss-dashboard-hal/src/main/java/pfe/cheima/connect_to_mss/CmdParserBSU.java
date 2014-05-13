@@ -198,7 +198,7 @@ public class CmdParserBSU {
                   //  ListSomProtocol.add(ModuleSigu1);
 
                     //FOR ARP size?
-                    TrafficTotal ModuleSigu2 = new TrafficTotal();
+                   /* TrafficTotal ModuleSigu2 = new TrafficTotal();
                     ModuleSigu2.setTotalreceived(calcARP.received);
                     System.out.println("total ARP received for SIGU " + ModuleSigu2.getTotalreceived());
                     somreceived += ModuleSigu2.getTotalreceived();
@@ -206,11 +206,11 @@ public class CmdParserBSU {
                     ModuleSigu2.setTotalsent(calcARP.sent);
                     System.out.println("total ARP sent for SIGU " + ModuleSigu2.getTotalsent());
                     somsent += ModuleSigu2.getTotalsent();
-                    som += somsent;
+                    som += somsent;*/
            //     ListSomProtocol.add(ModuleSigu2);
 
                     //FOR TCP size 1500 octet
-                    TrafficTotal ModuleSigu3 = new TrafficTotal();
+                   /* TrafficTotal ModuleSigu3 = new TrafficTotal();
                     ModuleSigu3.setTotalreceived(calcTCP.received);
                     System.out.println("total TCP received for SIGU " + ModuleSigu3.getTotalreceived());
                     somreceived += ModuleSigu3.getTotalreceived();
@@ -218,7 +218,7 @@ public class CmdParserBSU {
                     ModuleSigu3.setTotalsent(calcTCP.sent);
                     System.out.println("total TCP sent for SIGU " + ModuleSigu3.getTotalsent());
                     somsent += ModuleSigu3.getTotalsent();
-                    som += somsent;
+                    som += somsent;*/
 //                ListSomProtocol.add(ModuleSigu3);
 
                     // FOR IGMP size?
@@ -282,7 +282,7 @@ public class CmdParserBSU {
              //   ListSomProtocol.add(ModuleSigu8);
 
                     //UDP6 size ?
-                   TrafficTotal ModuleSigu9 = new TrafficTotal();
+                  /* TrafficTotal ModuleSigu9 = new TrafficTotal();
                     ModuleSigu9.setTotalreceived(calcUDP6.received);
                     System.out.println("total UDP6 received for SIGU " + ModuleSigu9.getTotalreceived());
                     somreceived += ModuleSigu9.getTotalreceived();
@@ -290,11 +290,11 @@ public class CmdParserBSU {
                     ModuleSigu9.setTotalsent(calcUDP6.sent);
                     System.out.println("total UDP6 sent for SIGU " + ModuleSigu9.getTotalsent());
                     somsent += ModuleSigu9.getTotalsent();
-                    som += somsent;
+                    som += somsent;*/
           //      ListSomProtocol.add(ModuleSigu9);
 
                     //EMB size?
-                    TrafficTotal ModuleSigu10 = new TrafficTotal();
+                   /* TrafficTotal ModuleSigu10 = new TrafficTotal();
                     ModuleSigu10.setTotalreceived(calcEMB.received);
                     System.out.println("total EMB received for SIGU " + ModuleSigu10.getTotalreceived());
                     somreceived += ModuleSigu10.getTotalreceived();
@@ -302,7 +302,7 @@ public class CmdParserBSU {
                     ModuleSigu10.setTotalsent(calcEMB.sent);
                     System.out.println("total EMB sent for SIGU " + ModuleSigu10.getTotalsent());
                     somsent += ModuleSigu10.getTotalsent();
-                    som += somsent;
+                    som += somsent;*/
                     //    ListSomProtocol.add(ModuleSigu10);
                     pr = Protocol.NONE;
                     Integer y = 0;
@@ -336,7 +336,7 @@ public class CmdParserBSU {
                     trafficSIGU.setTotalreceived (q);
                     trafficSIGU.setTotalsent(v);
                     trafficSIGU.setTotalsomme(q+v);
-//                    trafficSIGU.setSiguName((String) siguName.get(k));
+                   trafficSIGU.setSiguName((String) siguName.get(k));
                     k++;
                     ListSigu.add(trafficSIGU);
                     somsent = x;

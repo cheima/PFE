@@ -32,12 +32,21 @@ public class CmdExecuter {
 
        }
        
-       public List<TrafficTotal> getAllBsuTraffic() throws IOException{
+       public List<TrafficTotal> getAllBsuTraffic() throws IOException {
            
            TelnetAPI_Impl2 ta = new TelnetAPI_Impl2();
            CmdParserBSU cp = new CmdParserBSU();
            String ListCmdBsu = ta.getAllBsuTraffic();
            List<TrafficTotal> allStats = cp.parseSiguTraffic(ListCmdBsu);
+           return allStats;
+       }
+       
+        public List<LoadPercentCpu> getAllCPU() throws IOException {
+           
+           TelnetAPI_Impl2 ta = new TelnetAPI_Impl2();
+           CmdParserCPU cp = new CmdParserCPU();
+           String ListCmdCPU = ta.getAllCPU();
+           List<LoadPercentCpu> allStats = cp.Comparaison(ListCmdCPU);
            return allStats;
        }
 }

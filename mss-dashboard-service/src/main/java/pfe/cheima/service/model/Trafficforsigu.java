@@ -4,7 +4,6 @@ package pfe.cheima.service.model;
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlRootElement;
 import net.vpc.upa.config.Entity;
-import net.vpc.upa.config.FieldDesc;
 import net.vpc.upa.config.Id;
 import net.vpc.upa.config.Sequence;
 

@@ -1,0 +1,996 @@
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       9
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-44   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       7
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-26   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       9
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-10   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      CHU-3-0   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       8
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-32   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      12
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BDCU-1    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       0
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-11   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       9
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-24   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      VLRU-4-1  
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       6
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-52   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-19   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       8
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-37   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      16
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      VLRU-0-0  
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       6
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      VLRU-3-0  
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       6
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-8     
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      21
+CALLS FOR CRRQ:                     1
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-59   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       7
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-35   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      13
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      VLRU-4-0  
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       5
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-48   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      10
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      CMU-1     
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       7
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-15    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      22
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      VLRU-3-1  
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       6
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      CCSU-0    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       0
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-13   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       5
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-23   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       7
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      VLRU-0-1  
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       7
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-42   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      11
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-5     
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      21
+CALLS FOR CRRQ:                     1
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-34   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-9    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       7
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-55   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       9
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      CMU-0     
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       3
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-38   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       9
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      VLRU-2-1  
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       6
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-30   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      11
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-13    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      18
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-21   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      12
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-46   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       9
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      VLRU-2-0  
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       6
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-49   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       8
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-15   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       8
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-16    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      22
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-5    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       5
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      CCSU-3    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       5
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      STU-0     
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       8
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-50   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-43   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       9
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-2    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-31   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       9
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-51   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       7
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-3     
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      17
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      VLRU-1-0  
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       5
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-41   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       8
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-20   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      15
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-1    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-28   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      11
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-9     
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      16
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-39   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       8
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-12    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      22
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-56   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      10
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-6    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       6
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-16   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       9
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-17    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      21
+CALLS FOR CRRQ:                     1
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-54   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       5
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      CCSU-2    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BDCU-0    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-7    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-18   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       0
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      CCSU-1    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       7
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-47   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      11
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-60   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      STU-1     
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      10
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-18    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      20
+CALLS FOR CRRQ:                     1
+PROCESSOR TIME USAGE
+
+UNIT:                      CCSU-5    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-27   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       9
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      VLRU-1-1  
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       6
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-45   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       8
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-3    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-36   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       5
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-53   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-40   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       5
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-12   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       9
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-22   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       4
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-1     
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      20
+CALLS FOR CRRQ:                     1
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-0     
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       0
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-0    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       6
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-25   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       8
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-14   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       8
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-58   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       5
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-11    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      20
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-10    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      17
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-4    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       3
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-8    
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       6
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-2     
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      20
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-7     
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      21
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-57   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       8
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      SIGU-17   
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                       9
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-4     
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      20
+CALLS FOR CRRQ:                     0
+PROCESSOR TIME USAGE
+
+UNIT:                      BSU-6     
+
+SUPERVISION OF CPU
+TIME USAGE ALLOWED:               YES
+SUPERVISION OF CPU
+LOAD ALLOWED:                     YES
+LOAD PERCENT:                      24
+CALLS FOR CRRQ:                     0
+
+COMMAND EXECUTED

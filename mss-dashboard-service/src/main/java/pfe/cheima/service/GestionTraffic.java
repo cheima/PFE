@@ -13,6 +13,7 @@ import java.util.List;
 import net.vpc.upa.PersistenceUnit;
 import net.vpc.upa.UPA;
 import pfe.cheima.connect_to_mss.CmdExecuter;
+import pfe.cheima.service.model.LoadPercentCPU;
 import pfe.cheima.service.model.TimePoint;
 import pfe.cheima.service.model.TrafficTotal;
 import pfe.cheima.service.model.Trafficforsigu;
@@ -36,6 +37,8 @@ public class GestionTraffic {
         CmdExecuter ce = new CmdExecuter();
         List<pfe.cheima.connect_to_mss.TrafficTotal> Lecture = ce.getAllSiguTraffic();
         List<pfe.cheima.connect_to_mss.TrafficTotal> LectureBSU = ce.getAllBsuTraffic();
+        List<pfe.cheima.connect_to_mss.LoadPercentCpu> LectureCPU = ce.getAllCPU();
+
         // 1) create a java calendar instance
         Calendar calendar = Calendar.getInstance();
 // 2) get a java.util.Date from the calendar instance.
@@ -67,7 +70,6 @@ public class GestionTraffic {
                 siguId = module.getId();
             }
             traffic.setSiguId(siguId);
-
             //retrouver le dernier total 
             TrafficTotal trafficTotal = pu.createQuery("select t from traffictotal t where t.siguId = :v ")
                     .setParameter("v", siguId).getEntity();
@@ -77,11 +79,10 @@ public class GestionTraffic {
                 traffic.setPacketreceived(0L);
                 traffic.setPacketsent(0L);
                 traffic.setSomme(0L);
-
                 trafficTotal = new TrafficTotal();
                 trafficTotal.setSiguId(siguId);
                 update_or_insert = false;
-                
+
             } else {                    // si le total existe, utiliser (...=Nouvelle val - Dernier total)
                 traffic.setDateExec(tp.getId());
                 traffic.setPacketreceived(Lecture.get(g).getTotalreceived() - trafficTotal.getTotalreceived());
@@ -102,7 +103,7 @@ public class GestionTraffic {
             pu.insert(traffic);
         }
 
-      for (int g = 0; g < LectureBSU.size(); g++) {
+        for (int g = 0; g < LectureBSU.size(); g++) {
             Trafficforsigu traffic = new Trafficforsigu();
 
             //retrouver le sigu; créer un s'il nexiste pas.
@@ -112,7 +113,7 @@ public class GestionTraffic {
             int siguId;
             if (module == null) {
                 modules m = new modules();
-                m.setSiguName(Lecture.get(g).getSiguName());
+                m.setSiguName(LectureBSU.get(g).getSiguName());
                 m.setType(1);
                 pu.insert(m);
                 siguId = m.getId();
@@ -152,9 +153,34 @@ public class GestionTraffic {
             }
 
             pu.insert(traffic);
-        } 
+        }
+        // insertion du cpu
+        int i = 2;
+        //System.out.println("eeeee" + LectureCPU.size());
+        for (int g = 0; g < LectureCPU.size(); g++) {
+            
+            LoadPercentCPU cpu = new LoadPercentCPU();
+            modules module = pu.createQuery("select m from modules m where m.SIGUNAME = :v ")
+                    .setParameter("v", LectureCPU.get(g).getModuleName()).getEntity();
+            int siguId;
+            if (module == null) {
+                modules m = new modules();
+                m.setSiguName(LectureCPU.get(g).getModuleName());
+                m.setType(i);
+                i++;
+                pu.insert(m);
+                siguId = m.getType();
+            } else {
+                siguId = module.getType();
+            }
+            cpu.setModuleId(siguId);
+            cpu.setLoadCPU(LectureCPU.get(g).getLoadCPU());
+            //cpu.setModuleId(LectureCPU.get(g).getLoadCPU());
+            cpu.setDateExec(tp.getId());
+            pu.insert(cpu);
+        }
 
-    }
+    } 
 
     public List<Trafficforsigu> getEntities() {
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
