@@ -35,15 +35,16 @@ public class CmdParserCPU {
 
             Pattern p1 = Pattern.compile("(LOAD PERCENT:)(\\s+)(\\d{1,3}).*");
             Matcher m1 = p1.matcher(line);
+                l = new LoadPercentCpu();
 
-            l = new LoadPercentCpu();
-
+          
             if (m.find() && 22 <= m.group(2).length()) {
 
                 if (m.group(3).contains("SIGU")) {
                     testSIGU = true;
+                      l = new LoadPercentCpu();
                     l.setModuleName(m.group(3));
-                    System.out.println(m.group(3) + "sigu");
+                    System.out.println(l.getModuleName() + "sigu");
                     
                 }
                 /*else  if (m.group(3).contains("BSU")) {
@@ -65,6 +66,7 @@ public class CmdParserCPU {
                     ind = Integer.parseInt(m1.group(3));
                     l.setLoadCPU(ind);
                     cpu.add(l);
+                    System.out.println("les elts de l sont "+l.getModuleName()+"eee"+l.getLoadCPU());
                     testSIGU = false;
                 }
                /* else if (testBSU == true) {

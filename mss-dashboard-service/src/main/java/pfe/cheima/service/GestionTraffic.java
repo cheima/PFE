@@ -160,7 +160,7 @@ public class GestionTraffic {
         for (int g = 0; g < LectureCPU.size(); g++) {
             
             LoadPercentCPU cpu = new LoadPercentCPU();
-            modules module = pu.createQuery("select m from modules m where m.SIGUNAME = :v ")
+            modules module = pu.createQuery("select m from modules m where m.SIGUNAME LIKE :v ")
                     .setParameter("v", LectureCPU.get(g).getModuleName()).getEntity();
             int siguId;
             if (module == null) {
@@ -169,9 +169,9 @@ public class GestionTraffic {
                 m.setType(i);
                 i++;
                 pu.insert(m);
-                siguId = m.getType();
+                siguId = m.getId();
             } else {
-                siguId = module.getType();
+                siguId = module.getId();
             }
             cpu.setModuleId(siguId);
             cpu.setLoadCPU(LectureCPU.get(g).getLoadCPU());
