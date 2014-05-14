@@ -77,3 +77,9 @@ trafficServices.factory('allcpu',function($resource){
       query:{method:'GET',isArray:false}  
     }));
 });
+
+trafficServices.factory('allcpu11',function($resource){
+    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu11/:list',{list11: '@list11'},{
+      query:{method:'GET',isArray:false}  
+    }));
+});

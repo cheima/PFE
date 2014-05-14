@@ -468,6 +468,52 @@ public class GenericResource {
     }
 
 
+    ///list of cpu selected
+    
+        @Path("allcpu11/{list11}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonMultiModuleCpu getList111(@PathParam("list11") String list11) {
+
+        String[] siguIdsAsStrings = list11.split(",");
+        List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
+        for (String siguIdsAsString : siguIdsAsStrings) {
+            siguIds.add(Integer.parseInt(siguIdsAsString));
+        }
+
+        List<JsonModuleCpu> gas = new ArrayList<JsonModuleCpu>();
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+
+        Date time = lastHour();
+        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")
+                .setParameter("v", time)
+                .getEntityList();
+        for (int id : siguIds) {
+            modules m = pu.createQuery("select a from modules a where a.id = :id").setParameter("id", id).getEntity();
+            if (m != null) {
+                JsonModuleCpu sigu = new JsonModuleCpu();
+                sigu.setModuleid(id);
+                sigu.setModulename(m.getSiguName());
+                List<LoadPercentCPU> entityList2 = pu.createQuery("select a from loadpercentcpu a left join TimePoint t ON a.dateExec = t.id where a.moduleid = :id AND t.atTime >= :v")
+                        .setParameter("v", time)
+                        .setParameter("id", id)
+                        .getEntityList();
+//                List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
+//                        .setParameter("v", id)
+//                        .getEntityList();
+                sigu.setListe(entityList2);
+                gas.add(sigu);
+            }
+        }
+
+        JsonMultiModuleCpu ret = new JsonMultiModuleCpu();
+        ret.setModules(gas);
+        ret.setTimes(times);
+        return (ret);
+
+    }
+    
+    
     private Date lastHour() {
         Calendar calendar = Calendar.getInstance();
 // 2) get a java.util.Date from the calendar instance.

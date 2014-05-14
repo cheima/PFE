@@ -970,14 +970,14 @@ angular.module('myApp.controllers', []).
         $scope.format = $scope.formats[0];
     };
 })
-        .controller('MyCtrl5', function($scope, allcpu, trafficforsigu, allmodules, toptraffic, getsigunames, allgraphs, siguranged) {
+        .controller('MyCtrl5', function($scope, allcpu, allcpu11, trafficforsigu, allmodules, toptraffic, getsigunames, allgraphs, siguranged) {
             $scope.allvars = {};
             $scope.allvars.Indi_Name = "SIGU";
             $scope.sigunames = getsigunames.query();
 
             var showFromList2 = function(result) {
                 $scope.graphs = result;
-                var sigus = result["sigus"];
+                var sigus = result["modules"];
                 var times = result["times"]; // liste des TimePoint
                 var tab = [];
                 /* Ligne 1 de la matrice */
@@ -1106,14 +1106,14 @@ angular.module('myApp.controllers', []).
 
                 //  alert(list);
                 // i =0;
-                var rangesigu = allmodules.query({list: list});
+                var rangesigu = allcpu11.query({list11: list});
                 rangesigu.$promise.then(showFromList2);
             };
 
             $scope.updateRange11 = function() {
                 var list = $scope.allvars.siguSelected3;
                 // alert(list);
-                var rangesigu = allmodules.query({list:list});
+                var rangesigu = allcpu11.query({list11:list});
                 rangesigu.$promise.then(showFromList2);
             };
 
