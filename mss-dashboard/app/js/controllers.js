@@ -975,16 +975,16 @@ angular.module('myApp.controllers', []).
             $scope.allvars.Indi_Name = "SIGU";
             $scope.sigunames = getsigunames.query();
 
-            var showFromList = function(result) {
+            var showFromList2 = function(result) {
                 $scope.graphs = result;
                 var sigus = result["sigus"];
                 var times = result["times"]; // liste des TimePoint
                 var tab = [];
                 /* Ligne 1 de la matrice */
-                var ligne1 = [['time']];
+                var ligne1 = ['time'];
                 for (var s in sigus) {
                     var sigu = sigus[s]; // le sigu 
-                    var siguname = sigu["siguName"];
+                    var siguname = sigu["modulename"];
                     ligne1.push(siguname);
                 }
                 tab.push(ligne1);
@@ -1024,7 +1024,7 @@ angular.module('myApp.controllers', []).
                 var tab2 = [['name', last_timeValue]];
                 for (var s in sigus) {
                     var sigu = sigus[s]; // le sigu 
-                    var lignesomme = [sigu["siguname"]];
+                    var lignesomme = [sigu["modulename"]];
 
                     var trafficsomme = 0;
                     var traffics = sigu["liste"];
@@ -1072,13 +1072,13 @@ angular.module('myApp.controllers', []).
             };
             $scope.updateShowAll = function() {
                 var allsigu = allcpu.query();
-                allsigu.$promise.then(showFromList);
+                allsigu.$promise.then(showFromList2);
 
             };
 
             $scope.updateShowTop10 = function() {
                 var allsigu = allcpu.query();
-                allsigu.$promise.then(showFromList);
+                allsigu.$promise.then(showFromList2);
             };
 
             $scope.updateRange = function() {
@@ -1107,14 +1107,14 @@ angular.module('myApp.controllers', []).
                 //  alert(list);
                 // i =0;
                 var rangesigu = allmodules.query({list: list});
-                rangesigu.$promise.then(showFromList);
+                rangesigu.$promise.then(showFromList2);
             };
 
             $scope.updateRange11 = function() {
                 var list = $scope.allvars.siguSelected3;
                 // alert(list);
                 var rangesigu = allmodules.query({list:list});
-                rangesigu.$promise.then(showFromList);
+                rangesigu.$promise.then(showFromList2);
             };
 
         }
