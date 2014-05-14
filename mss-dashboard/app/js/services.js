@@ -64,3 +64,16 @@ trafficServices.factory('allbsu',function($resource){
       query:{method:'GET',isArray:false}  
     }));
 });
+//allmodulesforcpu
+trafficServices.factory('allmodules',function($resource){
+   // isArray:false because it is an oject with two attributes (sigu which is an array and times)
+    return($resource(host+'/mss-dashboard-web/webresources/generic/allmodules/:list',{list: '@list'},{
+      query:{method:'GET',isArray:false}  
+    }));
+});
+
+trafficServices.factory('allcpu',function($resource){
+    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu',{},{
+      query:{method:'GET',isArray:false}  
+    }));
+});

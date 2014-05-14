@@ -35,7 +35,7 @@ angular.module('myApp', [
             }).state('sigu.cpu', {
         url: "/LoadCPU",
         templateUrl: "partials/sigu.cpu.html",
-        controller: 'MyCtrl1'
+        controller: 'MyCtrl5'
     }).state('sigu.bp', {
         url: "/LoadBP",
         templateUrl: "partials/sigu.bp.html",
@@ -51,7 +51,7 @@ angular.module('myApp', [
     }).state('bsu.cpu', {
         url: "/LoadCPU",
         templateUrl: "partials/sigu.cpu.html",
-        controller: 'MyCtrl2'
+        controller: 'MyCtrl6'
     }).state(
             'bsu.bp', {
                 url: "/LoadBP",

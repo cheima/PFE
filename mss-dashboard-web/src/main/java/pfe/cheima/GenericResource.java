@@ -18,10 +18,13 @@ import javax.ws.rs.core.MediaType;
 import net.vpc.upa.PersistenceUnit;
 import net.vpc.upa.Query;
 import net.vpc.upa.UPA;
+import pfe.cheima.decorators.JsonModuleCpu;
+import pfe.cheima.decorators.JsonMultiModuleCpu;
 import pfe.cheima.decorators.trafficforsigu;
 import pfe.cheima.decorators.JsonMultiSiguTraffic_Response;
 import pfe.cheima.service.GestionTraffic;
 import pfe.cheima.decorators.JsonSiguTraffic;
+import pfe.cheima.service.model.LoadPercentCPU;
 import pfe.cheima.service.model.TimePoint;
 import pfe.cheima.service.model.Trafficforsigu;
 import pfe.cheima.service.model.modules;
@@ -231,7 +234,7 @@ public class GenericResource {
         List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
         //  List<List<GetAllSigu>> listegas = new ArrayList<List<GetAllSigu>>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
+       // List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
         List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", 1).getEntityList();
         //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
         Date time = lastHour();
@@ -394,6 +397,76 @@ public class GenericResource {
         return (ret);
 
     }
+    
+    //service of cpu
+    @Path("allmodules/{type}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonMultiModuleCpu getModules(@PathParam("type") String list) {
+        List<JsonModuleCpu> gas = new ArrayList<JsonModuleCpu>();
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        int type = Integer.parseInt(list);
+        List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", type).getEntityList();
+        Date time = lastHour();
+        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")
+                .setParameter("v", time)
+                .getEntityList();
+        for (int i = 0; i < List.size(); i++) {
+            JsonModuleCpu module = new JsonModuleCpu();
+            module.setModuleid(List.get(i).getId());
+            //gas.get(i).setSiguid(List.get(i).getId());
+            module.setModulename(List.get(i).getSiguName());
+                List<LoadPercentCPU> entityList2 = pu.createQuery("select a from loadpercentcpu a left join TimePoint t ON a.dateExec = t.id where a.moduleid = :id AND t.atTime >= :v")
+                        .setParameter("v", time)
+                        .setParameter("id", List.get(i).getId())
+                        .getEntityList();
+            module.setListe(entityList2);
+            //  gas.get(i).setListe(entityList2);
+            gas.add(module);
+
+        }
+
+        JsonMultiModuleCpu ret = new JsonMultiModuleCpu();
+        ret.setModules(gas);
+        ret.setTimes(times);
+        return (ret);
+        
+    }
+    
+    //allcpu of sigu
+     @Path("allcpu")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonMultiModuleCpu getmodule() {
+        List<JsonModuleCpu> gas = new ArrayList<JsonModuleCpu>();
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", 0).getEntityList();
+        //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
+        Date time = lastHour();
+        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")
+                .setParameter("v", time)
+                .getEntityList();
+        for (int i = 0; i < List.size(); i++) {
+            JsonModuleCpu sigu = new JsonModuleCpu();
+            sigu.setModuleid(List.get(i).getId());
+            //gas.get(i).setSiguid(List.get(i).getId());
+            sigu.setModulename(List.get(i).getSiguName());
+                List<LoadPercentCPU> entityList2 = pu.createQuery("select a from loadpercentcpu a left join TimePoint t ON a.dateExec = t.id where a.moduleid = :id AND t.atTime >= :v")
+                        .setParameter("v", time)
+                        .setParameter("id", List.get(i).getId())
+                        .getEntityList();
+            sigu.setListe(entityList2);
+            gas.add(sigu);
+
+        }
+
+        JsonMultiModuleCpu ret = new JsonMultiModuleCpu();
+        ret.setModules(gas);
+        ret.setTimes(times);
+        return (ret);
+        
+    }
+
 
     private Date lastHour() {
         Calendar calendar = Calendar.getInstance();

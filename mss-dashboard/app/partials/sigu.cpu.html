@@ -4,4 +4,91 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-        <div>TODO write content for CPU:::::</div>
+<div id="content" class="">
+    <div class="row-fluid sortable">
+        <div class="box span8">
+            <div class="box-header well">
+                <h2><i class="icon-th"></i> Options</h2>
+            </div>
+            <div class="box-content">
+                <tabset>
+                    <tab heading="All"  class="dropdown">Click SUBMIT to see all the % of CPU
+
+                        <input type = "submit" ng-click="updateShowAll()"value="Submit" class="btn btn-primary"/></tab>
+                    <!--tab heading="All">Click SUBMIT to see all the traffic
+                        <input type = "submit" ng-click="updateShowAll()"value="Submit" /></tab-->
+                    <tab heading="Range">
+
+                        <select ng-model="allvars.siguSelected"  ng-change="">
+                            <option value="">-- choose {{ allvars.Indi_Name}} Name --</option>
+                            <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
+
+                        </select>  to :
+                        <select ng-model="allvars.siguSelected2" ng-change="">
+                            <option value="">-- choose {{ allvars.Indi_Name}} Name --</option>
+                            <option ng-repeat="onesigu in sigunames" value="{{onesigu.id}}">{{onesigu.siguName}}</option>          
+                        </select> 
+
+                        <input type = "submit" ng-click="updateRange()"value="Submit"  class="btn btn-primary" />
+
+                    </tab>
+                    <tab heading="Top">Click the button TOP to see the top 10 {{ allvars.Indi_Name}}s which have the most traffic
+                        <input type = "submit" ng-click="" value="TOP 10" class="btn btn-primary"/>
+                    </tab>
+                    <tab heading="One">
+
+                        <P>Select the {{ allvars.Indi_Name}} you want to see</p>
+                        <p>
+                            <select ng-model="allvars.siguSelected3"  ng-change="">
+
+                                <option value="">-- choose {{ allvars.Indi_Name}} Name --</option>
+                                <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
+
+                            </select>
+                        </p>
+                        <input type = "submit" ng-click="updateRange11()" value="Submit" class="btn btn-primary"/>
+
+                    </tab>
+                </tabset>
+
+                <hr />
+            </div>
+        </div><!--/span-->
+        <div class="box span4">
+            <div class="box-header well" data-original-title>
+                <h2><i class="icon-th"></i>Date</h2>
+
+            </div>
+            <div class="box-content">
+            </div>
+        </div><!--/span-->
+        <div class="row-fluid sortable">
+            <div class="box span8">
+                <div class="box-header well" data-original-title>
+                    <h2><i class="icon-list-alt"></i> Load Percent of CPU</h2>
+                </div>
+                <div class="box-content">
+                    <p>
+                        <select id="chartType" ng-change="selectType(chartType)" ng-model="chartType" ng-options="c.typeName for c in chartTypes">
+                        </select> 
+                    </p>
+                    <div g-chart></div>
+                </div>
+            </div><!--/span-->
+            <div class="box span4">
+                <div class="box-header well" data-original-title>
+                    <h2><i class="icon-list-alt"></i>  % Load at{{ allvars.lasttime}}</h2>
+                </div>
+                <div class="box-content">
+                    <div g-chart2></div>
+                </div>
+            </div><!--/span-->
+
+    </div>
+    <!-- content ends -->
+</div><!--/#content.span10-->
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+
+
+

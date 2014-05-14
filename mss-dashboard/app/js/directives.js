@@ -43,7 +43,8 @@ angular.module('myApp.directives', [])
                     }, true);
                 }
             }
-        }).directive('gChart', function() {
+        })
+        .directive('gChart', function() {
 
     return {
         restrict: 'A',
@@ -70,7 +71,8 @@ angular.module('myApp.directives', [])
             }, true);
         }
     }
-}).directive('gChart2', function() {
+})
+        .directive('gChart2', function() {
 
     return {
         restrict: 'A',
@@ -97,7 +99,8 @@ angular.module('myApp.directives', [])
             }, true);
         }
     }
-}).directive('gChart3', function() {
+})
+        .directive('gChart3', function() {
 
     return {
         restrict: 'A',
