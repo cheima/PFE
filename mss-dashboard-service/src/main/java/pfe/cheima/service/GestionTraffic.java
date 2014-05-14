@@ -155,7 +155,7 @@ public class GestionTraffic {
             pu.insert(traffic);
         }
         // insertion du cpu
-        int i = 2;
+        //int i = 2;
         //System.out.println("eeeee" + LectureCPU.size());
         for (int g = 0; g < LectureCPU.size(); g++) {
             
@@ -166,8 +166,8 @@ public class GestionTraffic {
             if (module == null) {
                 modules m = new modules();
                 m.setSiguName(LectureCPU.get(g).getModuleName());
-                m.setType(i);
-                i++;
+                m.setType(LectureCPU.get(g).getType());
+                //i++;
                 pu.insert(m);
                 siguId = m.getId();
             } else {

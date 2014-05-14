@@ -25,40 +25,72 @@ public class CmdParserCPU {
         BufferedReader buff = new BufferedReader(sr); // wrap your StringReader
         List cpu = new ArrayList<LoadPercentCpu>();
 
-        boolean testSIGU = false;
-        boolean testVLRU = false;
-        boolean testBSU = false;
+        boolean testSIGU = false;    //0
+        boolean testVLRU = false;     //2
+        boolean testBSU = false;    //1
+        boolean testCCSU = false;   //3
+        boolean  testCHU = false;   //4
+        boolean testBDCU = false;   //5
+        boolean testCMU = false;   //6
+        boolean testSTU = false;   //7
         LoadPercentCpu l;
+        l = null;
         while ((line = buff.readLine()) != null) {
             Pattern p = Pattern.compile("(UNIT:)(\\s+)(\\w+\\-\\w+\\-?\\w?).*");
             Matcher m = p.matcher(line);
 
             Pattern p1 = Pattern.compile("(LOAD PERCENT:)(\\s+)(\\d{1,3}).*");
             Matcher m1 = p1.matcher(line);
-                l = new LoadPercentCpu();
 
-          
             if (m.find() && 22 <= m.group(2).length()) {
 
                 if (m.group(3).contains("SIGU")) {
                     testSIGU = true;
-                      l = new LoadPercentCpu();
+                    l = new LoadPercentCpu();
                     l.setModuleName(m.group(3));
+                      l.setType(0);
                     System.out.println(l.getModuleName() + "sigu");
-                    
-                }
-                /*else  if (m.group(3).contains("BSU")) {
+
+                } else if (m.group(3).contains("BSU")) {
                     testBSU = true;
                     l.setModuleName(m.group(3));
+                      l.setType(1);
                     System.out.println(m.group(3) + "bsu");
-                    
-                }
-                 else  if (m.group(3).contains("VLRU")) {
+                    //type = 3
+                } else if (m.group(3).contains("VLRU")) {
                     testVLRU = true;
                     l.setModuleName(m.group(3));
-                    System.out.println(m.group(3) + "vlru");
-                    
-                }*/
+                      l.setType(2);
+                   // System.out.println(m.group(3) + "vlru");
+                      //type= 4
+                } else if (m.group(3).contains("CCSU")) {
+                    testCCSU = true;
+                    l.setModuleName(m.group(3));
+                    l.setType(3);
+                }
+                //TYPE 5
+                else if (m.group(3).contains("CHU")) {
+                    testCHU = true;
+                    l.setModuleName(m.group(3));
+                    l.setType(4);
+                }
+                //TYPE 6
+                else if (m.group(3).contains("BDCU")) {
+                    testBDCU = true;
+                    l.setModuleName(m.group(3));
+                      l.setType(5);
+                   // System.out.println(m.group(3) + "vlru");
+                      //type= 7
+                } else if (m.group(3).contains("CMU")) {
+                    testCMU = true;
+                    l.setModuleName(m.group(3));
+                    l.setType(6);
+                }
+                else if (m.group(3).contains("STU")) {
+                    testSTU = true;
+                    l.setModuleName(m.group(3));
+                    l.setType(7);
+                }
             }
             int ind;
             if (m1.find() && 21 <= m1.group(2).length()) {
@@ -66,29 +98,52 @@ public class CmdParserCPU {
                     ind = Integer.parseInt(m1.group(3));
                     l.setLoadCPU(ind);
                     cpu.add(l);
-                    System.out.println("les elts de l sont "+l.getModuleName()+"eee"+l.getLoadCPU());
+                    System.out.println("les elts de l sont " + l.getModuleName() + "eee" + l.getLoadCPU());
                     testSIGU = false;
-                }
-               /* else if (testBSU == true) {
+                } else if (testBSU == true) {
                     ind = Integer.parseInt(m1.group(3));
                     l.setLoadCPU(ind);
                     cpu.add(l);
                     testBSU = false;
-                }
-                 else if (testVLRU == true) {
+                } else if (testVLRU == true) {
                     ind = Integer.parseInt(m1.group(3));
                     l.setLoadCPU(ind);
                     cpu.add(l);
                     testVLRU = false;
-                }*/
-
+                } else if (testCCSU == true) {
+                    ind = Integer.parseInt(m1.group(3));
+                    l.setLoadCPU(ind);
+                    cpu.add(l);
+                    testCCSU = false;
+                }
+                else if (testCHU == true) {
+                    ind = Integer.parseInt(m1.group(3));
+                    l.setLoadCPU(ind);
+                    cpu.add(l);
+                    testCHU = false;
+                } else if (testBDCU == true) {
+                    ind = Integer.parseInt(m1.group(3));
+                    l.setLoadCPU(ind);
+                    cpu.add(l);
+                    testBDCU = false;
+                } else if (testCMU == true) {
+                    ind = Integer.parseInt(m1.group(3));
+                    l.setLoadCPU(ind);
+                    cpu.add(l);
+                    testCMU = false;
+                }
+                 else if (testSTU == true) {
+                    ind = Integer.parseInt(m1.group(3));
+                    l.setLoadCPU(ind);
+                    cpu.add(l);
+                    testSTU = false;
+                }
             }
         }
-        for(int g =0 ; g<cpu.size();g++)
-        {
-            System.out.println("bjr"+cpu.get(g).toString());
+        for (int g = 0; g < cpu.size(); g++) {
+            System.out.println("bjr" + cpu.get(g).toString());
         }
-        System.out.println("le nre est" +cpu.size());
+        System.out.println("le nre est" + cpu.size());
         return cpu;
     }
 

@@ -21,6 +21,16 @@ public class LoadPercentCpu implements Serializable {
     private Integer LoadCPU;
     private Integer ModuleId; 
     private String ModuleName;
+    private Integer Type;
+
+    public Integer getType() {
+        return Type;
+    }
+
+    public void setType(Integer Type) {
+        this.Type = Type;
+    }
+    
 
     public Integer getId() {
         return Id;
