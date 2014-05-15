@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -422,18 +423,24 @@ public class GenericResource {
     }
     
     //allcpu of sigu
-    @Path("allcpu/{type1}")
+    @Path("allcpu/{type1}/{year}/{month}/{day}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonMultiModuleCpu getmodule(@PathParam("type1") String list) {
+    public JsonMultiModuleCpu getmodule(@PathParam("type1") String list, @PathParam("year") int year, @PathParam("month") int month, @PathParam("day") int day) {
         List<JsonModuleCpu> gas = new ArrayList<JsonModuleCpu>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         int type = Integer.parseInt(list);
         List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", type).getEntityList();
         //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
-        Date time = lastHour();
-        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")
+        Calendar c = new GregorianCalendar(year, month, day);
+        Date time = c.getTime();
+        c = new GregorianCalendar(year, month, day+1);
+        Date time2 = c.getTime();
+        
+        //Date time = lastHour();
+        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v and t.atTime < :v2")
                 .setParameter("v", time)
+                .setParameter("v2", time2)
                 .getEntityList();
         for (int i = 0; i < List.size(); i++) {
             JsonModuleCpu sigu = new JsonModuleCpu();
