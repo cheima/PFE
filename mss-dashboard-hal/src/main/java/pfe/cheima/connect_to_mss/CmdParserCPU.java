@@ -33,8 +33,8 @@ public class CmdParserCPU {
         boolean testBDCU = false;   //5
         boolean testCMU = false;   //6
         boolean testSTU = false;   //7
-        boolean testOMU = false;   //6
-        boolean testCMM = false;  
+        boolean testOMU = false;   //8
+        boolean testCMM = false;   //9
         LoadPercentCpu l;
         l = null;
         while ((line = buff.readLine()) != null) {
@@ -82,7 +82,7 @@ public class CmdParserCPU {
                     l.setModuleName(m.group(3));
                       l.setType(5);
                    // System.out.println(m.group(3) + "vlru");
-                      //type= 7
+                      //type= 6
                 } else if (m.group(3).contains("CMU")) {
                     testCMU = true;
                     l.setModuleName(m.group(3));
@@ -94,6 +94,7 @@ public class CmdParserCPU {
                     l.setModuleName(m.group(3));
                     l.setType(7);
                 }
+                //TYPE 8
                 else if (m.group(3).contains("OMU")) {
                     testOMU = true;
                     l.setModuleName(m.group(3));
@@ -163,6 +164,18 @@ public class CmdParserCPU {
                     l.setLoadCPU(ind);
                     cpu.add(l);
                     testSTU = false;
+                }
+                else if (testCMM == true) {
+                    ind = Integer.parseInt(m1.group(3));
+                    l.setLoadCPU(ind);
+                    cpu.add(l);
+                    testCMM = false;
+                }
+                 else if (testOMU == true) {
+                    ind = Integer.parseInt(m1.group(3));
+                    l.setLoadCPU(ind);
+                    cpu.add(l);
+                    testOMU = false;
                 }
             }
         }

@@ -122,7 +122,7 @@ angular.module('myApp', [
     }).state('bsu.cpu', {
         url: "/LoadCPU",
         templateUrl: "partials/sigu.cpu.html",
-        controller: 'MyCtrl6'
+        controller: 'MyCtrl5'
     }).state(
             'bsu.bp', {
                 url: "/LoadBP",

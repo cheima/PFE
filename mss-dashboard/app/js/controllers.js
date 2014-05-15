@@ -976,6 +976,33 @@ angular.module('myApp.controllers', []).
             if ($state.includes('bsu')) {
                 $scope.sigunames = allmodules.query({type: 1});
             }
+            else if ($state.includes('sigu')) {
+                $scope.sigunames = allmodules.query({type: 0});
+            }
+            else if ($state.includes('vlru')) {
+                $scope.sigunames = allmodules.query({type: 2});
+            }
+            else if ($state.includes('ccsu')) {
+                $scope.sigunames = allmodules.query({type: 3});
+            }
+            else if ($state.includes('chu')) {
+                $scope.sigunames = allmodules.query({type: 4});
+            }
+            else if ($state.includes('bdcu')) {
+                $scope.sigunames = allmodules.query({type: 5});
+            }
+            else if ($state.includes('cmu')) {
+                $scope.sigunames = allmodules.query({type: 6});
+            }
+            else if ($state.includes('stu')) {
+                $scope.sigunames = allmodules.query({type: 7});
+            }
+            else if ($state.includes('omu')) {
+                $scope.sigunames = allmodules.query({type: 8});
+            }
+            else if ($state.includes('cmm')) {
+                $scope.sigunames = allmodules.query({type: 9});
+            }
             //$scope.sigunames = allcpu12.query({list12:1});
             var showFromList2 = function(result) {
                 $scope.graphs = result;
@@ -1079,6 +1106,34 @@ angular.module('myApp.controllers', []).
                 if ($state.includes('bsu')) {
                     var allsigu = allcpu.query({type1: 1});
                 }
+                else if($state.includes('sigu')) {
+                    var allsigu = allcpu.query({type1: 0});
+                }
+                else if($state.includes('vlru')) {
+                    var allsigu = allcpu.query({type1: 2});
+                }
+                else if($state.includes('ccsu')) {
+                    var allsigu = allcpu.query({type1: 3});
+                }
+                else if($state.includes('chu')) {
+                    var allsigu = allcpu.query({type1: 4});
+                }
+                else if($state.includes('bdcu')) {
+                    var allsigu = allcpu.query({type1: 5});
+                }
+                else if($state.includes('cmu')) {
+                    var allsigu = allcpu.query({type1: 6});
+                }
+                else if($state.includes('stu')) {
+                    var allsigu = allcpu.query({type1: 7});
+                }
+                else if($state.includes('omu')) {
+                    var allsigu = allcpu.query({type1: 8});
+                }
+                else if($state.includes('cmm')) {
+                    var allsigu = allcpu.query({type1: 9});
+                }
+               
                 allsigu.$promise.then(showFromList2);
 
             };
