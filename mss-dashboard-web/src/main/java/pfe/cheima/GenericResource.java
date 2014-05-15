@@ -165,6 +165,18 @@ public class GenericResource {
                 .setParameter("v", 0).getEntityList();
      return get;
     }
+    //getnames with specifi type
+    @Path("getnames/{list12}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+
+    public List<modules> getNames(@PathParam("list12") String list12) {
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+       
+        List<modules> get = pu.createQuery("select a from modules a WHERE a.type = :v order by a.id DESC")
+                .setParameter("v", Integer.parseInt(list12)).getEntityList();
+     return get;
+    }
   @Path("getbsuname")
   @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -402,45 +414,22 @@ public class GenericResource {
     @Path("allmodules/{type}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonMultiModuleCpu getModules(@PathParam("type") String list) {
+    public  List<modules> getModules(@PathParam("type") String list) {
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        int type = Integer.parseInt(list);
+        List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", type).getEntityList();
+       return List;
+    }
+    
+    //allcpu of sigu
+    @Path("allcpu/{type1}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonMultiModuleCpu getmodule(@PathParam("type1") String list) {
         List<JsonModuleCpu> gas = new ArrayList<JsonModuleCpu>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         int type = Integer.parseInt(list);
         List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", type).getEntityList();
-        Date time = lastHour();
-        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")
-                .setParameter("v", time)
-                .getEntityList();
-        for (int i = 0; i < List.size(); i++) {
-            JsonModuleCpu module = new JsonModuleCpu();
-            module.setModuleid(List.get(i).getId());
-            //gas.get(i).setSiguid(List.get(i).getId());
-            module.setModulename(List.get(i).getSiguName());
-                List<LoadPercentCPU> entityList2 = pu.createQuery("select a from loadpercentcpu a left join TimePoint t ON a.dateExec = t.id where a.moduleid = :id AND t.atTime >= :v")
-                        .setParameter("v", time)
-                        .setParameter("id", List.get(i).getId())
-                        .getEntityList();
-            module.setListe(entityList2);
-            //  gas.get(i).setListe(entityList2);
-            gas.add(module);
-
-        }
-
-        JsonMultiModuleCpu ret = new JsonMultiModuleCpu();
-        ret.setModules(gas);
-        ret.setTimes(times);
-        return (ret);
-        
-    }
-    
-    //allcpu of sigu
-     @Path("allcpu")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public JsonMultiModuleCpu getmodule() {
-        List<JsonModuleCpu> gas = new ArrayList<JsonModuleCpu>();
-        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", 0).getEntityList();
         //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
         Date time = lastHour();
         List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")

@@ -36,6 +36,77 @@ angular.module('myApp', [
         url: "/LoadCPU",
         templateUrl: "partials/sigu.cpu.html",
         controller: 'MyCtrl5'
+    }).state('vlru', {
+        abstract: true,
+        url: "/vlru",
+        templateUrl: "partials/sigu.html"    
+    }).state('vlru.cpu', {
+        url: "/LoadCPU",
+        templateUrl: "partials/sigu.cpu.html",
+         controller: 'MyCtrl5'
+    }).state('ccsu', {
+        abstract: true,
+        url: "/ccsu",
+        templateUrl: "partials/sigu.html"
+       
+    }).state('ccsu.cpu', {
+        url: "/LoadCPU",
+        templateUrl: "partials/sigu.cpu.html",
+         controller: 'MyCtrl5'
+    }).state('chu', {
+        abstract: true,
+        url: "/chu",
+        templateUrl: "partials/sigu.html"
+       
+    }).state('chu.cpu', {
+        url: "/LoadCPU",
+        templateUrl: "partials/sigu.cpu.html",
+         controller: 'MyCtrl5'
+    }).state('bdcu', {
+        abstract: true,
+        url: "/bdcu",
+        templateUrl: "partials/sigu.html"
+       
+    }).state('bdcu.cpu', {
+        url: "/LoadCPU",
+        templateUrl: "partials/sigu.cpu.html",
+         controller: 'MyCtrl5'
+    }).state('cmu', {
+        abstract: true,
+        url: "/cmu",
+        templateUrl: "partials/sigu.html"
+       
+    }).state('cmu.cpu', {
+        url: "/LoadCPU",
+        templateUrl: "partials/sigu.cpu.html",
+         controller: 'MyCtrl5'
+    }).state('stu', {
+        abstract: true,
+        url: "/stu",
+        templateUrl: "partials/sigu.html"
+       
+    }).state('stu.cpu', {
+        url: "/LoadCPU",
+        templateUrl: "partials/sigu.cpu.html",
+         controller: 'MyCtrl5'
+    }).state('cmm', {
+        abstract: true,
+        url: "/cmm",
+        templateUrl: "partials/sigu.html"
+       
+    }).state('cmm.cpu', {
+        url: "/LoadCPU",
+        templateUrl: "partials/sigu.cpu.html",
+         controller: 'MyCtrl5'
+    }).state('omu', {
+        abstract: true,
+        url: "/omu",
+        templateUrl: "partials/sigu.html"
+       
+    }).state('omu.cpu', {
+        url: "/LoadCPU",
+        templateUrl: "partials/sigu.cpu.html",
+         controller: 'MyCtrl5'
     }).state('sigu.bp', {
         url: "/LoadBP",
         templateUrl: "partials/sigu.bp.html",

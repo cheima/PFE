@@ -67,19 +67,28 @@ trafficServices.factory('allbsu',function($resource){
 //allmodulesforcpu
 trafficServices.factory('allmodules',function($resource){
    // isArray:false because it is an oject with two attributes (sigu which is an array and times)
-    return($resource(host+'/mss-dashboard-web/webresources/generic/allmodules/:list',{list: '@list'},{
-      query:{method:'GET',isArray:false}  
+    return($resource(host+'/mss-dashboard-web/webresources/generic/allmodules/:type',{type: '@type'},{
+      query:{method:'GET',isArray:true}  
     }));
 });
 
 trafficServices.factory('allcpu',function($resource){
-    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu',{},{
+    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu/:type1',{type1: '@type1'},{
       query:{method:'GET',isArray:false}  
     }));
 });
 
 trafficServices.factory('allcpu11',function($resource){
-    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu11/:list',{list11: '@list11'},{
+    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu11/:list11',{list11: '@list11'},{
       query:{method:'GET',isArray:false}  
     }));
+});
+
+trafficServices.factory('allcpu12',function($resource){
+    return($resource(host+'/mss-dashboard-web/webresources/generic/getnames/:list12',{list12: '@list12'},{
+      query:{method:'GET',isArray:false}  
+    }));
+    
+    //getall names by type
+   // mss-dashboard-web/webresources/generic/getnames
 });
