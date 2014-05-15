@@ -973,13 +973,13 @@ angular.module('myApp.controllers', []).
         .controller('MyCtrl5', function($scope, allcpu, allcpu11, allmodules, $state) {
             $scope.allvars = {};
             $scope.allvars.Indi_Name = "SIGU";
-           // if($state.includes('bsu')){
-            $scope.sigunames = allmodules.query({type: 1});
-       // }
+            if ($state.includes('bsu')) {
+                $scope.sigunames = allmodules.query({type: 1});
+            }
             //$scope.sigunames = allcpu12.query({list12:1});
             var showFromList2 = function(result) {
                 $scope.graphs = result;
-              var sigus = result["modules"];
+                var sigus = result["modules"];
                 // var sigus = result["sigus"];
                 var times = result["times"]; // liste des TimePoint
                 var tab = [];
@@ -1076,11 +1076,11 @@ angular.module('myApp.controllers', []).
                 $scope.chart2 = chart2;
             };
             $scope.updateShowAll = function() {
-                 // if($state.includes('bsu')){
-                var allsigu = allcpu.query({type1: 1});
-            //}
+                if ($state.includes('bsu')) {
+                    var allsigu = allcpu.query({type1: 1});
+                }
                 allsigu.$promise.then(showFromList2);
-            
+
             };
 
             $scope.updateShowTop10 = function() {
