@@ -447,8 +447,9 @@ public class GenericResource {
             sigu.setModuleid(List.get(i).getId());
             //gas.get(i).setSiguid(List.get(i).getId());
             sigu.setModulename(List.get(i).getSiguName());
-                List<LoadPercentCPU> entityList2 = pu.createQuery("select a from loadpercentcpu a left join TimePoint t ON a.dateExec = t.id where a.moduleid = :id AND t.atTime >= :v")
-                        .setParameter("v", time)
+                List<LoadPercentCPU> entityList2 = pu.createQuery("select a from loadpercentcpu a left join TimePoint t ON a.dateExec = t.id where a.moduleid = :id AND t.atTime >= :v AND t.atTime < :v2")
+                .setParameter("v", time)
+                .setParameter("v2", time2)
                         .setParameter("id", List.get(i).getId())
                         .getEntityList();
             sigu.setListe(entityList2);
@@ -466,10 +467,10 @@ public class GenericResource {
 
     ///list of cpu selected
     
-        @Path("allcpu11/{list11}")
+    @Path("allcpu11/{list11}/{year}/{month}/{day}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonMultiModuleCpu getList111(@PathParam("list11") String list11) {
+    public JsonMultiModuleCpu getList111(@PathParam("list11") String list11, @PathParam("year") int year, @PathParam("month") int month, @PathParam("day") int day) {
 
         String[] siguIdsAsStrings = list11.split(",");
         List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
@@ -480,9 +481,14 @@ public class GenericResource {
         List<JsonModuleCpu> gas = new ArrayList<JsonModuleCpu>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
 
-        Date time = lastHour();
-        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")
+        Calendar c = new GregorianCalendar(year, month, day);
+        Date time = c.getTime();
+        c = new GregorianCalendar(year, month, day+1);
+        Date time2 = c.getTime();
+
+        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v  and t.atTime < :v2")
                 .setParameter("v", time)
+                .setParameter("v2", time2)
                 .getEntityList();
         for (int id : siguIds) {
             modules m = pu.createQuery("select a from modules a where a.id = :id").setParameter("id", id).getEntity();
@@ -490,8 +496,9 @@ public class GenericResource {
                 JsonModuleCpu sigu = new JsonModuleCpu();
                 sigu.setModuleid(id);
                 sigu.setModulename(m.getSiguName());
-                List<LoadPercentCPU> entityList2 = pu.createQuery("select a from loadpercentcpu a left join TimePoint t ON a.dateExec = t.id where a.moduleid = :id AND t.atTime >= :v")
+                List<LoadPercentCPU> entityList2 = pu.createQuery("select a from loadpercentcpu a left join TimePoint t ON a.dateExec = t.id where a.moduleid = :id AND t.atTime >= :v  and t.atTime < :v2")
                         .setParameter("v", time)
+                        .setParameter("v2", time2)
                         .setParameter("id", id)
                         .getEntityList();
 //                List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")

@@ -1103,14 +1103,19 @@ angular.module('myApp.controllers', []).
                 $scope.chart2 = chart2;
             };
             $scope.updateShowAll = function() {
+                var args = {
+                    year: $scope.allvars.dt.getFullYear(),
+                    month: $scope.allvars.dt.getMonth(),
+                    day: $scope.allvars.dt.getDate()
+                };
                 if ($state.includes('bsu')) {
-                    var allsigu = allcpu.query({type1: 1});
+                    args.type1 = 1;
                 }
                 else if($state.includes('sigu')) {
-                    var allsigu = allcpu.query({type1: 0});
+                    args.type1 = 0;
                 }
                 else if($state.includes('vlru')) {
-                    var allsigu = allcpu.query({type1: 2});
+                    args.type1 = 2;
                 }
                 else if($state.includes('ccsu')) {
                     var allsigu = allcpu.query({type1: 3});
@@ -1134,6 +1139,7 @@ angular.module('myApp.controllers', []).
                     var allsigu = allcpu.query({type1: 9});
                 }
                
+                var allsigu = allcpu.query(args);
                 allsigu.$promise.then(showFromList2);
 
             };
@@ -1168,14 +1174,26 @@ angular.module('myApp.controllers', []).
 
                 //  alert(list);
                 // i =0;
-                var rangesigu = allcpu11.query({list11: list});
+                var args = {
+                    year: $scope.allvars.dt.getFullYear(),
+                    month: $scope.allvars.dt.getMonth(),
+                    day: $scope.allvars.dt.getDate(),
+                    list11: list
+                };
+                var rangesigu = allcpu11.query(args);
                 rangesigu.$promise.then(showFromList2);
             };
 
             $scope.updateRange11 = function() {
                 var list = $scope.allvars.siguSelected3;
+                var args = {
+                    year: $scope.allvars.dt.getFullYear(),
+                    month: $scope.allvars.dt.getMonth(),
+                    day: $scope.allvars.dt.getDate(),
+                    list11: list
+                };
                 // alert(list);
-                var rangesigu = allcpu11.query({list11: list});
+                var rangesigu = allcpu11.query(args);
                 rangesigu.$promise.then(showFromList2);
             };
 

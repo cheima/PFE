@@ -1,6 +1,6 @@
 'use strict';
 var trafficServices =angular.module('myApp.services', ['ngResource']);
-var host = 'http://localhost:9999';
+var host = 'http://localhost:8080';
 
 trafficServices.factory('trafficforsigu',function($resource){
    
@@ -73,13 +73,15 @@ trafficServices.factory('allmodules',function($resource){
 });
 
 trafficServices.factory('allcpu',function($resource){
-    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu/:type1',{type1: '@type1'},{
+    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu/:type1/:year/:month/:day',{type1: '@type1', year: '@year', month: '@month', day: '@day'},{
       query:{method:'GET',isArray:false}  
     }));
 });
 
 trafficServices.factory('allcpu11',function($resource){
-    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu11/:list11',{list11: '@list11'},{
+    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu11/:list11/:year/:month/:day',
+    {list11: '@list11', year: '@year', month: '@month', day: '@day'
+    },{
       query:{method:'GET',isArray:false}  
     }));
 });
