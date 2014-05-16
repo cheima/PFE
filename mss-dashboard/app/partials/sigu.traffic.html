@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <div id="content" class="">
     <div class="row-fluid sortable">
-        <div class="box span8">
+        <div class="box span6">
             <div class="box-header well">
                 <h2><i class="icon-th"></i> Options</h2>
             </div>
@@ -54,12 +54,15 @@ and open the template in the editor.
                 <hr />
             </div>
         </div><!--/span-->
-        <div class="box span4">
+      <div class="box span6">
             <div class="box-header well" data-original-title>
                 <h2><i class="icon-th"></i>Date</h2>
 
             </div>
             <div class="box-content">
+                <div style="display:inline-block; min-height:290px;">
+                    <datepicker ng-model="allvars.dt" min-date="minDate" show-weeks="true" class="well well-sm"></datepicker>
+                </div>
             </div>
         </div><!--/span-->
         <div class="row-fluid sortable">

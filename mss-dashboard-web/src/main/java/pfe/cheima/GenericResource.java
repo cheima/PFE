@@ -166,7 +166,7 @@ public class GenericResource {
                 .setParameter("v", 0).getEntityList();
      return get;
     }
-    //getnames with specifi type
+    //getnames with specifi type 
     @Path("getnames/{list12}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -240,19 +240,25 @@ public class GenericResource {
         return (ret);
         
     }*/
-    @Path("allbsu")
+    @Path("allbsu/{year}/{month}/{day}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonMultiSiguTraffic_Response getBsu() {
+    public JsonMultiSiguTraffic_Response getBsu(@PathParam("year") int year, @PathParam("month") int month, @PathParam("day") int day) {
         List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
         //  List<List<GetAllSigu>> listegas = new ArrayList<List<GetAllSigu>>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
        // List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
         List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", 1).getEntityList();
         //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
-        Date time = lastHour();
-        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")
+       Calendar c = new GregorianCalendar(year, month, day);
+        Date time = c.getTime();
+        c = new GregorianCalendar(year, month, day+1);
+        Date time2 = c.getTime();
+        
+        //Date time = lastHour();
+        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v and t.atTime < :v2")
                 .setParameter("v", time)
+                .setParameter("v2", time2)
                 .getEntityList();
         for (int i = 0; i < List.size(); i++) {
             JsonSiguTraffic sigu = new JsonSiguTraffic();
@@ -279,19 +285,24 @@ public class GenericResource {
         return (ret);
         
     }
-    @Path("alltraffic")
+    @Path("alltraffic/{year}/{month}/{day}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonMultiSiguTraffic_Response getSigu1() {
+    public JsonMultiSiguTraffic_Response getSigu1(@PathParam("year") int year, @PathParam("month") int month, @PathParam("day") int day) {
         List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
         //  List<List<GetAllSigu>> listegas = new ArrayList<List<GetAllSigu>>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
-        List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", 0).getEntityList();
+         List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", 1).getEntityList();
         //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
-        Date time = lastHour();
-        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")
+       Calendar c = new GregorianCalendar(year, month, day);
+        Date time = c.getTime();
+        c = new GregorianCalendar(year, month, day+1);
+        Date time2 = c.getTime();
+        
+        //Date time = lastHour();
+        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v and t.atTime < :v2")
                 .setParameter("v", time)
+                .setParameter("v2", time2)
                 .getEntityList();
         for (int i = 0; i < List.size(); i++) {
             JsonSiguTraffic sigu = new JsonSiguTraffic();

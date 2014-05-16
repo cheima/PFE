@@ -1,6 +1,6 @@
 'use strict';
 var trafficServices =angular.module('myApp.services', ['ngResource']);
-var host = 'http://localhost:8080';
+var host = 'http://localhost:9999';
 
 trafficServices.factory('trafficforsigu',function($resource){
    
@@ -24,7 +24,7 @@ trafficServices.factory('getalltraffic',function($resource){
 //Display the graph of all sigus
 trafficServices.factory('allgraphs',function($resource){
    
-    return($resource(host+'/mss-dashboard-web/webresources/generic/alltraffic',{},{
+    return($resource(host+'/mss-dashboard-web/webresources/generic/alltraffic/:year/:month/:day',{year: '@year', month: '@month', day: '@day'},{
       query:{method:'GET',isArray:false}  
     }));
 });
@@ -60,7 +60,7 @@ trafficServices.factory('toptraffic',function($resource){
 
 trafficServices.factory('allbsu',function($resource){
    // isArray:false because it is an oject with two attributes (sigu which is an array and times)
-    return($resource(host+'/mss-dashboard-web/webresources/generic/allbsu',{},{
+    return($resource(host+'/mss-dashboard-web/webresources/generic/allbsu/:year/:month/:day',{year: '@year', month: '@month', day: '@day'},{
       query:{method:'GET',isArray:false}  
     }));
 });

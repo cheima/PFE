@@ -246,7 +246,12 @@ angular.module('myApp.controllers', []).
 
 
             $scope.updateShowAll = function() {
-                var allsigu = allgraphs.query();
+                  var args = {
+                    year: $scope.allvars.dt.getFullYear(),
+                    month: $scope.allvars.dt.getMonth(),
+                    day: $scope.allvars.dt.getDate()
+                };
+                var allsigu = allgraphs.query(args);
                 allsigu.$promise.then($scope.showFromListLOCAL);
 
             };
@@ -530,7 +535,12 @@ angular.module('myApp.controllers', []).
             };
 
             $scope.updateShowAll = function() {
-                var allsigu = allbsu.query();
+                  var args = {
+                    year: $scope.allvars.dt.getFullYear(),
+                    month: $scope.allvars.dt.getMonth(),
+                    day: $scope.allvars.dt.getDate()
+                };
+                var allsigu = allbsu.query(args);
                 allsigu.$promise.then($scope.showFromListLOCAL);
 
             };
@@ -972,35 +982,45 @@ angular.module('myApp.controllers', []).
 })
         .controller('MyCtrl5', function($scope, allcpu, allcpu11, allmodules, $state) {
             $scope.allvars = {};
-            $scope.allvars.Indi_Name = "SIGU";
+            
             if ($state.includes('bsu')) {
+                $scope.allvars.Indi_Name = "BSU";
                 $scope.sigunames = allmodules.query({type: 1});
             }
             else if ($state.includes('sigu')) {
+                $scope.allvars.Indi_Name = "SIGU";
                 $scope.sigunames = allmodules.query({type: 0});
             }
             else if ($state.includes('vlru')) {
+                $scope.allvars.Indi_Name = "VLRU";
                 $scope.sigunames = allmodules.query({type: 2});
             }
             else if ($state.includes('ccsu')) {
+                $scope.allvars.Indi_Name = "CCSU";
                 $scope.sigunames = allmodules.query({type: 3});
             }
             else if ($state.includes('chu')) {
+                $scope.allvars.Indi_Name = "CHU";
                 $scope.sigunames = allmodules.query({type: 4});
             }
             else if ($state.includes('bdcu')) {
+                $scope.allvars.Indi_Name = "BDCU";
                 $scope.sigunames = allmodules.query({type: 5});
             }
             else if ($state.includes('cmu')) {
+                $scope.allvars.Indi_Name = "CMU";
                 $scope.sigunames = allmodules.query({type: 6});
             }
             else if ($state.includes('stu')) {
+                $scope.allvars.Indi_Name = "STU";
                 $scope.sigunames = allmodules.query({type: 7});
             }
             else if ($state.includes('omu')) {
+                $scope.allvars.Indi_Name = "OMU";
                 $scope.sigunames = allmodules.query({type: 8});
             }
             else if ($state.includes('cmm')) {
+                $scope.allvars.Indi_Name = "CMM";
                 $scope.sigunames = allmodules.query({type: 9});
             }
             //$scope.sigunames = allcpu12.query({list12:1});
@@ -1118,25 +1138,32 @@ angular.module('myApp.controllers', []).
                     args.type1 = 2;
                 }
                 else if($state.includes('ccsu')) {
-                    var allsigu = allcpu.query({type1: 3});
+                   // var allsigu = allcpu.query({type1: 3});
+                   args.type1 = 3;
                 }
                 else if($state.includes('chu')) {
-                    var allsigu = allcpu.query({type1: 4});
+                   // var allsigu = allcpu.query({type1: 4});
+                   args.type1 = 4;
                 }
                 else if($state.includes('bdcu')) {
-                    var allsigu = allcpu.query({type1: 5});
+                   // var allsigu = allcpu.query({type1: 5});
+                   args.type1 = 5;
                 }
                 else if($state.includes('cmu')) {
-                    var allsigu = allcpu.query({type1: 6});
+                   // var allsigu = allcpu.query({type1: 6});
+                   args.type1 = 6;
                 }
                 else if($state.includes('stu')) {
-                    var allsigu = allcpu.query({type1: 7});
+                    //var allsigu = allcpu.query({type1: 7});
+                    args.type1 = 7;
                 }
                 else if($state.includes('omu')) {
-                    var allsigu = allcpu.query({type1: 8});
+                   // var allsigu = allcpu.query({type1: 8});
+                   args.type1 = 8;
                 }
                 else if($state.includes('cmm')) {
-                    var allsigu = allcpu.query({type1: 9});
+                    //var allsigu = allcpu.query({type1: 9});
+                    args.type1 = 9;
                 }
                
                 var allsigu = allcpu.query(args);
@@ -1171,7 +1198,6 @@ angular.module('myApp.controllers', []).
                     if ($scope.sigunames[i].id == $scope.allvars.siguSelected2)
                         break;
                 }
-
                 //  alert(list);
                 // i =0;
                 var args = {
