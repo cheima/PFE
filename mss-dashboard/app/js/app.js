@@ -134,7 +134,11 @@ angular.module('myApp', [
         url: "/Traffic",
         templateUrl: "partials/sigu.traffic.html",
         controller: 'MyCtrl2'
-    });
+    }).state('trafficout', {
+     url: "/trafficout",
+     templateUrl: "partials/trafficout.html",
+     controller:'MyCtrl6'
+     });
 
     /* .state('state1.list', {
      url: "/list",

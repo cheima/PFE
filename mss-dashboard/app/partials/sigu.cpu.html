@@ -15,6 +15,8 @@ and open the template in the editor.
                     <tab heading="All"  class="dropdown">Click SUBMIT to see all the % of CPU
 
                         <input type = "submit" ng-click="updateShowAll()"value="Submit" class="btn btn-primary"/>
+                        
+                        
                     </tab>
                     <!--tab heading="All">Click SUBMIT to see all the traffic
                         <input type = "submit" ng-click="updateShowAll()"value="Submit" /></tab-->
@@ -72,11 +74,42 @@ and open the template in the editor.
                     <h2><i class="icon-list-alt"></i> Load Percent of CPU</h2>
                 </div>
                 <div class="box-content">
-                    <p>
+                    <!--p>
                         <select id="chartType" ng-change="selectType(chartType)" ng-model="chartType" ng-options="c.typeName for c in chartTypes">
                         </select> 
-                    </p>
+                    </p-->
+                    <div class="btn-group">
+                        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">ColumnChart</label>
+                        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'">LineChart</label>
+                        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">BarChart</label>
+                    </div>
+                    <div ng-controller="AccordionDemoCtrl">
+                        <p>
+                            <button class="btn btn-primary" ng-click="status.open = !status.open">Last Hour</button>
+                            <button class="btn btn-primary" ng-click="status.isFirstDisabled = !status.isFirstDisabled">Last 4 Hours</button>
+                        </p>
+
+                        <label class="checkbox">
+                            <input type="checkbox" ng-model="oneAtATime"/>
+                            Open only one at a time
+                        </label>
+                        <accordion close-others="oneAtATime">
+                            <accordion-group is-open="status.open">
+                                <accordion-heading>
+                                    I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                                </accordion-heading>
+                                This is just some content to illustrate fancy headings.
+                            </accordion-group>
+                        </accordion>
+                        <div ng-controller="Index2">
+                          
+                            <h4>Positional</h4>
+                            <button popover-placement="bottom" popover="On the Bottom!" class="btn btn-primary">Bottom</button>
+                            <hr />
+                        </div>
+                    </div>
                     <div g-chart></div>
+
                 </div>
             </div><!--/span-->
             <div class="box span4">

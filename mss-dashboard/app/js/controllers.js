@@ -246,7 +246,7 @@ angular.module('myApp.controllers', []).
 
 
             $scope.updateShowAll = function() {
-                  var args = {
+                var args = {
                     year: $scope.allvars.dt.getFullYear(),
                     month: $scope.allvars.dt.getMonth(),
                     day: $scope.allvars.dt.getDate()
@@ -535,7 +535,7 @@ angular.module('myApp.controllers', []).
             };
 
             $scope.updateShowAll = function() {
-                  var args = {
+                var args = {
                     year: $scope.allvars.dt.getFullYear(),
                     month: $scope.allvars.dt.getMonth(),
                     day: $scope.allvars.dt.getDate()
@@ -982,7 +982,7 @@ angular.module('myApp.controllers', []).
 })
         .controller('MyCtrl5', function($scope, allcpu, allcpu11, allmodules, $state) {
             $scope.allvars = {};
-            
+
             if ($state.includes('bsu')) {
                 $scope.allvars.Indi_Name = "BSU";
                 $scope.sigunames = allmodules.query({type: 1});
@@ -1131,41 +1131,41 @@ angular.module('myApp.controllers', []).
                 if ($state.includes('bsu')) {
                     args.type1 = 1;
                 }
-                else if($state.includes('sigu')) {
+                else if ($state.includes('sigu')) {
                     args.type1 = 0;
                 }
-                else if($state.includes('vlru')) {
+                else if ($state.includes('vlru')) {
                     args.type1 = 2;
                 }
-                else if($state.includes('ccsu')) {
-                   // var allsigu = allcpu.query({type1: 3});
-                   args.type1 = 3;
+                else if ($state.includes('ccsu')) {
+                    // var allsigu = allcpu.query({type1: 3});
+                    args.type1 = 3;
                 }
-                else if($state.includes('chu')) {
-                   // var allsigu = allcpu.query({type1: 4});
-                   args.type1 = 4;
+                else if ($state.includes('chu')) {
+                    // var allsigu = allcpu.query({type1: 4});
+                    args.type1 = 4;
                 }
-                else if($state.includes('bdcu')) {
-                   // var allsigu = allcpu.query({type1: 5});
-                   args.type1 = 5;
+                else if ($state.includes('bdcu')) {
+                    // var allsigu = allcpu.query({type1: 5});
+                    args.type1 = 5;
                 }
-                else if($state.includes('cmu')) {
-                   // var allsigu = allcpu.query({type1: 6});
-                   args.type1 = 6;
+                else if ($state.includes('cmu')) {
+                    // var allsigu = allcpu.query({type1: 6});
+                    args.type1 = 6;
                 }
-                else if($state.includes('stu')) {
+                else if ($state.includes('stu')) {
                     //var allsigu = allcpu.query({type1: 7});
                     args.type1 = 7;
                 }
-                else if($state.includes('omu')) {
-                   // var allsigu = allcpu.query({type1: 8});
-                   args.type1 = 8;
+                else if ($state.includes('omu')) {
+                    // var allsigu = allcpu.query({type1: 8});
+                    args.type1 = 8;
                 }
-                else if($state.includes('cmm')) {
+                else if ($state.includes('cmm')) {
                     //var allsigu = allcpu.query({type1: 9});
                     args.type1 = 9;
                 }
-               
+
                 var allsigu = allcpu.query(args);
                 allsigu.$promise.then(showFromList2);
 
@@ -1224,120 +1224,17 @@ angular.module('myApp.controllers', []).
             };
 
         }
-        )/*.controller('MyCtrl4', function($scope, trafficforsigu, getsigunames, toptraffic, getbsunames, allgraphs, siguranged, allbsu) {
-         $scope.allvars = {};
-         $scope.allvars.Indi_Name = "SIGU";
-         $scope.allvars.packet = "packetreceived"
-         $scope.sigunames = getsigunames.query();
-         //fonction zèyda
-         $scope.update = function() {
-         //alert($scope.siguSelected);
-         $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});
-         $scope.alltraffics.$promise.then(function(result) {
-         $scope.alltraffics = result;
-         var val = [['Time', 'Traffic IN']];
-         // key = i && tab[i]=result[key]
-         for (var key in result) {
-         var obj = result[key];
-         //  if (obj["siguName"] == nom) {                   
-         //  i = i + 5;
-         var d = new Date(obj["dateExec"]);
-         var d1 = d.getHours();
-         var d2 = d.getMinutes();
-         var curr_date = d.getDate();
-         var curr_month = d.getMonth() + 1; //Months are zero based
-         var curr_year = d.getFullYear();
-         var datenow = curr_date + "-" + curr_month + "-" + curr_year;
-         val.push([d1 + ":" + d2, obj[$scope.allvars.traff]]);
-         // val.push([i, obj["packetreceived"]]);
-         //}
-         // }
-         // else {
-         //    i++;
-         // }
-         }
-         var data = google.visualization.arrayToDataTable(val);
-         var data1 = google.visualization.arrayToDataTable(val);
-         var options = {
-         title: 'Traffic IN for SIGU'
-         };
-         var chart = {};
-         chart.data = data;
-         chart.options = options;
-         //                    var chart1 = {};
-         //                    chart1.data = data1;
-         //                    chart1.options = options;
-         
-         $scope.chartTypes = [
-         {typeName: 'LineChart', typeValue: '1'},
-         {typeName: 'BarChart', typeValue: '2'},
-         {typeName: 'ColumnChart', typeValue: '3'},
-         {typeName: 'PieChart', typeValue: '4'}
-         ];
-         $scope.selectType = function(type) {
-         $scope.chart.type = type.typeValue;
-         //$scope.chart1.type = type.typeValue;
-         };
-         chart.type = $scope.chartTypes[0].typeValue;
-         $scope.chartType = $scope.chartTypes[0];
-         
-         $scope.chart = chart;
-         //$scope.chart1 = chart1;
-         });
-         
-         };
-         
-         
-         $scope.updateShowAll = function() {
-         var allsigu = allgraphs.query();
-         allsigu.$promise.then($scope.showFromListLOCAL);
-         
-         };
-         $scope.showFromListLOCAL = function(result) {
-         showFromList(result, $scope);
-         };
-         
-         $scope.updateShowTop10 = function() {
-         var allsigu = toptraffic.query();
-         allsigu.$promise.then(showFromList);
-         };
-         
-         $scope.updateRange = function() {
-         var list = "";
-         
-         var start = 0;
-         var i = 0;
-         while (i < $scope.sigunames.length) {
-         if ($scope.sigunames[i].id == $scope.allvars.siguSelected) {
-         start = i;
-         break;
-         } else
-         i = i + 1;
-         }
-         
-         // juska ? et créer la liste en parallèle
-         for (i = start; i < $scope.sigunames.length; i++) {
-         if (list === "")
-         list = $scope.sigunames[i].id;
-         else
-         list = list + "," + $scope.sigunames[i].id;
-         
-         if ($scope.sigunames[i].id == $scope.allvars.siguSelected2)
-         break;
-         }
-         
-         //alert(list);
-         // i =0;
-         var rangesigu = siguranged.query({list: list});
-         rangesigu.$promise.then($scope.showFromListLOCAL);
-         };
-         
-         $scope.updateRange11 = function() {
-         var list = $scope.allvars.siguSelected3;
-         //alert(list);
-         var rangesigu = siguranged.query({list: list});
-         rangesigu.$promise.then($scope.showFromListLOCAL);
-         };
-         
-         })*/;
+        ).controller('MyCtrl6', function($scope, trafficforsigu, getsigunames, toptraffic, getbsunames, allgraphs, siguranged, allbsu) {
+    $("#ex7").slider();
+    $("#ex7-enabled").click(function() {
+        if (this.checked) {
+            $("#ex7").slider("enable");
+        }
+        else {
+            $("#ex7").slider("disable");
+        }
+    });
+
+
+});
                
