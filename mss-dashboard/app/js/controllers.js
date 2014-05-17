@@ -983,6 +983,15 @@ angular.module('myApp.controllers', []).
         .controller('MyCtrl5', function($scope, allcpu, allcpu11, allmodules, $state) {
             $scope.allvars = {};
 
+            $scope.show = function(){
+                //alert("ok");
+                var c = $scope.myc;
+                //var c= angular.element(document.querySelector('.yourclass'));
+                c.data('daterangepicker').show();
+            };
+            $scope.onchange = function(){
+                alert("ok2");
+            }
             if ($state.includes('bsu')) {
                 $scope.allvars.Indi_Name = "BSU";
                 $scope.sigunames = allmodules.query({type: 1});
@@ -1025,6 +1034,7 @@ angular.module('myApp.controllers', []).
             }
             //$scope.sigunames = allcpu12.query({list12:1});
             var showFromList2 = function(result) {
+                $scope.show();
                 $scope.graphs = result;
                 var sigus = result["modules"];
                 // var sigus = result["sigus"];
@@ -1108,6 +1118,7 @@ angular.module('myApp.controllers', []).
                 $scope.selectType = function(type) {
                     $scope.chart.type = type.typeValue;
                 };
+
                 chart.type = $scope.chartTypes[2].typeValue;
                 $scope.chartType = $scope.chartTypes[2];
                 $scope.chart = chart;

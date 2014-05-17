@@ -79,35 +79,20 @@ and open the template in the editor.
                         </select> 
                     </p-->
                     <div class="btn-group">
-                        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">ColumnChart</label>
-                        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'">LineChart</label>
-                        <label class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">BarChart</label>
+                        <label class="btn btn-primary" ng-model="chart.type" btn-radio="3">ColumnChart</label>
+                        <label class="btn btn-primary" ng-model="chart.type" btn-radio="1">LineChart</label>
+                        <label class="btn btn-primary" ng-model="chart.type" btn-radio="2">BarChart</label>
                     </div>
-                    <div ng-controller="AccordionDemoCtrl">
-                        <p>
-                            <button class="btn btn-primary" ng-click="status.open = !status.open">Last Hour</button>
-                            <button class="btn btn-primary" ng-click="status.isFirstDisabled = !status.isFirstDisabled">Last 4 Hours</button>
-                        </p>
+                    
+                    <div class="btn-group pull-right">
+                        <label class="btn btn-default" ng-model="allvars.timing" btn-radio="0">Last Hour</label>
+                        <label class="btn btn-default" ng-model="allvars.timing" btn-radio="1">Last 6 Hours</label>
+                        <label class="btn btn-default" ng-model="allvars.timing" ng-click="show()" btn-radio="2">Custom</label>
+                    </div>
+                    
+                    <div my-calendar="myc" ng-model="allvars.dates1" onchange="onchange()"></div>
 
-                        <label class="checkbox">
-                            <input type="checkbox" ng-model="oneAtATime"/>
-                            Open only one at a time
-                        </label>
-                        <accordion close-others="oneAtATime">
-                            <accordion-group is-open="status.open">
-                                <accordion-heading>
-                                    I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-                                </accordion-heading>
-                                This is just some content to illustrate fancy headings.
-                            </accordion-group>
-                        </accordion>
-                        <div ng-controller="Index2">
-                          
-                            <h4>Positional</h4>
-                            <button popover-placement="bottom" popover="On the Bottom!" class="btn btn-primary">Bottom</button>
-                            <hr />
-                        </div>
-                    </div>
+                    {{ allvars.dates1 }}
                     <div g-chart></div>
 
                 </div>
