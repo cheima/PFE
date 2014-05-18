@@ -9,7 +9,8 @@ angular.module('myApp', [
     'myApp.services',
     'myApp.directives',
     'myApp.controllers',
-    'ngBootstrap'
+    'ngBootstrap',
+    'uiSlider'
 
 ]).run(
         ['$rootScope', '$state', '$stateParams',

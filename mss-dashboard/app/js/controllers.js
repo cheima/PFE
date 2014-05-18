@@ -933,11 +933,12 @@ angular.module('myApp.controllers', []).
 
 }
 ).controller('Index2', function($scope) {
-    $scope.items = [
-        "The first choice!",
-        "And another choice for you.",
-        "but wait! A third!"
-    ];
+     $scope.item = {
+    name: 'Potato',
+    cost: 350
+  };
+  $scope.currencyFormatting = function(value) { return value.toString() + " $"; };
+
 
     $scope.DatepickerDemoCtrl = function() {
         $scope.today = function() {
@@ -983,13 +984,13 @@ angular.module('myApp.controllers', []).
         .controller('MyCtrl5', function($scope, allcpu, allcpu11, allmodules, $state) {
             $scope.allvars = {};
 
-            $scope.show = function(){
+            $scope.show = function() {
                 //alert("ok");
                 var c = $scope.myc;
                 //var c= angular.element(document.querySelector('.yourclass'));
                 c.data('daterangepicker').show();
             };
-            $scope.onchange = function(){
+            $scope.onchange = function() {
                 alert("ok2");
             }
             if ($state.includes('bsu')) {
