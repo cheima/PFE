@@ -1,7 +1,9 @@
 package pfe.cheima;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -434,6 +436,7 @@ public class GenericResource {
     }
     
     //allcpu of sigu
+    
     @Path("allcpu/{type1}/{year}/{month}/{day}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -475,7 +478,53 @@ public class GenericResource {
         
     }
 
+//NEW CODE DATEFROM DATETO
+    @Path("allcpu/{list11}/{dateFrom}/{dateTo}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonMultiModuleCpu getList111(@PathParam("list11") String list11,@PathParam("dateFrom") String dateFrom, @PathParam("dateTo") String dateTo) throws ParseException {
+        String[] siguIdsAsStrings = list11.split(",");
+        List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
+        for (String siguIdsAsString : siguIdsAsStrings) {
+            siguIds.add(Integer.parseInt(siguIdsAsString));
+        }
+        Date datefrom = new SimpleDateFormat("yyyy-MM-dd").parse(dateFrom);
+        Date dateto = new SimpleDateFormat("yyyy-MM-dd").parse(dateTo);
+        System.out.println("cheima"+dateto);
+        System.out.println("olfa"+datefrom);
+        List<JsonModuleCpu> gas = new ArrayList<JsonModuleCpu>();
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
 
+        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v  and t.atTime < :v2")
+                .setParameter("v", datefrom)
+                .setParameter("v2", dateto)
+                .getEntityList();
+        for (int id : siguIds) {
+            modules m = pu.createQuery("select a from modules a where a.id = :id").setParameter("id", id).getEntity();
+            if (m != null) {
+                JsonModuleCpu sigu = new JsonModuleCpu();
+                sigu.setModuleid(id);
+                sigu.setModulename(m.getSiguName());
+                List<LoadPercentCPU> entityList2 = pu.createQuery("select a from loadpercentcpu a left join TimePoint t ON a.dateExec = t.id where a.moduleid = :id AND t.atTime >= :v  and t.atTime < :v2")
+                        .setParameter("v", datefrom)
+                        .setParameter("v2", dateto)
+                        .setParameter("id", id)
+                        .getEntityList();
+//                List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
+//                        .setParameter("v", id)
+//                        .getEntityList();
+                sigu.setListe(entityList2);
+                gas.add(sigu);
+            }
+        }
+
+        JsonMultiModuleCpu ret = new JsonMultiModuleCpu();
+        ret.setModules(gas);
+        ret.setTimes(times);
+        return (ret);
+
+    }
+    ///YOUFA
     ///list of cpu selected
     
     @Path("allcpu11/{list11}/{year}/{month}/{day}")

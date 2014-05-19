@@ -244,7 +244,7 @@ angular.module('myApp.controllers', []).
 
             };
 
-
+            var dateFrom = $scope.allvars.dt.getFullYear() + ":" + $scope.allvars.dt.getMonth() + ":" + $scope.allvars.dt.getDate();
             $scope.updateShowAll = function() {
                 var args = {
                     year: $scope.allvars.dt.getFullYear(),
@@ -932,56 +932,53 @@ angular.module('myApp.controllers', []).
     };
 
 }
-).controller('Index2', function($scope) {
-     $scope.item = {
-    name: 'Potato',
-    cost: 350
-  };
-  $scope.currencyFormatting = function(value) { return value.toString() + " $"; };
-
-
-    $scope.DatepickerDemoCtrl = function() {
-        $scope.today = function() {
-            $scope.dt = new Date();
-        };
-        $scope.today();
-
-        $scope.showWeeks = true;
-        $scope.toggleWeeks = function() {
-            $scope.showWeeks = !$scope.showWeeks;
-        };
-
-        $scope.clear = function() {
-            $scope.dt = null;
-        };
-
-        // Disable weekend selection
-        $scope.disabled = function(date, mode) {
-            return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
-        };
-
-        $scope.toggleMin = function() {
-            $scope.minDate = ($scope.minDate) ? null : new Date();
-        };
-        $scope.toggleMin();
-
-        $scope.open = function($event) {
-            $event.preventDefault();
-            $event.stopPropagation();
-
-            $scope.opened = true;
-        };
-
-        $scope.dateOptions = {
-            'year-format': "'yy'",
-            'starting-day': 1
-        };
-
-        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'shortDate'];
-        $scope.format = $scope.formats[0];
-    };
-})
-        .controller('MyCtrl5', function($scope, allcpu, allcpu11, allmodules, $state) {
+)/*.controller('Index2', function($scope) {
+ 
+ $scope.currencyFormatting = function(value) { return value.toString() + " $"; };
+ 
+ 
+ $scope.DatepickerDemoCtrl = function() {
+ $scope.today = function() {
+ $scope.dt = new Date();
+ };
+ $scope.today();
+ 
+ $scope.showWeeks = true;
+ $scope.toggleWeeks = function() {
+ $scope.showWeeks = !$scope.showWeeks;
+ };
+ 
+ $scope.clear = function() {
+ $scope.dt = null;
+ };
+ 
+ // Disable weekend selection
+ $scope.disabled = function(date, mode) {
+ return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
+ };
+ 
+ $scope.toggleMin = function() {
+ $scope.minDate = ($scope.minDate) ? null : new Date();
+ };
+ $scope.toggleMin();
+ 
+ $scope.open = function($event) {
+ $event.preventDefault();
+ $event.stopPropagation();
+ 
+ $scope.opened = true;
+ };
+ 
+ $scope.dateOptions = {
+ 'year-format': "'yy'",
+ 'starting-day': 1
+ };
+ 
+ $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'shortDate'];
+ $scope.format = $scope.formats[0];
+ };
+ })*/
+        .controller('MyCtrl5', function($scope, allcpu, allcpu11, allmodules, $state, allcpu99) {
             $scope.allvars = {};
 
             $scope.show = function() {
@@ -1035,7 +1032,7 @@ angular.module('myApp.controllers', []).
             }
             //$scope.sigunames = allcpu12.query({list12:1});
             var showFromList2 = function(result) {
-                $scope.show();
+                // $scope.show();
                 $scope.graphs = result;
                 var sigus = result["modules"];
                 // var sigus = result["sigus"];
@@ -1218,8 +1215,13 @@ angular.module('myApp.controllers', []).
                     day: $scope.allvars.dt.getDate(),
                     list11: list
                 };
-                var rangesigu = allcpu11.query(args);
+                /* var rangesigu = allcpu11.query(args);
+                 rangesigu.$promise.then(showFromList2);*/
+                var from = "2014-05-15";
+                var to = "2014-05-19";
+                var rangesigu = allcpu99.query({from: from, to: to});
                 rangesigu.$promise.then(showFromList2);
+
             };
 
             $scope.updateRange11 = function() {
@@ -1232,6 +1234,7 @@ angular.module('myApp.controllers', []).
                 };
                 // alert(list);
                 var rangesigu = allcpu11.query(args);
+                var rangesigu = allcpu11.query(list);
                 rangesigu.$promise.then(showFromList2);
             };
 
@@ -1242,11 +1245,10 @@ angular.module('myApp.controllers', []).
         if (this.checked) {
             $("#ex7").slider("enable");
         }
-        else {
-            $("#ex7").slider("disable");
-        }
-    });
+        return chartData;
+    }
 
 
+    );
 });
-               
+        

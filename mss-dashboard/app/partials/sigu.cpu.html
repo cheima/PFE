@@ -18,7 +18,6 @@ and open the template in the editor.
 
                         <input type = "submit" ng-click="updateShowAll()"value="Submit" class="btn btn-primary"/>
 
-
                     </tab>
                     <!--tab heading="All">Click SUBMIT to see all the traffic
                         <input type = "submit" ng-click="updateShowAll()"value="Submit" /></tab-->
@@ -96,12 +95,13 @@ and open the template in the editor.
 
                     {{ allvars.dates1}}
                     <div g-chart></div>
-                    <div ng-controller="Index2">
-                    <ul>
-                        <li ng-repeat="item in items">
+                    <!--div ng-controller="Index2"-->
+                        <di>
+                        <ul>
+                        <li>
                             <p>Name: {{item.name}}</p>
                             <p>Cost: {{item.cost}}</p> 
-                        <slider floor="100" ceiling="1000" step="50" precision="2" ng-model="item.cost"></slider>
+                        <slider floor="100" ceiling="1000" step="50" precision="2" ng-model="alvars.item"></slider>
                         </li>
                     </ul>
                     </div>

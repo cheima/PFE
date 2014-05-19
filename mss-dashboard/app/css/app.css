@@ -1,5 +1,8 @@
 /* app css stylesheet */
-
+#chartdiv {
+	width	: 100%;
+	height	: 500px;
+}			
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;

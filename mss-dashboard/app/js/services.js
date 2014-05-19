@@ -94,3 +94,9 @@ trafficServices.factory('allcpu12',function($resource){
     //getall names by type
    // mss-dashboard-web/webresources/generic/getnames
 });
+//calendrier
+trafficServices.factory('allcpu99',function($resource){
+    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu/:from/:to',{from: '@from', to: '@to'},{
+      query:{method:'GET',isArray:false}  
+    }));
+});
