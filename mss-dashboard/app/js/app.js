@@ -10,7 +10,8 @@ angular.module('myApp', [
     'myApp.directives',
     'myApp.controllers',
     'ngBootstrap',
-    'uiSlider'
+    'uiSlider',
+    "highcharts-ng"
 
 ]).run(
         ['$rootScope', '$state', '$stateParams',
