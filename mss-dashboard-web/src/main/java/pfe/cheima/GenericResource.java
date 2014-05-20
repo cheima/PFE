@@ -31,6 +31,7 @@ import pfe.cheima.service.model.LoadPercentCPU;
 import pfe.cheima.service.model.TimePoint;
 import pfe.cheima.service.model.Trafficforsigu;
 import pfe.cheima.service.model.modules;
+
 /**
  * REST Web Service
  *
@@ -38,15 +39,18 @@ import pfe.cheima.service.model.modules;
  */
 @Path("generic")
 public class GenericResource {
+
     @Context
     private UriInfo context;
+
     public GenericResource() {
     }
+
     @GET
     @Produces("application/xml")
     public String getXml() throws ParseException, IOException {
         GestionTraffic m = new GestionTraffic();
-         m.populate();
+        m.populate();
         return "<xml><value>test</value></xml>";
     }
 
@@ -97,8 +101,9 @@ public class GenericResource {
                 .getEntityList();
         return entityList;
     }
+
     ////
-     @Path("cc")
+    @Path("cc")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
 
@@ -162,12 +167,13 @@ public class GenericResource {
     public List<modules> getSiguName() {
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         /* List<modules> entityList = pu.createQuery("select a from modules a WHERE a.type = :v order by a.id DESC")
-        .setParameter("v", 0).getEntityList();*/
+         .setParameter("v", 0).getEntityList();*/
         // List<Integer> idList = pu.createQuery("select a from modules a order by a.id DESC ").getIdList();
         List<modules> get = pu.createQuery("select a from modules a WHERE a.type = :v order by a.id DESC")
                 .setParameter("v", 0).getEntityList();
-     return get;
+        return get;
     }
+
     //getnames with specifi type 
     @Path("getnames/{list12}")
     @GET
@@ -175,13 +181,14 @@ public class GenericResource {
 
     public List<modules> getNames(@PathParam("list12") String list12) {
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-       
+
         List<modules> get = pu.createQuery("select a from modules a WHERE a.type = :v order by a.id DESC")
                 .setParameter("v", Integer.parseInt(list12)).getEntityList();
-     return get;
+        return get;
     }
-  @Path("getbsuname")
-  @GET
+
+    @Path("getbsuname")
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
 
     public List<modules> getBsuName() {
@@ -210,38 +217,38 @@ public class GenericResource {
      }*/
     //indicateur bande passante
     /*@Path("sommesigu")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-  public JsonMultiSiguTraffic_Response getBp() {
-        List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
-        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
-        List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", 0).getEntityList();
-        //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
-        Date time = lastHour();
-        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")
-                .setParameter("v", time)
-                .getEntityList();
-        for (int i = 0; i < List.size(); i++) {
-            JsonSiguTraffic sigu = new JsonSiguTraffic();
-            sigu.setSiguid(List.get(i).getId());
-            sigu.setSiguname(List.get(i).getSiguName());
-                List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v")
-                        .setParameter("v", time)
-                        .setParameter("id", List.get(i).getId())
-                        .getEntityList();
-            sigu.setListe(entityList2);
-            //  gas.get(i).setListe(entityList2);
-            gas.add(sigu);
+     @GET
+     @Produces(MediaType.APPLICATION_JSON)
+     public JsonMultiSiguTraffic_Response getBp() {
+     List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
+     net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+     List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
+     List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", 0).getEntityList();
+     //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
+     Date time = lastHour();
+     List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v")
+     .setParameter("v", time)
+     .getEntityList();
+     for (int i = 0; i < List.size(); i++) {
+     JsonSiguTraffic sigu = new JsonSiguTraffic();
+     sigu.setSiguid(List.get(i).getId());
+     sigu.setSiguname(List.get(i).getSiguName());
+     List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v")
+     .setParameter("v", time)
+     .setParameter("id", List.get(i).getId())
+     .getEntityList();
+     sigu.setListe(entityList2);
+     //  gas.get(i).setListe(entityList2);
+     gas.add(sigu);
 
-        }
+     }
 
-        JsonMultiSiguTraffic_Response ret = new JsonMultiSiguTraffic_Response();
-        ret.setSigus(gas);
-        ret.setTimes(times);
-        return (ret);
+     JsonMultiSiguTraffic_Response ret = new JsonMultiSiguTraffic_Response();
+     ret.setSigus(gas);
+     ret.setTimes(times);
+     return (ret);
         
-    }*/
+     }*/
     @Path("allbsu/{year}/{month}/{day}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -249,14 +256,14 @@ public class GenericResource {
         List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
         //  List<List<GetAllSigu>> listegas = new ArrayList<List<GetAllSigu>>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-       // List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
+        // List<List<Trafficforsigu>> liste = new ArrayList<List<Trafficforsigu>>();
         List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", 1).getEntityList();
         //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
-       Calendar c = new GregorianCalendar(year, month, day);
+        Calendar c = new GregorianCalendar(year, month, day);
         Date time = c.getTime();
-        c = new GregorianCalendar(year, month, day+1);
+        c = new GregorianCalendar(year, month, day + 1);
         Date time2 = c.getTime();
-        
+
         //Date time = lastHour();
         List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v and t.atTime < :v2")
                 .setParameter("v", time)
@@ -271,10 +278,10 @@ public class GenericResource {
 //            List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
 //                    .setParameter("v", List.get(i).getId())
 //                    .getEntityList();
-                List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v")
-                        .setParameter("v", time)
-                        .setParameter("id", List.get(i).getId())
-                        .getEntityList();
+            List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v")
+                    .setParameter("v", time)
+                    .setParameter("id", List.get(i).getId())
+                    .getEntityList();
             sigu.setListe(entityList2);
             //  gas.get(i).setListe(entityList2);
             gas.add(sigu);
@@ -285,8 +292,9 @@ public class GenericResource {
         ret.setSigus(gas);
         ret.setTimes(times);
         return (ret);
-        
+
     }
+
     @Path("alltraffic/{year}/{month}/{day}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -294,13 +302,13 @@ public class GenericResource {
         List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
         //  List<List<GetAllSigu>> listegas = new ArrayList<List<GetAllSigu>>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-         List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", 1).getEntityList();
+        List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", 1).getEntityList();
         //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
-       Calendar c = new GregorianCalendar(year, month, day);
+        Calendar c = new GregorianCalendar(year, month, day);
         Date time = c.getTime();
-        c = new GregorianCalendar(year, month, day+1);
+        c = new GregorianCalendar(year, month, day + 1);
         Date time2 = c.getTime();
-        
+
         //Date time = lastHour();
         List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v and t.atTime < :v2")
                 .setParameter("v", time)
@@ -315,10 +323,10 @@ public class GenericResource {
 //            List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
 //                    .setParameter("v", List.get(i).getId())
 //                    .getEntityList();
-                List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v")
-                        .setParameter("v", time)
-                        .setParameter("id", List.get(i).getId())
-                        .getEntityList();
+            List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v")
+                    .setParameter("v", time)
+                    .setParameter("id", List.get(i).getId())
+                    .getEntityList();
             sigu.setListe(entityList2);
             //  gas.get(i).setListe(entityList2);
             gas.add(sigu);
@@ -329,7 +337,7 @@ public class GenericResource {
         ret.setSigus(gas);
         ret.setTimes(times);
         return (ret);
-        
+
     }
 
     @Path("alltraffic/{list}")
@@ -389,9 +397,10 @@ public class GenericResource {
                 .setParameter("d", lastTime)
                 .getEntityList();
         List<Integer> siguIds = new ArrayList<Integer>();
-        for(Trafficforsigu t : entityList0)
+        for (Trafficforsigu t : entityList0) {
             siguIds.add(t.getSiguId());
-        
+        }
+
         /* la suite est copiée tel quelle de la fonction de alltraffic/{list} */
         List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
 
@@ -423,20 +432,19 @@ public class GenericResource {
         return (ret);
 
     }
-    
+
     //service of cpu
     @Path("allmodules/{type}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public  List<modules> getModules(@PathParam("type") String list) {
+    public List<modules> getModules(@PathParam("type") String list) {
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         int type = Integer.parseInt(list);
         List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", type).getEntityList();
-       return List;
+        return List;
     }
-    
+
     //allcpu of sigu
-    
     @Path("allcpu/{type1}/{year}/{month}/{day}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -448,9 +456,9 @@ public class GenericResource {
         //List<modules> name = pu.createQuery("select a.siguName from modules a").getIdList();
         Calendar c = new GregorianCalendar(year, month, day);
         Date time = c.getTime();
-        c = new GregorianCalendar(year, month, day+1);
+        c = new GregorianCalendar(year, month, day + 1);
         Date time2 = c.getTime();
-        
+
         //Date time = lastHour();
         List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v and t.atTime < :v2")
                 .setParameter("v", time)
@@ -461,11 +469,11 @@ public class GenericResource {
             sigu.setModuleid(List.get(i).getId());
             //gas.get(i).setSiguid(List.get(i).getId());
             sigu.setModulename(List.get(i).getSiguName());
-                List<LoadPercentCPU> entityList2 = pu.createQuery("select a from loadpercentcpu a left join TimePoint t ON a.dateExec = t.id where a.moduleid = :id AND t.atTime >= :v AND t.atTime < :v2")
-                .setParameter("v", time)
-                .setParameter("v2", time2)
-                        .setParameter("id", List.get(i).getId())
-                        .getEntityList();
+            List<LoadPercentCPU> entityList2 = pu.createQuery("select a from loadpercentcpu a left join TimePoint t ON a.dateExec = t.id where a.moduleid = :id AND t.atTime >= :v AND t.atTime < :v2")
+                    .setParameter("v", time)
+                    .setParameter("v2", time2)
+                    .setParameter("id", List.get(i).getId())
+                    .getEntityList();
             sigu.setListe(entityList2);
             gas.add(sigu);
 
@@ -475,23 +483,70 @@ public class GenericResource {
         ret.setModules(gas);
         ret.setTimes(times);
         return (ret);
-        
+
     }
 
 //NEW CODE DATEFROM DATETO
     @Path("allcpu/{list11}/{dateFrom}/{dateTo}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonMultiModuleCpu getList111(@PathParam("list11") String list11,@PathParam("dateFrom") String dateFrom, @PathParam("dateTo") String dateTo) throws ParseException {
+    public JsonMultiModuleCpu getList111(@PathParam("list11") String list11, @PathParam("dateFrom") String dateFrom, @PathParam("dateTo") String dateTo) throws ParseException {
         String[] siguIdsAsStrings = list11.split(",");
         List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
         for (String siguIdsAsString : siguIdsAsStrings) {
             siguIds.add(Integer.parseInt(siguIdsAsString));
         }
         Date datefrom = new SimpleDateFormat("yyyy-MM-dd").parse(dateFrom);
-        Date dateto = new SimpleDateFormat("yyyy-MM-dd").parse(dateTo);
-        System.out.println("cheima"+dateto);
-        System.out.println("olfa"+datefrom);
+        Calendar c = new GregorianCalendar();
+        c.setTime(new SimpleDateFormat("yyyy-MM-dd").parse(dateTo));
+        c.add(Calendar.DAY_OF_MONTH, 1);
+        Date dateto = c.getTime();
+
+        
+        System.out.println("cheima" + dateto);
+        System.out.println("olfa" + datefrom);
+
+        return getCPUs(siguIds, datefrom, dateto);
+    }
+
+    @Path("allcpu/{list11}/lastHour")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonMultiModuleCpu getList111(@PathParam("list11") String list11) throws ParseException {
+        String[] siguIdsAsStrings = list11.split(",");
+        List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
+        for (String siguIdsAsString : siguIdsAsStrings) {
+            siguIds.add(Integer.parseInt(siguIdsAsString));
+        }
+        Calendar c = new GregorianCalendar();
+        c.add(Calendar.HOUR_OF_DAY, -1);
+        Date datefrom = c.getTime();
+        Date dateto = new Date();
+
+        return getCPUs(siguIds, datefrom, dateto);
+    }
+
+    @Path("allcpu/{list11}/last4Hours")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonMultiModuleCpu getList112(@PathParam("list11") String list11) throws ParseException {
+        String[] siguIdsAsStrings = list11.split(",");
+        List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
+        for (String siguIdsAsString : siguIdsAsStrings) {
+            siguIds.add(Integer.parseInt(siguIdsAsString));
+        }
+        Calendar c = new GregorianCalendar();
+        c.add(Calendar.HOUR_OF_DAY, -4);
+        Date datefrom = c.getTime();
+        Date dateto = new Date();
+
+        return getCPUs(siguIds, datefrom, dateto);
+    }
+///YOUFA
+    ///list of cpu selected
+
+    private JsonMultiModuleCpu getCPUs(List<Integer> siguIds, Date datefrom, Date dateto) {
+
         List<JsonModuleCpu> gas = new ArrayList<JsonModuleCpu>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
 
@@ -524,9 +579,7 @@ public class GenericResource {
         return (ret);
 
     }
-    ///YOUFA
-    ///list of cpu selected
-    
+
     @Path("allcpu11/{list11}/{year}/{month}/{day}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -543,7 +596,7 @@ public class GenericResource {
 
         Calendar c = new GregorianCalendar(year, month, day);
         Date time = c.getTime();
-        c = new GregorianCalendar(year, month, day+1);
+        c = new GregorianCalendar(year, month, day + 1);
         Date time2 = c.getTime();
 
         List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v  and t.atTime < :v2")
@@ -575,8 +628,7 @@ public class GenericResource {
         return (ret);
 
     }
-    
-    
+
     private Date lastHour() {
         Calendar calendar = Calendar.getInstance();
 // 2) get a java.util.Date from the calendar instance.
