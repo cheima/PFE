@@ -96,7 +96,7 @@ trafficServices.factory('allcpu12',function($resource){
 });
 //calendrier
 trafficServices.factory('allcpu99',function($resource){
-    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu/:from/:to',{from: '@from', to: '@to'},{
+    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu/:list11/:from/:to',{list11: '@list11', from: '@from', to: '@to'},{
       query:{method:'GET',isArray:false}  
     }));
 });
