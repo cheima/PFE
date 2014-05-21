@@ -38,6 +38,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(pfe.cheima.GenericResource.class);
+        resources.add(pfe.cheima.MSSManagmentREST.class);
     }
     
 }
