@@ -981,23 +981,23 @@ angular.module('myApp.controllers', []).
         .controller('MyCtrl5', function($scope, $filter, allcpu, allcpu11, allmodules, $state, allcpu99) {
 
             /*$scope.highchartsNG = {
-                options: {
-                    rangeSelector: {enabled: true},
-                    navigator: {enabled: true}
-
-                },
-                series: [{
-                        data: [[1147651200000, 67.79],
-                            [1147737600000, 74.98],
-                            [1147824000000, 75.26]
-                        ]
-                    }],
-                title: {
-                    text: 'Load Percent of Cpu'
-                },
-                loading: false,
-                useHighStocks: true
-            };*/
+             options: {
+             rangeSelector: {enabled: true},
+             navigator: {enabled: true}
+             
+             },
+             series: [{
+             data: [[1147651200000, 67.79],
+             [1147737600000, 74.98],
+             [1147824000000, 75.26]
+             ]
+             }],
+             title: {
+             text: 'Load Percent of Cpu'
+             },
+             loading: false,
+             useHighStocks: true
+             };*/
 
             $scope.allvars = {};
 
@@ -1075,74 +1075,80 @@ angular.module('myApp.controllers', []).
                             }
                         }
                     }
-                    series.push({data : data});
-                    
+                    series.push({data: data});
 
                 }
-                
-            $scope.highchartsNG = {
-                options: {
-                    /*chart: {
-                     type: 'line'
-                     },*/
-                    rangeSelector: {enabled: true},
-                    navigator: {enabled: true}
 
-                },
-                series: series,
-                title: {
-                    text: 'Load Percent of Cpu'
-                },
-                loading: false,
-                useHighStocks: true
-            };
+                $scope.highchartsNG = {
+                    options: {
+                        /*chart: {
+                         type: 'line'
+                         },*/
+                        rangeSelector: {enabled: true},
+                        navigator: {enabled: true}
+
+                    },
+                    series: series,
+                    title: {
+                        text: 'Load Percent of Cpu'
+                    },
+                    loading: false,
+                    useHighStocks: true
+                };
 
             };
             $scope.updateShowAll = function() {
-                var args = {
+                var list = "all,";
+              /* var args = {
                     year: $scope.allvars.dt.getFullYear(),
                     month: $scope.allvars.dt.getMonth(),
                     day: $scope.allvars.dt.getDate()
-                };
+                };*/
                 if ($state.includes('bsu')) {
-                    args.type1 = 1;
+                  //  args.type1 = 1;
+                    list = list + "1";
                 }
                 else if ($state.includes('sigu')) {
-                    args.type1 = 0;
+                   // args.type1 = 0;
+                    list = list + "0";
                 }
                 else if ($state.includes('vlru')) {
-                    args.type1 = 2;
+                   // args.type1 = 2;
+                    list = list + "2";
                 }
                 else if ($state.includes('ccsu')) {
-                    // var allsigu = allcpu.query({type1: 3});
-                    args.type1 = 3;
+                   // args.type1 = 3;
+                    list = list + "3";
                 }
                 else if ($state.includes('chu')) {
-                    // var allsigu = allcpu.query({type1: 4});
-                    args.type1 = 4;
+                    //args.type1 = 4;
+                     list = list + "4";
                 }
                 else if ($state.includes('bdcu')) {
-                    // var allsigu = allcpu.query({type1: 5});
-                    args.type1 = 5;
+                    //args.type1 = 5;
+                     list = list + "5";
                 }
                 else if ($state.includes('cmu')) {
-                    // var allsigu = allcpu.query({type1: 6});
-                    args.type1 = 6;
+                   // args.type1 = 6;
+                    list = list + "6";
                 }
                 else if ($state.includes('stu')) {
-                    //var allsigu = allcpu.query({type1: 7});
-                    args.type1 = 7;
+                    //args.type1 = 7;
+                     list = list + "7";
                 }
                 else if ($state.includes('omu')) {
-                    // var allsigu = allcpu.query({type1: 8});
-                    args.type1 = 8;
+                   // args.type1 = 8;
+                    list = list + "8";
                 }
                 else if ($state.includes('cmm')) {
-                    //var allsigu = allcpu.query({type1: 9});
-                    args.type1 = 9;
+                   // args.type1 = 9;
+                    list = list + "9";
                 }
-
-                var allsigu = allcpu.query(args);
+                 var to = $scope.allvars.dates1.endDate.toDate();     //return date
+                var from = $scope.allvars.dates1.startDate.toDate();
+                var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //return date with this format
+                var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
+                var allsigu = allcpu99.query({list11: list, from: formattedFrom, to: formattedTo});
                 allsigu.$promise.then(showFromList2);
 
             };
@@ -1175,13 +1181,13 @@ angular.module('myApp.controllers', []).
                         break;
                 }
 
-                var to = $scope.allvars.dates1.endDate.toDate();
+                var to = $scope.allvars.dates1.endDate.toDate();     //return date
                 var from = $scope.allvars.dates1.startDate.toDate();
 
-                var formattedTo = $filter('date')(to, "yyyy-MM-dd");
+                var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //return date with this format
                 var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
 
-                alert("from:" + formattedFrom + " to:" + formattedTo);
+                //alert("from:" + formattedFrom + " to:" + formattedTo);
                 var rangesigu = allcpu99.query({list11: list, from: formattedFrom, to: formattedTo});
                 rangesigu.$promise.then(showFromList2);
 
@@ -1189,15 +1195,24 @@ angular.module('myApp.controllers', []).
 
             $scope.updateRange11 = function() {
                 var list = $scope.allvars.siguSelected3;
-                var args = {
-                    year: $scope.allvars.dt.getFullYear(),
-                    month: $scope.allvars.dt.getMonth(),
-                    day: $scope.allvars.dt.getDate(),
-                    list11: list
-                };
-                // alert(list);
-                var rangesigu = allcpu11.query(args);
-                var rangesigu = allcpu11.query(list);
+                /* var args = {
+                 year: $scope.allvars.dt.getFullYear(),
+                 month: $scope.allvars.dt.getMonth(),
+                 day: $scope.allvars.dt.getDate(),
+                 list11: list
+                 };
+                 // alert(list);
+                 var rangesigu = allcpu11.query(args);
+                 // var rangesigu = allcpu11.query(list);
+                 rangesigu.$promise.then(showFromList2);*/
+                var to = $scope.allvars.dates1.endDate.toDate();     //retourne une date
+                var from = $scope.allvars.dates1.startDate.toDate();
+
+                var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //retouner la date sous ce format
+                var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
+
+                //alert("from:" + formattedFrom + " to:" + formattedTo);
+                var rangesigu = allcpu99.query({list11: list, from: formattedFrom, to: formattedTo});
                 rangesigu.$promise.then(showFromList2);
             };
 

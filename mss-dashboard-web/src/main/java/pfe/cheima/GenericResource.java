@@ -1,7 +1,6 @@
 package pfe.cheima;
 
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,12 +17,10 @@ import javax.ws.rs.GET;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import net.vpc.upa.PersistenceUnit;
-import net.vpc.upa.Query;
+import net.vpc.upa.Key;
 import net.vpc.upa.UPA;
 import pfe.cheima.decorators.JsonModuleCpu;
 import pfe.cheima.decorators.JsonMultiModuleCpu;
-import pfe.cheima.decorators.trafficforsigu;
 import pfe.cheima.decorators.JsonMultiSiguTraffic_Response;
 import pfe.cheima.service.GestionTraffic;
 import pfe.cheima.decorators.JsonSiguTraffic;
@@ -491,20 +488,28 @@ public class GenericResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public JsonMultiModuleCpu getList111(@PathParam("list11") String list11, @PathParam("dateFrom") String dateFrom, @PathParam("dateTo") String dateTo) throws ParseException {
-        String[] siguIdsAsStrings = list11.split(",");
-        List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
+         String[] siguIdsAsStrings = list11.split(",");
+         List<Integer> siguIds = new ArrayList<Integer>();
+         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        ///essai de list contenant all,0(type)
+        if("all".equals(siguIdsAsStrings[0])){
+            Integer type = Integer.parseInt(siguIdsAsStrings[1]);
+            List<modules> entityList = pu.createQuery("select a from modules a WHERE a.type = :v").setParameter("v", type).getEntityList(); 
+            for (int i =0 ; i<entityList.size();i++){
+              siguIds.add(entityList.get(i).getId());
+            }
+        }
+        else{
+      //  List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
         for (String siguIdsAsString : siguIdsAsStrings) {
             siguIds.add(Integer.parseInt(siguIdsAsString));
+        }
         }
         Date datefrom = new SimpleDateFormat("yyyy-MM-dd").parse(dateFrom);
         Calendar c = new GregorianCalendar();
         c.setTime(new SimpleDateFormat("yyyy-MM-dd").parse(dateTo));
         c.add(Calendar.DAY_OF_MONTH, 1);
         Date dateto = c.getTime();
-
-        
-        System.out.println("cheima" + dateto);
-        System.out.println("olfa" + datefrom);
 
         return getCPUs(siguIds, datefrom, dateto);
     }
@@ -542,7 +547,7 @@ public class GenericResource {
 
         return getCPUs(siguIds, datefrom, dateto);
     }
-///YOUFA
+
     ///list of cpu selected
 
     private JsonMultiModuleCpu getCPUs(List<Integer> siguIds, Date datefrom, Date dateto) {
