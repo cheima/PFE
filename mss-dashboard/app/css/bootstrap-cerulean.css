@@ -1,3 +1,5 @@
+// modifié: supprimer (par comments) les css des classes .modal et .fade (du popup)
+
 @import url(https://fonts.googleapis.com/css?family=Karla|Ubuntu);
 /*!
  * Bootstrap v2.0.4
@@ -2060,6 +2062,7 @@ table .span24 {
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
+/*
 .fade {
   opacity: 0;
   -webkit-transition: opacity 0.15s linear;
@@ -2071,6 +2074,7 @@ table .span24 {
 .fade.in {
   opacity: 1;
 }
+*/
 .collapse {
   position: relative;
   height: 0;
@@ -3463,6 +3467,7 @@ input[type="submit"].btn.btn-mini {
   background-color: #fff;
   cursor: default;
 }
+/*
 .modal-open .dropdown-menu {
   z-index: 2050;
 }
@@ -3504,7 +3509,6 @@ input[type="submit"].btn.btn-mini {
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.3);
   *border: 1px solid #999;
-  /* IE6-7 */
 
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -3571,6 +3575,7 @@ input[type="submit"].btn.btn-mini {
 .modal-footer .btn-group .btn + .btn {
   margin-left: -1px;
 }
+*/
 .tooltip {
   position: absolute;
   z-index: 1020;

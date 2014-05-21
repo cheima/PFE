@@ -6,49 +6,10 @@ google.load('visualization', '1', {packages: ['corechart']});
 google.setOnLoadCallback(function() {
     angular.bootstrap(document.body, ['myApp']);
 });
-var ModalDemoCtrl = function ($scope, $modal, $log) {
-
-  $scope.items = ['item1', 'item2', 'item3'];
-
-  $scope.open = function (size) {
-
-    var modalInstance = $modal.open({
-      templateUrl: 'myModalContent.html',
-      controller: ModalInstanceCtrl,
-      size: size,
-      resolve: {
-        items: function () {
-          return $scope.items;
-        }
-      }
-    });
-
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
-    });
-  };
-};
 
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $modal service used above.
 
-var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
-
-  $scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };
-
-  $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
-  };
-
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-};
 var showFromList = function(result, $scope) {
 
     $scope.graphs = result;
@@ -222,7 +183,7 @@ var showFromList = function(result, $scope) {
     $scope.chart3 = chart3;
 };
 
-angular.module('myApp.controllers', []).
+var module = angular.module('myApp.controllers', []).
         controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, toptraffic, allgraphs, siguranged) {
             $scope.allvars = {};
             $scope.allvars.Indi_Name = "SIGU";
@@ -1343,4 +1304,35 @@ angular.module('myApp.controllers', []).
 
     );
 });
-        
+
+module.controller('ModalInstanceCtrl', function($scope, $modalInstance, trafficforsigu, getsigunames, toptraffic, allgraphs, siguranged) {
+
+
+    $scope.selected = {
+    };
+
+    $scope.ok = function() {
+        $modalInstance.close(0);
+    };
+
+    $scope.cancel = function() {
+        $modalInstance.dismiss('cancel');
+    };
+});
+
+module.controller('ModalDemoCtrl', function($scope, $modal, $log, trafficforsigu, getsigunames, toptraffic, allgraphs, siguranged) {
+
+    $scope.open = function(size) {
+
+        var modalInstance = $modal.open({
+            templateUrl: 'partials/addMSS.html',
+            controller: 'ModalInstanceCtrl',
+            size: size
+        });
+
+        modalInstance.result.then(function(selectedItem) {
+        }, function() {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    };
+});
