@@ -978,38 +978,26 @@ angular.module('myApp.controllers', []).
  $scope.format = $scope.formats[0];
  };
  })*/
-        .controller('MyCtrl5', function($scope, allcpu, allcpu11, allmodules, $state, allcpu99) {
-            
-            $scope.highchartsNG = {
+        .controller('MyCtrl5', function($scope, $filter, allcpu, allcpu11, allmodules, $state, allcpu99) {
+
+            /*$scope.highchartsNG = {
                 options: {
-                    /*chart: {
-                     type: 'line'
-                     },*/
                     rangeSelector: {enabled: true},
                     navigator: {enabled: true}
 
                 },
                 series: [{
-                        data: [ [1147651200000,67.79],
-                [1147737600000,74.98],
-                [1147824000000,75.26],
-                [1147910400000,73.18],
-                [1147996800000,84.51],
-                [1148256000000,83.38],
-                [1148342400000,73.15],
-                [1148428800000,73.34],
-                [1148515200000,84.33],
-                [1148601600000,83.55],
-                [1148947200000,81.22],
-                [1149033600000,69.77]]
-                
-        }],
+                        data: [[1147651200000, 67.79],
+                            [1147737600000, 74.98],
+                            [1147824000000, 75.26]
+                        ]
+                    }],
                 title: {
                     text: 'Load Percent of Cpu'
                 },
                 loading: false,
                 useHighStocks: true
-            };
+            };*/
 
             $scope.allvars = {};
 
@@ -1064,104 +1052,51 @@ angular.module('myApp.controllers', []).
             }
             //$scope.sigunames = allcpu12.query({list12:1});
             var showFromList2 = function(result) {
-                // $scope.show();
                 $scope.graphs = result;
                 var sigus = result["modules"];
-                // var sigus = result["sigus"];
                 var times = result["times"]; // liste des TimePoint
-                var tab = [];
-                /* Ligne 1 de la matrice */
-                var ligne1 = ['time'];
+                var series = [];
+                //for each module
                 for (var s in sigus) {
                     var sigu = sigus[s]; // le sigu 
                     var siguname = sigu["modulename"];
-                    //  var siguname = sigu["siguname"];
-                    ligne1.push(siguname);
-                }
-                tab.push(ligne1);
-                var last_timeId;
-                var last_timeValue;
-                for (var t in times) {
-                    var time = times[t];
-                    var timeId = time["id"];
-                    last_timeId = timeId;
-                    var d = new Date(time["atTime"]);
-                    var d1 = d.getHours() - 1;
-                    var d2 = d.getMinutes();
-                    var curr_date = d.getDate();
-                    var curr_month = d.getMonth() + 1; //Months are zero based
-                    var curr_year = d.getFullYear();
-                    var datenow = curr_date + "-" + curr_month + "-" + curr_year;
-                    var timeValeur = d1 + ":" + d2;
-                    last_timeValue = timeValeur;
-                    var ligne = [timeValeur];
-                    for (var s in sigus) {
-                        var sigu = sigus[s]; // le sigu 
-                        var trafficsomme = 0;
-                        var traffics = sigu["liste"];
-                        for (var trafficKey in traffics) {
-                            var traffic = traffics[trafficKey];
-                            if (traffic["dateExec"] == timeId) {
-                                trafficsomme = traffic["loadCPU"];
-                                break;
-                            }
-                        }
-                        ligne.push(trafficsomme);
-                    }
-                    tab.push(ligne);
-                }
-                //////
-                $scope.allvars.lasttime = last_timeValue;
-                var tab2 = [['name', last_timeValue]];
-                for (var s in sigus) {
-                    var sigu = sigus[s]; // le sigu 
-                    var lignesomme = [sigu["modulename"]];
-                    // var lignesomme = [sigu["siguname"]];
-
-                    var trafficsomme = 0;
+                    var data = []; // le data de ce sigu, à remplire par la liste des cpus
                     var traffics = sigu["liste"];
                     for (var trafficKey in traffics) {
                         var traffic = traffics[trafficKey];
-                        if (traffic["dateExec"] == last_timeId) {
-                            trafficsomme = traffic["loadCPU"];
+                        // chercher le timepoint
+                        for (var t in times) {
+                            var time = times[t];
+                            var timeId = time["id"];
 
-                            break;
+                            if (traffic["dateExec"] == timeId) {
+                                data.push([new Date(time["atTime"]).getTime(), traffic["loadCPU"]]);
+                                break;
+                            }
                         }
                     }
-                    lignesomme.push(trafficsomme);
-                    tab2.push(lignesomme);
-                }
-                //set a pie
-                var data = google.visualization.arrayToDataTable(tab);
-                var options = {
-                    title: '% of CPU '
-                };
-                var chart = {};
-                chart.data = data;
-                chart.options = options;
-                $scope.chartTypes = [
-                    {typeName: 'LineChart', typeValue: '1'},
-                    {typeName: 'BarChart', typeValue: '2'},
-                    {typeName: 'ColumnChart', typeValue: '3'},
-                    {typeName: 'PieChart', typeValue: '4'}
-                ];
-                $scope.selectType = function(type) {
-                    $scope.chart.type = type.typeValue;
-                };
+                    series.push({data : data});
+                    
 
-                chart.type = $scope.chartTypes[2].typeValue;
-                $scope.chartType = $scope.chartTypes[2];
-                $scope.chart = chart;
-                //pie
-                var data2 = google.visualization.arrayToDataTable(tab2);
-                var options2 = {
-                    title: '% of CPU'
-                };
-                var chart2 = {};
-                chart2.data = data2;
-                chart2.options = options2;
-                chart2.type = $scope.chartTypes[3].typeValue;
-                $scope.chart2 = chart2;
+                }
+                
+            $scope.highchartsNG = {
+                options: {
+                    /*chart: {
+                     type: 'line'
+                     },*/
+                    rangeSelector: {enabled: true},
+                    navigator: {enabled: true}
+
+                },
+                series: series,
+                title: {
+                    text: 'Load Percent of Cpu'
+                },
+                loading: false,
+                useHighStocks: true
+            };
+
             };
             $scope.updateShowAll = function() {
                 var args = {
@@ -1239,34 +1174,15 @@ angular.module('myApp.controllers', []).
                     if ($scope.sigunames[i].id == $scope.allvars.siguSelected2)
                         break;
                 }
-                //  alert(list);
-                // i =0;
-                /* var args = {
-                 year: $scope.allvars.dt.getFullYear(),
-                 month: $scope.allvars.dt.getMonth(),
-                 day: $scope.allvars.dt.getDate(),
-                 list11: list
-                 };/*
-                 /* var rangesigu = allcpu11.query(args);
-                 rangesigu.$promise.then(showFromList2);*/
-                // var to = "2014-05-19";
-                //var from = "2014-05-15";
-                /* var from = $scope.allvars.dates1.startDate;
-                 var to = $scope.allvars.dates1.endDate;
-                 var yyyy = from.getFullYear().toString();
-                 var mm = (this.getMonth() + 1).toString(); // getMonth() is zero-based
-                 var dd = this.getDate().toString();
-                 var full = yyyy + (mm.length === 2 ? mm : "0" + mm[0]) + (dd[1] ? dd : "0" + dd[0]); // padding*/
-                var to = $scope.allvars.dates1.endDate;
-                var toDate = new Date(to);
-                var month = toDate.getMonth() + 1;
-                var from = $scope.allvars.dates1.startDate;
-                var toDate1 = new Date(from);
-                var month1 = toDate1.getMonth() + 1;
 
+                var to = $scope.allvars.dates1.endDate.toDate();
+                var from = $scope.allvars.dates1.startDate.toDate();
 
-                alert("from" + toDate1.getFullYear() + "-" + toDate1.getMonth() + "-" + toDate1.getDate() + " to:" + toDate.getFullYear() + "-" + toDate.getMonth() + "-" + toDate.getDate()); //hetha y5arej undefined
-                var rangesigu = allcpu99.query({list11: list, from: toDate1.getFullYear() + "-" + month1 + "-" + toDate1.getDate(), to: toDate.getFullYear() + "-" + month + "-" + toDate.getDate()});
+                var formattedTo = $filter('date')(to, "yyyy-MM-dd");
+                var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
+
+                alert("from:" + formattedFrom + " to:" + formattedTo);
+                var rangesigu = allcpu99.query({list11: list, from: formattedFrom, to: formattedTo});
                 rangesigu.$promise.then(showFromList2);
 
             };
