@@ -184,7 +184,7 @@ angular.module('myApp.controllers', []).
         controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, toptraffic, allgraphs, siguranged) {
             $scope.allvars = {};
             $scope.allvars.Indi_Name = "SIGU";
-           // $scope.allvars.packet = "packetreceived";
+            // $scope.allvars.packet = "packetreceived";
             $scope.sigunames = getsigunames.query();
             //fonction zèyda
             $scope.update = function() {
@@ -978,7 +978,7 @@ angular.module('myApp.controllers', []).
  $scope.format = $scope.formats[0];
  };
  })*/
-        .controller('MyCtrl5', function($scope, $filter, allcpu, allcpu11, allmodules, $state, allcpu99) {
+        .controller('MyCtrl5', function($scope, $filter, $timeout, allcpu, allcpu11, allmodules, $state, allcpu99) {
 
             /*$scope.highchartsNG = {
              options: {
@@ -1000,15 +1000,18 @@ angular.module('myApp.controllers', []).
              };*/
 
             $scope.allvars = {};
-
+            $scope.allvars.optionsTabs = [true, false, false, false];
+            $scope.allvars.timingOption = 0;
             $scope.show = function() {
                 //alert("ok");
                 var c = $scope.myc;
                 //var c= angular.element(document.querySelector('.yourclass'));
                 c.data('daterangepicker').show();
             };
-            $scope.onchange = function() {
-                alert("ok2");
+            $scope.onDateChange = function() {
+                $timeout(function() {
+                    alert("ok2:" + $scope.allvars.timingOption + ":" + $scope.allvars.optionsTabs[0] + '-' + $scope.allvars.optionsTabs[1] + '-');
+                });
             };
             if ($state.includes('bsu')) {
                 $scope.allvars.Indi_Name = "BSU";
@@ -1076,7 +1079,7 @@ angular.module('myApp.controllers', []).
                             }
                         }
                     }
-                    series.push({data: data,});
+                    series.push({data: data, });
 
                 }
 
@@ -1085,7 +1088,27 @@ angular.module('myApp.controllers', []).
                         /*chart: {
                          type: 'line'
                          },*/
-                        rangeSelector: {enabled: true},
+                        rangeSelector: {
+                            enabled: true,
+                            buttons: [{
+                                    type: 'day',
+                                    count: 1,
+                                    text: '1d'
+                                }, {
+                                    type: 'minute',
+                                    count: 360,
+                                    text: '6h'
+                                }, {
+                                    type: 'minute',
+                                    count: 180,
+                                    text: '3h'
+                                }, {
+                                    type: 'minute',
+                                    count: 60,
+                                    text: '1h'
+                                }],
+                            inputEnabled: false
+                        },
                         navigator: {enabled: true}
 
                     },
@@ -1098,68 +1121,113 @@ angular.module('myApp.controllers', []).
                 };
 
             };
-            $scope.updateShowAll = function() {
+            $scope.generalUpdate = function() {
+                $timeout(function() {
+                    alert("ok2:" + $scope.allvars.timingOption + ":" + $scope.allvars.optionsTabs[0] + '-' + $scope.allvars.optionsTabs[1] + '-');
+                    var ws_options = {};
+                    // options
+                    var list = "";
+                    if ($scope.allvars.optionsTabs[0])
+                        list = updateShowAll();
+                    else if ($scope.allvars.optionsTabs[1])
+                        list = updateRange();
+                    else if ($scope.allvars.optionsTabs[2])
+                        list = updateShowTop10();
+                    else if ($scope.allvars.optionsTabs[3])
+                        list = updateOne();
+                    ws_options.list11 = list;
+
+                    //date
+                    var date = "";
+                    var timingOption = $scope.allvars.timingOption;
+                    if (timingOption === 2) { // custom date
+                        var to = $scope.allvars.dates1.endDate.toDate();     //return date
+                        var from = $scope.allvars.dates1.startDate.toDate();
+
+                        var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //return date with this format
+                        var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
+
+                        ws_options.from = formattedFrom;
+                        ws_options.to = formattedTo;
+                    } else if (timingOption === 0) { // custom date
+                        ws_options.from = 'lastHour';
+                        ws_options.to = '';
+                    } else if (timingOption === 0) { // custom date
+                        ws_options.from = 'last4Hours';
+                        ws_options.to = '';
+                    }
+
+
+                    var rangesigu = allcpu99.query(ws_options);
+                    rangesigu.$promise.then(showFromList2);
+
+
+                });
+            };
+            var updateShowAll = function() {
                 var list = "all,";
-              /* var args = {
-                    year: $scope.allvars.dt.getFullYear(),
-                    month: $scope.allvars.dt.getMonth(),
-                    day: $scope.allvars.dt.getDate()
-                };*/
+                /* var args = {
+                 year: $scope.allvars.dt.getFullYear(),
+                 month: $scope.allvars.dt.getMonth(),
+                 day: $scope.allvars.dt.getDate()
+                 };*/
                 if ($state.includes('bsu')) {
-                  //  args.type1 = 1;
+                    //  args.type1 = 1;
                     list = list + "1";
                 }
                 else if ($state.includes('sigu')) {
-                   // args.type1 = 0;
+                    // args.type1 = 0;
                     list = list + "0";
                 }
                 else if ($state.includes('vlru')) {
-                   // args.type1 = 2;
+                    // args.type1 = 2;
                     list = list + "2";
                 }
                 else if ($state.includes('ccsu')) {
-                   // args.type1 = 3;
+                    // args.type1 = 3;
                     list = list + "3";
                 }
                 else if ($state.includes('chu')) {
                     //args.type1 = 4;
-                     list = list + "4";
+                    list = list + "4";
                 }
                 else if ($state.includes('bdcu')) {
                     //args.type1 = 5;
-                     list = list + "5";
+                    list = list + "5";
                 }
                 else if ($state.includes('cmu')) {
-                   // args.type1 = 6;
+                    // args.type1 = 6;
                     list = list + "6";
                 }
                 else if ($state.includes('stu')) {
                     //args.type1 = 7;
-                     list = list + "7";
+                    list = list + "7";
                 }
                 else if ($state.includes('omu')) {
-                   // args.type1 = 8;
+                    // args.type1 = 8;
                     list = list + "8";
                 }
                 else if ($state.includes('cmm')) {
-                   // args.type1 = 9;
+                    // args.type1 = 9;
                     list = list + "9";
                 }
-                 var to = $scope.allvars.dates1.endDate.toDate();     //return date
-                var from = $scope.allvars.dates1.startDate.toDate();
-                var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //return date with this format
-                var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
-                var allsigu = allcpu99.query({list11: list, from: formattedFrom, to: formattedTo});
-                allsigu.$promise.then(showFromList2);
+                return list;
+//                var to = $scope.allvars.dates1.endDate.toDate();     //return date
+//                var from = $scope.allvars.dates1.startDate.toDate();
+//                var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //return date with this format
+//                var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
+//                var allsigu = allcpu99.query({list11: list, from: formattedFrom, to: formattedTo});
+//                allsigu.$promise.then(showFromList2);
 
             };
 
-            $scope.updateShowTop10 = function() {
-                var allsigu = allcpu.query({type1: 0});
-                allsigu.$promise.then(showFromList2);
+            var updateShowTop10 = function() {
+//                var allsigu = allcpu.query({type1: 0});
+//                allsigu.$promise.then(showFromList2);
+                return "";
             };
 
-            $scope.updateRange = function() {
+            var updateRange = function() {
                 var list = "";
                 var start = 0;
                 var i = 0;
@@ -1181,21 +1249,24 @@ angular.module('myApp.controllers', []).
                     if ($scope.sigunames[i].id == $scope.allvars.siguSelected2)
                         break;
                 }
+                return list;
+//                    var to = $scope.allvars.dates1.endDate.toDate();     //return date
+//                    var from = $scope.allvars.dates1.startDate.toDate();
+//
+//                    var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //return date with this format
+//                    var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
+//
+//                    //alert("from:" + formattedFrom + " to:" + formattedTo);
+//                    var rangesigu = allcpu99.query({list11: list, from: formattedFrom, to: formattedTo});
+//                    rangesigu.$promise.then(showFromList2);
 
-                var to = $scope.allvars.dates1.endDate.toDate();     //return date
-                var from = $scope.allvars.dates1.startDate.toDate();
 
-                var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //return date with this format
-                var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
-
-                //alert("from:" + formattedFrom + " to:" + formattedTo);
-                var rangesigu = allcpu99.query({list11: list, from: formattedFrom, to: formattedTo});
-                rangesigu.$promise.then(showFromList2);
 
             };
 
-            $scope.updateRange11 = function() {
+            var updateOne = function() {
                 var list = $scope.allvars.siguSelected3;
+                return list;
                 /* var args = {
                  year: $scope.allvars.dt.getFullYear(),
                  month: $scope.allvars.dt.getMonth(),
@@ -1206,15 +1277,15 @@ angular.module('myApp.controllers', []).
                  var rangesigu = allcpu11.query(args);
                  // var rangesigu = allcpu11.query(list);
                  rangesigu.$promise.then(showFromList2);*/
-                var to = $scope.allvars.dates1.endDate.toDate();     //retourne une date
-                var from = $scope.allvars.dates1.startDate.toDate();
-
-                var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //retouner la date sous ce format
-                var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
-
-                //alert("from:" + formattedFrom + " to:" + formattedTo);
-                var rangesigu = allcpu99.query({list11: list, from: formattedFrom, to: formattedTo});
-                rangesigu.$promise.then(showFromList2);
+//                var to = $scope.allvars.dates1.endDate.toDate();     //retourne une date
+//                var from = $scope.allvars.dates1.startDate.toDate();
+//
+//                var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //retouner la date sous ce format
+//                var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
+//
+//                //alert("from:" + formattedFrom + " to:" + formattedTo);
+//                var rangesigu = allcpu99.query({list11: list, from: formattedFrom, to: formattedTo});
+//                rangesigu.$promise.then(showFromList2);
             };
 
         }

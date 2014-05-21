@@ -11,7 +11,8 @@ angular.module('ngBootstrap', []).directive('myCalendar', function ($compile, $p
 		restrict: 'A',
 		require: '?ngModel',
                 scope: {
-                     onchange: '&'
+                     onchange: '&',
+                     oncancel: '&'
                 },
 
 		link: function ($scope, element, attributes, ngModel) {
@@ -70,7 +71,8 @@ angular.module('ngBootstrap', []).directive('myCalendar', function ($compile, $p
 				$scope.$apply(function () {
 					ngModel.$setViewValue({ startDate: start, endDate: end });
 					ngModel.$render();
-                                        if(angular.isDefined(attributes.onchange)) $scope.onchange();
+                                        if(angular.isDefined(attributes.onchange))
+                                            $scope.onchange();
 				});
 			});			
                         $scope.$parent[attributes.myCalendar] = element;
