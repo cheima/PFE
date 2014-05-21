@@ -184,7 +184,7 @@ angular.module('myApp.controllers', []).
         controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, toptraffic, allgraphs, siguranged) {
             $scope.allvars = {};
             $scope.allvars.Indi_Name = "SIGU";
-            $scope.allvars.packet = "packetreceived";
+           // $scope.allvars.packet = "packetreceived";
             $scope.sigunames = getsigunames.query();
             //fonction zèyda
             $scope.update = function() {
@@ -1056,11 +1056,12 @@ angular.module('myApp.controllers', []).
                 var sigus = result["modules"];
                 var times = result["times"]; // liste des TimePoint
                 var series = [];
+                var noms = [];
                 //for each module
                 for (var s in sigus) {
                     var sigu = sigus[s]; // le sigu 
                     var siguname = sigu["modulename"];
-                    var data = []; // le data de ce sigu, à remplire par la liste des cpus
+                    var data = []; // le data de ce sigu, à remplir par la liste des cpus
                     var traffics = sigu["liste"];
                     for (var trafficKey in traffics) {
                         var traffic = traffics[trafficKey];
@@ -1075,7 +1076,7 @@ angular.module('myApp.controllers', []).
                             }
                         }
                     }
-                    series.push({data: data});
+                    series.push({data: data,});
 
                 }
 
