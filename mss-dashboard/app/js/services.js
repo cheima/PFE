@@ -1,6 +1,6 @@
 'use strict';
 var trafficServices =angular.module('myApp.services', ['ngResource']);
-var host = 'http://localhost:8080';
+var host = 'http://localhost:9999';
 
 trafficServices.factory('trafficforsigu',function($resource){
    
@@ -98,5 +98,17 @@ trafficServices.factory('allcpu12',function($resource){
 trafficServices.factory('allcpu99',function($resource){
     return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu/:list11/:from/:to',{list11: '@list11', from: '@from', to: '@to'},{
       query:{method:'GET',isArray:false}  
+    }));
+});
+//login
+trafficServices.factory('login',function($resource){
+    return($resource(host+'/mss-dashboard-web/webresources/rest/login/:username',{username: '@username'},{
+      query:{method:'GET',isArray:true}  
+    }));
+});
+//mss
+trafficServices.factory('mss',function($resource){
+    return($resource(host+'/mss-dashboard-web/webresources/rest/mss',{},{
+      query:{method:'GET',isArray:true}  
     }));
 });

@@ -558,7 +558,6 @@ var module = angular.module('myApp.controllers', []).
 
             $scope.updateRange = function() {
                 var list = "";
-
                 var start = 0;
                 var i = 0;
                 while (i < $scope.sigunames.length) {
@@ -1117,7 +1116,7 @@ var module = angular.module('myApp.controllers', []).
                     },
                     series: series,
                     title: {
-                        text: 'Load Percent of Cpu'
+                        text: 'Load Percent of CPU'
                     },
                     loading: false,
                     useHighStocks: true
@@ -1320,10 +1319,16 @@ module.controller('ModalInstanceCtrl', function($scope, $modalInstance, trafficf
     };
 });
 
-module.controller('ModalDemoCtrl', function($scope, $modal, $log, trafficforsigu, getsigunames, toptraffic, allgraphs, siguranged) {
+module.controller('ModalDemoCtrl', function($scope, $modal, $log, login, mss) {
+    $scope.allvars = {};
+   // $scope.allvars.Indi_Name = "MSS";
+    var list = "";
+    list = list + $scope.allvars.ip+","+$scope.allvars.log+","+$scope.allvars.pw ;
+    alert(list);
+    $scope.log = login.query({username: list});
+    $scope.allmss = mss.query();
 
     $scope.open = function(size) {
-
         var modalInstance = $modal.open({
             templateUrl: 'partials/addMSS.html',
             controller: 'ModalInstanceCtrl',
