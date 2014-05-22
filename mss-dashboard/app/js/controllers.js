@@ -1304,14 +1304,18 @@ var module = angular.module('myApp.controllers', []).
     );
 });
 
-module.controller('ModalInstanceCtrl', function($scope, $modalInstance, trafficforsigu, getsigunames, toptraffic, allgraphs, siguranged) {
+module.controller('ModalInstanceCtrl', function($scope, $modalInstance, login, getsigunames, toptraffic, allgraphs, siguranged) {
 
-
+    $scope.allvars = {};
     $scope.selected = {
     };
 
-    $scope.ok = function() {
-        $modalInstance.close(0);
+    $scope.submit = function() {
+        var list = "";
+        list = list + $scope.allvars.ip + "," + $scope.allvars.log + "," + $scope.allvars.pw;
+        $scope.log = login.query({username: list});
+        alert(list);
+        // $modalInstance.close(0);
     };
 
     $scope.cancel = function() {
@@ -1321,11 +1325,8 @@ module.controller('ModalInstanceCtrl', function($scope, $modalInstance, trafficf
 
 module.controller('ModalDemoCtrl', function($scope, $modal, $log, login, mss) {
     $scope.allvars = {};
-   // $scope.allvars.Indi_Name = "MSS";
-    var list = "";
-    list = list + $scope.allvars.ip+","+$scope.allvars.log+","+$scope.allvars.pw ;
-    alert(list);
-    $scope.log = login.query({username: list});
+    // $scope.allvars.Indi_Name = "MSS";
+
     $scope.allmss = mss.query();
 
     $scope.open = function(size) {

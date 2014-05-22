@@ -1,15 +1,11 @@
 <div class="modal-header">
     <h3 class="modal-title">Please enter your new MSS!</h3>
 </div>
-<div class="modal-body" ng-controller="ModalDemoCtrl">
+<div class="modal-body" >
     <ul>
         <li>
             <label>Enter your ip address:</label>
             <input type="text" ng-model="allvars.ip">
-            <!--select ng-model="allvars.ip"  ng-change="">
-                <option value=" ">--Choose your MSS--</option>
-                <option ng-repeat="onemss in allmss" value="">{{onemss.adrip}}</option>   
-        </select-->   
         </li>
         <li>
             <label>Enter your login:</label>
@@ -22,7 +18,8 @@
     </ul>
 
 </div>
+
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok()">SUBMIT</button>
+    <button class="btn btn-primary" ng-click="submit()">SUBMIT</button>
     <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
 </div>
