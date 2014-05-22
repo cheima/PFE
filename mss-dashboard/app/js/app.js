@@ -30,6 +30,11 @@ angular.module('myApp', [
     //
     // Now set up the states
     $stateProvider
+            .state('mss',{
+                abstract: true,
+                url: "/:mssId",
+                templateUrl: "partials/mss.html"
+                 })
             .state('sigu', {
                 abstract: true,
                 url: "/sigu",
@@ -51,7 +56,7 @@ angular.module('myApp', [
         url: "/ccsu",
         templateUrl: "partials/sigu.html"
        
-    }).state('ccsu.cpu', {
+    }).state('mss.ccsu.cpu', {
         url: "/LoadCPU",
         templateUrl: "partials/sigu.cpu.html",
          controller: 'MyCtrl5'
@@ -60,7 +65,7 @@ angular.module('myApp', [
         url: "/chu",
         templateUrl: "partials/sigu.html"
        
-    }).state('chu.cpu', {
+    }).state('mss.chu.cpu', {
         url: "/LoadCPU",
         templateUrl: "partials/sigu.cpu.html",
          controller: 'MyCtrl5'
@@ -69,7 +74,7 @@ angular.module('myApp', [
         url: "/bdcu",
         templateUrl: "partials/sigu.html"
        
-    }).state('bdcu.cpu', {
+    }).state('mss.bdcu.cpu', {
         url: "/LoadCPU",
         templateUrl: "partials/sigu.cpu.html",
          controller: 'MyCtrl5'
@@ -78,7 +83,7 @@ angular.module('myApp', [
         url: "/cmu",
         templateUrl: "partials/sigu.html"
        
-    }).state('cmu.cpu', {
+    }).state('mss.cmu.cpu', {
         url: "/LoadCPU",
         templateUrl: "partials/sigu.cpu.html",
          controller: 'MyCtrl5'
@@ -87,7 +92,7 @@ angular.module('myApp', [
         url: "/stu",
         templateUrl: "partials/sigu.html"
        
-    }).state('stu.cpu', {
+    }).state('mss.stu.cpu', {
         url: "/LoadCPU",
         templateUrl: "partials/sigu.cpu.html",
          controller: 'MyCtrl5'
@@ -96,7 +101,7 @@ angular.module('myApp', [
         url: "/cmm",
         templateUrl: "partials/sigu.html"
        
-    }).state('cmm.cpu', {
+    }).state('mss.cmm.cpu', {
         url: "/LoadCPU",
         templateUrl: "partials/sigu.cpu.html",
          controller: 'MyCtrl5'
@@ -105,7 +110,7 @@ angular.module('myApp', [
         url: "/omu",
         templateUrl: "partials/sigu.html"
        
-    }).state('omu.cpu', {
+    }).state('mss.omu.cpu', {
         url: "/LoadCPU",
         templateUrl: "partials/sigu.cpu.html",
          controller: 'MyCtrl5'

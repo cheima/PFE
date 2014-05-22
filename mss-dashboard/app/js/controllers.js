@@ -1342,3 +1342,25 @@ module.controller('ModalDemoCtrl', function($scope, $modal, $log, login, mss) {
         });
     };
 });
+module.controller("CtrlMSS", function($rootScope, $scope, $state) {
+
+    $scope.tabs = [
+        {heading: "MSS 1", route: "mss", active: false},
+        {heading: "MSS 2", route: "mass", active: false},
+        {heading: "MSS 3", route: "mss", active: false}
+    ];
+
+    $scope.go = function(route) {
+        $state.go(route);
+    };
+
+    $scope.active = function(route) {
+        return $state.is(route);
+    };
+
+    $scope.$on("$stateChangeSuccess", function() {
+        $scope.tabs.forEach(function(tab) {
+            tab.active = $scope.active(tab.route);
+        });
+    });
+});
