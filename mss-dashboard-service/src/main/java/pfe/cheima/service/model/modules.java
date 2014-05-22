@@ -23,6 +23,7 @@ public class modules implements Serializable {
     private Integer Id;
     private String siguName;
     private Integer type;
+    private Integer mss;
 
     public Integer getType() {
         return type;
@@ -46,6 +47,14 @@ public class modules implements Serializable {
 
     public void setSiguName(String siguName) {
         this.siguName = siguName;
+    }
+
+    public Integer getMss() {
+        return mss;
+    }
+
+    public void setMss(Integer mss) {
+        this.mss = mss;
     }
     
 }

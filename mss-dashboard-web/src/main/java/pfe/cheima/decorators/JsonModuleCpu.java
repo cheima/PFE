@@ -22,6 +22,7 @@ public class JsonModuleCpu implements Serializable {
     private static final long serialVersionUID = 1L;
     private String modulename;
     private int moduleid;
+    private int mssid;
     private List<LoadPercentCPU> liste;
 
     public String getModulename() {
@@ -46,6 +47,14 @@ public class JsonModuleCpu implements Serializable {
 
     public void setListe(List<LoadPercentCPU> liste) {
         this.liste = liste;
+    }
+
+    public int getMssid() {
+        return mssid;
+    }
+
+    public void setMssid(int mssid) {
+        this.mssid = mssid;
     }
     
 }

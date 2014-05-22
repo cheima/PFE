@@ -980,7 +980,7 @@ var module = angular.module('myApp.controllers', []).
  $scope.format = $scope.formats[0];
  };
  })*/
-        .controller('MyCtrl5', function($scope, $filter, $timeout, allcpu, allcpu11, allmodules, $state, allcpu99) {
+        .controller('MyCtrl5', function($scope, $filter, $timeout, allmodules, $state, allcpu99) {
 
             /*$scope.highchartsNG = {
              options: {
@@ -1154,7 +1154,7 @@ var module = angular.module('myApp.controllers', []).
                     } else if (timingOption === 0) { // custom date
                         ws_options.from = 'lastHour';
                         ws_options.to = '';
-                    } else if (timingOption === 0) { // custom date
+                    } else if (timingOption === 1) { // custom date
                         ws_options.from = 'last4Hours';
                         ws_options.to = '';
                     }

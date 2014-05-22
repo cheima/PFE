@@ -7,7 +7,9 @@
 package pfe.cheima.connect_to_mss;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -47,6 +49,15 @@ public class CmdExecuter {
            CmdParserCPU cp = new CmdParserCPU();
            String ListCmdCPU = ta.getAllCPU();
            List<LoadPercentCpu> allStats = cp.Comparaison(ListCmdCPU);
+           
+           // modifier les valeurs du fichier text - les cpus
+           Calendar c = Calendar.getInstance();
+           int valeur_de_base = c.get(Calendar.MINUTE);
+           for(LoadPercentCpu cpu : allStats){
+               Random r = new Random();
+               int i = r.nextInt(5);
+               cpu.setLoadCPU(i+valeur_de_base);
+           }
            return allStats;
        }
 }

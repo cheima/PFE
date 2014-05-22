@@ -1,6 +1,6 @@
 'use strict';
 var trafficServices =angular.module('myApp.services', ['ngResource']);
-var host = 'http://localhost:9999';
+var host = 'http://localhost:8080';
 
 trafficServices.factory('trafficforsigu',function($resource){
    
@@ -67,24 +67,24 @@ trafficServices.factory('allbsu',function($resource){
 //allmodulesforcpu
 trafficServices.factory('allmodules',function($resource){
    // isArray:false because it is an oject with two attributes (sigu which is an array and times)
-    return($resource(host+'/mss-dashboard-web/webresources/generic/allmodules/:type',{type: '@type'},{
+    return($resource(host+'/mss-dashboard-web/webresources/generic/mss/:mss/cart/:type',{mss:"1", type: '@type'},{
       query:{method:'GET',isArray:true}  
     }));
 });
 
-trafficServices.factory('allcpu',function($resource){
-    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu/:type1/:year/:month/:day',{type1: '@type1', year: '@year', month: '@month', day: '@day'},{
-      query:{method:'GET',isArray:false}  
-    }));
-});
-
-trafficServices.factory('allcpu11',function($resource){
-    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu11/:list11/:year/:month/:day',
-    {list11: '@list11', year: '@year', month: '@month', day: '@day'
-    },{
-      query:{method:'GET',isArray:false}  
-    }));
-});
+//trafficServices.factory('allcpu',function($resource){
+//    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu/:type1/:year/:month/:day',{type1: '@type1', year: '@year', month: '@month', day: '@day'},{
+//      query:{method:'GET',isArray:false}  
+//    }));
+//});
+//
+//trafficServices.factory('allcpu11',function($resource){
+//    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu11/:list11/:year/:month/:day',
+//    {list11: '@list11', year: '@year', month: '@month', day: '@day'
+//    },{
+//      query:{method:'GET',isArray:false}  
+//    }));
+//});
 
 trafficServices.factory('allcpu12',function($resource){
     return($resource(host+'/mss-dashboard-web/webresources/generic/getnames/:list12',{list12: '@list12'},{
@@ -96,7 +96,7 @@ trafficServices.factory('allcpu12',function($resource){
 });
 //calendrier ,choisir les cpus from the list(one & range)
 trafficServices.factory('allcpu99',function($resource){
-    return($resource(host+'/mss-dashboard-web/webresources/generic/allcpu/:list11/:from/:to',{list11: '@list11', from: '@from', to: '@to'},{
+    return($resource(host+'/mss-dashboard-web/webresources/generic/mss/:mss/allcpu/:list11/:from/:to',{mss: '1', list11: '@list11', from: '@from', to: '@to'},{
       query:{method:'GET',isArray:false}  
     }));
 });

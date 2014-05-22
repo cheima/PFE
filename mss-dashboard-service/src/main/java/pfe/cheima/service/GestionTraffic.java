@@ -167,6 +167,7 @@ public class GestionTraffic {
                 modules m = new modules();
                 m.setSiguName(LectureCPU.get(g).getModuleName());
                 m.setType(LectureCPU.get(g).getType());
+                m.setMss(1);
                 //i++;
                 pu.insert(m);
                 siguId = m.getId();
