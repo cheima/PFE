@@ -1050,7 +1050,7 @@ var module = angular.module('myApp.controllers', []).
                 });
             };
             $scope.allvars.carteType = carteToID($stateParams.carte);
-                $scope.allvars.Indi_Name = "*****";
+                $scope.allvars.Indi_Name = $stateParams.carte;
                 $scope.sigunames = allmodules.query({type: $scope.allvars.carteType});
             /*
             if ($state.includes('bsu')) {
