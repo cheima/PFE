@@ -7,7 +7,7 @@ and open the template in the editor.
     
 <div id="content" class="">
     <div class="row-fluid sortable">
-        <div class="box span6">
+        <div class="box span12">
             <div class="box-header well">
                 <h2><i class="icon-th"></i> Options</h2>
             </div>
@@ -57,17 +57,6 @@ and open the template in the editor.
                 <hr />
             </div>
         </div><!--/span-->
-        <div class="box span6">
-            <div class="box-header well" data-original-title>
-                <h2><i class="icon-th"></i>Date</h2>
-
-            </div>
-            <div class="box-content">
-                <div style="display:inline-block; min-height:290px;">
-                    <datepicker ng-model="allvars.dt" min-date="minDate" show-weeks="true" class="well well-sm"></datepicker>
-                </div>
-            </div>
-        </div><!--/span-->
         <div class="row-fluid sortable">
             <div class="box span12">
                 <div class="box-header well" data-original-title>
@@ -92,9 +81,7 @@ and open the template in the editor.
 
                     <div my-calendar="myc" ng-model="allvars.dates1" onchange="generalUpdate()" oncancel="onDateChange()"></div>
                      <highchart id="chart1" config="highchartsNG"></highchart>
-
-                    {{ allvars.dates1}}
-                    <div g-chart></div>
+                
                     <!--div ng-controller="Index2"-->
                    
                         <div>
@@ -106,15 +93,6 @@ and open the template in the editor.
                     </div>
                 </div>
             </div><!--/span-->
-            <div class="box span4">
-                <div class="box-header well" data-original-title>
-                    <h2><i class="icon-list-alt"></i>  % Load at{{ allvars.lasttime}}</h2>
-                </div>
-                <div class="box-content">
-                    <div g-chart2></div>
-                </div>
-            </div><!--/span-->
-
         </div>
     </div>
         <!-- content ends -->
