@@ -43,6 +43,14 @@ public class TelnetAPI_Impl1 implements TelnetAPI {
        // System.out.println(ListCmdSIGU.size());
         return ListExecSIGU;
    }
+
+    public String getAllBsuTraffic() throws IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getAllCPU() throws IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    
    
    

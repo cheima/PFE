@@ -17,11 +17,8 @@ import java.util.Random;
  * @author Cheima
  */
 public class CmdExecuter {
-    
-      
         
-        
-       public List<TrafficTotal> getAllSiguTraffic() throws IOException{
+       public List<TrafficTotal> getAllSiguTraffic(String ip, String login, String pw) throws IOException{
             // TelnetAPI_Impl1 ta = new TelnetAPI_Impl1();
            
         TelnetAPI_Impl2 ta = new TelnetAPI_Impl2();
@@ -34,7 +31,7 @@ public class CmdExecuter {
 
        }
        
-       public List<TrafficTotal> getAllBsuTraffic() throws IOException {
+       public List<TrafficTotal> getAllBsuTraffic(String ip, String login, String pw) throws IOException {
            
            TelnetAPI_Impl2 ta = new TelnetAPI_Impl2();
            CmdParserBSU cp = new CmdParserBSU();
@@ -43,7 +40,7 @@ public class CmdExecuter {
            return allStats;
        }
        
-        public List<LoadPercentCpu> getAllCPU() throws IOException {
+        public List<LoadPercentCpu> getAllCPU(String ip, String login, String pw) throws IOException {
            
            TelnetAPI_Impl2 ta = new TelnetAPI_Impl2();
            CmdParserCPU cp = new CmdParserCPU();

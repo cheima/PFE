@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pfe.cheima.connect_to_mss;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  *
  * @author Cheima
  */
 public interface TelnetAPI {
-      public  String getAllSiguTraffic() throws IOException;
-          
-     
+
+    public String getAllSiguTraffic() throws IOException;
+
+    public String getAllBsuTraffic() throws IOException;
+
+    public String getAllCPU() throws IOException;
+
 }

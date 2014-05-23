@@ -15,6 +15,7 @@ import net.vpc.upa.PersistenceUnit;
 import net.vpc.upa.UPA;
 import pfe.cheima.connect_to_mss.CmdExecuter;
 import pfe.cheima.service.model.LoadPercentCPU;
+import pfe.cheima.service.model.Login;
 import pfe.cheima.service.model.TimePoint;
 import pfe.cheima.service.model.TrafficTotal;
 import pfe.cheima.service.model.Trafficforsigu;
@@ -35,40 +36,46 @@ public class GestionTraffic {
     public void populate() throws ParseException, IOException {
 
         PersistenceUnit pu = UPA.getPersistenceUnit();
-        CmdExecuter ce = new CmdExecuter();
-        List<pfe.cheima.connect_to_mss.TrafficTotal> Lecture = ce.getAllSiguTraffic();
-        List<pfe.cheima.connect_to_mss.TrafficTotal> LectureBSU = ce.getAllBsuTraffic();
-        List<pfe.cheima.connect_to_mss.LoadPercentCpu> LectureCPU = ce.getAllCPU();
+        List<Login> login = pu.createQuery("select x from login x ").getEntityList();
+        List<String> ips = pu.createQuery("select x.adrip from login x ").getValueList(0);
+        /**
+         * class KeyValue{key, value}
+         * List<KeyValue> ips = pu.createQuery("select x.id key, x.adrip value from login x ").getTypeList(KeyValue.class);
+         */
+        
+        for (int l = 0; l < login.size(); l++) {
+            CmdExecuter ce = new CmdExecuter();
+            Login currLogin = login.get(l);
+            List<pfe.cheima.connect_to_mss.TrafficTotal> Lecture = ce.getAllSiguTraffic(currLogin.getAdrip(),currLogin.getLogin(),currLogin.getPasswd());
+            List<pfe.cheima.connect_to_mss.TrafficTotal> LectureBSU = ce.getAllBsuTraffic(currLogin.getAdrip(),currLogin.getLogin(),currLogin.getPasswd());
+            List<pfe.cheima.connect_to_mss.LoadPercentCpu> LectureCPU = ce.getAllCPU(currLogin.getAdrip(),currLogin.getLogin(),currLogin.getPasswd());
 
-        // 1) create a java calendar instance
-        Calendar calendar = Calendar.getInstance();
+            // 1) create a java calendar instance
+            Calendar calendar = Calendar.getInstance();
 // 2) get a java.util.Date from the calendar instance.
 //    this date will represent the current instant, or "now".
-        Date now = calendar.getTime();
+            Date now = calendar.getTime();
 // 3) a java current time (now) instance
-        java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
-        TimePoint tp = new TimePoint();
-        tp.setAtTime(currentTimestamp);
-        pu.insert(tp);
-//codiiii
-        // pu.createQuery("select t from totaltraffic ")
-        ///********////
-        List<Integer>mssid = new ArrayList<Integer>();
-       
-        for(int l=0;l<mssid.size();l++){
+            java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+            TimePoint tp = new TimePoint();
+            tp.setAtTime(currentTimestamp);
+            pu.insert(tp);
+       // List<Login> login = pu.createQuery("select l from login l ").getEntityList();
+
+            //   for(int l=1;l<=login.size();l++){
             for (int g = 0; g < Lecture.size(); g++) {
                 Trafficforsigu traffic = new Trafficforsigu();
 
                 //retrouver le sigu; créer un s'il nexiste pas.
                 modules module = pu.createQuery("select m from modules m where m.SIGUNAME = :v and m.MSS = :z ")
                         .setParameter("v", Lecture.get(g).getSiguName())
-                        .setParameter("z", mssid.get(l)).getEntity();
+                        .setParameter("z", l).getEntity();
                 int siguId;
                 if (module == null) {
                     modules m = new modules();
                     m.setSiguName(Lecture.get(g).getSiguName());
                     m.setType(0);
-                    m.setMss(mssid.get(l));
+                    m.setMss(l);
                     pu.insert(m);
                     siguId = m.getId();
                 } else {
@@ -107,21 +114,21 @@ public class GestionTraffic {
 
                 pu.insert(traffic);
             }
-        }
 
             for (int g = 0; g < LectureBSU.size(); g++) {
                 Trafficforsigu traffic = new Trafficforsigu();
 
                 //retrouver le sigu; créer un s'il nexiste pas.
-                modules module = pu.createQuery("select m from modules m where m.SIGUNAME = :v ")
-                        .setParameter("v", LectureBSU.get(g).getSiguName()).getEntity();
+                modules module = pu.createQuery("select m from modules m where m.SIGUNAME = :v and m.MSS = :z ")
+                        .setParameter("v", LectureBSU.get(g).getSiguName())
+                        .setParameter("z", l).getEntity();
 
                 int siguId;
                 if (module == null) {
                     modules m = new modules();
                     m.setSiguName(LectureBSU.get(g).getSiguName());
                     m.setType(1);
-                    m.setMss(1);
+                    m.setMss(l);
                     pu.insert(m);
                     siguId = m.getId();
                 } else {
@@ -161,20 +168,21 @@ public class GestionTraffic {
 
                 pu.insert(traffic);
             }
-        // insertion du cpu
+            // insertion du cpu
             //int i = 2;
             //System.out.println("eeeee" + LectureCPU.size());
             for (int g = 0; g < LectureCPU.size(); g++) {
 
                 LoadPercentCPU cpu = new LoadPercentCPU();
-                modules module = pu.createQuery("select m from modules m where m.SIGUNAME LIKE :v ")
-                        .setParameter("v", LectureCPU.get(g).getModuleName()).getEntity();
+                modules module = pu.createQuery("select m from modules m where m.SIGUNAME LIKE :v and m.MSS = :z ")
+                        .setParameter("v", LectureCPU.get(g).getModuleName())
+                        .setParameter("z", l).getEntity();
                 int siguId;
                 if (module == null) {
                     modules m = new modules();
                     m.setSiguName(LectureCPU.get(g).getModuleName());
                     m.setType(LectureCPU.get(g).getType());
-                    m.setMss(1);
+                    m.setMss(l);
                     //i++;
                     pu.insert(m);
                     siguId = m.getId();
@@ -187,10 +195,8 @@ public class GestionTraffic {
                 cpu.setDateExec(tp.getId());
                 pu.insert(cpu);
             }
-
-        } 
-
-    
+        }
+    }
 
     public List<Trafficforsigu> getEntities() {
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();

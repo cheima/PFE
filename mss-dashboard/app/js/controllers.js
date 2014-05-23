@@ -183,38 +183,38 @@ var showFromList = function(result, $scope) {
     $scope.chart3 = chart3;
 };
 
-var carteToID = function (carte){
-                    if (carte==='bsu') {
-                    //  args.type1 = 1;
-                    return 1;
-                }
-                else if (carte==='sigu') {
-                    return 0;
-                }
-                else if (carte==='vlru') {
-                    return 2;
-                }
-                else if (carte==='ccsu') {
-                    return 3;
-                }
-                else if (carte==='chu') {
-                    return 4;
-                }
-                else if (carte==='bdcu') {
-                    return 5;
-                }
-                else if (carte==='cmu') {
-                    return 6;
-                }
-                else if (carte==='stu') {
-                    return 7;
-                }
-                else if (carte==='omu') {
-                    return 8;
-                }
-                else if (carte==='cmm') {
-                    return 9;
-                }
+var carteToID = function(carte) {
+    if (carte === 'bsu') {
+        //  args.type1 = 1;
+        return 1;
+    }
+    else if (carte === 'sigu') {
+        return 0;
+    }
+    else if (carte === 'vlru') {
+        return 2;
+    }
+    else if (carte === 'ccsu') {
+        return 3;
+    }
+    else if (carte === 'chu') {
+        return 4;
+    }
+    else if (carte === 'bdcu') {
+        return 5;
+    }
+    else if (carte === 'cmu') {
+        return 6;
+    }
+    else if (carte === 'stu') {
+        return 7;
+    }
+    else if (carte === 'omu') {
+        return 8;
+    }
+    else if (carte === 'cmm') {
+        return 9;
+    }
 
 }
 var module = angular.module('myApp.controllers', []).
@@ -1050,50 +1050,50 @@ var module = angular.module('myApp.controllers', []).
                 });
             };
             $scope.allvars.carteType = carteToID($stateParams.carte);
-                $scope.allvars.Indi_Name = $stateParams.carte;
-                $scope.sigunames = allmodules.query({type: $scope.allvars.carteType});
+            $scope.allvars.Indi_Name = $stateParams.carte;
+            $scope.sigunames = allmodules.query({type: $scope.allvars.carteType});
             /*
-            if ($state.includes('bsu')) {
-                $scope.allvars.Indi_Name = "BSU";
-                $scope.sigunames = allmodules.query({type: 1});
-            }
-            else if ($state.includes('sigu')) {
-                $scope.allvars.Indi_Name = "SIGU";
-                $scope.sigunames = allmodules.query({type: 0});
-            }
-            else if ($state.includes('vlru')) {
-                $scope.allvars.Indi_Name = "VLRU";
-                $scope.sigunames = allmodules.query({type: 2});
-            }
-            else if ($state.includes('ccsu')) {
-                $scope.allvars.Indi_Name = "CCSU";
-                $scope.sigunames = allmodules.query({type: 3});
-            }
-            else if ($state.includes('chu')) {
-                $scope.allvars.Indi_Name = "CHU";
-                $scope.sigunames = allmodules.query({type: 4});
-            }
-            else if ($state.includes('bdcu')) {
-                $scope.allvars.Indi_Name = "BDCU";
-                $scope.sigunames = allmodules.query({type: 5});
-            }
-            else if ($state.includes('cmu')) {
-                $scope.allvars.Indi_Name = "CMU";
-                $scope.sigunames = allmodules.query({type: 6});
-            }
-            else if ($state.includes('stu')) {
-                $scope.allvars.Indi_Name = "STU";
-                $scope.sigunames = allmodules.query({type: 7});
-            }
-            else if ($state.includes('omu')) {
-                $scope.allvars.Indi_Name = "OMU";
-                $scope.sigunames = allmodules.query({type: 8});
-            }
-            else if ($state.includes('cmm')) {
-                $scope.allvars.Indi_Name = "CMM";
-                $scope.sigunames = allmodules.query({type: 9});
-            }
-            */
+             if ($state.includes('bsu')) {
+             $scope.allvars.Indi_Name = "BSU";
+             $scope.sigunames = allmodules.query({type: 1});
+             }
+             else if ($state.includes('sigu')) {
+             $scope.allvars.Indi_Name = "SIGU";
+             $scope.sigunames = allmodules.query({type: 0});
+             }
+             else if ($state.includes('vlru')) {
+             $scope.allvars.Indi_Name = "VLRU";
+             $scope.sigunames = allmodules.query({type: 2});
+             }
+             else if ($state.includes('ccsu')) {
+             $scope.allvars.Indi_Name = "CCSU";
+             $scope.sigunames = allmodules.query({type: 3});
+             }
+             else if ($state.includes('chu')) {
+             $scope.allvars.Indi_Name = "CHU";
+             $scope.sigunames = allmodules.query({type: 4});
+             }
+             else if ($state.includes('bdcu')) {
+             $scope.allvars.Indi_Name = "BDCU";
+             $scope.sigunames = allmodules.query({type: 5});
+             }
+             else if ($state.includes('cmu')) {
+             $scope.allvars.Indi_Name = "CMU";
+             $scope.sigunames = allmodules.query({type: 6});
+             }
+             else if ($state.includes('stu')) {
+             $scope.allvars.Indi_Name = "STU";
+             $scope.sigunames = allmodules.query({type: 7});
+             }
+             else if ($state.includes('omu')) {
+             $scope.allvars.Indi_Name = "OMU";
+             $scope.sigunames = allmodules.query({type: 8});
+             }
+             else if ($state.includes('cmm')) {
+             $scope.allvars.Indi_Name = "CMM";
+             $scope.sigunames = allmodules.query({type: 9});
+             }
+             */
             //$scope.sigunames = allcpu12.query({list12:1});
             var showFromList2 = function(result) {
                 $scope.graphs = result;
@@ -1162,7 +1162,7 @@ var module = angular.module('myApp.controllers', []).
                 };
 
             };
-           
+
             $scope.generalUpdate = function() {
                 $timeout(function() {
                     alert("ok2:" + $scope.allvars.timingOption + ":" + $scope.allvars.optionsTabs[0] + '-' + $scope.allvars.optionsTabs[1] + '-');
@@ -1176,7 +1176,7 @@ var module = angular.module('myApp.controllers', []).
                     else if ($scope.allvars.optionsTabs[2])
                         list = updateShowTop10();
                     else if ($scope.allvars.optionsTabs[3])
-                        list = updateOne();
+                    list = updateOne();
                     ws_options.list11 = list;
 
                     //date
@@ -1198,8 +1198,6 @@ var module = angular.module('myApp.controllers', []).
                         ws_options.from = 'last4Hours';
                         ws_options.to = '';
                     }
-
-
                     var rangesigu = allcpu99.query(ws_options);
                     rangesigu.$promise.then(showFromList2);
 
@@ -1207,52 +1205,52 @@ var module = angular.module('myApp.controllers', []).
                 });
             };
             var updateShowAll = function() {
-                var list = "all,"+$scope.allvars.carteType;
+                var list = "all," + $scope.allvars.carteType;
                 /* var args = {
                  year: $scope.allvars.dt.getFullYear(),
                  month: $scope.allvars.dt.getMonth(),
                  day: $scope.allvars.dt.getDate()
                  };*/
                 /*if ($state.includes('bsu')) {
-                    //  args.type1 = 1;
-                    list = list + "1";
-                }
-                else if ($state.includes('sigu')) {
-                    // args.type1 = 0;
-                    list = list + "0";
-                }
-                else if ($state.includes('vlru')) {
-                    // args.type1 = 2;
-                    list = list + "2";
-                }
-                else if ($state.includes('ccsu')) {
-                    // args.type1 = 3;
-                    list = list + "3";
-                }
-                else if ($state.includes('chu')) {
-                    //args.type1 = 4;
-                    list = list + "4";
-                }
-                else if ($state.includes('bdcu')) {
-                    //args.type1 = 5;
-                    list = list + "5";
-                }
-                else if ($state.includes('cmu')) {
-                    // args.type1 = 6;
-                    list = list + "6";
-                }
-                else if ($state.includes('stu')) {
-                    //args.type1 = 7;
-                    list = list + "7";
-                }
-                else if ($state.includes('omu')) {
-                    // args.type1 = 8;
-                    list = list + "8";
-                }
-                else if ($state.includes('cmm')) {
-                    // args.type1 = 9;
-                    list = list + "9";
-                }*/
+                 //  args.type1 = 1;
+                 list = list + "1";
+                 }
+                 else if ($state.includes('sigu')) {
+                 // args.type1 = 0;
+                 list = list + "0";
+                 }
+                 else if ($state.includes('vlru')) {
+                 // args.type1 = 2;
+                 list = list + "2";
+                 }
+                 else if ($state.includes('ccsu')) {
+                 // args.type1 = 3;
+                 list = list + "3";
+                 }
+                 else if ($state.includes('chu')) {
+                 //args.type1 = 4;
+                 list = list + "4";
+                 }
+                 else if ($state.includes('bdcu')) {
+                 //args.type1 = 5;
+                 list = list + "5";
+                 }
+                 else if ($state.includes('cmu')) {
+                 // args.type1 = 6;
+                 list = list + "6";
+                 }
+                 else if ($state.includes('stu')) {
+                 //args.type1 = 7;
+                 list = list + "7";
+                 }
+                 else if ($state.includes('omu')) {
+                 // args.type1 = 8;
+                 list = list + "8";
+                 }
+                 else if ($state.includes('cmm')) {
+                 // args.type1 = 9;
+                 list = list + "9";
+                 }*/
                 return list;
 //                var to = $scope.allvars.dates1.endDate.toDate();     //return date
 //                var from = $scope.allvars.dates1.startDate.toDate();
@@ -1369,16 +1367,16 @@ module.controller('AppMainController', function($scope, $state, $modal, $log, lo
 
     var allmss = mss.query();
     //mss tabs
-    allmss.$promise.then(function(){
-    $scope.mainvars.tabs = [
+    allmss.$promise.then(function() {
+        $scope.mainvars.tabs = [
 //        {heading: "MSS 1", route: "mss", active: false},
 //        {heading: "MSS 2", route: "mass", active: false},
 //        {heading: "MSS 3", route: "mss", active: false}
-    ];
-    for(var msskey in allmss){
-        var thismss = allmss[msskey];
-        $scope.mainvars.tabs.push({heading: thismss.adrip, route: thismss.id, active: false});
-    }
+        ];
+        for (var msskey in allmss) {
+            var thismss = allmss[msskey];
+            $scope.mainvars.tabs.push({heading: thismss.adrip, route: thismss.id, active: false});
+        }
     });
     $scope.go = function(route) {
         $state.go(route);
