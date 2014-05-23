@@ -30,122 +30,122 @@ angular.module('myApp', [
     //
     // Now set up the states
     $stateProvider
-            .state('mss',{
-                abstract: true,
-                url: "/:mssId",
+            .state('mss', {
+                //abstract: true,
+                url: "/mss/:mssId",
                 templateUrl: "partials/mss.html"
-                 })
-            .state('sigu', {
-                abstract: true,
-                url: "/sigu",
+            })
+            .state('mss.carte', {
+                //abstract: true,
+                url: "/:carte",
                 templateUrl: "partials/sigu.html"
-            }).state('sigu.cpu', {
+            }).state('mss.carte.cpu', {
         url: "/LoadCPU",
         templateUrl: "partials/sigu.cpu.html",
         controller: 'MyCtrl5'
-    }).state('vlru', {
-        abstract: true,
-        url: "/vlru",
-        templateUrl: "partials/sigu.html"    
-    }).state('vlru.cpu', {
-        url: "/LoadCPU",
-        templateUrl: "partials/sigu.cpu.html",
-         controller: 'MyCtrl5'
-    }).state('ccsu', {
-        abstract: true,
-        url: "/ccsu",
-        templateUrl: "partials/sigu.html"
-       
-    }).state('mss.ccsu.cpu', {
-        url: "/LoadCPU",
-        templateUrl: "partials/sigu.cpu.html",
-         controller: 'MyCtrl5'
-    }).state('chu', {
-        abstract: true,
-        url: "/chu",
-        templateUrl: "partials/sigu.html"
-       
-    }).state('mss.chu.cpu', {
-        url: "/LoadCPU",
-        templateUrl: "partials/sigu.cpu.html",
-         controller: 'MyCtrl5'
-    }).state('bdcu', {
-        abstract: true,
-        url: "/bdcu",
-        templateUrl: "partials/sigu.html"
-       
-    }).state('mss.bdcu.cpu', {
-        url: "/LoadCPU",
-        templateUrl: "partials/sigu.cpu.html",
-         controller: 'MyCtrl5'
-    }).state('cmu', {
-        abstract: true,
-        url: "/cmu",
-        templateUrl: "partials/sigu.html"
-       
-    }).state('mss.cmu.cpu', {
-        url: "/LoadCPU",
-        templateUrl: "partials/sigu.cpu.html",
-         controller: 'MyCtrl5'
-    }).state('stu', {
-        abstract: true,
-        url: "/stu",
-        templateUrl: "partials/sigu.html"
-       
-    }).state('mss.stu.cpu', {
-        url: "/LoadCPU",
-        templateUrl: "partials/sigu.cpu.html",
-         controller: 'MyCtrl5'
-    }).state('cmm', {
-        abstract: true,
-        url: "/cmm",
-        templateUrl: "partials/sigu.html"
-       
-    }).state('mss.cmm.cpu', {
-        url: "/LoadCPU",
-        templateUrl: "partials/sigu.cpu.html",
-         controller: 'MyCtrl5'
-    }).state('omu', {
-        abstract: true,
-        url: "/omu",
-        templateUrl: "partials/sigu.html"
-       
-    }).state('mss.omu.cpu', {
-        url: "/LoadCPU",
-        templateUrl: "partials/sigu.cpu.html",
-         controller: 'MyCtrl5'
-    }).state('sigu.bp', {
+    })/*.state('mss.vlru', {
+     abstract: true,
+     url: "/vlru",
+     templateUrl: "partials/sigu.html"
+     }).state('mss.vlru.cpu', {
+     url: "/LoadCPU",
+     templateUrl: "partials/sigu.cpu.html",
+     controller: 'MyCtrl5'
+     }).state('mss.ccsu', {
+     abstract: true,
+     url: "/ccsu",
+     templateUrl: "partials/sigu.html"
+     
+     }).state('mss.mss.ccsu.cpu', {
+     url: "/LoadCPU",
+     templateUrl: "partials/sigu.cpu.html",
+     controller: 'MyCtrl5'
+     }).state('mss.chu', {
+     abstract: true,
+     url: "/chu",
+     templateUrl: "partials/sigu.html"
+     
+     }).state('mss.mss.chu.cpu', {
+     url: "/LoadCPU",
+     templateUrl: "partials/sigu.cpu.html",
+     controller: 'MyCtrl5'
+     }).state('mss.bdcu', {
+     abstract: true,
+     url: "/bdcu",
+     templateUrl: "partials/sigu.html"
+     
+     }).state('mss.bdcu.cpu', {
+     url: "/LoadCPU",
+     templateUrl: "partials/sigu.cpu.html",
+     controller: 'MyCtrl5'
+     }).state('mss.cmu', {
+     abstract: true,
+     url: "/cmu",
+     templateUrl: "partials/sigu.html"
+     
+     }).state('mss.cmu.cpu', {
+     url: "/LoadCPU",
+     templateUrl: "partials/sigu.cpu.html",
+     controller: 'MyCtrl5'
+     }).state('mss.stu', {
+     abstract: true,
+     url: "/stu",
+     templateUrl: "partials/sigu.html"
+     
+     }).state('mss.stu.cpu', {
+     url: "/LoadCPU",
+     templateUrl: "partials/sigu.cpu.html",
+     controller: 'MyCtrl5'
+     }).state('mss.cmm', {
+     abstract: true,
+     url: "/cmm",
+     templateUrl: "partials/sigu.html"
+     
+     }).state('mss.cmm.cpu', {
+     url: "/LoadCPU",
+     templateUrl: "partials/sigu.cpu.html",
+     controller: 'MyCtrl5'
+     }).state('mss.omu', {
+     abstract: true,
+     url: "/omu",
+     templateUrl: "partials/sigu.html"
+     
+     }).state('mss.omu.cpu', {
+     url: "/LoadCPU",
+     templateUrl: "partials/sigu.cpu.html",
+     controller: 'MyCtrl5'
+     })*/.state('mss.carte.bp', {
         url: "/LoadBP",
         templateUrl: "partials/sigu.bp.html",
         controller: 'MyCtrl3'
-    }).state('sigu.traffic', {
+    }).state('mss.carte.traffic', {
         url: "/Traffic",
         templateUrl: "partials/sigu.traffic.html",
         controller: 'MyCtrl1'
-    }).state('bsu', {
-        abstract: true,
-        url: "/bsu",
-        templateUrl: "partials/sigu.html"
-    }).state('bsu.cpu', {
-        url: "/LoadCPU",
-        templateUrl: "partials/sigu.cpu.html",
-        controller: 'MyCtrl5'
-    }).state(
-            'bsu.bp', {
-                url: "/LoadBP",
-                templateUrl: "partials/sigu.bp.html",
-                controller: 'MyCtrl4'
-            }
-
-    ).state('bsu.traffic', {
-        url: "/Traffic",
-        templateUrl: "partials/sigu.traffic.html",
-        controller: 'MyCtrl2'
-    }).state('trafficout', {
-     url: "/trafficout",
-     templateUrl: "partials/trafficout.html",
-     controller:'MyCtrl6'
-     });
+    })/*.state('mss.bsu', {
+     //abstract: true,
+     url: "/bsu",
+     templateUrl: "partials/sigu.html"
+     }).state('mss.bsu.cpu', {
+     url: "/LoadCPU",
+     templateUrl: "partials/sigu.cpu.html",
+     controller: 'MyCtrl5'
+     }).state(
+     'bsu.bp', {
+     url: "/LoadBP",
+     templateUrl: "partials/sigu.bp.html",
+     controller: 'MyCtrl4'
+     }
+     
+     ).state('bsu.traffic', {
+     url: "/Traffic",
+     templateUrl: "partials/sigu.traffic.html",
+     controller: 'MyCtrl2'
+     })*/.state('mss.carte.trafficout', {
+        url: "/trafficout",
+        templateUrl: "partials/trafficout.html",
+        controller: 'MyCtrl6'
+    });
 
     /* .state('state1.list', {
      url: "/list",

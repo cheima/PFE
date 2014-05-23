@@ -183,6 +183,40 @@ var showFromList = function(result, $scope) {
     $scope.chart3 = chart3;
 };
 
+var carteToID = function (carte){
+                    if (carte==='bsu') {
+                    //  args.type1 = 1;
+                    return 1;
+                }
+                else if (carte==='sigu') {
+                    return 0;
+                }
+                else if (carte==='vlru') {
+                    return 2;
+                }
+                else if (carte==='ccsu') {
+                    return 3;
+                }
+                else if (carte==='chu') {
+                    return 4;
+                }
+                else if (carte==='bdcu') {
+                    return 5;
+                }
+                else if (carte==='cmu') {
+                    return 6;
+                }
+                else if (carte==='stu') {
+                    return 7;
+                }
+                else if (carte==='omu') {
+                    return 8;
+                }
+                else if (carte==='cmm') {
+                    return 9;
+                }
+
+}
 var module = angular.module('myApp.controllers', []).
         controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, toptraffic, allgraphs, siguranged) {
             $scope.allvars = {};
@@ -980,7 +1014,7 @@ var module = angular.module('myApp.controllers', []).
  $scope.format = $scope.formats[0];
  };
  })*/
-        .controller('MyCtrl5', function($scope, $filter, $timeout, allmodules, $state, allcpu99) {
+        .controller('MyCtrl5', function($scope, $filter, $timeout, allmodules, $state, $stateParams, allcpu99) {
 
             /*$scope.highchartsNG = {
              options: {
@@ -1015,6 +1049,10 @@ var module = angular.module('myApp.controllers', []).
                     alert("ok2:" + $scope.allvars.timingOption + ":" + $scope.allvars.optionsTabs[0] + '-' + $scope.allvars.optionsTabs[1] + '-');
                 });
             };
+            $scope.allvars.carteType = carteToID($stateParams.carte);
+                $scope.allvars.Indi_Name = "*****";
+                $scope.sigunames = allmodules.query({type: $scope.allvars.carteType});
+            /*
             if ($state.includes('bsu')) {
                 $scope.allvars.Indi_Name = "BSU";
                 $scope.sigunames = allmodules.query({type: 1});
@@ -1055,6 +1093,7 @@ var module = angular.module('myApp.controllers', []).
                 $scope.allvars.Indi_Name = "CMM";
                 $scope.sigunames = allmodules.query({type: 9});
             }
+            */
             //$scope.sigunames = allcpu12.query({list12:1});
             var showFromList2 = function(result) {
                 $scope.graphs = result;
@@ -1123,6 +1162,7 @@ var module = angular.module('myApp.controllers', []).
                 };
 
             };
+           
             $scope.generalUpdate = function() {
                 $timeout(function() {
                     alert("ok2:" + $scope.allvars.timingOption + ":" + $scope.allvars.optionsTabs[0] + '-' + $scope.allvars.optionsTabs[1] + '-');
@@ -1167,13 +1207,13 @@ var module = angular.module('myApp.controllers', []).
                 });
             };
             var updateShowAll = function() {
-                var list = "all,";
+                var list = "all,"+$scope.allvars.carteType;
                 /* var args = {
                  year: $scope.allvars.dt.getFullYear(),
                  month: $scope.allvars.dt.getMonth(),
                  day: $scope.allvars.dt.getDate()
                  };*/
-                if ($state.includes('bsu')) {
+                /*if ($state.includes('bsu')) {
                     //  args.type1 = 1;
                     list = list + "1";
                 }
@@ -1212,7 +1252,7 @@ var module = angular.module('myApp.controllers', []).
                 else if ($state.includes('cmm')) {
                     // args.type1 = 9;
                     list = list + "9";
-                }
+                }*/
                 return list;
 //                var to = $scope.allvars.dates1.endDate.toDate();     //return date
 //                var from = $scope.allvars.dates1.startDate.toDate();
@@ -1323,33 +1363,23 @@ module.controller('ModalInstanceCtrl', function($scope, $modalInstance, login, g
     };
 });
 
-module.controller('ModalDemoCtrl', function($scope, $modal, $log, login, mss) {
-    $scope.allvars = {};
+module.controller('AppMainController', function($scope, $state, $modal, $log, login, mss) {
+    $scope.mainvars = {};
     // $scope.allvars.Indi_Name = "MSS";
 
-    $scope.allmss = mss.query();
-
-    $scope.open = function(size) {
-        var modalInstance = $modal.open({
-            templateUrl: 'partials/addMSS.html',
-            controller: 'ModalInstanceCtrl',
-            size: size
-        });
-
-        modalInstance.result.then(function(selectedItem) {
-        }, function() {
-            $log.info('Modal dismissed at: ' + new Date());
-        });
-    };
-});
-module.controller("CtrlMSS", function($rootScope, $scope, $state) {
-
-    $scope.tabs = [
-        {heading: "MSS 1", route: "mss", active: false},
-        {heading: "MSS 2", route: "mass", active: false},
-        {heading: "MSS 3", route: "mss", active: false}
+    var allmss = mss.query();
+    //mss tabs
+    allmss.$promise.then(function(){
+    $scope.mainvars.tabs = [
+//        {heading: "MSS 1", route: "mss", active: false},
+//        {heading: "MSS 2", route: "mass", active: false},
+//        {heading: "MSS 3", route: "mss", active: false}
     ];
-
+    for(var msskey in allmss){
+        var thismss = allmss[msskey];
+        $scope.mainvars.tabs.push({heading: thismss.adrip, route: thismss.id, active: false});
+    }
+    });
     $scope.go = function(route) {
         $state.go(route);
     };
@@ -1363,4 +1393,19 @@ module.controller("CtrlMSS", function($rootScope, $scope, $state) {
             tab.active = $scope.active(tab.route);
         });
     });
+
+
+    // add mss
+    $scope.open = function(size) {
+        var modalInstance = $modal.open({
+            templateUrl: 'partials/addMSS.html',
+            controller: 'ModalInstanceCtrl',
+            size: size
+        });
+
+        modalInstance.result.then(function(selectedItem) {
+        }, function() {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+    };
 });

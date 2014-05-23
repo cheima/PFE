@@ -129,9 +129,9 @@ and open the template in the editor.
                                 <li class="nav-header hidden-tablet">Menu</li>
 
                                 <li><a class="ajax-link" href="index.html"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
-                                <li ng-class="{active: $state.includes('sigu')}"><a class="ajax-link" ui-sref="sigu.cpu"><i class="icon-eye-open"></i><span class="hidden-tablet">SIGU</span></a></li>
-                                <li ng-class="{active: $state.includes('bsu')}"><a class="ajax-link" ui-sref="bsu.cpu"><i class="icon-edit"></i><span class="hidden-tablet"> BSU</span></a></li>
-                                <li ng-class="{active: $state.includes('vlru')}"><a class="ajax-link" ui-sref="vlru.cpu"><i class="icon-list-alt"></i><span class="hidden-tablet">VLRU</span></a></li>
+                                <li ng-class="{active: $state.includes('mss.carte',{carte:'sigu'})}"><a class="ajax-link" ui-sref="mss.carte.cpu({carte:'sigu'})"><i class="icon-eye-open"></i><span class="hidden-tablet">SIGU</span></a></li>
+                                <li ng-class="{active: $state.includes('mss.carte',{carte:'bsu'})}"><a class="ajax-link" ui-sref="mss.carte.cpu({carte:'bsu'})"><i class="icon-eye-open"></i><span class="hidden-tablet">BSU</span></a></li>
+                                <li ng-class="{active: $state.includes('mss.carte',{carte:'vlru'})}"><a class="ajax-link" ui-sref="mss.carte.cpu({carte:'vlru'})"><i class="icon-eye-open"></i><span class="hidden-tablet">VLRU</span></a></li>
                                 <li ng-class="{active: $state.includes('ccsu')}"><a class="ajax-link" ui-sref="ccsu.cpu"><i class="icon-font"></i><span class="hidden-tablet"> CCSU</span></a></li>
                                 <li ng-class="{active: $state.includes('chu')}"><a class="ajax-link" ui-sref="chu.cpu"><i class="icon-eye-open"></i><span class="hidden-tablet">CHU</span></a></li>
                                 <li ng-class="{active: $state.includes('bdcu')}"><a class="ajax-link" ui-sref="bdcu.cpu"><i class="icon-edit"></i><span class="hidden-tablet"> BDCU</span></a></li>
