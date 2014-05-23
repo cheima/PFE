@@ -1178,6 +1178,7 @@ var module = angular.module('myApp.controllers', []).
                     else if ($scope.allvars.optionsTabs[3])
                     list = updateOne();
                     ws_options.list11 = list;
+                    ws_options.mss = $stateParams.mssId;
 
                     //date
                     var date = "";
@@ -1191,6 +1192,7 @@ var module = angular.module('myApp.controllers', []).
 
                         ws_options.from = formattedFrom;
                         ws_options.to = formattedTo;
+                       
                     } else if (timingOption === 0) { // custom date
                         ws_options.from = 'lastHour';
                         ws_options.to = '';
