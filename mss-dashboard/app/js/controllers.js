@@ -1051,7 +1051,7 @@ var module = angular.module('myApp.controllers', []).
             };
             $scope.allvars.carteType = carteToID($stateParams.carte);
             $scope.allvars.Indi_Name = $stateParams.carte;
-            $scope.sigunames = allmodules.query({type: $scope.allvars.carteType});
+            $scope.sigunames = allmodules.query({type: $scope.allvars.carteType, mss: $stateParams.mssId});
             /*
              if ($state.includes('bsu')) {
              $scope.allvars.Indi_Name = "BSU";
@@ -1120,7 +1120,7 @@ var module = angular.module('myApp.controllers', []).
                             }
                         }
                     }
-                    series.push({data: data, });
+                    series.push({data: data, name: siguname});
 
                 }
 
