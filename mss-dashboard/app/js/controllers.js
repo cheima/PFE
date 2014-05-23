@@ -1167,6 +1167,8 @@ var module = angular.module('myApp.controllers', []).
                 $timeout(function() {
                     alert("ok2:" + $scope.allvars.timingOption + ":" + $scope.allvars.optionsTabs[0] + '-' + $scope.allvars.optionsTabs[1] + '-');
                     var ws_options = {};
+                    ws_options.mss = $stateParams.mssId;
+
                     // options
                     var list = "";
                     if ($scope.allvars.optionsTabs[0])
@@ -1178,7 +1180,6 @@ var module = angular.module('myApp.controllers', []).
                     else if ($scope.allvars.optionsTabs[3])
                     list = updateOne();
                     ws_options.list11 = list;
-                    ws_options.mss = $stateParams.mssId;
 
                     //date
                     var date = "";
@@ -1393,6 +1394,11 @@ module.controller('AppMainController', function($scope, $state, $modal, $log, lo
             tab.active = $scope.active(tab.route);
         });
     });
+    
+    $scope.selectedTab = function(tab){
+        tab.active = true;
+        $state.go('mss', {mssId: tab.route});
+    },
 
 
     // add mss
