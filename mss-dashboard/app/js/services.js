@@ -1,6 +1,6 @@
 'use strict';
 var trafficServices =angular.module('myApp.services', ['ngResource']);
-var host = 'http://localhost:9999';
+var host = 'http://localhost:8080';
 
 trafficServices.factory('trafficforsigu',function($resource){
    
@@ -95,8 +95,8 @@ trafficServices.factory('allcpu12',function($resource){
    // mss-dashboard-web/webresources/generic/getnames
 });
 //calendrier ,choisir les cpus from the list(one & range)
-trafficServices.factory('allcpu99',function($resource){
-    return($resource(host+'/mss-dashboard-web/webresources/generic/mss/:mss/allcpu/:list11/:from/:to',{mss: '@mss', list11: '@list11', from: '@from', to: '@to'},{
+trafficServices.factory('detailsService',function($resource){
+    return($resource(host+'/mss-dashboard-web/webresources/mss/:mss/:indi/:list11/:from/:to',{mss: '@mss', indi: '@indi', list11: '@list11', from: '@from', to: '@to'},{
       query:{method:'GET',isArray:false}  
     }));
 });

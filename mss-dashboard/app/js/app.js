@@ -38,11 +38,20 @@ angular.module('myApp', [
             .state('mss.carte', {
                 //abstract: true,
                 url: "/:carte",
-                templateUrl: "partials/sigu.html"
+                templateUrl: "partials/mss.cart.html",
+                controller: "KPIController"
             }).state('mss.carte.cpu', {
         url: "/LoadCPU",
-        templateUrl: "partials/sigu.cpu.html",
-        controller: 'MyCtrl5'
+        templateUrl: "partials/mss.cart.cpu.html",
+        controller: 'CPUController'
+    }).state('mss.carte.bp', {
+        url: "/LoadBP",
+        templateUrl: "partials/sigu.bp.html",
+        controller: 'BPController'
+    }).state('mss.carte.traffic', {
+        url: "/Traffic",
+        templateUrl: "partials/mss.cart.cpu.html",
+        controller: 'TrafficController'
     })/*.state('mss.vlru', {
      abstract: true,
      url: "/vlru",
@@ -114,15 +123,7 @@ angular.module('myApp', [
      url: "/LoadCPU",
      templateUrl: "partials/sigu.cpu.html",
      controller: 'MyCtrl5'
-     })*/.state('mss.carte.bp', {
-        url: "/LoadBP",
-        templateUrl: "partials/sigu.bp.html",
-        controller: 'MyCtrl3'
-    }).state('mss.carte.traffic', {
-        url: "/Traffic",
-        templateUrl: "partials/sigu.traffic.html",
-        controller: 'MyCtrl1'
-    })/*.state('mss.bsu', {
+     })*//*.state('mss.bsu', {
      //abstract: true,
      url: "/bsu",
      templateUrl: "partials/sigu.html"

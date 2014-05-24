@@ -968,7 +968,8 @@ var module = angular.module('myApp.controllers', []).
     };
 
 }
-)/*.controller('Index2', function($scope) {
+);
+/*.controller('Index2', function($scope) {
  
  $scope.currencyFormatting = function(value) { return value.toString() + " $"; };
  
@@ -1014,325 +1015,403 @@ var module = angular.module('myApp.controllers', []).
  $scope.format = $scope.formats[0];
  };
  })*/
-        .controller('MyCtrl5', function($scope, $filter, $timeout, allmodules, $state, $stateParams, allcpu99) {
 
-            /*$scope.highchartsNG = {
-             options: {
-             rangeSelector: {enabled: true},
-             navigator: {enabled: true}
-             
-             },
-             series: [{
-             data: [[1147651200000, 67.79],
-             [1147737600000, 74.98],
-             [1147824000000, 75.26]
-             ]
-             }],
-             title: {
-             text: 'Load Percent of Cpu'
-             },
-             loading: false,
-             useHighStocks: true
-             };*/
+module.controller('KPIController', function($scope, $filter, $timeout, allmodules, $state, $stateParams, detailsService) {
+    $scope.allvars = {};
+    $scope.allvars.optionsTabs = [true, false, false, false];
+    $scope.allvars.timingOption = 0;
+    $scope.allvars.chartType = 'line';
+    $scope.mycalendar = null;
+    $scope.onDateChange = function() {
+        $timeout(function() {
+            alert("ok3:" + $scope.allvars.timingOption + ":" + $scope.allvars.optionsTabs[0] + '-' + $scope.allvars.optionsTabs[1] + '-');
+        });
+    };
+    $scope.onChangeChartType = function(type){
+        alert("type:"+type);
+    } ;
+    $scope.allvars.carteType = carteToID($stateParams.carte);
+    $scope.allvars.Indi_Name = $stateParams.carte;
+    $scope.sigunames = allmodules.query({type: $scope.allvars.carteType, mss: $stateParams.mssId});
+    $scope.updateShowAll = function() {
+        var list = "all," + $scope.allvars.carteType;
+        return list;
 
-            $scope.allvars = {};
-            $scope.allvars.optionsTabs = [true, false, false, false];
-            $scope.allvars.timingOption = 0;
-            $scope.show = function() {
-                //alert("ok");
-                var c = $scope.myc;
-                //var c= angular.element(document.querySelector('.yourclass'));
-                c.data('daterangepicker').show();
-            };
-            $scope.onDateChange = function() {
-                $timeout(function() {
-                    alert("ok2:" + $scope.allvars.timingOption + ":" + $scope.allvars.optionsTabs[0] + '-' + $scope.allvars.optionsTabs[1] + '-');
-                });
-            };
-            $scope.allvars.carteType = carteToID($stateParams.carte);
-            $scope.allvars.Indi_Name = $stateParams.carte;
-            $scope.sigunames = allmodules.query({type: $scope.allvars.carteType, mss: $stateParams.mssId});
-            /*
-             if ($state.includes('bsu')) {
-             $scope.allvars.Indi_Name = "BSU";
-             $scope.sigunames = allmodules.query({type: 1});
-             }
-             else if ($state.includes('sigu')) {
-             $scope.allvars.Indi_Name = "SIGU";
-             $scope.sigunames = allmodules.query({type: 0});
-             }
-             else if ($state.includes('vlru')) {
-             $scope.allvars.Indi_Name = "VLRU";
-             $scope.sigunames = allmodules.query({type: 2});
-             }
-             else if ($state.includes('ccsu')) {
-             $scope.allvars.Indi_Name = "CCSU";
-             $scope.sigunames = allmodules.query({type: 3});
-             }
-             else if ($state.includes('chu')) {
-             $scope.allvars.Indi_Name = "CHU";
-             $scope.sigunames = allmodules.query({type: 4});
-             }
-             else if ($state.includes('bdcu')) {
-             $scope.allvars.Indi_Name = "BDCU";
-             $scope.sigunames = allmodules.query({type: 5});
-             }
-             else if ($state.includes('cmu')) {
-             $scope.allvars.Indi_Name = "CMU";
-             $scope.sigunames = allmodules.query({type: 6});
-             }
-             else if ($state.includes('stu')) {
-             $scope.allvars.Indi_Name = "STU";
-             $scope.sigunames = allmodules.query({type: 7});
-             }
-             else if ($state.includes('omu')) {
-             $scope.allvars.Indi_Name = "OMU";
-             $scope.sigunames = allmodules.query({type: 8});
-             }
-             else if ($state.includes('cmm')) {
-             $scope.allvars.Indi_Name = "CMM";
-             $scope.sigunames = allmodules.query({type: 9});
-             }
-             */
-            //$scope.sigunames = allcpu12.query({list12:1});
-            var showFromList2 = function(result) {
-                $scope.graphs = result;
-                var sigus = result["modules"];
-                var times = result["times"]; // liste des TimePoint
-                var series = [];
-                var noms = [];
-                //for each module
-                for (var s in sigus) {
-                    var sigu = sigus[s]; // le sigu 
-                    var siguname = sigu["modulename"];
-                    var data = []; // le data de ce sigu, à remplir par la liste des cpus
-                    var traffics = sigu["liste"];
-                    for (var trafficKey in traffics) {
-                        var traffic = traffics[trafficKey];
-                        // chercher le timepoint
-                        for (var t in times) {
-                            var time = times[t];
-                            var timeId = time["id"];
+    };
 
-                            if (traffic["dateExec"] == timeId) {
-                                data.push([new Date(time["atTime"]).getTime(), traffic["loadCPU"]]);
-                                break;
-                            }
-                        }
-                    }
-                    series.push({data: data, name: siguname});
+    $scope.updateShowTop10 = function() {
+        return "";
+    };
 
+    $scope.updateRange = function() {
+        var list = "";
+        var start = 0;
+        var i = 0;
+        while (i < $scope.sigunames.length) {
+            if ($scope.sigunames[i].id == $scope.allvars.siguSelected) {
+                start = i;
+                break;
+            } else
+                i = i + 1;
+        }
+
+        // juska ? et créer la liste en parallèle
+        for (i = start; i < $scope.sigunames.length; i++) {
+            if (list == "")
+                list = $scope.sigunames[i].id;
+            else
+                list = list + "," + $scope.sigunames[i].id;
+
+            if ($scope.sigunames[i].id == $scope.allvars.siguSelected2)
+                break;
+        }
+        return list;
+    };
+
+    $scope.updateOne = function() {
+        var list = $scope.allvars.siguSelected3;
+        return list;
+    };
+
+    $scope.getSelectedOptions = function() {
+        var ws_options = {};
+        ws_options.mss = $stateParams.mssId;
+
+        // options
+        var list = "";
+        if ($scope.allvars.optionsTabs[0])
+            list = $scope.updateShowAll();
+        else if ($scope.allvars.optionsTabs[1])
+            list = $scope.updateRange();
+        else if ($scope.allvars.optionsTabs[2])
+            list = $scope.updateShowTop10();
+        else if ($scope.allvars.optionsTabs[3])
+            list = $scope.updateOne();
+        ws_options.list11 = list;
+
+        //date
+        var date = "";
+        var timingOption = $scope.allvars.timingOption;
+        if (timingOption === 2) { // custom date
+            var to = $scope.allvars.dates1.endDate.toDate();     //return date
+            var from = $scope.allvars.dates1.startDate.toDate();
+
+            var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //return date with this format
+            var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
+
+            ws_options.from = formattedFrom;
+            ws_options.to = formattedTo;
+
+        } else if (timingOption === 0) { // custom date
+            ws_options.from = 'lastHour';
+            ws_options.to = '';
+        } else if (timingOption === 1) { // custom date
+            ws_options.from = 'last4Hours';
+            ws_options.to = '';
+        }
+        return ws_options;
+    }
+
+});
+module.controller('CPUController', function($scope, $timeout, detailsService) {
+    $scope.show = function() {
+        var c = $scope.mycalendar;
+        c.show();
+    };
+
+    $scope.onChangeChartType = function(type){
+        if($scope.highchartsNG){
+                var series = $scope.highchartsNG.series;
+                for (var key in series){
+                    series[key].type = type;
                 }
+        }
+        
+    } ;
 
-                $scope.highchartsNG = {
-                    options: {
-                        /*chart: {
-                         type: 'line'
-                         },*/
-                        rangeSelector: {
-                            enabled: true,
-                            buttons: [{
-                                    type: 'day',
-                                    count: 1,
-                                    text: '1d'
-                                }, {
-                                    type: 'minute',
-                                    count: 360,
-                                    text: '6h'
-                                }, {
-                                    type: 'minute',
-                                    count: 180,
-                                    text: '3h'
-                                }, {
-                                    type: 'minute',
-                                    count: 60,
-                                    text: '1h'
-                                }],
-                            inputEnabled: false
-                        },
-                        navigator: {enabled: true}
+    var showFromList2 = function(result) {
+        $scope.graphs = result;
+        var sigus = result["modules"];
+        var times = result["times"]; // liste des TimePoint
+        var series = [];
+        var noms = [];
+        //for each module
+        for (var s in sigus) {
+            var sigu = sigus[s]; // le sigu 
+            var siguname = sigu["modulename"];
+            var data = []; // le data de ce sigu, à remplir par la liste des cpus
+            var traffics = sigu["liste"];
+            for (var trafficKey in traffics) {
+                var traffic = traffics[trafficKey];
+                // chercher le timepoint
+                for (var t in times) {
+                    var time = times[t];
+                    var timeId = time["id"];
 
-                    },
-                    series: series,
-                    title: {
-                        text: 'Load Percent of CPU'
-                    },
-                    loading: false,
-                    useHighStocks: true
-                };
-
-            };
-
-            $scope.generalUpdate = function() {
-                $timeout(function() {
-                    alert("ok2:" + $scope.allvars.timingOption + ":" + $scope.allvars.optionsTabs[0] + '-' + $scope.allvars.optionsTabs[1] + '-');
-                    var ws_options = {};
-                    ws_options.mss = $stateParams.mssId;
-
-                    // options
-                    var list = "";
-                    if ($scope.allvars.optionsTabs[0])
-                        list = updateShowAll();
-                    else if ($scope.allvars.optionsTabs[1])
-                        list = updateRange();
-                    else if ($scope.allvars.optionsTabs[2])
-                        list = updateShowTop10();
-                    else if ($scope.allvars.optionsTabs[3])
-                    list = updateOne();
-                    ws_options.list11 = list;
-
-                    //date
-                    var date = "";
-                    var timingOption = $scope.allvars.timingOption;
-                    if (timingOption === 2) { // custom date
-                        var to = $scope.allvars.dates1.endDate.toDate();     //return date
-                        var from = $scope.allvars.dates1.startDate.toDate();
-
-                        var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //return date with this format
-                        var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
-
-                        ws_options.from = formattedFrom;
-                        ws_options.to = formattedTo;
-                       
-                    } else if (timingOption === 0) { // custom date
-                        ws_options.from = 'lastHour';
-                        ws_options.to = '';
-                    } else if (timingOption === 1) { // custom date
-                        ws_options.from = 'last4Hours';
-                        ws_options.to = '';
-                    }
-                    var rangesigu = allcpu99.query(ws_options);
-                    rangesigu.$promise.then(showFromList2);
-
-
-                });
-            };
-            var updateShowAll = function() {
-                var list = "all," + $scope.allvars.carteType;
-                /* var args = {
-                 year: $scope.allvars.dt.getFullYear(),
-                 month: $scope.allvars.dt.getMonth(),
-                 day: $scope.allvars.dt.getDate()
-                 };*/
-                /*if ($state.includes('bsu')) {
-                 //  args.type1 = 1;
-                 list = list + "1";
-                 }
-                 else if ($state.includes('sigu')) {
-                 // args.type1 = 0;
-                 list = list + "0";
-                 }
-                 else if ($state.includes('vlru')) {
-                 // args.type1 = 2;
-                 list = list + "2";
-                 }
-                 else if ($state.includes('ccsu')) {
-                 // args.type1 = 3;
-                 list = list + "3";
-                 }
-                 else if ($state.includes('chu')) {
-                 //args.type1 = 4;
-                 list = list + "4";
-                 }
-                 else if ($state.includes('bdcu')) {
-                 //args.type1 = 5;
-                 list = list + "5";
-                 }
-                 else if ($state.includes('cmu')) {
-                 // args.type1 = 6;
-                 list = list + "6";
-                 }
-                 else if ($state.includes('stu')) {
-                 //args.type1 = 7;
-                 list = list + "7";
-                 }
-                 else if ($state.includes('omu')) {
-                 // args.type1 = 8;
-                 list = list + "8";
-                 }
-                 else if ($state.includes('cmm')) {
-                 // args.type1 = 9;
-                 list = list + "9";
-                 }*/
-                return list;
-//                var to = $scope.allvars.dates1.endDate.toDate();     //return date
-//                var from = $scope.allvars.dates1.startDate.toDate();
-//                var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //return date with this format
-//                var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
-//                var allsigu = allcpu99.query({list11: list, from: formattedFrom, to: formattedTo});
-//                allsigu.$promise.then(showFromList2);
-
-            };
-
-            var updateShowTop10 = function() {
-//                var allsigu = allcpu.query({type1: 0});
-//                allsigu.$promise.then(showFromList2);
-                return "";
-            };
-
-            var updateRange = function() {
-                var list = "";
-                var start = 0;
-                var i = 0;
-                while (i < $scope.sigunames.length) {
-                    if ($scope.sigunames[i].id == $scope.allvars.siguSelected) {
-                        start = i;
+                    if (traffic["dateExec"] == timeId) {
+                        data.push([new Date(time["atTime"]).getTime(), traffic["loadCPU"]]);
                         break;
-                    } else
-                        i = i + 1;
+                    }
                 }
-
-                // juska ? et créer la liste en parallèle
-                for (i = start; i < $scope.sigunames.length; i++) {
-                    if (list == "")
-                        list = $scope.sigunames[i].id;
-                    else
-                        list = list + "," + $scope.sigunames[i].id;
-
-                    if ($scope.sigunames[i].id == $scope.allvars.siguSelected2)
-                        break;
-                }
-                return list;
-//                    var to = $scope.allvars.dates1.endDate.toDate();     //return date
-//                    var from = $scope.allvars.dates1.startDate.toDate();
-//
-//                    var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //return date with this format
-//                    var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
-//
-//                    //alert("from:" + formattedFrom + " to:" + formattedTo);
-//                    var rangesigu = allcpu99.query({list11: list, from: formattedFrom, to: formattedTo});
-//                    rangesigu.$promise.then(showFromList2);
-
-
-
-            };
-
-            var updateOne = function() {
-                var list = $scope.allvars.siguSelected3;
-                return list;
-                /* var args = {
-                 year: $scope.allvars.dt.getFullYear(),
-                 month: $scope.allvars.dt.getMonth(),
-                 day: $scope.allvars.dt.getDate(),
-                 list11: list
-                 };
-                 // alert(list);
-                 var rangesigu = allcpu11.query(args);
-                 // var rangesigu = allcpu11.query(list);
-                 rangesigu.$promise.then(showFromList2);*/
-//                var to = $scope.allvars.dates1.endDate.toDate();     //retourne une date
-//                var from = $scope.allvars.dates1.startDate.toDate();
-//
-//                var formattedTo = $filter('date')(to, "yyyy-MM-dd"); //retouner la date sous ce format
-//                var formattedFrom = $filter('date')(from, "yyyy-MM-dd");
-//
-//                //alert("from:" + formattedFrom + " to:" + formattedTo);
-//                var rangesigu = allcpu99.query({list11: list, from: formattedFrom, to: formattedTo});
-//                rangesigu.$promise.then(showFromList2);
-            };
+            }
+            series.push({data: data, name: siguname, type: $scope.allvars.chartType});
 
         }
-        ).controller('MyCtrl6', function($scope, trafficforsigu, getsigunames, toptraffic, getbsunames, allgraphs, siguranged, allbsu) {
+
+        $scope.highchartsNG = {
+            options: {
+                /*chart: {
+                 type: 'line'
+                 },*/
+                rangeSelector: {
+                    enabled: true,
+                    buttons: [{
+                            type: 'day',
+                            count: 1,
+                            text: '1d'
+                        }, {
+                            type: 'minute',
+                            count: 360,
+                            text: '6h'
+                        }, {
+                            type: 'minute',
+                            count: 180,
+                            text: '3h'
+                        }, {
+                            type: 'minute',
+                            count: 60,
+                            text: '1h'
+                        }],
+                    inputEnabled: false
+                },
+                navigator: {enabled: true}
+
+            },
+            series: series,
+            title: {
+                text: 'Load Percent of CPU'
+            },
+            loading: false,
+            useHighStocks: true
+        };
+
+    };
+
+    $scope.generalUpdate = function() {
+        $timeout(function() {
+            var ws_options = $scope.getSelectedOptions();
+            
+            //for the indi
+            ws_options.indi = "allcpu";
+
+            var rangesigu = detailsService.query(ws_options);
+            rangesigu.$promise.then(showFromList2);
+
+
+        });
+    };
+}
+);
+module.controller('TrafficController', function($scope, $timeout, detailsService) {
+    $scope.show = function() {
+        var c = $scope.mycalendar;
+        c.show();
+    };
+
+    $scope.onChangeChartType = function(type){
+        if($scope.highchartsNG){
+                var series = $scope.highchartsNG.series;
+                for (var key in series){
+                    series[key].type = type;
+                }
+        }
+        
+    } ;
+
+    var showFromList2 = function(result) {
+        $scope.graphs = result;
+        var sigus = result["modules"];
+        var times = result["times"]; // liste des TimePoint
+        var series = [];
+        var noms = [];
+        //for each module
+        for (var s in sigus) {
+            var sigu = sigus[s]; // le sigu 
+            var siguname = sigu["modulename"];
+            var data = []; // le data de ce sigu, à remplir par la liste des cpus
+            var traffics = sigu["liste"];
+            for (var trafficKey in traffics) {
+                var traffic = traffics[trafficKey];
+                // chercher le timepoint
+                for (var t in times) {
+                    var time = times[t];
+                    var timeId = time["id"];
+
+                    if (traffic["dateExec"] == timeId) {
+                        data.push([new Date(time["atTime"]).getTime(), traffic["loadCPU"]]);
+                        break;
+                    }
+                }
+            }
+            series.push({data: data, name: siguname, type: $scope.allvars.chartType});
+
+        }
+
+        $scope.highchartsNG = {
+            options: {
+                /*chart: {
+                 type: 'line'
+                 },*/
+                rangeSelector: {
+                    enabled: true,
+                    buttons: [{
+                            type: 'day',
+                            count: 1,
+                            text: '1d'
+                        }, {
+                            type: 'minute',
+                            count: 360,
+                            text: '6h'
+                        }, {
+                            type: 'minute',
+                            count: 180,
+                            text: '3h'
+                        }, {
+                            type: 'minute',
+                            count: 60,
+                            text: '1h'
+                        }],
+                    inputEnabled: false
+                },
+                navigator: {enabled: true}
+
+            },
+            series: series,
+            title: {
+                text: 'Load Percent of CPU'
+            },
+            loading: false,
+            useHighStocks: true
+        };
+
+    };
+
+    $scope.generalUpdate = function() {
+        $timeout(function() {
+            var ws_options = $scope.getSelectedOptions();
+            
+            //for the indi
+            ws_options.indi = "traffic";
+
+            var rangesigu = detailsService.query(ws_options);
+            rangesigu.$promise.then(showFromList2);
+
+
+        });
+    };
+}
+);
+module.controller('BPController', function($scope, $timeout, detailsService) {
+    $scope.show = function() {
+        var c = $scope.mycalendar;
+        c.show();
+    };
+
+    $scope.onChangeChartType = function(type){
+        if($scope.highchartsNG){
+                var series = $scope.highchartsNG.series;
+                for (var key in series){
+                    series[key].type = type;
+                }
+        }
+        
+    } ;
+
+    var showFromList2 = function(result) {
+        $scope.graphs = result;
+        var sigus = result["modules"];
+        var times = result["times"]; // liste des TimePoint
+        var series = [];
+        var noms = [];
+        //for each module
+        for (var s in sigus) {
+            var sigu = sigus[s]; // le sigu 
+            var siguname = sigu["modulename"];
+            var data = []; // le data de ce sigu, à remplir par la liste des cpus
+            var traffics = sigu["liste"];
+            for (var trafficKey in traffics) {
+                var traffic = traffics[trafficKey];
+                // chercher le timepoint
+                for (var t in times) {
+                    var time = times[t];
+                    var timeId = time["id"];
+
+                    if (traffic["dateExec"] == timeId) {
+                        data.push([new Date(time["atTime"]).getTime(), traffic["loadCPU"]]);
+                        break;
+                    }
+                }
+            }
+            series.push({data: data, name: siguname, type: $scope.allvars.chartType});
+
+        }
+
+        $scope.highchartsNG = {
+            options: {
+                /*chart: {
+                 type: 'line'
+                 },*/
+                rangeSelector: {
+                    enabled: true,
+                    buttons: [{
+                            type: 'day',
+                            count: 1,
+                            text: '1d'
+                        }, {
+                            type: 'minute',
+                            count: 360,
+                            text: '6h'
+                        }, {
+                            type: 'minute',
+                            count: 180,
+                            text: '3h'
+                        }, {
+                            type: 'minute',
+                            count: 60,
+                            text: '1h'
+                        }],
+                    inputEnabled: false
+                },
+                navigator: {enabled: true}
+
+            },
+            series: series,
+            title: {
+                text: 'Load Percent of CPU'
+            },
+            loading: false,
+            useHighStocks: true
+        };
+
+    };
+
+    $scope.generalUpdate = function() {
+        $timeout(function() {
+            var ws_options = $scope.getSelectedOptions();
+            
+            //for the indi
+            ws_options.indi = "allcpu";
+
+            var rangesigu = detailsService.query(ws_options);
+            rangesigu.$promise.then(showFromList2);
+
+
+        });
+    };
+}
+);
+
+module.controller('MyCtrl6', function($scope, trafficforsigu, getsigunames, toptraffic, getbsunames, allgraphs, siguranged, allbsu) {
     $("#ex7").slider();
     $("#ex7-enabled").click(function() {
         if (this.checked) {
@@ -1394,24 +1473,22 @@ module.controller('AppMainController', function($scope, $state, $modal, $log, lo
             tab.active = $scope.active(tab.route);
         });
     });
-    
-    $scope.selectedTab = function(tab){
+
+    $scope.selectedTab = function(tab) {
         tab.active = true;
         $state.go('mss', {mssId: tab.route});
     },
+            // add mss
+            $scope.open = function(size) {
+                var modalInstance = $modal.open({
+                    templateUrl: 'partials/addMSS.html',
+                    controller: 'ModalInstanceCtrl',
+                    size: size
+                });
 
-
-    // add mss
-    $scope.open = function(size) {
-        var modalInstance = $modal.open({
-            templateUrl: 'partials/addMSS.html',
-            controller: 'ModalInstanceCtrl',
-            size: size
-        });
-
-        modalInstance.result.then(function(selectedItem) {
-        }, function() {
-            $log.info('Modal dismissed at: ' + new Date());
-        });
-    };
+                modalInstance.result.then(function(selectedItem) {
+                }, function() {
+                    $log.info('Modal dismissed at: ' + new Date());
+                });
+            };
 });
