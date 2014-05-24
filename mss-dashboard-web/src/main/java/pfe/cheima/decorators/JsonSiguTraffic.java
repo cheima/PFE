@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pfe.cheima.decorators;
 
 import java.io.Serializable;
@@ -13,19 +12,27 @@ import net.vpc.upa.config.Entity;
 import pfe.cheima.service.model.TimePoint;
 import pfe.cheima.service.model.Trafficforsigu;
 
-
-
 /**
  *
  * @author Cheima
  */
 @XmlRootElement
-public class JsonSiguTraffic implements Serializable{
-     private static final long serialVersionUID = 1L;
+public class JsonSiguTraffic implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     private String siguname;
     private int siguid;
-    private List<Trafficforsigu> liste;
-    
+    private int mssid;
+     private List<Trafficforsigu> liste;
+    public int getMssid() {
+        return mssid;
+    }
+
+    public void setMssid(int mssid) {
+        this.mssid = mssid;
+    }
+   
+
     public String getSiguname() {
         return siguname;
     }
@@ -50,6 +57,4 @@ public class JsonSiguTraffic implements Serializable{
         this.liste = liste;
     }
 
-   
-    
 }
