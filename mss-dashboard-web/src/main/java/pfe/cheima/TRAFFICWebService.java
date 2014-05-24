@@ -30,7 +30,6 @@ import pfe.cheima.service.model.modules;
  */
 @Path("mss/{mss}/traffic")
 
-
 public class TRAFFICWebService {
     @PathParam("mss") String msst;
     @Path("{list11}/{dateFrom}/{dateTo}")
@@ -132,10 +131,10 @@ public class TRAFFICWebService {
                         .setParameter("v2", dateto)
                         .setParameter("id", id)
                         .getEntityList();
-//                List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
-//                        .setParameter("v", id)
-//                        .getEntityList();
-                sigu.setListe(entityList2);
+               
+           //     for (int i =0;i<entityList2.size();i++)
+             //       entityList2.get(i).setSomme(null);
+                 sigu.setListe(entityList2);
                 gas.add(sigu);
             }
         }
@@ -143,8 +142,6 @@ public class TRAFFICWebService {
         ret.setSigus(gas);
         ret.setTimes(times);
         return (ret);
-
-
     }
 
     private  JsonMultiSiguTraffic_Response getTRAFFICByType(int mss, int type, Date datefrom, Date dateto) {

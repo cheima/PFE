@@ -8,7 +8,6 @@ import net.vpc.upa.config.Id;
 import net.vpc.upa.config.Sequence;
 
 @Entity
-//@Entity(entityType = )
 @XmlRootElement
 public class Trafficforsigu implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -18,16 +17,16 @@ public class Trafficforsigu implements Serializable {
     private Integer dateExec;
     private Long packetreceived;
     private Long packetsent;
-    private Long somme;
+   // private Long somme;
     private Integer siguId;
 
-    public Long getSomme() {
+  /*  public Long getSomme() {
         return somme;
     }
 
     public void setSomme(Long somme) {
         this.somme = somme;
-    }
+    }*/
 
     
     public Integer getId() {

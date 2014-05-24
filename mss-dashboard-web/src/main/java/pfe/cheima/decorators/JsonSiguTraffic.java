@@ -20,10 +20,12 @@ import pfe.cheima.service.model.Trafficforsigu;
 public class JsonSiguTraffic implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private String siguname;
-    private int siguid;
+    private String modulename;
+    private int moduleid;
     private int mssid;
      private List<Trafficforsigu> liste;
+     
+     
     public int getMssid() {
         return mssid;
     }
@@ -34,19 +36,19 @@ public class JsonSiguTraffic implements Serializable {
    
 
     public String getSiguname() {
-        return siguname;
+        return modulename;
     }
 
     public void setSiguname(String siguname) {
-        this.siguname = siguname;
+        this.modulename = siguname;
     }
 
     public int getSiguid() {
-        return siguid;
+        return moduleid;
     }
 
     public void setSiguid(int siguid) {
-        this.siguid = siguid;
+        this.moduleid = siguid;
     }
 
     public List<Trafficforsigu> getListe() {

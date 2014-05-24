@@ -15,6 +15,7 @@ import net.vpc.upa.UPA;
 import pfe.cheima.connect_to_mss.CmdExecuter;
 import pfe.cheima.service.model.LoadPercentCPU;
 import pfe.cheima.service.model.Login;
+import pfe.cheima.service.model.SomTraffic;
 import pfe.cheima.service.model.TimePoint;
 import pfe.cheima.service.model.TrafficTotal;
 import pfe.cheima.service.model.Trafficforsigu;
@@ -65,7 +66,7 @@ public class GestionTraffic {
             //   for(int l=1;l<=login.size();l++){
             for (int g = 0; g < Lecture.size(); g++) {
                 Trafficforsigu traffic = new Trafficforsigu();
-
+                SomTraffic som = new SomTraffic();
                 //retrouver le sigu; créer un s'il nexiste pas.
                 modules module = pu.createQuery("select m from modules m where m.SIGUNAME = :v and m.MSS = :z ")
                         .setParameter("v", Lecture.get(g).getSiguName())
@@ -90,7 +91,9 @@ public class GestionTraffic {
                     traffic.setDateExec(tp.getId());
                     traffic.setPacketreceived(0L);
                     traffic.setPacketsent(0L);
-                    traffic.setSomme(0L);
+//                    traffic.setSomme(0L);
+                    som.setDateExec(tp.getId());
+                    som.setSomme(0L);
                     trafficTotal = new TrafficTotal();
                     trafficTotal.setSiguId(siguId);
                     update_or_insert = false;
@@ -99,7 +102,8 @@ public class GestionTraffic {
                     traffic.setDateExec(tp.getId());
                     traffic.setPacketreceived(Lecture.get(g).getTotalreceived() - trafficTotal.getTotalreceived());
                     traffic.setPacketsent(Lecture.get(g).getTotalsent() - trafficTotal.getTotalsent());
-                    traffic.setSomme(Lecture.get(g).getTotalsomme() - trafficTotal.getTotalsomme());
+//                    traffic.setSomme(Lecture.get(g).getTotalsomme() - trafficTotal.getTotalsomme());
+                    som.setSomme(Lecture.get(g).getTotalsomme() - trafficTotal.getTotalsomme());
                     update_or_insert = true;
                 }
                 //  le total prend les dernieres valeurs
@@ -113,11 +117,12 @@ public class GestionTraffic {
                 }
 
                 pu.insert(traffic);
+                pu.insert(som);
             }
 
             for (int g = 0; g < LectureBSU.size(); g++) {
                 Trafficforsigu traffic = new Trafficforsigu();
-
+                SomTraffic som = new SomTraffic();
                 //retrouver le sigu; créer un s'il nexiste pas.
                 modules module = pu.createQuery("select m from modules m where m.SIGUNAME = :v and m.MSS = :z ")
                         .setParameter("v", LectureBSU.get(g).getSiguName())
@@ -135,6 +140,7 @@ public class GestionTraffic {
                     siguId = module.getId();
                 }
                 traffic.setSiguId(siguId);
+                som.setSiguId(siguId);
 
                 //retrouver le dernier total 
                 TrafficTotal trafficTotal = pu.createQuery("select t from TrafficTotal t where t.siguId = :v ")
@@ -144,8 +150,9 @@ public class GestionTraffic {
                     traffic.setDateExec(tp.getId());
                     traffic.setPacketreceived(0L);
                     traffic.setPacketsent(0L);
-                    traffic.setSomme(0L);
-
+                   //     traffic.setSomme(0L);
+                    som.setDateExec(tp.getId());
+                    som.setSomme(0L);
                     trafficTotal = new TrafficTotal();
                     trafficTotal.setSiguId(siguId);
                     update_or_insert = false;
@@ -153,7 +160,9 @@ public class GestionTraffic {
                     traffic.setDateExec(tp.getId());
                     traffic.setPacketreceived(LectureBSU.get(g).getTotalreceived() - trafficTotal.getTotalreceived());
                     traffic.setPacketsent(LectureBSU.get(g).getTotalsent() - trafficTotal.getTotalsent());
-                    traffic.setSomme(LectureBSU.get(g).getTotalsomme() - trafficTotal.getTotalsomme());
+                    som.setDateExec(tp.getId());
+                    som.setSomme(LectureBSU.get(g).getTotalsomme() - trafficTotal.getTotalsomme());
+                  //  traffic.setSomme(LectureBSU.get(g).getTotalsomme() - trafficTotal.getTotalsomme());
                     update_or_insert = true;
                 }
                 //  le total prend les dernieres valeurs
@@ -167,6 +176,7 @@ public class GestionTraffic {
                 }
 
                 pu.insert(traffic);
+                pu.insert(som);
             }
             // insertion du cpu
             //int i = 2;
