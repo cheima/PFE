@@ -18,9 +18,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import net.vpc.upa.UPA;
-import pfe.cheima.decorators.JsonModuleCpu;
-import pfe.cheima.decorators.JsonMultiModuleCpu;
-import pfe.cheima.service.model.LoadPercentCPU;
+import pfe.cheima.decorators.JsonBP;
+import pfe.cheima.decorators.JsonMultiSiguBP_Response;
+import pfe.cheima.service.model.SomTraffic;
 import pfe.cheima.service.model.TimePoint;
 import pfe.cheima.service.model.modules;
 
@@ -30,13 +30,12 @@ import pfe.cheima.service.model.modules;
  */
 @Path("mss/{mss}/bp")
 
-
-public class BandWidthWebSerivce {
+public class BandWidthWebService {
     @PathParam("mss") String msst;
     @Path("{list11}/{dateFrom}/{dateTo}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonMultiModuleCpu getList111(@PathParam("list11") String list11, @PathParam("dateFrom") String dateFrom, @PathParam("dateTo") String dateTo) throws ParseException {
+    public JsonMultiSiguBP_Response getList111(@PathParam("list11") String list11, @PathParam("dateFrom") String dateFrom, @PathParam("dateTo") String dateTo) throws ParseException {
         String[] siguIdsAsStrings = list11.split(",");
         int mss = Integer.parseInt(msst);
 
@@ -50,14 +49,14 @@ public class BandWidthWebSerivce {
         ///essai de list contenant all,0(type)
         if ("all".equals(siguIdsAsStrings[0])) {
             Integer type = Integer.parseInt(siguIdsAsStrings[1]);
-            return getCPUByType(mss, type, datefrom, dateto);
+            return getTRAFFICByType(mss, type, datefrom, dateto);
         } else {
             //  List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
             List<Integer> siguIds = new ArrayList<Integer>();
             for (String siguIdsAsString : siguIdsAsStrings) {
                 siguIds.add(Integer.parseInt(siguIdsAsString));
             }
-            return getCPUByModule(siguIds, datefrom, dateto);
+            return getTRAFFICByModule(siguIds, datefrom, dateto);
         }
 
     }
@@ -65,7 +64,7 @@ public class BandWidthWebSerivce {
     @Path("{list11}/lastHour")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonMultiModuleCpu getList111(@PathParam("list11") String list11) throws ParseException {
+    public JsonMultiSiguBP_Response getList111(@PathParam("list11") String list11) throws ParseException {
         String[] siguIdsAsStrings = list11.split(",");
         int mss = Integer.parseInt(msst);
         Calendar c = new GregorianCalendar();
@@ -75,21 +74,21 @@ public class BandWidthWebSerivce {
 
         if ("all".equals(siguIdsAsStrings[0])) {
             Integer type = Integer.parseInt(siguIdsAsStrings[1]);
-            return getCPUByType(mss, type, datefrom, dateto);
+            return getTRAFFICByType(mss, type, datefrom, dateto);
         } else {
             //  List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
             List<Integer> siguIds = new ArrayList<Integer>();
             for (String siguIdsAsString : siguIdsAsStrings) {
                 siguIds.add(Integer.parseInt(siguIdsAsString));
             }
-            return getCPUByModule(siguIds, datefrom, dateto);
+            return getTRAFFICByModule(siguIds, datefrom, dateto);
         }
     }
 
     @Path("{list11}/last4Hours")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public JsonMultiModuleCpu getList112(@PathParam("list11") String list11) throws ParseException {
+    public JsonMultiSiguBP_Response getList112(@PathParam("list11") String list11) throws ParseException {
         String[] siguIdsAsStrings = list11.split(",");
         int mss = Integer.parseInt(msst);
         Calendar c = new GregorianCalendar();
@@ -99,21 +98,21 @@ public class BandWidthWebSerivce {
 
         if ("all".equals(siguIdsAsStrings[0])) {
             Integer type = Integer.parseInt(siguIdsAsStrings[1]);
-            return getCPUByType(mss, type, datefrom, dateto);
+            return getTRAFFICByType(mss, type, datefrom, dateto);
         } else {
             //  List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
             List<Integer> siguIds = new ArrayList<Integer>();
             for (String siguIdsAsString : siguIdsAsStrings) {
                 siguIds.add(Integer.parseInt(siguIdsAsString));
             }
-            return getCPUByModule(siguIds, datefrom, dateto);
+            return getTRAFFICByModule(siguIds, datefrom, dateto);
         }
     }
 
     ///list of cpu selected
-    private JsonMultiModuleCpu getCPUByModule(List<Integer> siguIds, Date datefrom, Date dateto) {
+    private JsonMultiSiguBP_Response getTRAFFICByModule(List<Integer> siguIds, Date datefrom, Date dateto) {
 
-        List<JsonModuleCpu> gas = new ArrayList<JsonModuleCpu>();
+        List<JsonBP> gas = new ArrayList<JsonBP>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
 
         List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v  and t.atTime < :v2")
@@ -123,33 +122,31 @@ public class BandWidthWebSerivce {
         for (int id : siguIds) {
             modules m = pu.createQuery("select a from modules a where a.id = :id").setParameter("id", id).getEntity();
             if (m != null) {
-                JsonModuleCpu sigu = new JsonModuleCpu();
+                JsonBP sigu = new JsonBP();
                 sigu.setModuleid(id);
                 sigu.setModulename(m.getSiguName());
-                sigu.setMssid(m.getMss());
-                List<LoadPercentCPU> entityList2 = pu.createQuery("select a from loadpercentcpu a left join TimePoint t ON a.dateExec = t.id where a.moduleid = :id AND t.atTime >= :v  and t.atTime < :v2")
+                sigu.setModuleid(m.getMss());
+                List<SomTraffic> entityList2 = pu.createQuery("select a from somtraffic a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v  and t.atTime < :v2")
                         .setParameter("v", datefrom)
                         .setParameter("v2", dateto)
                         .setParameter("id", id)
                         .getEntityList();
-//                List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
-//                        .setParameter("v", id)
-//                        .getEntityList();
-                sigu.setListe(entityList2);
+               
+           //     for (int i =0;i<entityList2.size();i++)
+             //       entityList2.get(i).setSomme(null);
+                 sigu.setListe(entityList2);
                 gas.add(sigu);
             }
         }
-
-        JsonMultiModuleCpu ret = new JsonMultiModuleCpu();
+        JsonMultiSiguBP_Response ret = new JsonMultiSiguBP_Response();
         ret.setModules(gas);
         ret.setTimes(times);
         return (ret);
-
     }
 
-    private JsonMultiModuleCpu getCPUByType(int mss, int type, Date datefrom, Date dateto) {
+    private  JsonMultiSiguBP_Response getTRAFFICByType(int mss, int type, Date datefrom, Date dateto) {
 
-        List<JsonModuleCpu> gas = new ArrayList<JsonModuleCpu>();
+        List<JsonBP> gas = new ArrayList<JsonBP>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v  and a.mss = :mss")
                 .setParameter("v", type)
@@ -162,11 +159,11 @@ public class BandWidthWebSerivce {
                 .setParameter("v2", dateto)
                 .getEntityList();
         for (int i = 0; i < List.size(); i++) {
-            JsonModuleCpu sigu = new JsonModuleCpu();
+            JsonBP sigu = new JsonBP();
             sigu.setModuleid(List.get(i).getId());
             //gas.get(i).setSiguid(List.get(i).getId());
             sigu.setModulename(List.get(i).getSiguName());
-            List<LoadPercentCPU> entityList2 = pu.createQuery("select a from loadpercentcpu a left join TimePoint t ON a.dateExec = t.id where a.moduleid = :id AND t.atTime >= :v AND t.atTime < :v2")
+            List<SomTraffic> entityList2 = pu.createQuery("select a from somtraffic a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v AND t.atTime < :v2")
                     .setParameter("v", datefrom)
                     .setParameter("v2", dateto)
                     .setParameter("id", List.get(i).getId())
@@ -176,7 +173,7 @@ public class BandWidthWebSerivce {
 
         }
 
-        JsonMultiModuleCpu ret = new JsonMultiModuleCpu();
+        JsonMultiSiguBP_Response ret = new JsonMultiSiguBP_Response();
         ret.setModules(gas);
         ret.setTimes(times);
         return (ret);

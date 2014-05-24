@@ -126,14 +126,14 @@ public class GestionTraffic {
                 //retrouver le sigu; créer un s'il nexiste pas.
                 modules module = pu.createQuery("select m from modules m where m.SIGUNAME = :v and m.MSS = :z ")
                         .setParameter("v", LectureBSU.get(g).getSiguName())
-                        .setParameter("z", l).getEntity();
+                        .setParameter("z", currLogin.getId()).getEntity();
 
                 int siguId;
                 if (module == null) {
                     modules m = new modules();
                     m.setSiguName(LectureBSU.get(g).getSiguName());
                     m.setType(1);
-                    m.setMss(l);
+                    m.setMss(currLogin.getId());
                     pu.insert(m);
                     siguId = m.getId();
                 } else {
@@ -186,13 +186,13 @@ public class GestionTraffic {
                 LoadPercentCPU cpu = new LoadPercentCPU();
                 modules module = pu.createQuery("select m from modules m where m.SIGUNAME LIKE :v and m.MSS = :z ")
                         .setParameter("v", LectureCPU.get(g).getModuleName())
-                        .setParameter("z", l).getEntity();
+                        .setParameter("z", currLogin.getId()).getEntity();
                 int siguId;
                 if (module == null) {
                     modules m = new modules();
                     m.setSiguName(LectureCPU.get(g).getModuleName());
                     m.setType(LectureCPU.get(g).getType());
-                    m.setMss(l);
+                    m.setMss(currLogin.getId());
                     //i++;
                     pu.insert(m);
                     siguId = m.getId();

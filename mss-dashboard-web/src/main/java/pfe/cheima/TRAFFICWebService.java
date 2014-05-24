@@ -123,9 +123,9 @@ public class TRAFFICWebService {
             modules m = pu.createQuery("select a from modules a where a.id = :id").setParameter("id", id).getEntity();
             if (m != null) {
                 JsonSiguTraffic sigu = new JsonSiguTraffic();
-                sigu.setSiguid(id);
-                sigu.setSiguname(m.getSiguName());
-                sigu.setSiguid(m.getMss());
+                sigu.setModuleid(id);
+                sigu.setModulename(m.getSiguName());
+                sigu.setModuleid(m.getMss());
                 List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v  and t.atTime < :v2")
                         .setParameter("v", datefrom)
                         .setParameter("v2", dateto)
@@ -139,7 +139,7 @@ public class TRAFFICWebService {
             }
         }
         JsonMultiSiguTraffic_Response ret = new JsonMultiSiguTraffic_Response();
-        ret.setSigus(gas);
+        ret.setModules(gas);
         ret.setTimes(times);
         return (ret);
     }
@@ -160,9 +160,9 @@ public class TRAFFICWebService {
                 .getEntityList();
         for (int i = 0; i < List.size(); i++) {
             JsonSiguTraffic sigu = new JsonSiguTraffic();
-            sigu.setSiguid(List.get(i).getId());
+            sigu.setModuleid(List.get(i).getId());
             //gas.get(i).setSiguid(List.get(i).getId());
-            sigu.setSiguname(List.get(i).getSiguName());
+            sigu.setModulename(List.get(i).getSiguName());
             List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v AND t.atTime < :v2")
                     .setParameter("v", datefrom)
                     .setParameter("v2", dateto)
@@ -174,7 +174,7 @@ public class TRAFFICWebService {
         }
 
         JsonMultiSiguTraffic_Response ret = new JsonMultiSiguTraffic_Response();
-        ret.setSigus(gas);
+        ret.setModules(gas);
         ret.setTimes(times);
         return (ret);
     }

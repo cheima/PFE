@@ -12,11 +12,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import pfe.cheima.service.model.TimePoint;
 
 @XmlRootElement
-public class JsonMultiSiguTraffic_Response implements Serializable{
+public class JsonMultiSiguBP_Response implements Serializable{
          private static final long serialVersionUID = 1L;
 
          private List<TimePoint> times;
-         private List<JsonSiguTraffic> modules;
+         private List<JsonBP> modules;
 
     public List<TimePoint> getTimes() {
         return times;
@@ -26,11 +26,11 @@ public class JsonMultiSiguTraffic_Response implements Serializable{
         this.times = times;
     }
 
-    public List<JsonSiguTraffic> getModules() {
+    public List<JsonBP> getModules() {
         return modules;
     }
 
-    public void setModules(List<JsonSiguTraffic> sigus) {
+    public void setModules(List<JsonBP> sigus) {
         this.modules = sigus;
     }
 }

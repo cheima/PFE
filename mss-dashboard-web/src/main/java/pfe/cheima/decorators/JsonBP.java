@@ -8,8 +8,7 @@ package pfe.cheima.decorators;
 import java.io.Serializable;
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
-import net.vpc.upa.config.Entity;
-import pfe.cheima.service.model.TimePoint;
+import pfe.cheima.service.model.SomTraffic;
 import pfe.cheima.service.model.Trafficforsigu;
 
 /**
@@ -17,13 +16,13 @@ import pfe.cheima.service.model.Trafficforsigu;
  * @author Cheima
  */
 @XmlRootElement
-public class JsonSiguTraffic implements Serializable {
+public class JsonBP implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private String modulename;
     private int moduleid;
     private int mssid;
-     private List<Trafficforsigu> liste;
+     private List<SomTraffic> liste;
      
      
     public int getMssid() {
@@ -51,11 +50,11 @@ public class JsonSiguTraffic implements Serializable {
         this.moduleid = siguid;
     }
 
-    public List<Trafficforsigu> getListe() {
+    public List<SomTraffic> getListe() {
         return liste;
     }
 
-    public void setListe(List<Trafficforsigu> liste) {
+    public void setListe(List<SomTraffic> liste) {
         this.liste = liste;
     }
 

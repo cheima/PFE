@@ -268,9 +268,9 @@ public class GenericResource {
                 .getEntityList();
         for (int i = 0; i < List.size(); i++) {
             JsonSiguTraffic sigu = new JsonSiguTraffic();
-            sigu.setSiguid(List.get(i).getId());
+            sigu.setModuleid(List.get(i).getId());
             //gas.get(i).setSiguid(List.get(i).getId());
-            sigu.setSiguname(List.get(i).getSiguName());
+            sigu.setModulename(List.get(i).getSiguName());
             // gas.get(i).setSiguname(List.get(i).getSiguName());
 //            List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
 //                    .setParameter("v", List.get(i).getId())
@@ -286,7 +286,7 @@ public class GenericResource {
         }
 
         JsonMultiSiguTraffic_Response ret = new JsonMultiSiguTraffic_Response();
-        ret.setSigus(gas);
+        ret.setModules(gas);
         ret.setTimes(times);
         return (ret);
 
@@ -313,9 +313,9 @@ public class GenericResource {
                 .getEntityList();
         for (int i = 0; i < List.size(); i++) {
             JsonSiguTraffic sigu = new JsonSiguTraffic();
-            sigu.setSiguid(List.get(i).getId());
+            sigu.setModuleid(List.get(i).getId());
             //gas.get(i).setSiguid(List.get(i).getId());
-            sigu.setSiguname(List.get(i).getSiguName());
+            sigu.setModulename(List.get(i).getSiguName());
             // gas.get(i).setSiguname(List.get(i).getSiguName());
 //            List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.siguId = :v ")
 //                    .setParameter("v", List.get(i).getId())
@@ -331,7 +331,7 @@ public class GenericResource {
         }
 
         JsonMultiSiguTraffic_Response ret = new JsonMultiSiguTraffic_Response();
-        ret.setSigus(gas);
+        ret.setModules(gas);
         ret.setTimes(times);
         return (ret);
 
