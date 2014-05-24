@@ -16,7 +16,7 @@ public class JsonMultiSiguTraffic_Response implements Serializable{
          private static final long serialVersionUID = 1L;
 
          private List<TimePoint> times;
-         private List<JsonSiguTraffic> sigus;
+         private List<JsonSiguTraffic> modules;
 
     public List<TimePoint> getTimes() {
         return times;
@@ -27,10 +27,10 @@ public class JsonMultiSiguTraffic_Response implements Serializable{
     }
 
     public List<JsonSiguTraffic> getSigus() {
-        return sigus;
+        return modules;
     }
 
     public void setSigus(List<JsonSiguTraffic> sigus) {
-        this.sigus = sigus;
+        this.modules = sigus;
     }
 }

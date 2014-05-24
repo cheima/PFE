@@ -216,7 +216,7 @@ var carteToID = function(carte) {
         return 9;
     }
 
-}
+};
 var module = angular.module('myApp.controllers', []).
         controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, toptraffic, allgraphs, siguranged) {
             $scope.allvars = {};
@@ -1016,7 +1016,7 @@ var module = angular.module('myApp.controllers', []).
  };
  })*/
 
-module.controller('KPIController', function($scope, $filter, $timeout, allmodules, $state, $stateParams, detailsService) {
+module.controller('KPIController', function($scope, $filter, $timeout, allmodules, $stateParams) {
     $scope.allvars = {};
     $scope.allvars.optionsTabs = [true, false, false, false];
     $scope.allvars.timingOption = 0;

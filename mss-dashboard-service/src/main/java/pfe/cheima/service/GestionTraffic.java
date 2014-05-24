@@ -70,13 +70,13 @@ public class GestionTraffic {
                 //retrouver le sigu; créer un s'il nexiste pas.
                 modules module = pu.createQuery("select m from modules m where m.SIGUNAME = :v and m.MSS = :z ")
                         .setParameter("v", Lecture.get(g).getSiguName())
-                        .setParameter("z", l).getEntity();
+                        .setParameter("z", currLogin.getId()).getEntity();
                 int siguId;
                 if (module == null) {
                     modules m = new modules();
                     m.setSiguName(Lecture.get(g).getSiguName());
                     m.setType(0);
-                    m.setMss(l);
+                    m.setMss(currLogin.getId());
                     pu.insert(m);
                     siguId = m.getId();
                 } else {
