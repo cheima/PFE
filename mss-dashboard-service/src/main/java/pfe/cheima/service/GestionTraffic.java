@@ -7,7 +7,6 @@ package pfe.cheima.service;
  */
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -37,20 +36,12 @@ public class GestionTraffic {
 
         PersistenceUnit pu = UPA.getPersistenceUnit();
         List<Login> login = pu.createQuery("select x from login x ").getEntityList();
-        List<String> ips = pu.createQuery("select x.adrip from login x ").getValueList(0);
+       // List<String> ips = pu.createQuery("select x.adrip from login x ").getValueList(0);
         /**
          * class KeyValue{key, value}
          * List<KeyValue> ips = pu.createQuery("select x.id key, x.adrip value from login x ").getTypeList(KeyValue.class);
          */
-        
-        for (int l = 0; l < login.size(); l++) {
-            CmdExecuter ce = new CmdExecuter();
-            Login currLogin = login.get(l);
-            List<pfe.cheima.connect_to_mss.TrafficTotal> Lecture = ce.getAllSiguTraffic(currLogin.getAdrip(),currLogin.getLogin(),currLogin.getPasswd());
-            List<pfe.cheima.connect_to_mss.TrafficTotal> LectureBSU = ce.getAllBsuTraffic(currLogin.getAdrip(),currLogin.getLogin(),currLogin.getPasswd());
-            List<pfe.cheima.connect_to_mss.LoadPercentCpu> LectureCPU = ce.getAllCPU(currLogin.getAdrip(),currLogin.getLogin(),currLogin.getPasswd());
-
-            // 1) create a java calendar instance
+          // 1) create a java calendar instance
             Calendar calendar = Calendar.getInstance();
 // 2) get a java.util.Date from the calendar instance.
 //    this date will represent the current instant, or "now".
@@ -60,6 +51,15 @@ public class GestionTraffic {
             TimePoint tp = new TimePoint();
             tp.setAtTime(currentTimestamp);
             pu.insert(tp);
+        
+        for (int l = 0; l < login.size(); l++) {
+            CmdExecuter ce = new CmdExecuter();
+            Login currLogin = login.get(l);
+            List<pfe.cheima.connect_to_mss.TrafficTotal> Lecture = ce.getAllSiguTraffic(currLogin.getAdrip(),currLogin.getLogin(),currLogin.getPasswd());
+            List<pfe.cheima.connect_to_mss.TrafficTotal> LectureBSU = ce.getAllBsuTraffic(currLogin.getAdrip(),currLogin.getLogin(),currLogin.getPasswd());
+            List<pfe.cheima.connect_to_mss.LoadPercentCpu> LectureCPU = ce.getAllCPU(currLogin.getAdrip(),currLogin.getLogin(),currLogin.getPasswd());
+
+          
        // List<Login> login = pu.createQuery("select l from login l ").getEntityList();
 
             //   for(int l=1;l<=login.size();l++){
