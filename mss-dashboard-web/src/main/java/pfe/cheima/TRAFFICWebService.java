@@ -109,6 +109,21 @@ public class TRAFFICWebService {
         }
     }
 
+    @Path("{list11}/byTime/{time}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public JsonMultiSiguTraffic_Response getList113(@PathParam("list11") String list11, @PathParam("time") long time) throws ParseException {
+        String[] siguIdsAsStrings = list11.split(",");
+        int mss = Integer.parseInt(msst);
+
+        if ("all".equals(siguIdsAsStrings[0])) {
+            Integer type = Integer.parseInt(siguIdsAsStrings[1]);
+            return getLastTRAFFICByType(mss, type, time);
+        } else {
+            throw new RuntimeException("non supporté");
+        }
+    }
+
     ///list of cpu selected
     private JsonMultiSiguTraffic_Response getTRAFFICByModule(List<Integer> siguIds, Date datefrom, Date dateto) {
 
@@ -166,6 +181,46 @@ public class TRAFFICWebService {
             List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v AND t.atTime < :v2")
                     .setParameter("v", datefrom)
                     .setParameter("v2", dateto)
+                    .setParameter("id", List.get(i).getId())
+                    .getEntityList();
+            sigu.setListe(entityList2);
+            gas.add(sigu);
+
+        }
+
+        JsonMultiSiguTraffic_Response ret = new JsonMultiSiguTraffic_Response();
+        ret.setModules(gas);
+        ret.setTimes(times);
+        return (ret);
+    }
+
+        private  JsonMultiSiguTraffic_Response getLastTRAFFICByType(int mss, int type, long time) {
+
+        List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        List<modules> List = pu.createQuery("select a from modules a WHERE a.type = :v  and a.mss = :mss")
+                .setParameter("v", type)
+                .setParameter("mss", mss)
+                .getEntityList();
+
+        //trouver le TimePoint
+        Date date = new Date();
+        Calendar c = new GregorianCalendar();
+        c.setTimeInMillis(time);
+        date=c.getTime();
+        TimePoint tp = pu.createQuery("select a from timepoint a WHERE a.attime = :v")
+                .setParameter("v", date)
+                .getEntity();
+        List<TimePoint> times = new ArrayList<TimePoint>();
+        times.add(tp);
+        int timepoint = tp.getId();
+        for (int i = 0; i < List.size(); i++) {
+            JsonSiguTraffic sigu = new JsonSiguTraffic();
+            sigu.setModuleid(List.get(i).getId());
+            //gas.get(i).setSiguid(List.get(i).getId());
+            sigu.setModulename(List.get(i).getSiguName());
+            List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a where a.dateExec = :v and a.siguId = :id ")
+                    .setParameter("v", timepoint)
                     .setParameter("id", List.get(i).getId())
                     .getEntityList();
             sigu.setListe(entityList2);

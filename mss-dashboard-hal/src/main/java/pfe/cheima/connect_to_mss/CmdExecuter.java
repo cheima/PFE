@@ -27,7 +27,21 @@ public class CmdExecuter {
         String ListCmdSigu = ta.getAllSiguTraffic();
         List<TrafficTotal> allStats = cp.parseSiguTraffic(ListCmdSigu);
        // allStats.addAll(allStats);
-        return allStats;
+
+           // ---- modifier les valeurs du fichier text - les cpus -- a supprimer
+           Calendar c = Calendar.getInstance();
+           c.set(Calendar.MONTH, 0);
+           c.set(Calendar.YEAR, 0);
+           long valeur_de_base = c.getTimeInMillis()/1000;
+           for(TrafficTotal traffic : allStats){
+               Random r = new Random();
+               int i = r.nextInt(200);
+               int i2 = r.nextInt(200);
+               traffic.setTotalreceived(i+valeur_de_base);
+               traffic.setTotalsent(i2+valeur_de_base);
+           }
+
+           return allStats;
 
        }
        
@@ -37,6 +51,20 @@ public class CmdExecuter {
            CmdParserBSU cp = new CmdParserBSU();
            String ListCmdBsu = ta.getAllBsuTraffic();
            List<TrafficTotal> allStats = cp.parseSiguTraffic(ListCmdBsu);
+
+                      // ---- modifier les valeurs du fichier text - les cpus -- a supprimer
+           Calendar c = Calendar.getInstance();
+           c.set(Calendar.MONTH, 0);
+           c.set(Calendar.YEAR, 0);
+           long valeur_de_base = c.getTimeInMillis()/1000;
+           for(TrafficTotal traffic : allStats){
+               Random r = new Random();
+               int i = r.nextInt(200);
+               int i2 = r.nextInt(200);
+               traffic.setTotalreceived(i+valeur_de_base);
+               traffic.setTotalsent(i2+valeur_de_base);
+           }
+
            return allStats;
        }
        
@@ -47,7 +75,7 @@ public class CmdExecuter {
            String ListCmdCPU = ta.getAllCPU();
            List<LoadPercentCpu> allStats = cp.Comparaison(ListCmdCPU);
            
-           // modifier les valeurs du fichier text - les cpus
+           // ---- modifier les valeurs du fichier text - les cpus -- a supprimer
            Calendar c = Calendar.getInstance();
            int valeur_de_base = c.get(Calendar.MINUTE);
            for(LoadPercentCpu cpu : allStats){

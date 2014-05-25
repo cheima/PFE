@@ -1233,7 +1233,10 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
         }
 
     };
-
+    $scope.onChartClick = function(timePoint){
+        //alert("time:"+timePoint);
+        console.log("time:"+timePoint);
+    };
     var showFromList2 = function(result) {
         $scope.graphs = result;
         var sigus = result["modules"];
@@ -1290,10 +1293,27 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
 
         $scope.highchartsNG = {
             options: {
-                chart: {
+                /*chart: {
                     events: {
                         click: function(e) {
                             alert("click");
+                        }
+                    }
+                },*/
+                plotOptions: {
+                    series: {
+                        cursor: 'pointer',
+                        point: {
+                            events: {
+                                click: function() {
+                                        var timepoint = this.category;
+                                    $scope.$apply(function() {
+                                        var c = $scope.allvars;
+                                        c.selectedPoint = "clicked:" + timepoint;
+                                        $scope.onChartClick(timepoint);
+                                    });
+                                }
+                            }
                         }
                     }
                 },
@@ -1624,7 +1644,7 @@ module.controller('AppMainController', function($scope, $state, $modal, $log, lo
 //        {heading: "MSS 2", route: "mass", active: false},
 //        {heading: "MSS 3", route: "mss", active: false}
         ];
-        for (var msskey in allmss) {
+        for (var msskey = 0;  msskey< allmss.length; msskey++) {
             var thismss = allmss[msskey];
             $scope.mainvars.tabs.push({heading: thismss.adrip, route: thismss.id, active: false});
         }
