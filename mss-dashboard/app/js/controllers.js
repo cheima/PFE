@@ -1020,8 +1020,9 @@ module.controller('KPIController', function($scope, $filter, $timeout, allmodule
     $scope.allvars = {};
     $scope.allvars.optionsTabs = [true, false, false, false];
     $scope.allvars.timingOption = 0;
-    $scope.allvars.chartType = 'line';
+    //$scope.allvars.charteType = 'line';
     $scope.mycalendar = null;
+    $scope.allvars.selectedCarts = []; // pour le pie
     $scope.onDateChange = function() {
         $timeout(function() {
             alert("ok3:" + $scope.allvars.timingOption + ":" + $scope.allvars.optionsTabs[0] + '-' + $scope.allvars.optionsTabs[1] + '-');
@@ -1032,11 +1033,12 @@ module.controller('KPIController', function($scope, $filter, $timeout, allmodule
     };
     $scope.allvars.carteType = carteToID($stateParams.carte);
     $scope.allvars.Indi_Name = $stateParams.carte;
+    $scope.allvars.mss = $stateParams.mssId;
     $scope.sigunames = allmodules.query({type: $scope.allvars.carteType, mss: $stateParams.mssId});
     $scope.updateShowAll = function() {
         var list = "all," + $scope.allvars.carteType;
         return list;
-
+        $scope.allvars.selectedCarts = [];
     };
 
     $scope.updateShowTop10 = function() {
@@ -1044,6 +1046,7 @@ module.controller('KPIController', function($scope, $filter, $timeout, allmodule
     };
 
     $scope.updateRange = function() {
+        $scope.allvars.selectedCarts = [];
         var list = "";
         var start = 0;
         var i = 0;
@@ -1061,7 +1064,7 @@ module.controller('KPIController', function($scope, $filter, $timeout, allmodule
                 list = $scope.sigunames[i].id;
             else
                 list = list + "," + $scope.sigunames[i].id;
-
+            $scope.allvars.selectedCarts.push($scope.sigunames[i].id);
             if ($scope.sigunames[i].id == $scope.allvars.siguSelected2)
                 break;
         }
@@ -1069,8 +1072,9 @@ module.controller('KPIController', function($scope, $filter, $timeout, allmodule
     };
 
     $scope.updateOne = function() {
-        var list = $scope.allvars.siguSelected3;
-        return list;
+        var selected = $scope.allvars.siguSelected3;
+        $scope.allvars.selectedCarts = [selected];
+        return selected;
     };
 
     $scope.getSelectedOptions = function() {
@@ -1233,9 +1237,18 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
         }
 
     };
-    $scope.onChartClick = function(timePoint){
+    $scope.onChartClick = function(timePoint) {
         //alert("time:"+timePoint);
-        console.log("time:"+timePoint);
+        console.log("time:" + timePoint);
+        var ws_options2 = {};
+        ws_options2.mss = $scope.allvars.mss;
+        ws_options2.indi = "traffic";
+        ws_options2.from = 'byTime';
+        ws_options2.to = timePoint;
+        ws_options2.list11 = "all," + $scope.allvars.carteType;
+        var rangesigu = detailsService.query(ws_options2);
+        rangesigu.$promise.then(showPieFromList);
+
     };
     var showFromList2 = function(result) {
         $scope.graphs = result;
@@ -1271,42 +1284,22 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
         }
 
 
-        // pour le pie
-        var last_timeId = times[times.length - 1].id;
-        $scope.allvars.timeForPie = last_timeId;
-        var data_pie = [];
-        var data1_pie = [];
-        for (var s in sigus) {
-            var sigu = sigus[s]; // le sigu 
-            var traffics = sigu["liste"];
-            for (var trafficKey in traffics) {
-                var traffic = traffics[trafficKey];
-                if (traffic["dateExec"] == last_timeId) {
-                    data_pie.push([sigu["modulename"], traffic["packetreceived"] + 5]);
-                    data1_pie.push([sigu["modulename"], traffic["packetsent"] + 5]);
-                    break;
-                }
-            }
-        }
-        var series_pie = [{data: data_pie, type: 'pie'}];
-        var series1_pie = [{data: data1_pie, type: 'pie'}];
-
         $scope.highchartsNG = {
             options: {
                 /*chart: {
-                    events: {
-                        click: function(e) {
-                            alert("click");
-                        }
-                    }
-                },*/
+                 events: {
+                 click: function(e) {
+                 alert("click");
+                 }
+                 }
+                 },*/
                 plotOptions: {
                     series: {
                         cursor: 'pointer',
                         point: {
                             events: {
                                 click: function() {
-                                        var timepoint = this.category;
+                                    var timepoint = this.category;
                                     $scope.$apply(function() {
                                         var c = $scope.allvars;
                                         c.selectedPoint = "clicked:" + timepoint;
@@ -1348,12 +1341,22 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
             loading: false,
             useHighStocks: true
         };
-            $scope.highchartsNG1 = {
+        $scope.highchartsNG1 = {
             options: {
-                chart: {
-                    events: {
-                        click: function(e) {
-                            alert("click");
+                plotOptions: {
+                    series: {
+                        cursor: 'pointer',
+                        point: {
+                            events: {
+                                click: function() {
+                                    var timepoint = this.category;
+                                    $scope.$apply(function() {
+                                        var c = $scope.allvars;
+                                        c.selectedPoint = "clicked:" + timepoint;
+                                        $scope.onChartClick(timepoint);
+                                    });
+                                }
+                            }
                         }
                     }
                 },
@@ -1388,22 +1391,86 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
             loading: false,
             useHighStocks: true
         };
+    };
+
+    var showPieFromList = function(result) {
+        // $scope.allvars.selectedCarts contient la liste des modules séléctionnés.
+        // result contient le traffic json de tous les modules
+        var sigus = result["modules"]; // tous les modules existants de meme type
+        var times = result["times"]; // liste des TimePoint = 1 seul
+        var last_timeId = times[0].id;
+        $scope.allvars.timeForPie = last_timeId;
+        var data_pie = [];
+        var data1_pie = [];
+        //boucle 1 pour trouvé le total:
+        var totalSent = 0; // somme de tous les modules
+        var totalReceived = 0; // somme de tous les modules
+        for (var s in sigus) {
+            var sigu = sigus[s]; // le sigu 
+            var traffics = sigu["liste"];// un seul traffic, celui de temps = temps cliqué
+            var traffic = traffics[0];
+            totalSent += traffic["packetsent"];
+            totalReceived += traffic["packetreceived"];
+        }
+        for (var s in sigus) {
+            var sigu = sigus[s]; // le sigu 
+            var traffics = sigu["liste"];// un seul traffic, celui de temps = temps cliqué
+            //for (var trafficKey in traffics) {
+            //afficher ce module ?
+            var siguincluded = false;
+            if ($scope.allvars.selectedCarts.length === 0)
+                siguincluded = true;
+            else
+                for (var j = 0; j < $scope.allvars.selectedCarts.length; j++) {
+                    if ($scope.allvars.selectedCarts[j] == sigu.moduleid) {
+                        siguincluded = true;
+                        break;
+                    }
+                }
+            if (siguincluded) {
+                var traffic = traffics[0];
+                var trafficreceived = traffic["packetreceived"] / totalReceived * 100;
+                var trafficsent = traffic["packetsent"] / totalSent * 100;
+                data_pie.push([sigu["modulename"], trafficreceived]);
+                data1_pie.push([sigu["modulename"], trafficsent]);
+            }
+            //    break;
+            //}
+        }
+        var series_pie = [{data: data_pie, type: 'pie'}];
+        var series1_pie = [{data: data1_pie, type: 'pie'}];
         $scope.highchartsNGPie = {
+            options: {
+              tooltip: {
+    	    pointFormat: '{series.name}: <b>{point.y:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.y:.1f} %'
+                }
+            }
+        },  
+            },
             series: series_pie,
             title: {
                 text: 'TraffcIN'
             },
             loading: false
         };
-          $scope.highchartsNGPie1 = {
+        $scope.highchartsNGPie1 = {
             series: series1_pie,
             title: {
                 text: 'TraffcOUT'
             },
             loading: false
         };
-    };
 
+
+    };
     $scope.generalUpdate = function() {
         $timeout(function() {
             var ws_options = $scope.getSelectedOptions();
@@ -1420,7 +1487,7 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
 }
 );
 module.controller('BPController', function($scope, $timeout, detailsService) {
-   $scope.show = function() {
+    $scope.show = function() {
         var c = $scope.mycalendar;
         c.show();
     };
@@ -1463,7 +1530,7 @@ module.controller('BPController', function($scope, $timeout, detailsService) {
                 }
             }
             series_line.push({data: data, name: siguname, type: $scope.allvars.chartType});
-          
+
 
         }
 
@@ -1528,7 +1595,7 @@ module.controller('BPController', function($scope, $timeout, detailsService) {
             loading: false,
             useHighStocks: true
         };
-            $scope.highchartsNG1 = {
+        $scope.highchartsNG1 = {
             options: {
                 chart: {
                     events: {
@@ -1575,7 +1642,7 @@ module.controller('BPController', function($scope, $timeout, detailsService) {
             },
             loading: false
         };
-          $scope.highchartsNGPie1 = {
+        $scope.highchartsNGPie1 = {
             series: series1_pie,
             title: {
                 text: 'TraffcOUT'
@@ -1644,7 +1711,7 @@ module.controller('AppMainController', function($scope, $state, $modal, $log, lo
 //        {heading: "MSS 2", route: "mass", active: false},
 //        {heading: "MSS 3", route: "mss", active: false}
         ];
-        for (var msskey = 0;  msskey< allmss.length; msskey++) {
+        for (var msskey = 0; msskey < allmss.length; msskey++) {
             var thismss = allmss[msskey];
             $scope.mainvars.tabs.push({heading: thismss.adrip, route: thismss.id, active: false});
         }

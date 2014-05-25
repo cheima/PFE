@@ -118,7 +118,7 @@ public class TRAFFICWebService {
 
         if ("all".equals(siguIdsAsStrings[0])) {
             Integer type = Integer.parseInt(siguIdsAsStrings[1]);
-            return getLastTRAFFICByType(mss, type, time);
+            return getTRAFFICByTypeAtTime(mss, type, time);
         } else {
             throw new RuntimeException("non supporté");
         }
@@ -194,7 +194,7 @@ public class TRAFFICWebService {
         return (ret);
     }
 
-        private  JsonMultiSiguTraffic_Response getLastTRAFFICByType(int mss, int type, long time) {
+    private  JsonMultiSiguTraffic_Response getTRAFFICByTypeAtTime(int mss, int type, long time) {
 
         List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
@@ -204,10 +204,9 @@ public class TRAFFICWebService {
                 .getEntityList();
 
         //trouver le TimePoint
-        Date date = new Date();
         Calendar c = new GregorianCalendar();
-        c.setTimeInMillis(time);
-        date=c.getTime();
+        c.setTimeInMillis(time-3600*1000);
+        Date date=c.getTime();
         TimePoint tp = pu.createQuery("select a from timepoint a WHERE a.attime = :v")
                 .setParameter("v", date)
                 .getEntity();
