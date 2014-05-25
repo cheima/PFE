@@ -1027,9 +1027,9 @@ module.controller('KPIController', function($scope, $filter, $timeout, allmodule
             alert("ok3:" + $scope.allvars.timingOption + ":" + $scope.allvars.optionsTabs[0] + '-' + $scope.allvars.optionsTabs[1] + '-');
         });
     };
-    $scope.onChangeChartType = function(type){
-        alert("type:"+type);
-    } ;
+    $scope.onChangeChartType = function(type) {
+        alert("type:" + type);
+    };
     $scope.allvars.carteType = carteToID($stateParams.carte);
     $scope.allvars.Indi_Name = $stateParams.carte;
     $scope.sigunames = allmodules.query({type: $scope.allvars.carteType, mss: $stateParams.mssId});
@@ -1119,15 +1119,15 @@ module.controller('CPUController', function($scope, $timeout, detailsService) {
         c.show();
     };
 
-    $scope.onChangeChartType = function(type){
-        if($scope.highchartsNG){
-                var series = $scope.highchartsNG.series;
-                for (var key in series){
-                    series[key].type = type;
-                }
+    $scope.onChangeChartType = function(type) {
+        if ($scope.highchartsNG) {
+            var series = $scope.highchartsNG.series;
+            for (var key in series) {
+                series[key].type = type;
+            }
         }
-        
-    } ;
+
+    };
 
     var showFromList2 = function(result) {
         $scope.graphs = result;
@@ -1200,7 +1200,7 @@ module.controller('CPUController', function($scope, $timeout, detailsService) {
     $scope.generalUpdate = function() {
         $timeout(function() {
             var ws_options = $scope.getSelectedOptions();
-            
+
             //for the indi
             ws_options.indi = "allcpu";
 
@@ -1218,22 +1218,21 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
         c.show();
     };
 
-    $scope.onChangeChartType = function(type){
-        if($scope.highchartsNG){
-                var series = $scope.highchartsNG.series;
-                for (var key in series){
-                    series[key].type = type;
-                }
+    $scope.onChangeChartType = function(type) {
+        if ($scope.highchartsNG) {
+            var series = $scope.highchartsNG.series;
+            for (var key in series) {
+                series[key].type = type;
+            }
         }
-        
-    } ;
+
+    };
 
     var showFromList2 = function(result) {
         $scope.graphs = result;
         var sigus = result["modules"];
         var times = result["times"]; // liste des TimePoint
-        var series = [];
-        var noms = [];
+        var series_line = [];
         //for each module
         for (var s in sigus) {
             var sigu = sigus[s]; // le sigu 
@@ -1248,20 +1247,40 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
                     var timeId = time["id"];
 
                     if (traffic["dateExec"] == timeId) {
-                        data.push([new Date(time["atTime"]).getTime(), traffic["loadCPU"]]);
+                        data.push([new Date(time["atTime"]).getTime(), traffic["packetreceived"]]);
                         break;
                     }
                 }
             }
-            series.push({data: data, name: siguname, type: $scope.allvars.chartType});
+            series_line.push({data: data, name: siguname, type: $scope.allvars.chartType});
 
         }
 
+
+        // pour le pie
+        var last_timeId = times[times.length - 1].id;
+        $scope.allvars.timeForPie = last_timeId;
+        var data_pie = [];
+        for (var s in sigus) {
+            var sigu = sigus[s]; // le sigu 
+            var traffics = sigu["liste"];
+            for (var trafficKey in traffics) {
+                var traffic = traffics[trafficKey];
+                if (traffic["dateExec"] == last_timeId) {
+                    data_pie.push([sigu["modulename"], traffic["packetreceived"] + 5]);
+                    break;
+                }
+            }
+        }
+        var series_pie = [{data: data_pie, type: 'pie'}];
         $scope.highchartsNG = {
             options: {
-                /*chart: {
-                 type: 'line'
-                 },*/
+                 events : {
+                    click : function (e){
+                        alert("click");
+                    }
+                },
+           
                 rangeSelector: {
                     enabled: true,
                     buttons: [{
@@ -1286,12 +1305,19 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
                 navigator: {enabled: true}
 
             },
-            series: series,
+            series: series_line,
             title: {
                 text: 'Load Percent of CPU'
             },
             loading: false,
             useHighStocks: true
+        };
+        $scope.highchartsNGPie = {
+            series: series_pie,
+            title: {
+                text: 'Load Percent of CPU'
+            },
+            loading: false
         };
 
     };
@@ -1299,7 +1325,7 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
     $scope.generalUpdate = function() {
         $timeout(function() {
             var ws_options = $scope.getSelectedOptions();
-            
+
             //for the indi
             ws_options.indi = "traffic";
 
@@ -1317,15 +1343,15 @@ module.controller('BPController', function($scope, $timeout, detailsService) {
         c.show();
     };
 
-    $scope.onChangeChartType = function(type){
-        if($scope.highchartsNG){
-                var series = $scope.highchartsNG.series;
-                for (var key in series){
-                    series[key].type = type;
-                }
+    $scope.onChangeChartType = function(type) {
+        if ($scope.highchartsNG) {
+            var series = $scope.highchartsNG.series;
+            for (var key in series) {
+                series[key].type = type;
+            }
         }
-        
-    } ;
+
+    };
 
     var showFromList2 = function(result) {
         $scope.graphs = result;
@@ -1398,7 +1424,7 @@ module.controller('BPController', function($scope, $timeout, detailsService) {
     $scope.generalUpdate = function() {
         $timeout(function() {
             var ws_options = $scope.getSelectedOptions();
-            
+
             //for the indi
             ws_options.indi = "allcpu";
 

@@ -9,7 +9,7 @@ and open the template in the editor.
     <div class="row-fluid sortable">
         <div class="box span12">
             <div class="box-header well">
-                <h2><i class="icon-th"></i> Options </h2>
+                <h2><i class="icon-th"></i> Options</h2>
             </div>
             <div class="box-content">
                 <tabset>
@@ -68,9 +68,8 @@ and open the template in the editor.
                         </select> 
                     </p-->
                     <div class="btn-group">
-                        <label class="btn btn-primary" ng-model="chart.type" btn-radio="3">ColumnChart</label>
-                        <label class="btn btn-primary" ng-model="chart.type" btn-radio="1">LineChart</label>
-                        <label class="btn btn-primary" ng-model="chart.type" btn-radio="2">BarChart</label>
+                        <label class="btn btn-primary" ng-model="allvars.chartType" ng-click="onChangeChartType('line')" btn-radio="'line'">LineChart</label>
+                        <label class="btn btn-primary" ng-model="allvars.chartType" ng-click="onChangeChartType('column')" btn-radio="'column'">ColumnChart</label>
                     </div>
 
                     <div class="btn-group pull-right">
@@ -79,17 +78,14 @@ and open the template in the editor.
                         <label class="btn btn-primary" ng-model="allvars.timingOption" ng-click="show()" btn-radio="2">Custom</label>
                     </div>
 
-                    <div my-calendar="myc" ng-model="allvars.dates1" onchange="generalUpdate()" oncancel="onDateChange()"></div>
+                    <div my-calendar="mycalendar" ng-model="allvars.dates1" onchange="generalUpdate()"></div>
                      <highchart id="chart1" config="highchartsNG"></highchart>
-                
+
+                                          <highchart id="chart2" config="highchartsNGPie"></highchart>
+
                     <!--div ng-controller="Index2"-->
                    
                         <div>
-                        <ul>
-                        <li>
-                        <slider floor="100" ceiling="1000" step="50" precision="2" ng-model="alvars.item"></slider>
-                        </li>
-                    </ul>
                     </div>
                 </div>
             </div><!--/span-->

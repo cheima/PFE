@@ -1,6 +1,6 @@
 'use strict';
 var trafficServices =angular.module('myApp.services', ['ngResource']);
-var host = 'http://localhost:9999';
+var host = 'http://localhost:8080';
 
 trafficServices.factory('trafficforsigu',function($resource){
    

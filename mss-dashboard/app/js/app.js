@@ -50,7 +50,7 @@ angular.module('myApp', [
         controller: 'BPController'
     }).state('mss.carte.traffic', {
         url: "/Traffic",
-        templateUrl: "partials/mss.cart.cpu.html",
+        templateUrl: "partials/mss.cart.traffic.html",
         controller: 'TrafficController'
     })/*.state('mss.vlru', {
      abstract: true,
