@@ -1275,11 +1275,13 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
         var series_pie = [{data: data_pie, type: 'pie'}];
         $scope.highchartsNG = {
             options: {
+                chart:{
                  events : {
                     click : function (e){
                         alert("click");
                     }
-                },
+                }
+            },
            
                 rangeSelector: {
                     enabled: true,
