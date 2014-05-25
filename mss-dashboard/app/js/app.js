@@ -46,7 +46,7 @@ angular.module('myApp', [
         controller: 'CPUController'
     }).state('mss.carte.bp', {
         url: "/LoadBP",
-        templateUrl: "partials/sigu.bp.html",
+        templateUrl: "partials/mss.cart.bp.html",
         controller: 'BPController'
     }).state('mss.carte.traffic', {
         url: "/Traffic",
