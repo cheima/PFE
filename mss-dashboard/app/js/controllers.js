@@ -1271,8 +1271,10 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
                     var timeId = time["id"];
 
                     if (traffic["dateExec"] == timeId) {
-                        data.push([new Date(time["atTime"]).getTime(), traffic["packetreceived"]]);
-                        data1.push([new Date(time["atTime"]).getTime(), traffic["packetsent"]]);
+                        var mm = moment(time["atTime"]);
+                        var dd = mm.toDate().getTime();
+                        data.push([mm.toDate().getTime(), traffic["packetreceived"]]);
+                        data1.push([mm.toDate().getTime(), traffic["packetsent"]]);
 
                         break;
                     }
@@ -1441,19 +1443,19 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
         var series1_pie = [{data: data1_pie, type: 'pie'}];
         $scope.highchartsNGPie = {
             options: {
-              tooltip: {
-    	    pointFormat: '{series.name}: <b>{point.y:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.y:.1f} %'
+                tooltip: {
+                    pointFormat: '<b>{point.y:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.y:.1f} %'
+                        }
+                    }
                 }
-            }
-        },  
             },
             series: series_pie,
             title: {
@@ -1462,6 +1464,21 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
             loading: false
         };
         $scope.highchartsNGPie1 = {
+            options: {
+                tooltip: {
+                    pointFormat: '<b>{point.y:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.y:.1f} %'
+                        }
+                    }
+                }
+            },
             series: series1_pie,
             title: {
                 text: 'TraffcOUT'

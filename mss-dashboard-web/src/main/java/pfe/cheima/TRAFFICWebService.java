@@ -205,7 +205,7 @@ public class TRAFFICWebService {
 
         //trouver le TimePoint
         Calendar c = new GregorianCalendar();
-        c.setTimeInMillis(time-3600*1000);
+        c.setTimeInMillis(time);
         Date date=c.getTime();
         TimePoint tp = pu.createQuery("select a from timepoint a WHERE a.attime = :v")
                 .setParameter("v", date)

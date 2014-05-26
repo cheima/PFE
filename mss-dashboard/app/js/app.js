@@ -2,6 +2,11 @@
 
 // Declare app level module which depends on filters, and services
 //angular.module('myApp', ['ui.bootstrap']);
+Highcharts.setOptions({
+	global: {
+		useUTC: false
+	}
+});
 angular.module('myApp', [
     'ui.bootstrap',
     'ui.router',
