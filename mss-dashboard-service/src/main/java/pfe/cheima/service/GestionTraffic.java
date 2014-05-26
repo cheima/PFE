@@ -83,6 +83,7 @@ public class GestionTraffic {
                     siguId = module.getId();
                 }
                 traffic.setSiguId(siguId);
+                som.setSiguId(siguId);
                 //retrouver le dernier total 
                 TrafficTotal trafficTotal = pu.createQuery("select t from traffictotal t where t.siguId = :v ")
                         .setParameter("v", siguId).getEntity();
@@ -103,6 +104,7 @@ public class GestionTraffic {
                     traffic.setPacketreceived(Lecture.get(g).getTotalreceived() - trafficTotal.getTotalreceived());
                     traffic.setPacketsent(Lecture.get(g).getTotalsent() - trafficTotal.getTotalsent());
 //                    traffic.setSomme(Lecture.get(g).getTotalsomme() - trafficTotal.getTotalsomme());
+                    som.setDateExec(tp.getId());
                     som.setSomme(Lecture.get(g).getTotalsomme() - trafficTotal.getTotalsomme());
                     update_or_insert = true;
                 }
