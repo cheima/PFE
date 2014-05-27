@@ -107,7 +107,7 @@ public class GenericResource {
 
     public List<Trafficforsigu> findTrafficByTime11() {
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-        List<Trafficforsigu> entityList = pu.createQuery("select a from traffictotal a order by a.packetreceived DESC")
+        List<Trafficforsigu> entityList = pu.createQuery("select top 10 a from trafficforsigu a order by a.packetreceived DESC")
                 .getEntityList();
         return entityList;
     }
