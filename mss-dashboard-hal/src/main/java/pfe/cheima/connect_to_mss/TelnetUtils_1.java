@@ -10,15 +10,17 @@ import org.apache.commons.net.telnet.TelnetClient;
 
 public class TelnetUtils_1 {
 
-    private TelnetClient telnet = new TelnetClient();
-    private InputStream in;
-    private PrintStream out;
-    
+   // private TelnetClient telnet = new TelnetClient();
+    private static InputStream in;
+    private static PrintStream out;
+    private static TelnetClient telnet = null;
+
     public String testConnexion(String server, String username, String password) {
         try {
-            telnet = new TelnetClient();
-            telnet.connect(server, 23);
-            in = telnet.getInputStream();
+            if (telnet == null){
+                telnet=new TelnetClient();
+                telnet.connect(server, 23);  
+                in = telnet.getInputStream();
             out = new PrintStream(telnet.getOutputStream());
             String server_message = "";
             server_message = readUntilConnexion("ENTER USERNAME");
@@ -35,13 +37,17 @@ public class TelnetUtils_1 {
             if (!server_message.endsWith("MAIN LEVEL COMMAND <___>")) {
                 return server_message;
             }
-            return "";
+           // return "";
+            }
+          return "";
+         
 
         } catch (Exception e) {
             e.printStackTrace();
             return e.getMessage();
         }
     }
+
     public String readUntil(String pattern) {
         StringBuffer sb = new StringBuffer();
         try {

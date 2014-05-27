@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public interface TelnetAPI {
 
-    public String getAllSiguTraffic() throws IOException;
+    public String getAllSiguTraffic(String ip) throws IOException;
 
     public String getAllBsuTraffic() throws IOException;
 

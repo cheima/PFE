@@ -12,7 +12,7 @@ import java.util.Map;
 public class TelnetClient {
 
     TelnetUtils_1 localtelnetclient = new TelnetUtils_1();
-    String connexion = "";
+    public String connexion = "";
 
     public void ConnectMSS(String MssAdrIp, String MssLogin, String MssPssword) {
 

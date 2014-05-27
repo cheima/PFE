@@ -5,6 +5,7 @@
 Highcharts.setOptions({
 	global: {
 		useUTC: false
+                //useUTC: true
 	}
 });
 angular.module('myApp', [

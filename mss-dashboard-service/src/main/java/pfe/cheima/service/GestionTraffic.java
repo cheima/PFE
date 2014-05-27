@@ -56,9 +56,9 @@ public class GestionTraffic {
         for (int l = 0; l < login.size(); l++) {
             CmdExecuter ce = new CmdExecuter();
             Login currLogin = login.get(l);
-            List<pfe.cheima.connect_to_mss.TrafficTotal> Lecture = ce.getAllSiguTraffic(currLogin.getAdrip(),currLogin.getLogin(),currLogin.getPasswd());
-            List<pfe.cheima.connect_to_mss.TrafficTotal> LectureBSU = ce.getAllBsuTraffic(currLogin.getAdrip(),currLogin.getLogin(),currLogin.getPasswd());
-            List<pfe.cheima.connect_to_mss.LoadPercentCpu> LectureCPU = ce.getAllCPU(currLogin.getAdrip(),currLogin.getLogin(),currLogin.getPasswd());
+            List<pfe.cheima.connect_to_mss.TrafficTotal> Lecture = ce.getAllSiguTraffic(currLogin.getAdrip());
+            List<pfe.cheima.connect_to_mss.TrafficTotal> LectureBSU = ce.getAllBsuTraffic();
+            List<pfe.cheima.connect_to_mss.LoadPercentCpu> LectureCPU = ce.getAllCPU();
 
           
        // List<Login> login = pu.createQuery("select l from login l ").getEntityList();
