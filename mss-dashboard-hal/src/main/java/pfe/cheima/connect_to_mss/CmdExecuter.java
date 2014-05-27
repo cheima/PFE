@@ -39,6 +39,7 @@ public class CmdExecuter {
                int i2 = r.nextInt(200);
                traffic.setTotalreceived(i+valeur_de_base);
                traffic.setTotalsent(i2+valeur_de_base);
+               traffic.setTotalsomme(i+i2+2*valeur_de_base);
            }
 
            return allStats;
@@ -63,6 +64,7 @@ public class CmdExecuter {
                int i2 = r.nextInt(200);
                traffic.setTotalreceived(i+valeur_de_base);
                traffic.setTotalsent(i2+valeur_de_base);
+               traffic.setTotalsomme(i+i2+2*valeur_de_base);
            }
 
            return allStats;

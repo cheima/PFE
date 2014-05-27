@@ -50,6 +50,9 @@ public class TRAFFICWebService {
         if ("all".equals(siguIdsAsStrings[0])) {
             Integer type = Integer.parseInt(siguIdsAsStrings[1]);
             return getTRAFFICByType(mss, type, datefrom, dateto);
+        } else if ("top".equals(siguIdsAsStrings[0])) {
+            Integer type = Integer.parseInt(siguIdsAsStrings[1]);
+            return getTopTRAFFICByType(mss, type, datefrom, dateto);
         } else {
             //  List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
             List<Integer> siguIds = new ArrayList<Integer>();
@@ -75,6 +78,9 @@ public class TRAFFICWebService {
         if ("all".equals(siguIdsAsStrings[0])) {
             Integer type = Integer.parseInt(siguIdsAsStrings[1]);
             return getTRAFFICByType(mss, type, datefrom, dateto);
+        } else if ("top".equals(siguIdsAsStrings[0])) {
+            Integer type = Integer.parseInt(siguIdsAsStrings[1]);
+            return getTopTRAFFICByType(mss, type, datefrom, dateto);
         } else {
             //  List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
             List<Integer> siguIds = new ArrayList<Integer>();
@@ -99,6 +105,9 @@ public class TRAFFICWebService {
         if ("all".equals(siguIdsAsStrings[0])) {
             Integer type = Integer.parseInt(siguIdsAsStrings[1]);
             return getTRAFFICByType(mss, type, datefrom, dateto);
+        } else if ("top".equals(siguIdsAsStrings[0])) {
+            Integer type = Integer.parseInt(siguIdsAsStrings[1]);
+            return getTopTRAFFICByType(mss, type, datefrom, dateto);
         } else {
             //  List<Integer> siguIds = new ArrayList<Integer>(); // liste des id
             List<Integer> siguIds = new ArrayList<Integer>();
@@ -233,4 +242,52 @@ public class TRAFFICWebService {
         return (ret);
     }
 
+    private JsonMultiSiguTraffic_Response getTopTRAFFICByType(int mss, int type, Date datefrom, Date dateto) {
+        //  List<List<GetAllSigu>> listegas = new ArrayList<List<GetAllSigu>>();
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+
+        // dernier TimePoint dans la base
+        Integer lastTime = pu.createQuery("select max(t.id) from TimePoint t").getNumber().intValue();
+        // top 10 trafficforsigu à l'instant lastTime
+        List<Trafficforsigu> entityList0 = pu.createQuery("select a from trafficforsigu a left join modules m ON a.siguId = m.id where m.mss = :mss and m.type = :type and  a.dateExec = :d order by a.packetreceived DESC")
+                .setParameter("mss", mss)
+                .setParameter("type", type)
+                .setParameter("d", lastTime)
+                .getEntityList();
+        List<Integer> siguIds = new ArrayList<Integer>();
+        for (Trafficforsigu t : entityList0) {
+            if(siguIds.size()>10) break;
+            siguIds.add(t.getSiguId());
+        }
+
+        /* la suite est copiée tel quelle de la fonction de alltraffic/{list} */
+        List<JsonSiguTraffic> gas = new ArrayList<JsonSiguTraffic>();
+
+        List<TimePoint> times = pu.createQuery("select t from TimePoint t where t.atTime >= :v  and t.atTime < :v2")
+                .setParameter("v", datefrom)
+                .setParameter("v2", dateto)
+                .getEntityList();
+        for (int id : siguIds) {
+            modules m = pu.createQuery("select a from modules a where a.id = :id").setParameter("id", id).getEntity();
+            if (m != null) {
+            JsonSiguTraffic sigu = new JsonSiguTraffic();
+            sigu.setModuleid(id);
+            //gas.get(i).setSiguid(List.get(i).getId());
+            sigu.setModulename(m.getSiguName());
+            List<Trafficforsigu> entityList2 = pu.createQuery("select a from trafficforsigu a left join TimePoint t ON a.dateExec = t.id where a.siguId = :id AND t.atTime >= :v AND t.atTime < :v2")
+                    .setParameter("v", datefrom)
+                    .setParameter("v2", dateto)
+                    .setParameter("id", id)
+                    .getEntityList();
+            sigu.setListe(entityList2);
+            gas.add(sigu);
+            }
+        }
+
+        JsonMultiSiguTraffic_Response ret = new JsonMultiSiguTraffic_Response();
+        ret.setModules(gas);
+        ret.setTimes(times);
+        return (ret);
+
+    }
 }

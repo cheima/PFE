@@ -1042,7 +1042,9 @@ module.controller('KPIController', function($scope, $filter, $timeout, allmodule
     };
 
     $scope.updateShowTop10 = function() {
-        return "";
+        var list = "top," + $scope.allvars.carteType;
+        return list;
+        $scope.allvars.selectedCarts = [];
     };
 
     $scope.updateRange = function() {
@@ -1223,6 +1225,13 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
     };
 
     $scope.onChangeChartType = function(type) {
+        if (type === 'line') {
+            $scope.highchartsNG.useHighStocks = true;
+            $scope.highchartsNG1.useHighStocks = true;
+        } else if (type === 'column') {
+            $scope.highchartsNG.useHighStocks = false;
+            $scope.highchartsNG1.useHighStocks = false;
+        }
         if ($scope.highchartsNG) {
             var series = $scope.highchartsNG.series;
             for (var key in series) {
@@ -1312,6 +1321,12 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
                         }
                     }
                 },
+                yAxis: {
+                    opposite: false
+                },
+                legend: {
+                    enabled: true
+                },
                 rangeSelector: {
                     enabled: true,
                     buttons: [{
@@ -1361,6 +1376,12 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
                             }
                         }
                     }
+                },
+                yAxis: {
+                    opposite: false
+                },
+                legend: {
+                    enabled: true
                 },
                 rangeSelector: {
                     enabled: true,
@@ -1496,6 +1517,15 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
             ws_options.indi = "traffic";
 
             var rangesigu = detailsService.query(ws_options);
+            if($scope.allvars.optionsTabs[2]){ // la liste des sigus séléctionnées vient du ws
+                rangesigu.$promise.then(function(result){
+                    var sigus = result["modules"];
+                    $scope.allvars.selectedCarts = [];
+                    for(var i=0; i< sigus.length;i++)
+                        $scope.allvars.selectedCarts.push(sigus[i].moduleid);
+                    showFromList2(result);
+                });
+            }
             rangesigu.$promise.then(showFromList2);
 
 
@@ -1504,9 +1534,9 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
 }
 );
 module.controller('BPController', function($scope, $timeout, detailsService) {
-      $scope.show = function() {
+    $scope.show = function() {
         var c = $scope.mycalendar;
-         c.show();
+        c.show();
     };
 
     $scope.onChangeChartType = function(type) {
@@ -1623,13 +1653,13 @@ module.controller('BPController', function($scope, $timeout, detailsService) {
         var data_pie = [];
         //boucle 1 pour trouver le total:
         var totalSent = 0; // somme de tous les modules
-       // var totalReceived = 0; // somme de tous les modules
+        // var totalReceived = 0; // somme de tous les modules
         for (var s in sigus) {
             var sigu = sigus[s]; // le sigu 
             var traffics = sigu["liste"];// un seul traffic, celui de temps = temps cliqué
             var traffic = traffics[0];
             totalSent += traffic["somme"];
-           // totalReceived += traffic["packetreceived"];
+            // totalReceived += traffic["packetreceived"];
         }
         for (var s in sigus) {
             var sigu = sigus[s]; // le sigu 
@@ -1648,16 +1678,16 @@ module.controller('BPController', function($scope, $timeout, detailsService) {
                 }
             if (siguincluded) {
                 var traffic = traffics[0];
-               // var trafficreceived = traffic["packetreceived"] / totalReceived * 100;
+                // var trafficreceived = traffic["packetreceived"] / totalReceived * 100;
                 var trafficsent = traffic["somme"] / totalSent * 100;
                 data_pie.push([sigu["modulename"], trafficsent]);
-               // data1_pie.push([sigu["modulename"], trafficsent]);
+                // data1_pie.push([sigu["modulename"], trafficsent]);
             }
             //    break;
             //}
         }
         var series_pie = [{data: data_pie, type: 'pie'}];
-       // var series1_pie = [{data: data1_pie, type: 'pie'}];
+        // var series1_pie = [{data: data1_pie, type: 'pie'}];
         $scope.highchartsNGPie = {
             options: {
                 tooltip: {
