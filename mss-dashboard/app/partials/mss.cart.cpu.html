@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-    
+
 <div id="content" class="">
     <div class="row-fluid sortable">
         <div class="box span12">
@@ -14,7 +14,7 @@ and open the template in the editor.
             <div class="box-content">
                 <tabset>
                     <tab heading="All"  class="dropdown" active="allvars.optionsTabs[0]" >
-                        Click SUBMIT to see all the % of CPU
+                        Click SUBMIT to see all the CPU
                         <input type = "submit" ng-click="generalUpdate()"value="Submit" class="btn btn-primary"/>
                     </tab>
                     <!--tab heading="All">Click SUBMIT to see all the traffic
@@ -36,7 +36,7 @@ and open the template in the editor.
                     </tab>
                     <tab heading="Top"  active="allvars.optionsTabs[2]" >
                         Click the button TOP to see the top 10 {{ allvars.Indi_Name}}s which have the most traffic
-                        <input type = "submit" ng-click="" value="TOP 10" class="btn btn-primary"/>
+                        <input type = "submit" ng-click="generalUpdate()" value="TOP 10" class="btn btn-primary"/>
                     </tab>
                     <tab heading="One"  active="allvars.optionsTabs[3]" >
 
@@ -60,7 +60,7 @@ and open the template in the editor.
         <div class="row-fluid sortable">
             <div class="box span12">
                 <div class="box-header well" data-original-title>
-                    <h2><i class="icon-list-alt"></i> Load Percent of CPU</h2>
+                    <h2><i class="icon-list-alt"></i>CPU</h2>
                 </div>
                 <div class="box-content">
                     <!--p>
@@ -68,8 +68,8 @@ and open the template in the editor.
                         </select> 
                     </p-->
                     <div class="btn-group">
-                        <label class="btn btn-primary" ng-model="allvars.chartType" ng-click="onChangeChartType('line')" btn-radio="'line'">LineChart</label>
-                        <label class="btn btn-primary" ng-model="allvars.chartType" ng-click="onChangeChartType('column')" btn-radio="'column'">ColumnChart</label>
+                        <label class="btn btn-primary" ng-model="allvars.chartType" ng-click="events.onChangeChartType('line')" btn-radio="'line'">LineChart</label>
+                        <label class="btn btn-primary" ng-model="allvars.chartType" ng-click="events.onChangeChartType('column')" btn-radio="'column'">ColumnChart</label>
                     </div>
 
                     <div class="btn-group pull-right">
@@ -79,26 +79,19 @@ and open the template in the editor.
                     </div>
 
                     <div my-calendar="mycalendar" ng-model="allvars.dates1" onchange="generalUpdate()"></div>
-                     <highchart id="chart1" config="highchartsNG"></highchart>
-                
+                    <highchart id="chart1" config="highchartsNG"></highchart>
+
+                    <highchart id="chart2" config="highchartsNGPie"></highchart>
+                    
                     <!--div ng-controller="Index2"-->
-                   
-                        <div>
-                        <ul>
-                        <li>
-                        <slider floor="100" ceiling="1000" step="50" precision="2" ng-model="alvars.item"></slider>
-                        </li>
-                    </ul>
+
+                    <div>
                     </div>
                 </div>
             </div><!--/span-->
-        </div>
-    </div>
-        <!-- content ends -->
-    </div><!--/#content.span10-->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    
-     
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+
 
 
 

@@ -10,179 +10,6 @@ google.setOnLoadCallback(function() {
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $modal service used above.
 
-var showFromList = function(result, $scope) {
-
-    $scope.graphs = result;
-    var sigus = result["sigus"];
-    var times = result["times"]; // liste des TimePoint
-
-    var tab = [];
-    var tab1 = [];
-
-    /* Ligne 1 de la matrice */
-    var ligne1 = [['time']];
-    for (var s in sigus) {
-        var sigu = sigus[s]; // le sigu 
-        var siguname = sigu["siguname"];
-        ligne1.push(siguname);
-    }
-    tab.push(ligne1);
-    tab1.push(ligne1);
-//                for (var i = 0; i < 10; i++) // 10 = nombre de valeurs horizontales
-//                    tab.push([i * 5]);
-
-    /* Le reste des lignes, une ligne pour chaque TimePoint */
-    var last_timeId;
-    var last_timeValue;
-    for (var t in times) {
-        var time = times[t];
-        var timeId = time["id"];
-        last_timeId = timeId;
-        var d = new Date(time["atTime"]);
-        var d1 = d.getHours() - 1;
-        var d2 = d.getMinutes();
-        var curr_date = d.getDate();
-        var curr_month = d.getMonth() + 1; //Months are zero based
-        var curr_year = d.getFullYear();
-        var datenow = curr_date + "-" + curr_month + "-" + curr_year;
-        var timeValeur = d1 + ":" + d2;
-        last_timeValue = timeValeur;
-        var lignereceived = [timeValeur];
-        var lignesent = [timeValeur];
-        for (var s in sigus) {
-            var sigu = sigus[s]; // le sigu 
-            var trafficsent = 0;
-            var trafficreceived = 0;
-            var traffics = sigu["liste"];
-            for (var trafficKey in traffics) {
-                var traffic = traffics[trafficKey];
-                if (traffic["dateExec"] == timeId) {
-                    trafficsent = traffic["packetsent"];
-                    trafficreceived = traffic["packetreceived"];
-                    break;
-                }
-            }
-            lignesent.push(trafficsent);
-            lignereceived.push(trafficreceived);
-        }
-        tab.push(lignereceived);
-        tab1.push(lignesent);
-
-    }
-    $scope.allvars.lasttime = last_timeValue;
-    var tab2 = [['name', last_timeValue]];
-    var tab3 = [['name', last_timeValue]];
-
-    for (var s in sigus) {
-        var sigu = sigus[s]; // le sigu 
-        var lignereceived = [sigu["siguname"]];
-        var lignesent = [sigu["siguname"]];
-        var trafficsent = 0;
-        var trafficreceived = 0;
-        var traffics = sigu["liste"];
-        for (var trafficKey in traffics) {
-            var traffic = traffics[trafficKey];
-            if (traffic["dateExec"] == last_timeId) {
-                trafficsent = traffic["packetsent"];
-                trafficreceived = traffic["packetreceived"];
-                break;
-            }
-        }
-        lignesent.push(trafficsent);
-        lignereceived.push(trafficreceived);
-        tab2.push(lignereceived);
-        tab3.push(lignesent);
-    }
-
-//                // key = i && tab[i]=result[key]
-//                for (var key in sigus) { // pour tout sigu dans result
-//                    var obj = sigus[key]; // le sigu 
-//                    var liste = obj["liste"]; // ses stats
-//                    var siguname = obj["siguname"];
-//                    if (!siguname)
-//                        siguname = "inconnu id:" + obj["siguid"];
-//                    tab[0].push(siguname);
-//                    var index = 0;
-//                    for (var key1 in liste) // pour tout traffic de ce sigu
-//                    {
-//                        if (index >= 10)
-//                            break;
-//
-//                        var val = [['Time', obj["siguname"]]];
-//                        var obj1 = liste[key1];
-//                        var d = new Date(obj1["dateExec"]);
-//                        var d1 = d.getHours();
-//                        var d2 = d.getMinutes();
-//                        var curr_date = d.getDate();
-//                        var curr_month = d.getMonth() + 1; //Months are zero based
-//                        var curr_year = d.getFullYear();
-//                        var datenow = curr_date + "-" + curr_month + "-" + curr_year;
-//
-//                        val.push([d1 + ":" + d2, obj1["packetreceived"]]);
-//
-//                        tab[index + 1].push(obj1["packetreceived"]);
-//                        index = index + 1;
-//                    }
-//
-//                    // si le sigu a moin que 10 valeurs, remplir avec des zeros
-//                    if (index < 10)
-//                        for (var i = index; i < 10; i++) {
-//                            tab[i + 1].push(0);
-//                        }
-//                }
-    var data = google.visualization.arrayToDataTable(tab);
-    var data1 = google.visualization.arrayToDataTable(tab1);
-    var options = {
-        title: 'Traffic IN for SIGU'
-    };
-    var options1 = {
-        title: 'Traffic OUT for SIGU'
-    };
-    var chart = {};
-    chart.data = data;
-    chart.options = options;
-    var chart1 = {};
-    chart1.data = data1;
-    chart1.options = options1;
-    $scope.chartTypes = [
-        {typeName: 'LineChart', typeValue: '1'},
-        {typeName: 'BarChart', typeValue: '2'},
-        {typeName: 'ColumnChart', typeValue: '3'},
-        {typeName: 'PieChart', typeValue: '4'}
-    ];
-    $scope.selectType = function(type) {
-        $scope.chart.type = type.typeValue;
-        $scope.chart1.type = type.typeValue;
-    };
-    chart.type = $scope.chartTypes[2].typeValue;
-    chart1.type = $scope.chartTypes[2].typeValue;
-    $scope.chartType = $scope.chartTypes[2];
-    $scope.chart = chart;
-    $scope.chart1 = chart1;
-
-    // pie
-    var data2 = google.visualization.arrayToDataTable(tab2);
-    var data3 = google.visualization.arrayToDataTable(tab3);
-    var options2 = {
-        title: 'Traffic IN for SIGU'
-    };
-    var options3 = {
-        title: 'Traffic OUT for SIGU'
-    };
-    var chart2 = {};
-    chart2.data = data2;
-    chart2.options = options2;
-    var chart3 = {};
-    chart3.data = data3;
-    chart3.options = options3;
-
-
-    chart2.type = $scope.chartTypes[3].typeValue;
-    chart3.type = $scope.chartTypes[3].typeValue;
-    $scope.chart2 = chart2;
-    $scope.chart3 = chart3;
-};
-
 var carteToID = function(carte) {
     if (carte === 'bsu') {
         //  args.type1 = 1;
@@ -217,818 +44,24 @@ var carteToID = function(carte) {
     }
 
 };
-var module = angular.module('myApp.controllers', []).
-        controller('MyCtrl1', function($scope, trafficforsigu, getsigunames, toptraffic, allgraphs, siguranged) {
-            $scope.allvars = {};
-            $scope.allvars.Indi_Name = "SIGU";
-            // $scope.allvars.packet = "packetreceived";
-            $scope.sigunames = getsigunames.query();
-            //fonction zèyda
-            $scope.update = function() {
-                //alert($scope.siguSelected);
-                $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});
-                $scope.alltraffics.$promise.then(function(result) {
-                    $scope.alltraffics = result;
-                    var val = [['Time', 'Traffic IN']];
-                    // key = i && tab[i]=result[key]
-                    for (var key in result) {
-                        var obj = result[key];
-                        //  if (obj["siguName"] == nom) {                   
-                        //  i = i + 5;
-                        var d = new Date(obj["dateExec"]);
-                        var d1 = d.getHours();
-                        var d2 = d.getMinutes();
-                        var curr_date = d.getDate();
-                        var curr_month = d.getMonth() + 1; //Months are zero based
-                        var curr_year = d.getFullYear();
-                        var datenow = curr_date + "-" + curr_month + "-" + curr_year;
-                        val.push([d1 + ":" + d2, obj[$scope.allvars.traff]]);
-                        // val.push([i, obj["packetreceived"]]);
-                        //}
-                        // }
-                        // else {
-                        //    i++;
-                        // }
-                    }
-                    var data = google.visualization.arrayToDataTable(val);
-                    var data1 = google.visualization.arrayToDataTable(val);
-                    var options = {
-                        title: 'Traffic IN for SIGU'
-                    };
-                    var chart = {};
-                    chart.data = data;
-                    chart.options = options;
-//                    var chart1 = {};
-//                    chart1.data = data1;
-//                    chart1.options = options;
-
-                    $scope.chartTypes = [
-                        {typeName: 'LineChart', typeValue: '1'},
-                        {typeName: 'BarChart', typeValue: '2'},
-                        {typeName: 'ColumnChart', typeValue: '3'},
-                        {typeName: 'PieChart', typeValue: '4'}
-                    ];
-                    $scope.selectType = function(type) {
-                        $scope.chart.type = type.typeValue;
-                        //$scope.chart1.type = type.typeValue;
-                    };
-                    chart.type = $scope.chartTypes[0].typeValue;
-                    $scope.chartType = $scope.chartTypes[0];
-
-                    $scope.chart = chart;
-                    //$scope.chart1 = chart1;
-                });
-
-            };
-
-            var dateFrom = $scope.allvars.dt.getFullYear() + ":" + $scope.allvars.dt.getMonth() + ":" + $scope.allvars.dt.getDate();
-            $scope.updateShowAll = function() {
-                var args = {
-                    year: $scope.allvars.dt.getFullYear(),
-                    month: $scope.allvars.dt.getMonth(),
-                    day: $scope.allvars.dt.getDate()
-                };
-                var allsigu = allgraphs.query(args);
-                allsigu.$promise.then($scope.showFromListLOCAL);
-
-            };
-            $scope.showFromListLOCAL = function(result) {
-                showFromList(result, $scope);
-            };
-
-            $scope.updateShowTop10 = function() {
-                var allsigu = toptraffic.query();
-                allsigu.$promise.then(showFromList);
-            };
-
-            $scope.updateRange = function() {
-                var list = "";
-
-                var start = 0;
-                var i = 0;
-                while (i < $scope.sigunames.length) {
-                    if ($scope.sigunames[i].id == $scope.allvars.siguSelected) {
-                        start = i;
-                        break;
-                    } else
-                        i = i + 1;
-                }
-
-                // juska ? et créer la liste en parallèle
-                for (i = start; i < $scope.sigunames.length; i++) {
-                    if (list === "")
-                        list = $scope.sigunames[i].id;
-                    else
-                        list = list + "," + $scope.sigunames[i].id;
-
-                    if ($scope.sigunames[i].id == $scope.allvars.siguSelected2)
-                        break;
-                }
-
-                //alert(list);
-                // i =0;
-                var rangesigu = siguranged.query({list: list});
-                rangesigu.$promise.then($scope.showFromListLOCAL);
-            };
-
-            $scope.updateRange11 = function() {
-                var list = $scope.allvars.siguSelected3;
-                //alert(list);
-                var rangesigu = siguranged.query({list: list});
-                rangesigu.$promise.then($scope.showFromListLOCAL);
-            };
-
-            //////
-            /* $scope.updateout = function() {
-             $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});
-             $scope.alltraffics.$promise.then(function(result) {
-             $scope.alltraffics = result;
-             var val = [['Time', 'Traffic OUT']];
-             for (var key in result) {
-             var obj = result[key];
-             var d = new Date(obj["dateExec"]);
-             var d1 = d.getHours();
-             var d2 = d.getMinutes();
-             var curr_date = d.getDate();
-             var curr_month = d.getMonth() + 1; //Months are zero based
-             var curr_year = d.getFullYear();
-             var datenow = curr_date + "-" + curr_month + "-" + curr_year;
-             val.push([d1 + ":" + d2, obj["packetsent"]]);
-             }
-             var data = google.visualization.arrayToDataTable(val);
-             var options = {
-             title: 'Traffic OUT for SIGU'
-             };
-             var chart = {};
-             chart.data = data;
-             chart.options = options;
-             
-             $scope.chartTypes = [
-             {typeName: 'LineChart', typeValue: '1'},
-             {typeName: 'BarChart', typeValue: '2'},
-             {typeName: 'ColumnChart', typeValue: '3'},
-             {typeName: 'PieChart', typeValue: '4'}
-             ];
-             $scope.selectType = function(type) {
-             $scope.chart.type = type.typeValue;
-             };
-             chart.type = $scope.chartTypes[0].typeValue;
-             $scope.chartType = $scope.chartTypes[0];
-             $scope.chart = chart;
-             });
-             };
-             
-             var showFromListout = function(result) {
-             $scope.graphs = result;
-             
-             var sigus = result["sigus"];
-             var times = result["times"]; // liste des TimePoint
-             
-             var tab = [];
-             
-             // Ligne 1 de la matrice 
-             var ligne1 = [['time']];
-             for (var s in sigus) {
-             var sigu = sigus[s]; // le sigu 
-             var siguname = sigu["siguname"];
-             ligne1.push(siguname);
-             }
-             tab.push(ligne1);
-             for (var t in times) {
-             var time = times[t];
-             var timeId = time["id"];
-             var d = new Date(time["atTime"]);
-             var d1 = d.getHours();
-             var d2 = d.getMinutes();
-             var curr_date = d.getDate();
-             var curr_month = d.getMonth() + 1; //Months are zero based
-             var curr_year = d.getFullYear();
-             var datenow = curr_date + "-" + curr_month + "-" + curr_year;
-             var timeValeur = d1 + ":" + d2;
-             
-             var ligne = [timeValeur];
-             for (var s in sigus) {
-             var sigu = sigus[s]; // le sigu 
-             var trafficsent = 0;
-             var traffics = sigu["liste"];
-             for (var trafficKey in traffics) {
-             var traffic = traffics[trafficKey];
-             if (traffic["dateExec"] == timeId) {
-             trafficsent = traffic["packetsent"];
-             break;
-             }
-             }
-             ligne.push(trafficsent);
-             }
-             tab.push(ligne);
-             
-             }
-             };
-             var data = google.visualization.arrayToDataTable(tab);
-             var options = {
-             title: 'Traffic OUT for SIGU'
-             };
-             var chart = {};
-             chart.data = data;
-             chart.options = options;
-             
-             $scope.chartTypes = [
-             {typeName: 'LineChart', typeValue: '1'},
-             {typeName: 'BarChart', typeValue: '2'},
-             {typeName: 'ColumnChart', typeValue: '3'},
-             {typeName: 'PieChart', typeValue: '4'}
-             ];
-             $scope.selectType = function(type) {
-             $scope.chart.type = type.typeValue;
-             };
-             chart.type = $scope.chartTypes[0].typeValue;
-             $scope.chartType = $scope.chartTypes[0];
-             $scope.chart = chart;*/
-            /////
-        })
-        .controller('MyCtrl2', function($scope, trafficforsigu, getsigunames, toptraffic, getbsunames, allgraphs, siguranged, allbsu) {
-            $scope.allvars = {};
-            $scope.allvars.Indi_Name = "BSU";
-            $scope.sigunames = getbsunames.query();
-            //                             
-            $scope.update3333 = function() {
-                //alert($scope.siguSelected);
-                $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});
-                $scope.alltraffics.$promise.then(function(result) {
-                    $scope.alltraffics = result;
-                    var val = [['Time', 'Traffic IN']];
-                    // key = i && tab[i]=result[key]
-                    for (var key in result) {
-                        var obj = result[key];
-                        //  if (obj["siguName"] == nom) {                   
-                        //  i = i + 5;
-                        var d = new Date(obj["dateExec"]);
-                        var d1 = d.getHours();
-                        var d2 = d.getMinutes();
-                        var curr_date = d.getDate();
-                        var curr_month = d.getMonth() + 1; //Months are zero based
-                        var curr_year = d.getFullYear();
-                        var datenow = curr_date + "-" + curr_month + "-" + curr_year;
-
-                        val.push([d1 + ":" + d2, obj[$scope.allvars.traff]]);
-                    }
-                    var data = google.visualization.arrayToDataTable(val);
-                    var options = {
-                        title: 'Traffic IN for SIGU'
-                    };
-                    var chart = {};
-                    chart.data = data;
-                    chart.options = options;
-
-                    $scope.chartTypes = [
-                        {typeName: 'LineChart', typeValue: '1'},
-                        {typeName: 'BarChart', typeValue: '2'},
-                        {typeName: 'ColumnChart', typeValue: '3'},
-                        {typeName: 'PieChart', typeValue: '4'}
-                    ];
-                    $scope.selectType = function(type) {
-                        $scope.chart.type = type.typeValue;
-                    };
-                    chart.type = $scope.chartTypes[0].typeValue;
-                    $scope.chartType = $scope.chartTypes[0];
-
-                    $scope.chart = chart;
-                });
-
-            };
-
-            var showFromList5555 = function(result) {
-                $scope.graphs = result;
-
-                var sigus = result["sigus"];
-                var times = result["times"]; // liste des TimePoint
-
-                var tab = [];
-
-                /* Ligne 1 de la matrice */
-                var ligne1 = [['time']];
-                for (var s in sigus) {
-                    var sigu = sigus[s]; // le sigu 
-                    var siguname = sigu["siguname"];
-                    ligne1.push(siguname);
-                }
-                tab.push(ligne1);
-//                for (var i = 0; i < 10; i++) // 10 = nombre de valeurs horizontales
-//                    tab.push([i * 5]);
-
-                /* Le reste des lignes, une ligne pour chaque TimePoint */
-                for (var t in times) {
-                    var time = times[t];
-                    var timeId = time["id"];
-                    var d = new Date(time["atTime"]);
-                    var d1 = d.getHours();
-                    var d2 = d.getMinutes();
-                    var curr_date = d.getDate();
-                    var curr_month = d.getMonth() + 1; //Months are zero based
-                    var curr_year = d.getFullYear();
-                    var datenow = curr_date + "-" + curr_month + "-" + curr_year;
-                    var timeValeur = d1 + ":" + d2;
-
-                    var ligne = [timeValeur];
-                    for (var s in sigus) {
-                        var sigu = sigus[s]; // le sigu 
-                        var trafficsent = 0;
-                        var traffics = sigu["liste"];
-                        for (var trafficKey in traffics) {
-                            var traffic = traffics[trafficKey];
-                            if (traffic["dateExec"] === timeId) {
-                                trafficsent = traffic[$scope.allvars.traff];
-                                break;
-                            }
-                        }
-                        ligne.push(trafficsent);
-                    }
-                    tab.push(ligne);
-
-                }
-
-                var data = google.visualization.arrayToDataTable(tab);
-                var options = {
-                    title: 'Traffic IN for SIGU'
-                };
-                var chart = {};
-                chart.data = data;
-                chart.options = options;
-
-                $scope.chartTypes = [
-                    {typeName: 'LineChart', typeValue: '1'},
-                    {typeName: 'BarChart', typeValue: '2'},
-                    {typeName: 'ColumnChart', typeValue: '3'},
-                    {typeName: 'PieChart', typeValue: '4'}
-                ];
-                $scope.selectType = function(type) {
-                    $scope.chart.type = type.typeValue;
-                };
-                chart.type = $scope.chartTypes[0].typeValue;
-                $scope.chartType = $scope.chartTypes[0];
-                $scope.chart = chart;
-
-
-            };
-
-            $scope.updateShowAll = function() {
-                var args = {
-                    year: $scope.allvars.dt.getFullYear(),
-                    month: $scope.allvars.dt.getMonth(),
-                    day: $scope.allvars.dt.getDate()
-                };
-                var allsigu = allbsu.query(args);
-                allsigu.$promise.then($scope.showFromListLOCAL);
-
-            };
-            $scope.showFromListLOCAL = function(result) {
-                showFromList(result, $scope);
-            }
-
-            $scope.updateShowTop10 = function() {
-                var allsigu = toptraffic.query();
-                allsigu.$promise.then(showFromList);
-            };
-
-            $scope.updateRange = function() {
-                var list = "";
-                var start = 0;
-                var i = 0;
-                while (i < $scope.sigunames.length) {
-                    if ($scope.sigunames[i].id == $scope.allvars.siguSelected) {
-                        start = i;
-                        break;
-                    } else
-                        i = i + 1;
-                }
-
-                // juska ? et créer la liste en parallèle
-                for (i = start; i < $scope.sigunames.length; i++) {
-                    if (list == "")
-                        list = $scope.sigunames[i].id;
-                    else
-                        list = list + "," + $scope.sigunames[i].id;
-
-                    if ($scope.sigunames[i].id == $scope.allvars.siguSelected2)
-                        break;
-                }
-
-                //  alert(list);
-                // i =0;
-                var rangesigu = siguranged.query({list: list});
-                rangesigu.$promise.then($scope.showFromListLOCAL);
-            };
-
-            $scope.updateRange11 = function() {
-                var list = $scope.allvars.siguSelected3;
-                // alert(list);
-                var rangesigu = siguranged.query({list: list});
-                rangesigu.$promise.then($scope.showFromListLOCAL);
-            };
-        })
-        .controller('MyCtrl3', function($scope, trafficforsigu, getsigunames, toptraffic, getbsunames, allgraphs, siguranged, allbsu) {
-            $scope.allvars = {};
-            $scope.allvars.Indi_Name = "SIGU";
-            $scope.sigunames = getsigunames.query();
-            //                             
-            $scope.update = function() {
-                $scope.alltraffics = trafficforsigu.query({siguId: $scope.siguSelected});
-                $scope.alltraffics.$promise.then(function(result) {
-                    $scope.alltraffics = result;
-                    var val = [['Time', 'Traffic IN']];
-                    // key = i && tab[i]=result[key]
-                    for (var key in result) {
-                        var obj = result[key];
-                        //  if (obj["siguName"] == nom) {                   
-                        //  i = i + 5;
-                        var d = new Date(obj["dateExec"]);
-                        var d1 = d.getHours() - 1;
-                        var d2 = d.getMinutes();
-                        var curr_date = d.getDate();
-                        var curr_month = d.getMonth() + 1; //Months are zero based
-                        var curr_year = d.getFullYear();
-                        var datenow = curr_date + "-" + curr_month + "-" + curr_year;
-
-                        val.push([d1 + ":" + d2, obj["somme"]]);
-                    }
-                    var data = google.visualization.arrayToDataTable(val);
-                    var options = {
-                        title: 'Bandwidth for SIGU'
-                    };
-                    var chart = {};
-                    chart.data = data;
-                    chart.options = options;
-
-                    $scope.chartTypes = [
-                        {typeName: 'LineChart', typeValue: '1'},
-                        {typeName: 'BarChart', typeValue: '2'},
-                        {typeName: 'ColumnChart', typeValue: '3'},
-                        {typeName: 'PieChart', typeValue: '4'}
-                    ];
-                    $scope.selectType = function(type) {
-                        $scope.chart.type = type.typeValue;
-                    };
-                    chart.type = $scope.chartTypes[2].typeValue;
-                    $scope.chartType = $scope.chartTypes[2];
-                    $scope.chart = chart;
-                });
-
-            };
-
-
-            var showFromList = function(result) {
-                $scope.graphs = result;
-                var sigus = result["sigus"];
-                var times = result["times"]; // liste des TimePoint
-                var tab = [];
-                /* Ligne 1 de la matrice */
-                var ligne1 = [['time']];
-                for (var s in sigus) {
-                    var sigu = sigus[s]; // le sigu 
-                    var siguname = sigu["siguname"];
-                    ligne1.push(siguname);
-                }
-                tab.push(ligne1);
-                var last_timeId;
-                var last_timeValue;
-                for (var t in times) {
-                    var time = times[t];
-                    var timeId = time["id"];
-                    last_timeId = timeId;
-                    var d = new Date(time["atTime"]);
-                    var d1 = d.getHours();
-                    var d2 = d.getMinutes();
-                    var curr_date = d.getDate();
-                    var curr_month = d.getMonth() + 1; //Months are zero based
-                    var curr_year = d.getFullYear();
-                    var datenow = curr_date + "-" + curr_month + "-" + curr_year;
-                    var timeValeur = d1 + ":" + d2;
-                    last_timeValue = timeValeur;
-                    var ligne = [timeValeur];
-                    for (var s in sigus) {
-                        var sigu = sigus[s]; // le sigu 
-                        var trafficsomme = 0;
-                        var traffics = sigu["liste"];
-                        for (var trafficKey in traffics) {
-                            var traffic = traffics[trafficKey];
-                            if (traffic["dateExec"] === timeId) {
-                                trafficsomme = traffic["somme"];
-                                break;
-                            }
-                        }
-                        ligne.push(trafficsomme);
-                    }
-                    tab.push(ligne);
-                }
-                //////
-                $scope.allvars.lasttime = last_timeValue;
-                var tab2 = [['name', last_timeValue]];
-                for (var s in sigus) {
-                    var sigu = sigus[s]; // le sigu 
-                    var lignesomme = [sigu["siguname"]];
-
-                    var trafficsomme = 0;
-                    var traffics = sigu["liste"];
-                    for (var trafficKey in traffics) {
-                        var traffic = traffics[trafficKey];
-                        if (traffic["dateExec"] == last_timeId) {
-                            trafficsomme = traffic["somme"];
-
-                            break;
-                        }
-                    }
-                    lignesomme.push(trafficsomme);
-                    tab2.push(lignesomme);
-                }
-                //set a pie(thabit milblasa
-                var data = google.visualization.arrayToDataTable(tab);
-                var options = {
-                    title: 'BandWIdth for SIGU'
-                };
-                var chart = {};
-                chart.data = data;
-                chart.options = options;
-                $scope.chartTypes = [
-                    {typeName: 'LineChart', typeValue: '1'},
-                    {typeName: 'BarChart', typeValue: '2'},
-                    {typeName: 'ColumnChart', typeValue: '3'},
-                    {typeName: 'PieChart', typeValue: '4'}
-                ];
-                $scope.selectType = function(type) {
-                    $scope.chart.type = type.typeValue;
-                };
-                chart.type = $scope.chartTypes[2].typeValue;
-                $scope.chartType = $scope.chartTypes[2];
-                $scope.chart = chart;
-                //pie
-                var data2 = google.visualization.arrayToDataTable(tab2);
-                var options2 = {
-                    title: '% BandWidth for SIGU'
-                };
-                var chart2 = {};
-                chart2.data = data2;
-                chart2.options = options2;
-                chart2.type = $scope.chartTypes[3].typeValue;
-                $scope.chart2 = chart2;
-            };
-            $scope.updateShowAll = function() {
-                var allsigu = allgraphs.query();
-                allsigu.$promise.then(showFromList);
-
-            };
-
-            $scope.updateShowTop10 = function() {
-                var allsigu = toptraffic.query();
-                allsigu.$promise.then(showFromList);
-            };
-
-            $scope.updateRange = function() {
-                var list = "";
-                var start = 0;
-                var i = 0;
-                while (i < $scope.sigunames.length) {
-                    if ($scope.sigunames[i].id == $scope.allvars.siguSelected) {
-                        start = i;
-                        break;
-                    } else
-                        i = i + 1;
-                }
-
-                // juska ? et créer la liste en parallèle
-                for (i = start; i < $scope.sigunames.length; i++) {
-                    if (list == "")
-                        list = $scope.sigunames[i].id;
-                    else
-                        list = list + "," + $scope.sigunames[i].id;
-
-                    if ($scope.sigunames[i].id == $scope.allvars.siguSelected2)
-                        break;
-                }
-
-                //  alert(list);
-                // i =0;
-                var rangesigu = siguranged.query({list: list});
-                rangesigu.$promise.then(showFromList);
-            };
-
-            $scope.updateRange11 = function() {
-                var list = $scope.allvars.siguSelected3;
-                // alert(list);
-                var rangesigu = siguranged.query({list: list});
-                rangesigu.$promise.then(showFromList);
-            };
-
-        }
-        ).controller('MyCtrl4', function($scope, allmodules, trafficforsigu, getsigunames, toptraffic, getbsunames, allgraphs, siguranged, allbsu) {
-    $scope.allvars = {};
-    $scope.allvars.Indi_Name = "BSU";
-    $scope.sigunames = getbsunames.query();
-
-
-    var showFromList = function(result) {
-        $scope.graphs = result;
-        var sigus = result["sigus"];
-        var times = result["times"]; // liste des TimePoint
-        var tab = [];
-        /* Ligne 1 de la matrice */
-        var ligne1 = [['time']];
-        for (var s in sigus) {
-            var sigu = sigus[s]; // le sigu 
-            var siguname = sigu["siguname"];
-            ligne1.push(siguname);
-        }
-        tab.push(ligne1);
-        var last_timeId;
-        var last_timeValue;
-        for (var t in times) {
-            var time = times[t];
-            var timeId = time["id"];
-            last_timeId = timeId;
-            var d = new Date(time["atTime"]);
-            var d1 = d.getHours();
-            var d2 = d.getMinutes();
-            var curr_date = d.getDate();
-            var curr_month = d.getMonth() + 1; //Months are zero based
-            var curr_year = d.getFullYear();
-            var datenow = curr_date + "-" + curr_month + "-" + curr_year;
-            var timeValeur = d1 + ":" + d2;
-            last_timeValue = timeValeur;
-            var ligne = [timeValeur];
-            for (var s in sigus) {
-                var sigu = sigus[s]; // le sigu 
-                var trafficsomme = 0;
-                var traffics = sigu["liste"];
-                for (var trafficKey in traffics) {
-                    var traffic = traffics[trafficKey];
-                    if (traffic["dateExec"] === timeId) {
-                        trafficsomme = traffic["somme"];
-                        break;
-                    }
-                }
-                ligne.push(trafficsomme);
-            }
-            tab.push(ligne);
-        }
-        //////
-        $scope.allvars.lasttime = last_timeValue;
-        var tab2 = [['name', last_timeValue]];
-        for (var s in sigus) {
-            var sigu = sigus[s]; // le sigu 
-            var lignesomme = [sigu["siguname"]];
-
-            var trafficsomme = 0;
-            var traffics = sigu["liste"];
-            for (var trafficKey in traffics) {
-                var traffic = traffics[trafficKey];
-                if (traffic["dateExec"] == last_timeId) {
-                    trafficsomme = traffic["somme"];
-
-                    break;
-                }
-            }
-            lignesomme.push(trafficsomme);
-            tab2.push(lignesomme);
-        }
-        //set a pie(thabit milblasa
-        var data = google.visualization.arrayToDataTable(tab);
-        var options = {
-            title: 'BandWidth for BSU'
-        };
-        var chart = {};
-        chart.data = data;
-        chart.options = options;
-        $scope.chartTypes = [
-            {typeName: 'LineChart', typeValue: '1'},
-            {typeName: 'BarChart', typeValue: '2'},
-            {typeName: 'ColumnChart', typeValue: '3'},
-            {typeName: 'PieChart', typeValue: '4'}
-        ];
-        $scope.selectType = function(type) {
-            $scope.chart.type = type.typeValue;
-        };
-        chart.type = $scope.chartTypes[2].typeValue;
-        $scope.chartType = $scope.chartTypes[2];
-        $scope.chart = chart;
-        //pie
-        var data2 = google.visualization.arrayToDataTable(tab2);
-        var options2 = {
-            title: '% BandWidth for BSU'
-        };
-        var chart2 = {};
-        chart2.data = data2;
-        chart2.options = options2;
-        chart2.type = $scope.chartTypes[3].typeValue;
-        $scope.chart2 = chart2;
-    };
-    $scope.updateShowAll = function() {
-        var allsigu = allbsu.query();
-        allsigu.$promise.then(showFromList);
-
-    };
-
-    $scope.updateShowTop10 = function() {
-        var allsigu = toptraffic.query();
-        allsigu.$promise.then(showFromList);
-    };
-
-    $scope.updateRange = function() {
-        var list = "";
-        var start = 0;
-        var i = 0;
-        while (i < $scope.sigunames.length) {
-            if ($scope.sigunames[i].id == $scope.allvars.siguSelected) {
-                start = i;
-                break;
-            } else
-                i = i + 1;
-        }
-
-        // juska ? et créer la liste en parallèle
-        for (i = start; i < $scope.sigunames.length; i++) {
-            if (list == "")
-                list = $scope.sigunames[i].id;
-            else
-                list = list + "," + $scope.sigunames[i].id;
-
-            if ($scope.sigunames[i].id == $scope.allvars.siguSelected2)
-                break;
-        }
-
-        //  alert(list);
-        // i =0;
-        var rangesigu = siguranged.query({list: list});
-        rangesigu.$promise.then(showFromList);
-    };
-
-    $scope.updateRange11 = function() {
-        var list = $scope.allvars.siguSelected3;
-        // alert(list);
-        var rangesigu = siguranged.query({list: list});
-        rangesigu.$promise.then(showFromList);
-    };
-
-}
-);
-/*.controller('Index2', function($scope) {
- 
- $scope.currencyFormatting = function(value) { return value.toString() + " $"; };
- 
- 
- $scope.DatepickerDemoCtrl = function() {
- $scope.today = function() {
- $scope.dt = new Date();
- };
- $scope.today();
- 
- $scope.showWeeks = true;
- $scope.toggleWeeks = function() {
- $scope.showWeeks = !$scope.showWeeks;
- };
- 
- $scope.clear = function() {
- $scope.dt = null;
- };
- 
- // Disable weekend selection
- $scope.disabled = function(date, mode) {
- return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
- };
- 
- $scope.toggleMin = function() {
- $scope.minDate = ($scope.minDate) ? null : new Date();
- };
- $scope.toggleMin();
- 
- $scope.open = function($event) {
- $event.preventDefault();
- $event.stopPropagation();
- 
- $scope.opened = true;
- };
- 
- $scope.dateOptions = {
- 'year-format': "'yy'",
- 'starting-day': 1
- };
- 
- $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'shortDate'];
- $scope.format = $scope.formats[0];
- };
- })*/
+var module = angular.module('myApp.controllers', []);
 
 module.controller('KPIController', function($scope, $filter, $timeout, allmodules, $stateParams) {
     $scope.allvars = {};
-    $scope.allvars.optionsTabs = [true, false, false, false];
+    $scope.allvars.optionsTabs = [false, false, true, false];
     $scope.allvars.timingOption = 0;
     //$scope.allvars.charteType = 'line';
     $scope.mycalendar = null;
     $scope.allvars.selectedCarts = []; // pour le pie
-    $scope.onDateChange = function() {
+    $scope.events = {};
+    $scope.events.onDateChange = function() {
         $timeout(function() {
             alert("ok3:" + $scope.allvars.timingOption + ":" + $scope.allvars.optionsTabs[0] + '-' + $scope.allvars.optionsTabs[1] + '-');
         });
     };
-    $scope.onChangeChartType = function(type) {
+    $scope.events.onChartClick = function() {
+    };
+    $scope.events.onChangeChartType = function(type) {
         alert("type:" + type);
     };
     $scope.allvars.carteType = carteToID($stateParams.carte);
@@ -1118,29 +151,118 @@ module.controller('KPIController', function($scope, $filter, $timeout, allmodule
         return ws_options;
     };
 
+    // charts
+    $scope.highchartsNG = {
+        options: {
+            plotOptions: {
+                series: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function() {
+                                var timepoint = this.category;
+                                $scope.$apply(function() {
+                                    var c = $scope.allvars;
+                                    c.selectedPoint = "clicked:" + timepoint;
+                                    $scope.events.onChartClick(timepoint);
+                                });
+                            }
+                        }
+                    }
+                }
+            },
+            yAxis: {
+                opposite: false
+            },
+            legend: {
+                enabled: true
+            },
+            rangeSelector: {
+                enabled: true,
+                buttons: [{
+                        type: 'day',
+                        count: 1,
+                        text: '1d'
+                    }, {
+                        type: 'minute',
+                        count: 360,
+                        text: '6h'
+                    }, {
+                        type: 'minute',
+                        count: 180,
+                        text: '3h'
+                    }, {
+                        type: 'minute',
+                        count: 60,
+                        text: '1h'
+                    }],
+                inputEnabled: false
+            },
+            navigator: {enabled: true},
+            chart: {type: 'line'}
+
+        },
+        series: [],
+        title: {
+            text: 'TrafficIN'
+        },
+        loading: false,
+        useHighStocks: true
+    };
+    $scope.highchartsNGPie = {
+        options: {
+            tooltip: {
+                pointFormat: '<b>{point.y:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.y:.1f} %'
+                    }
+                }
+            }
+        },
+        series: [],
+        title: {
+            text: 'TraffcIN'
+        },
+        loading: false
+    };
+
 });
 module.controller('CPUController', function($scope, $timeout, detailsService) {
     $scope.show = function() {
         var c = $scope.mycalendar;
         c.show();
     };
-
-    $scope.onChangeChartType = function(type) {
+    $scope.highchartsNG.title.text = "CPU usage";
+    $scope.highchartsNGPie.title.text = "CPU usage";
+    $scope.events.onChangeChartType = function(type) {
         if ($scope.highchartsNG) {
-            var series = $scope.highchartsNG.series;
-            for (var key in series) {
-                series[key].type = type;
-            }
+            $scope.highchartsNG.options.chart.type = type;
         }
+    };
+    $scope.events.onChartClick = function(timePoint) {
+        //alert("time:"+timePoint);
+        console.log("time:" + timePoint);
+        var ws_options2 = {};
+        ws_options2.mss = $scope.allvars.mss;
+        ws_options2.indi = "allcpu";
+        ws_options2.from = 'byTime';
+        ws_options2.to = timePoint;
+        ws_options2.list11 = "all," + $scope.allvars.carteType;
+        var rangesigu = detailsService.query(ws_options2);
+        rangesigu.$promise.then(showPieFromList);
 
     };
-
     var showFromList2 = function(result) {
         $scope.graphs = result;
         var sigus = result["modules"];
         var times = result["times"]; // liste des TimePoint
-        var series = [];
-        var noms = [];
+        var series_line = [];
         //for each module
         for (var s in sigus) {
             var sigu = sigus[s]; // le sigu 
@@ -1154,55 +276,68 @@ module.controller('CPUController', function($scope, $timeout, detailsService) {
                     var time = times[t];
                     var timeId = time["id"];
 
-                    if (traffic["dateExec"] === timeId) {
-                        data.push([new Date(time["atTime"]).getTime(), traffic["loadCPU"]]);
+                    if (traffic["dateExec"] == timeId) {
+                        var mm = moment(time["atTime"]);
+                        data.push([mm.toDate().getTime(), traffic["loadCPU"]]);
                         break;
                     }
                 }
             }
-            series.push({data: data, name: siguname, type: $scope.allvars.chartType});
+            series_line.push({data: data, name: siguname});
 
         }
 
-        $scope.highchartsNG = {
-            options: {
-                /*chart: {
-                 type: 'line'
-                 },*/
-                rangeSelector: {
-                    enabled: true,
-                    buttons: [{
-                            type: 'day',
-                            count: 1,
-                            text: '1d'
-                        }, {
-                            type: 'minute',
-                            count: 360,
-                            text: '6h'
-                        }, {
-                            type: 'minute',
-                            count: 180,
-                            text: '3h'
-                        }, {
-                            type: 'minute',
-                            count: 60,
-                            text: '1h'
-                        }],
-                    inputEnabled: false
-                },
-                navigator: {enabled: true}
+        $scope.highchartsNG.series = series_line;
 
-            },
-            series: series,
-            title: {
-                text: 'Load Percent of CPU'
-            },
-            loading: false,
-            useHighStocks: true
-        };
-
+        // display pie chart of the last timepoint 
+        // simuler un click sur le dernier point des line charts
+        var mm = moment(times[times.length - 1]["atTime"]);
+        $scope.events.onChartClick(mm.toDate().getTime());
     };
 
+    var showPieFromList = function(result) {
+        // $scope.allvars.selectedCarts contient la liste des modules séléctionnés.
+        // result contient le traffic json de tous les modules
+        var sigus = result["modules"]; // tous les modules existants de meme type
+        var times = result["times"]; // liste des TimePoint = 1 seul
+        var last_timeId = times[0].id;
+        $scope.allvars.timeForPie = last_timeId;
+        var data_pie = [];
+        //boucle 1 pour trouvé le total:
+        var totalLoadCPU = 0; // somme de tous les modules
+        for (var s in sigus) {
+            var sigu = sigus[s]; // le sigu 
+            var traffics = sigu["liste"];// un seul traffic, celui de temps = temps cliqué
+            var traffic = traffics[0];
+            if (traffic)
+                totalLoadCPU += traffic["loadCPU"];
+        }
+        for (var s in sigus) {
+            var sigu = sigus[s]; // le sigu 
+            var traffics = sigu["liste"];// un seul traffic, celui de temps = temps cliqué
+            //for (var trafficKey in traffics) {
+            //afficher ce module ?
+            var siguincluded = false;
+            if ($scope.allvars.selectedCarts.length === 0)
+                siguincluded = true;
+            else
+                for (var j = 0; j < $scope.allvars.selectedCarts.length; j++) {
+                    if ($scope.allvars.selectedCarts[j] == sigu.moduleid) {
+                        siguincluded = true;
+                        break;
+                    }
+                }
+            if (siguincluded) {
+                var traffic = traffics[0];
+                var loadCPU = traffic["loadCPU"] / totalLoadCPU * 100;
+                data_pie.push([sigu["modulename"], loadCPU]);
+            }
+        }
+        var series_pie = [{data: data_pie, type: 'pie'}];
+        $scope.highchartsNGPie.series = series_pie;
+
+
+    };
     $scope.generalUpdate = function() {
         $timeout(function() {
             var ws_options = $scope.getSelectedOptions();
@@ -1211,33 +346,122 @@ module.controller('CPUController', function($scope, $timeout, detailsService) {
             ws_options.indi = "allcpu";
 
             var rangesigu = detailsService.query(ws_options);
+            if ($scope.allvars.optionsTabs[2]) { // la liste des sigus séléctionnées vient du ws
+                rangesigu.$promise.then(function(result) {
+                    var sigus = result["modules"];
+                    $scope.allvars.selectedCarts = [];
+                    for (var i = 0; i < sigus.length; i++)
+                        $scope.allvars.selectedCarts.push(sigus[i].moduleid);
+                    showFromList2(result);
+                });
+            }
             rangesigu.$promise.then(showFromList2);
 
 
         });
     };
+
+    // affichage des courbes es l'ouverture de la page
+    $scope.generalUpdate();
 }
 );
 module.controller('TrafficController', function($scope, $timeout, detailsService) {
+
+    $scope.highchartsNG1 = {
+        options: {
+            plotOptions: {
+                series: {
+                    cursor: 'pointer',
+                    point: {
+                        events: {
+                            click: function() {
+                                var timepoint = this.category;
+                                $scope.$apply(function() {
+                                    var c = $scope.allvars;
+                                    c.selectedPoint = "clicked:" + timepoint;
+                                    $scope.onChartClick(timepoint);
+                                });
+                            }
+                        }
+                    }
+                }
+            },
+            yAxis: {
+                opposite: false
+            },
+            legend: {
+                enabled: true
+            },
+            rangeSelector: {
+                enabled: true,
+                buttons: [{
+                        type: 'day',
+                        count: 1,
+                        text: '1d'
+                    }, {
+                        type: 'minute',
+                        count: 360,
+                        text: '6h'
+                    }, {
+                        type: 'minute',
+                        count: 180,
+                        text: '3h'
+                    }, {
+                        type: 'minute',
+                        count: 60,
+                        text: '1h'
+                    }],
+                inputEnabled: false
+            },
+            navigator: {enabled: true},
+            chart: {type: 'line'}
+
+        },
+        series: [],
+        title: {
+            text: 'TrafficOUT'
+        },
+        loading: false,
+        useHighStocks: true
+    };
+    $scope.highchartsNGPie1 = {
+        options: {
+            tooltip: {
+                pointFormat: '<b>{point.y:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.y:.1f} %'
+                    }
+                }
+            }
+        },
+        series: [],
+        title: {
+            text: 'TraffcOUT'
+        },
+        loading: false
+    };
+
     $scope.show = function() {
         var c = $scope.mycalendar;
         c.show();
     };
 
-    $scope.onChangeChartType = function(type) {
+    $scope.events.onChangeChartType = function(type) {
         if ($scope.highchartsNG) {
             $scope.highchartsNG.options.chart.type = type;
-//            var series = $scope.highchartsNG.series;
-//            for (var key in series) {
-//                series[key].type = type;
-//            }
         }
         if ($scope.highchartsNG1) {
             $scope.highchartsNG1.options.chart.type = type;
         }
 
     };
-    $scope.onChartClick = function(timePoint) {
+    $scope.events.onChartClick = function(timePoint) {
         //alert("time:"+timePoint);
         console.log("time:" + timePoint);
         var ws_options2 = {};
@@ -1285,133 +509,13 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
 
         }
 
+        $scope.highchartsNG.series = series_line;
+        $scope.highchartsNG1.series = series1_line;
 
-        $scope.highchartsNG = {
-            options: {
-                /*chart: {
-                 events: {
-                 click: function(e) {
-                 alert("click");
-                 }
-                 }
-                 },*/
-                plotOptions: {
-                    series: {
-                        cursor: 'pointer',
-                        point: {
-                            events: {
-                                click: function() {
-                                    var timepoint = this.category;
-                                    $scope.$apply(function() {
-                                        var c = $scope.allvars;
-                                        c.selectedPoint = "clicked:" + timepoint;
-                                        $scope.onChartClick(timepoint);
-                                    });
-                                }
-                            }
-                        }
-                    }
-                },
-                yAxis: {
-                    opposite: false
-                },
-                legend: {
-                    enabled: true
-                },
-                rangeSelector: {
-                    enabled: true,
-                    buttons: [{
-                            type: 'day',
-                            count: 1,
-                            text: '1d'
-                        }, {
-                            type: 'minute',
-                            count: 360,
-                            text: '6h'
-                        }, {
-                            type: 'minute',
-                            count: 180,
-                            text: '3h'
-                        }, {
-                            type: 'minute',
-                            count: 60,
-                            text: '1h'
-                        }],
-                    inputEnabled: false
-                },
-                navigator: {enabled: true},
-                chart: { type : 'line'}
-
-            },
-            series: series_line,
-            title: {
-                text: 'TrafficIN'
-            },
-            loading: false,
-            useHighStocks: true
-        };
-        $scope.highchartsNG1 = {
-            options: {
-                plotOptions: {
-                    series: {
-                        cursor: 'pointer',
-                        point: {
-                            events: {
-                                click: function() {
-                                    var timepoint = this.category;
-                                    $scope.$apply(function() {
-                                        var c = $scope.allvars;
-                                        c.selectedPoint = "clicked:" + timepoint;
-                                        $scope.onChartClick(timepoint);
-                                    });
-                                }
-                            }
-                        }
-                    }
-                },
-                yAxis: {
-                    opposite: false
-                },
-                legend: {
-                    enabled: true
-                },
-                rangeSelector: {
-                    enabled: true,
-                    buttons: [{
-                            type: 'day',
-                            count: 1,
-                            text: '1d'
-                        }, {
-                            type: 'minute',
-                            count: 360,
-                            text: '6h'
-                        }, {
-                            type: 'minute',
-                            count: 180,
-                            text: '3h'
-                        }, {
-                            type: 'minute',
-                            count: 60,
-                            text: '1h'
-                        }],
-                    inputEnabled: false
-                },
-                navigator: {enabled: true},
-                chart: { type : 'line'}
-
-            },
-            series: series1_line,
-            title: {
-                text: 'TrafficOUT'
-            },
-            loading: false,
-            useHighStocks: true
-        };
-        
         // display pie chart of the last timepoint 
         // simuler un click sur le dernier point des line charts
-        var mm = moment(times[times.length-1]["atTime"]);
-        $scope.onChartClick(mm.toDate().getTime());
+        var mm = moment(times[times.length - 1]["atTime"]);
+        $scope.events.onChartClick(mm.toDate().getTime());
     };
 
     var showPieFromList = function(result) {
@@ -1430,8 +534,10 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
             var sigu = sigus[s]; // le sigu 
             var traffics = sigu["liste"];// un seul traffic, celui de temps = temps cliqué
             var traffic = traffics[0];
-            totalSent += traffic["packetsent"];
-            totalReceived += traffic["packetreceived"];
+            if (traffic) {
+                totalSent += traffic["packetsent"];
+                totalReceived += traffic["packetreceived"];
+            }
         }
         for (var s in sigus) {
             var sigu = sigus[s]; // le sigu 
@@ -1455,55 +561,11 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
                 data_pie.push([sigu["modulename"], trafficreceived]);
                 data1_pie.push([sigu["modulename"], trafficsent]);
             }
-            //    break;
-            //}
         }
         var series_pie = [{data: data_pie, type: 'pie'}];
         var series1_pie = [{data: data1_pie, type: 'pie'}];
-        $scope.highchartsNGPie = {
-            options: {
-                tooltip: {
-                    pointFormat: '<b>{point.y:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.y:.1f} %'
-                        }
-                    }
-                }
-            },
-            series: series_pie,
-            title: {
-                text: 'TraffcIN'
-            },
-            loading: false
-        };
-        $scope.highchartsNGPie1 = {
-            options: {
-                tooltip: {
-                    pointFormat: '<b>{point.y:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.y:.1f} %'
-                        }
-                    }
-                }
-            },
-            series: series1_pie,
-            title: {
-                text: 'TraffcOUT'
-            },
-            loading: false
-        };
+        $scope.highchartsNGPie.series = series_pie;
+        $scope.highchartsNGPie1.series = series1_pie;
 
 
     };
@@ -1515,11 +577,11 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
             ws_options.indi = "traffic";
 
             var rangesigu = detailsService.query(ws_options);
-            if($scope.allvars.optionsTabs[2]){ // la liste des sigus séléctionnées vient du ws
-                rangesigu.$promise.then(function(result){
+            if ($scope.allvars.optionsTabs[2]) { // la liste des sigus séléctionnées vient du ws
+                rangesigu.$promise.then(function(result) {
                     var sigus = result["modules"];
                     $scope.allvars.selectedCarts = [];
-                    for(var i=0; i< sigus.length;i++)
+                    for (var i = 0; i < sigus.length; i++)
                         $scope.allvars.selectedCarts.push(sigus[i].moduleid);
                     showFromList2(result);
                 });
@@ -1529,6 +591,9 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
 
         });
     };
+
+    // affichage des courbes es l'ouverture de la page
+    $scope.generalUpdate();
 }
 );
 module.controller('BPController', function($scope, $timeout, detailsService) {
