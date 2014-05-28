@@ -1225,24 +1225,15 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
     };
 
     $scope.onChangeChartType = function(type) {
-        if (type === 'line') {
-            $scope.highchartsNG.useHighStocks = true;
-            $scope.highchartsNG1.useHighStocks = true;
-        } else if (type === 'column') {
-            $scope.highchartsNG.useHighStocks = false;
-            $scope.highchartsNG1.useHighStocks = false;
-        }
         if ($scope.highchartsNG) {
-            var series = $scope.highchartsNG.series;
-            for (var key in series) {
-                series[key].type = type;
-            }
+            $scope.highchartsNG.options.chart.type = type;
+//            var series = $scope.highchartsNG.series;
+//            for (var key in series) {
+//                series[key].type = type;
+//            }
         }
         if ($scope.highchartsNG1) {
-            var series = $scope.highchartsNG1.series;
-            for (var key in series) {
-                series[key].type = type;
-            }
+            $scope.highchartsNG1.options.chart.type = type;
         }
 
     };
@@ -1281,7 +1272,6 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
 
                     if (traffic["dateExec"] == timeId) {
                         var mm = moment(time["atTime"]);
-                        var dd = mm.toDate().getTime();
                         data.push([mm.toDate().getTime(), traffic["packetreceived"]]);
                         data1.push([mm.toDate().getTime(), traffic["packetsent"]]);
 
@@ -1289,8 +1279,9 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
                     }
                 }
             }
-            series_line.push({data: data, name: siguname, type: $scope.allvars.chartType});
-            series1_line.push({data: data1, name: siguname, type: $scope.allvars.chartType});
+            // type: $scope.allvars.chartType
+            series_line.push({data: data, name: siguname});
+            series1_line.push({data: data1, name: siguname});
 
         }
 
@@ -1348,7 +1339,8 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
                         }],
                     inputEnabled: false
                 },
-                navigator: {enabled: true}
+                navigator: {enabled: true},
+                chart: { type : 'line'}
 
             },
             series: series_line,
@@ -1404,7 +1396,8 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
                         }],
                     inputEnabled: false
                 },
-                navigator: {enabled: true}
+                navigator: {enabled: true},
+                chart: { type : 'line'}
 
             },
             series: series1_line,
@@ -1414,6 +1407,11 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
             loading: false,
             useHighStocks: true
         };
+        
+        // display pie chart of the last timepoint 
+        // simuler un click sur le dernier point des line charts
+        var mm = moment(times[times.length-1]["atTime"]);
+        $scope.onChartClick(mm.toDate().getTime());
     };
 
     var showPieFromList = function(result) {
