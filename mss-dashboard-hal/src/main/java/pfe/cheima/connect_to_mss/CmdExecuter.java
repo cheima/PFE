@@ -112,7 +112,7 @@ public class CmdExecuter {
 
             // TelnetAPI_Impl1 ta = new TelnetAPI_Impl1();
            
-        TelnetAPI_Impl1 tsa = new TelnetAPI_Impl1();
+        TelnetAPI_Impl1 ta = new TelnetAPI_Impl1();
         CmdParser cp = new CmdParser();
        
        String ListCmdSigu = ta.getAllSiguTraffic(ip);
