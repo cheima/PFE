@@ -10,37 +10,42 @@ import org.apache.commons.net.telnet.TelnetClient;
 
 public class TelnetUtils_1 {
 
-   // private TelnetClient telnet = new TelnetClient();
+     private TelnetClient telnet = new TelnetClient();
     private static InputStream in;
     private static PrintStream out;
-    private static TelnetClient telnet = null;
+   // private static TelnetClient telnet = null;
 
     public String testConnexion(String server, String username, String password) {
+
         try {
-            if (telnet == null){
-                telnet=new TelnetClient();
-                telnet.connect(server, 23);  
+           /* String connexion_closed = "";
+            connexion_closed = readUntilConnexion("Connection closed");
+            if (connexion_closed.endsWith("closed")) {
+                telnet = null;
+            }*/
+           // if (telnet == null) {
+               // telnet = new TelnetClient();
+                telnet.connect(server, 23);
                 in = telnet.getInputStream();
-            out = new PrintStream(telnet.getOutputStream());
-            String server_message = "";
-            server_message = readUntilConnexion("ENTER USERNAME");
-            if (!server_message.endsWith("USERNAME")) {
-                return server_message;
-            }
-            write(username);
-            server_message = readUntilConnexion("ENTER PASSWORD");
-            if (!server_message.endsWith("PASSWORD")) {
-                return server_message;
-            }
-            write(password);
-            server_message = readUntilConnexion("MAIN LEVEL COMMAND <___>");
-            if (!server_message.endsWith("MAIN LEVEL COMMAND <___>")) {
-                return server_message;
-            }
-           // return "";
-            }
-          return "";
-         
+                out = new PrintStream(telnet.getOutputStream());
+                String server_message = "";
+                server_message = readUntilConnexion("ENTER USERNAME");
+                if (!server_message.endsWith("USERNAME")) {
+                    return server_message;
+                }
+                write(username);
+                server_message = readUntilConnexion("ENTER PASSWORD");
+                if (!server_message.endsWith("PASSWORD")) {
+                    return server_message;
+                }
+                write(password);
+                server_message = readUntilConnexion("MAIN LEVEL COMMAND <___>");
+                if (!server_message.endsWith("MAIN LEVEL COMMAND <___>")) {
+                    return server_message;
+                }
+                // return "";
+          //  }
+            return "";
 
         } catch (Exception e) {
             e.printStackTrace();

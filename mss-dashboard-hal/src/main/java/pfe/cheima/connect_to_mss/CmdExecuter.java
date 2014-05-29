@@ -4,19 +4,20 @@
  * and open the template in the editor.
  */
 
-package pfe.cheima.connect_to_mss;
+/*package pfe.cheima.connect_to_mss;
 
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
-
+*/
 
 /**
  *
  * @author Cheima
  */
-public class CmdExecuter {
+//code pour lire d'un fichier
+/*public class CmdExecuter {
         
        public List<TrafficTotal> getAllSiguTraffic(String ip) throws IOException{
             // TelnetAPI_Impl1 ta = new TelnetAPI_Impl1();
@@ -87,30 +88,36 @@ public class CmdExecuter {
            }
            return allStats;
        }
-}
-///hethi il methode ili teb3a il telent
+}*/
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-/*package pfe.cheima.connect_to_mss;
+package pfe.cheima.connect_to_mss;
 
 import java.io.IOException;
 import java.util.List;
 
 
-
+/**
+ *
+ * @author Cheima
+ */
 public class CmdExecuter {
         
-       public List<TrafficTotal> getAllSiguTraffic(String ip) throws IOException{
+      public List<TrafficTotal> getAllSiguTraffic(String ip) throws IOException{
+                //  public List<TrafficTotal> getAllSiguTraffic() throws IOException{
+
             // TelnetAPI_Impl1 ta = new TelnetAPI_Impl1();
            
-        TelnetAPI_Impl1 ta = new TelnetAPI_Impl1();
+        TelnetAPI_Impl1 tsa = new TelnetAPI_Impl1();
         CmdParser cp = new CmdParser();
        
-        String ListCmdSigu = ta.getAllSiguTraffic(ip);
+       String ListCmdSigu = ta.getAllSiguTraffic(ip);
+       //         String ListCmdSigu = ta.getAllSiguTraffic();
+
         List<TrafficTotal> allStats = cp.parseSiguTraffic(ListCmdSigu);
        // allStats.addAll(allStats);
         return allStats;
@@ -141,6 +148,6 @@ public class CmdExecuter {
                int i = r.nextInt(5);
                cpu.setLoadCPU(i+valeur_de_base);
            }*/
-          /* return allStats;
+           return allStats;
        }
-}*/
+}

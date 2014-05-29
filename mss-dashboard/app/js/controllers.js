@@ -238,8 +238,10 @@ module.controller('CPUController', function($scope, $timeout, detailsService) {
         var c = $scope.mycalendar;
         c.show();
     };
-    $scope.highchartsNG.title.text = "CPU usage";
-    $scope.highchartsNGPie.title.text = "CPU usage";
+   // $scope.highchartsNG.title.text = "CPU usage";
+   // $scope.highchartsNGPie.title.text = "CPU usage";
+    $scope.highchartsNG.title.text = "Traffic IN";
+   $scope.highchartsNGPie.title.text = "Traffic IN";
     $scope.events.onChangeChartType = function(type) {
         if ($scope.highchartsNG) {
             $scope.highchartsNG.options.chart.type = type;

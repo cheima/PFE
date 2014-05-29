@@ -21,8 +21,8 @@ public class TelnetAPI_Impl1 implements TelnetAPI {
     TelnetClient tc = new TelnetClient();
 
     //public static boolean test = true;
-    public String getAllSiguTraffic(String ip) throws IOException {
-
+        public String getAllSiguTraffic(String ip) throws IOException {
+     //   public String getAllSiguTraffic() throws IOException {
        // tc.ConnectMSS("10.106.120.4", "STAG01", "AZERTY");
         tc.ConnectMSS(ip, "STAG01", "AZERTY");
         String ListExecSIGU = "";
@@ -77,6 +77,7 @@ public class TelnetAPI_Impl1 implements TelnetAPI {
         String s = tc.SendCmdTelnet("ZDOI;");
         System.out.println(s);
         ListExecSIGU += "\n" + s;
+        tc.CloseTelnet();
         return ListExecSIGU;
     }
 

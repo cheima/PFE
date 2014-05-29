@@ -45,7 +45,7 @@ public class TRAFFICWebService {
         c.add(Calendar.DAY_OF_MONTH, 1);
         Date dateto = c.getTime();
 
-        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+       // net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         ///essai de list contenant all,0(type)
         if ("all".equals(siguIdsAsStrings[0])) {
             Integer type = Integer.parseInt(siguIdsAsStrings[1]);
