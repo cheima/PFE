@@ -1,11 +1,11 @@
-/*package pfe.cheima.service;
+package pfe.cheima.service;
 
 
- * To change this license header, choose License Headers in Project Properties.
+/* To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/*import java.io.IOException;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
@@ -24,7 +24,8 @@ import pfe.cheima.service.model.modules;
 /**
  *
  * @author Cheima
- //code à partir du fichier
+ */
+//code à partir du fichier
 public class GestionTraffic {
 
     public int ajouterTraffic(Trafficforsigu t) {
@@ -41,7 +42,7 @@ public class GestionTraffic {
         /**
          * class KeyValue{key, value}
          * List<KeyValue> ips = pu.createQuery("select x.id key, x.adrip value from login x ").getTypeList(KeyValue.class);
-         //
+         */
           // 1) create a java calendar instance
             Calendar calendar = Calendar.getInstance();
 // 2) get a java.util.Date from the calendar instance.
@@ -59,8 +60,7 @@ public class GestionTraffic {
             List<pfe.cheima.connect_to_mss.TrafficTotal> Lecture = ce.getAllSiguTraffic(currLogin.getAdrip());
             List<pfe.cheima.connect_to_mss.TrafficTotal> LectureBSU = ce.getAllBsuTraffic();
             List<pfe.cheima.connect_to_mss.LoadPercentCpu> LectureCPU = ce.getAllCPU();
-
-          
+            
        // List<Login> login = pu.createQuery("select l from login l ").getEntityList();
 
             //   for(int l=1;l<=login.size();l++){
@@ -219,16 +219,16 @@ public class GestionTraffic {
         List<Trafficforsigu> entityList = pu.createQuery("select a from Trafficforsigu a ").getEntityList();
         return entityList;
     }
-}*/
+}
 //code du telnet
-package pfe.cheima.service;
+/*package pfe.cheima.service;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import java.io.IOException;
+/*import java.io.IOException;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
@@ -247,7 +247,7 @@ import pfe.cheima.service.model.modules;
 /**
  *
  * @author Cheima
- */
+ //
 public class GestionTraffic {
 
     public int ajouterTraffic(Trafficforsigu t) {
@@ -264,7 +264,7 @@ public class GestionTraffic {
         /**
          * class KeyValue{key, value}
          * List<KeyValue> ips = pu.createQuery("select x.id key, x.adrip value from login x ").getTypeList(KeyValue.class);
-         */
+         //
           // 1) create a java calendar instance
             Calendar calendar = Calendar.getInstance();
 // 2) get a java.util.Date from the calendar instance.
@@ -445,4 +445,4 @@ public class GestionTraffic {
         List<Trafficforsigu> entityList = pu.createQuery("select a from Trafficforsigu a ").getEntityList();
         return entityList;
     }
-}
+}*/

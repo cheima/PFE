@@ -25,7 +25,7 @@ public class CmdParser {
 
    // public ArrayList siguName = new ArrayList<String>();
 
-    public List<String> parse(File s) throws IOException {
+   /* public List<String> parse(File s) throws IOException {
         // TelnetAPI ta = new TelnetAPI();       
         StringBuilder str = new StringBuilder();
         FileReader fr = new FileReader(s);
@@ -36,7 +36,7 @@ public class CmdParser {
         }
 
         return parse(s);
-    }
+    }*/
 
     public List<TrafficTotal> parseSiguTraffic(String s) throws IOException {
         ArrayList ListSigu = new ArrayList<TrafficTotal>();

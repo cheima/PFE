@@ -5,16 +5,14 @@
  */
 package pfe.cheima;
 
-import java.util.ArrayList;
 import java.util.List;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import net.vpc.upa.UPA;
+import pfe.cheima.service.model.Authentification;
 import pfe.cheima.service.model.Login;
 
 /**
@@ -39,19 +37,45 @@ public class MSSManagmentREST {
             Login l = new Login();
             l.setAdrip(user[0]);
             l.setLogin(user[1]);
-            l.setPasswd(user[2]);
+    //            l.setPasswd(user[2]);
             pu.insert(l);
         }
         return username;
 
     }
-     @Path("mss")
+    @Path("mss")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Login> getmss222() {
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         List<Login> mss = pu.createQuery("select l from login l").getEntityList();
         return mss;
+    }
+    
+    
+    @Path("authentif")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Authentification getLogin(@PathParam("authentification") String authentification) {
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+        String[] user = authentification.split(",");
+
+       Authentification entityList = pu.createQuery("select l from authentification l").getEntity();
+
+        if (entityList == null) {
+            Login l = new Login();
+            l.setAdrip("administrator");
+            l.setLogin("azerty");
+    //            l.setPasswd(user[2]);
+            pu.insert(l);
+               return  entityList;
+        }
+          Authentification el = pu.createQuery("select l from authentification l WHERE l.username = :v AND l.password = :y")
+                  .setParameter("v", user[0])
+                  .setParameter("y", user[1]).getEntity();
+          if(el.getPassword() == null || el.getUsername() == null)
+              return el;
+        return  entityList;
 
     }
 }

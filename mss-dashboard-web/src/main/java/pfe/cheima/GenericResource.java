@@ -8,18 +8,23 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import javax.annotation.Resource;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.UserTransaction;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.GET;
+import javax.ws.rs.NotSupportedException;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import net.vpc.upa.Key;
 import net.vpc.upa.MultiRecord;
+import net.vpc.upa.Query;
 import net.vpc.upa.UPA;
 import pfe.cheima.decorators.JsonModuleCpu;
 import pfe.cheima.decorators.JsonMultiModuleCpu;
@@ -85,7 +90,21 @@ public class GenericResource {
         List<Trafficforsigu> entityList = pu.createQuery("select a from Trafficforsigu a ").getEntityList();
         return entityList;
     }*/
+   @Path("drop")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+  
+    public void dropTables() {
+ 
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+      
+  
 
+    Query q3 = pu.createQuery("DELETE FROM client c");
+    Query q4 = pu.createQuery("DELETE FROM address a");
+    Query q1 = pu.createQuery("DELETE FROM loadpercentcpu l");
+    //Query q2 = pu.createQuery("DELETE FROM BomItem");             
+    }
     @Path("time")
     @GET
     @Produces(MediaType.APPLICATION_JSON)

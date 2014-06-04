@@ -46,6 +46,11 @@
             <type>jar</type>
         </dependency>
         <dependency>
+            <groupId>jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>3.5.3</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>6.0</version>

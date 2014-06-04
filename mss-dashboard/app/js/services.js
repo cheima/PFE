@@ -2,6 +2,13 @@
 var trafficServices =angular.module('myApp.services', ['ngResource']);
 var host = 'http://localhost:9999';
 
+trafficServices.factory('authentif',function($resource){
+   
+    return($resource(host+'/mss-dashboard-web/webresources/rest/authentif/:',{authentification: '@authentification'},{
+      query:{method:'GET',isArray:true}  
+    }));
+});
+
 trafficServices.factory('trafficforsigu',function($resource){
    
     return($resource(host+'/mss-dashboard-web/webresources/generic/:siguId',{siguId : '@siguId'},{

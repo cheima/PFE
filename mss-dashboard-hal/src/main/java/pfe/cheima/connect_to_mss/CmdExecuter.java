@@ -4,20 +4,20 @@
  * and open the template in the editor.
  */
 
-/*package pfe.cheima.connect_to_mss;
+package pfe.cheima.connect_to_mss;
 
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
-*/
+
 
 /**
  *
  * @author Cheima
  */
 //code pour lire d'un fichier
-/*public class CmdExecuter {
+public class CmdExecuter {
         
        public List<TrafficTotal> getAllSiguTraffic(String ip) throws IOException{
             // TelnetAPI_Impl1 ta = new TelnetAPI_Impl1();
@@ -88,14 +88,9 @@ import java.util.Random;
            }
            return allStats;
        }
-}*/
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+}
 
-package pfe.cheima.connect_to_mss;
+/*package pfe.cheima.connect_to_mss;
 
 import java.io.IOException;
 import java.util.List;
@@ -104,7 +99,7 @@ import java.util.List;
 /**
  *
  * @author Cheima
- */
+ //
 public class CmdExecuter {
         
       public List<TrafficTotal> getAllSiguTraffic(String ip) throws IOException{
@@ -147,7 +142,7 @@ public class CmdExecuter {
                Random r = new Random();
                int i = r.nextInt(5);
                cpu.setLoadCPU(i+valeur_de_base);
-           }*/
+           }//
            return allStats;
        }
-}
+}*/

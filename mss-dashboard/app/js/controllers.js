@@ -805,17 +805,30 @@ module.controller('MyCtrl6', function($scope, trafficforsigu, getsigunames, topt
     );
 });
 
-module.controller('ModalInstanceCtrl', function($scope, $modalInstance, login, getsigunames, toptraffic, allgraphs, siguranged) {
+module.controller('ModalInstanceCtrl', function($scope, $location, $modalInstance, login, authentification) {
 
     $scope.allvars = {};
     $scope.selected = {
+    };
+    
+   
+    $scope.redirect = function(path){
+      /*  if(($scope.allvars.user === authentif.username) && ($scope.allvars.pwd === authentif.password))
+       $location.path(path);
+       else 
+       alert("Please check your details");*/
+        var authentification = $scope.allvars.user +","+$scope.allvars.pwd+",";
+        var authentif = authentification.$promise.query({authentification: authentification});
+         alert(authentif);
+         
+          $location.path(path);
     };
 
     $scope.submit = function() {
         var list = "";
         list = list + $scope.allvars.ip + "," + $scope.allvars.log + "," + $scope.allvars.pw;
         $scope.log = login.query({username: list});
-        alert(list);
+        //alert(list);
         $modalInstance.close(0);
     };
 
@@ -838,7 +851,7 @@ module.controller('AppMainController', function($scope, $state, $modal, $log, lo
         ];
         for (var msskey = 0; msskey < allmss.length; msskey++) {
             var thismss = allmss[msskey];
-            $scope.mainvars.tabs.push({heading: thismss.adrip, route: thismss.id, active: false});
+            $scope.mainvars.tabs.push({heading: thismss.login, route: thismss.log, active: false});
         }
     });
     $scope.go = function(route) {
