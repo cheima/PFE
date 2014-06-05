@@ -1,6 +1,7 @@
 package pfe.cheima.connect_to_mss;
 
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +15,7 @@ public class TelnetClient {
     TelnetUtils_1 localtelnetclient = new TelnetUtils_1();
     public String connexion = "";
 
-    public void ConnectMSS(String MssAdrIp, String MssLogin, String MssPssword) {
+    public void ConnectMSS(String MssAdrIp, String MssLogin, String MssPssword) throws IOException {
 
         connexion = localtelnetclient.testConnexion(MssAdrIp, MssLogin, MssPssword);
 

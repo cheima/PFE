@@ -25,7 +25,7 @@ public class MSSFacade {
 
     TelnetClient tc = new TelnetClient();
 
-    public void ConnectMSS(String MssAdrIp, String MssLogin, String MssPssword) {
+    public void ConnectMSS(String MssAdrIp, String MssLogin, String MssPssword) throws IOException {
         //tc.ConnectMSS("10.106.120.4", "STAG01", "AZERTY");
         if (MssAdrIp == null) {
             MssAdrIp = "10.106.120.4";

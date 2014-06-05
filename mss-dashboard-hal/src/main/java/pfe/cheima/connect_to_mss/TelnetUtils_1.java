@@ -4,6 +4,7 @@ package pfe.cheima.connect_to_mss;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import org.apache.commons.net.telnet.TelnetClient;
@@ -11,13 +12,13 @@ import org.apache.commons.net.telnet.TelnetClient;
 public class TelnetUtils_1 {
 
      private TelnetClient telnet = new TelnetClient();
-    private static InputStream in;
-    private static PrintStream out;
+    private InputStream in;
+    private PrintStream out;
    // private static TelnetClient telnet = null;
 
-    public String testConnexion(String server, String username, String password) {
+    public String testConnexion(String server, String username, String password) throws IOException {
 
-        try {
+        //try {
            /* String connexion_closed = "";
             connexion_closed = readUntilConnexion("Connection closed");
             if (connexion_closed.endsWith("closed")) {
@@ -25,7 +26,11 @@ public class TelnetUtils_1 {
             }*/
            // if (telnet == null) {
                // telnet = new TelnetClient();
-                telnet.connect(server, 23);
+        
+                telnet.setConnectTimeout(5000);
+                telnet.connect(server, 23);//23
+                //telnet.connect("smtp.gmail.com", 23);//23
+                telnet.setSoTimeout(5000);
                 in = telnet.getInputStream();
                 out = new PrintStream(telnet.getOutputStream());
                 String server_message = "";
@@ -47,15 +52,14 @@ public class TelnetUtils_1 {
           //  }
             return "";
 
-        } catch (Exception e) {
+        /*} catch (Exception e) {
             e.printStackTrace();
             return e.getMessage();
-        }
+        }*/
     }
 
-    public String readUntil(String pattern) {
+    public String readUntil(String pattern) throws IOException {
         StringBuffer sb = new StringBuffer();
-        try {
             char lastChar = pattern.charAt(pattern.length() - 1);
             char ch = (char) in.read();
             while (true) {
@@ -68,15 +72,12 @@ public class TelnetUtils_1 {
                 }
                 ch = (char) in.read();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return sb.toString();
+        //return sb.toString();
     }
 
-    public String readUntilConnexion(String pattern) {
+    public String readUntilConnexion(String pattern) throws IOException {
         StringBuffer sb = new StringBuffer();
-        try {
+        //try {
             int j = 0;
             char lastChar = pattern.charAt(pattern.length() - 1);
             char ch = (char) in.read();
@@ -96,9 +97,9 @@ public class TelnetUtils_1 {
                 }
                 ch = (char) in.read();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         return sb.toString();
     }
 

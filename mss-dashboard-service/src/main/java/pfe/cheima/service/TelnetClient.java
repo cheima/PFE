@@ -15,7 +15,7 @@ public class TelnetClient {
     TelnetUtils_1 localtelnetclient = new TelnetUtils_1();
     String connexion = "";
 
-    public void ConnectMSS(String MssAdrIp, String MssLogin, String MssPssword) {
+    public void ConnectMSS(String MssAdrIp, String MssLogin, String MssPssword) throws IOException {
 
         connexion = localtelnetclient.testConnexion(MssAdrIp, MssLogin, MssPssword);
 
