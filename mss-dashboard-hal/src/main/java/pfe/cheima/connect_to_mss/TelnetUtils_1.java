@@ -7,6 +7,9 @@ package pfe.cheima.connect_to_mss;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import org.apache.commons.net.telnet.TelnetClient;
 
 public class TelnetUtils_1 {
@@ -27,10 +30,11 @@ public class TelnetUtils_1 {
            // if (telnet == null) {
                // telnet = new TelnetClient();
         
-                telnet.setConnectTimeout(5000);
+                telnet.setConnectTimeout(50000);
+                telnet.setDefaultTimeout(20000);
                 telnet.connect(server, 23);//23
-                //telnet.connect("smtp.gmail.com", 23);//23
-                telnet.setSoTimeout(5000);
+                //telnet.connect("news.thundernews.com", 119);//23
+                telnet.setSoTimeout(20000);
                 in = telnet.getInputStream();
                 out = new PrintStream(telnet.getOutputStream());
                 String server_message = "";
@@ -81,8 +85,14 @@ public class TelnetUtils_1 {
             int j = 0;
             char lastChar = pattern.charAt(pattern.length() - 1);
             char ch = (char) in.read();
+            Calendar cal = new GregorianCalendar();
+            long date = cal.getTimeInMillis();
             while (true) {
-
+                Calendar cal2 = new GregorianCalendar();
+                long date2 = cal2.getTimeInMillis();
+                if(date2>(date+1000*20)) // si ça reste plus de 30 sec dans la boucle while true
+                    throw new IOException("La boucle while de readUntilConnexion reste plus de 30 sec");
+                        
                 if (ch == '/') {
                     j++;
                 }
