@@ -36,8 +36,9 @@ public class CmdParserCPU {
         boolean testOMU = false;   //8
         boolean testCMM = false;   //9
         LoadPercentCpu l;
-        l = null;
-        while ((line = buff.readLine()) != null) {
+       // l = null;
+         l = new LoadPercentCpu();
+         while ((line = buff.readLine()) != null) {
             Pattern p = Pattern.compile("(UNIT:)(\\s+)(\\w+\\-\\w+\\-?\\w?).*");
             Matcher m = p.matcher(line);
 
@@ -54,54 +55,63 @@ public class CmdParserCPU {
                     System.out.println(l.getModuleName() + "sigu");
 
                 } else if (m.group(3).contains("BSU")) {
+                     l = new LoadPercentCpu();
                     testBSU = true;
                     l.setModuleName(m.group(3));
                       l.setType(1);
                     System.out.println(m.group(3) + "bsu");
                     //type = 3
                 } else if (m.group(3).contains("VLRU")) {
+                     l = new LoadPercentCpu();
                     testVLRU = true;
                     l.setModuleName(m.group(3));
                       l.setType(2);
                    // System.out.println(m.group(3) + "vlru");
                       //type= 4
                 } else if (m.group(3).contains("CCSU")) {
+                     l = new LoadPercentCpu();
                     testCCSU = true;
                     l.setModuleName(m.group(3));
                     l.setType(3);
                 }
                 //TYPE 5
                 else if (m.group(3).contains("CHU")) {
+                     l = new LoadPercentCpu();
                     testCHU = true;
                     l.setModuleName(m.group(3));
                     l.setType(4);
                 }
                 //TYPE 6
                 else if (m.group(3).contains("BDCU")) {
+                     l = new LoadPercentCpu();
                     testBDCU = true;
                     l.setModuleName(m.group(3));
                       l.setType(5);
                    // System.out.println(m.group(3) + "vlru");
                       //type= 6
                 } else if (m.group(3).contains("CMU")) {
+                     l = new LoadPercentCpu();
                     testCMU = true;
                     l.setModuleName(m.group(3));
                     l.setType(6);
                 }
                 //TYPE 7
                 else if (m.group(3).contains("STU")) {
+                     l = new LoadPercentCpu();
                     testSTU = true;
                     l.setModuleName(m.group(3));
                     l.setType(7);
                 }
                 //TYPE 8
                 else if (m.group(3).contains("OMU")) {
+                     l = new LoadPercentCpu();
                     testOMU = true;
                     l.setModuleName(m.group(3));
                     l.setType(8);
                 }
                 //TYPE 9
                 else if (m.group(3).contains("CMM")) {
+                     l = new LoadPercentCpu();
                     testCMM = true;
                     l.setModuleName(m.group(3));
                     l.setType(9);
@@ -182,7 +192,7 @@ public class CmdParserCPU {
         for (int g = 0; g < cpu.size(); g++) {
             System.out.println("bjr" + cpu.get(g).toString());
         }
-        System.out.println("le nre est" + cpu.size());
+        System.out.println("le nre est cpuu" + cpu.size());
         return cpu;
     }
 
