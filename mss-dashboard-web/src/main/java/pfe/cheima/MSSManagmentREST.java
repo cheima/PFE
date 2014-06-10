@@ -56,7 +56,7 @@ public class MSSManagmentREST {
     @Path("authentif")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Authentification getLogin(@PathParam("authentification") String authentification) {
+    public String getLogin(@PathParam("authentification") String authentification) {
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         String[] user = authentification.split(",");
 
@@ -68,14 +68,15 @@ public class MSSManagmentREST {
             l.setLogin("azerty");
     //            l.setPasswd(user[2]);
             pu.insert(l);
-               return  entityList;
+               //return  entityList;
         }
           Authentification el = pu.createQuery("select l from authentification l WHERE l.username = :v AND l.password = :y")
                   .setParameter("v", user[0])
                   .setParameter("y", user[1]).getEntity();
           if(el.getPassword() == null || el.getUsername() == null)
-              return el;
-        return  entityList;
+              return "failed";
+          else 
+              return  "succeded";
 
     }
 }
