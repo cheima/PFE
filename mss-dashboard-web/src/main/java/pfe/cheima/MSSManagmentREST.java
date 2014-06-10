@@ -12,6 +12,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import net.vpc.upa.UPA;
+import pfe.cheima.decorators.LoginStatus;
 import pfe.cheima.service.model.Authentification;
 import pfe.cheima.service.model.Login;
 
@@ -52,31 +53,32 @@ public class MSSManagmentREST {
         return mss;
     }
     
-    
-    @Path("authentif")
+    @Path("authentif/{authentification}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getLogin(@PathParam("authentification") String authentification) {
+    public LoginStatus getLogin(@PathParam("authentification") String authentification) {
         net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
         String[] user = authentification.split(",");
-
+        if(user.length!=2 || user[0].isEmpty() || user[1].isEmpty())
+            return new LoginStatus("failed");
+        
        Authentification entityList = pu.createQuery("select l from authentification l").getEntity();
 
         if (entityList == null) {
-            Login l = new Login();
-            l.setAdrip("administrator");
-            l.setLogin("azerty");
+            entityList = new Authentification();
+            entityList.setUsername(user[0]);
+            entityList.setPassword(user[1]);
     //            l.setPasswd(user[2]);
-            pu.insert(l);
+            pu.insert(entityList);
                //return  entityList;
         }
           Authentification el = pu.createQuery("select l from authentification l WHERE l.username = :v AND l.password = :y")
                   .setParameter("v", user[0])
                   .setParameter("y", user[1]).getEntity();
-          if(el.getPassword() == null || el.getUsername() == null)
-              return "failed";
+          if(el == null)
+              return new LoginStatus("failed");
           else 
-              return  "succeded";
+              return new LoginStatus("success");
 
     }
 }

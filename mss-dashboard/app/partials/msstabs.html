@@ -1,0 +1,22 @@
+okkkk               
+<tabset>
+<!--                    <tab ng-repeat="t in mainvars.tabs">
+                        <tab-heading  ng-click="go('mss', {mssId: t.route})">
+                            <a ui-sref="mss({mssId: t.route})" ui-sref-active="active">{{t.heading}}</a>
+                        </tab-heading>
+                    </tab>-->
+                    <tab select="selectedTab(t)"
+                         active="t.active"
+                         ng-repeat="t in mainvars.tabs"
+                         heading="{{t.heading}}">
+                    </tab>
+                    <tab ng-click="open('lg')">
+                        <tab-heading>
+                            +
+                        </tab-heading>
+                    </tab>
+
+                </tabset>
+
+
+            <div ui-view class="row-fluid"></div>

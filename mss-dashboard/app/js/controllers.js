@@ -594,7 +594,7 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
 
     // affichage des courbes à l'ouverture de la page
     $scope.highchartsNG.title.text = "Traffic IN";
-   $scope.highchartsNGPie.title.text = "Traffic IN";
+    $scope.highchartsNGPie.title.text = "Traffic IN";
     $scope.generalUpdate();
 }
 );
@@ -812,12 +812,12 @@ module.controller('ModalInstanceCtrl', function($scope, $location, $modalInstanc
     $scope.selected = {
     };
     var authentif = authentification.query();
-    $scope.redirect = function(path){
-     //   if(($scope.allvars.user == authentif.username) && ($scope.allvars.pwd ===authentif.password))
-       /* if(($scope.allvars.user == "admin") && ($scope.allvars.pwd ==="admin"))
-       $location.path(path);
-       else */
-       alert("Please check your details");
+    $scope.redirect = function(path) {
+        //   if(($scope.allvars.user == authentif.username) && ($scope.allvars.pwd ===authentif.password))
+        /* if(($scope.allvars.user == "admin") && ($scope.allvars.pwd ==="admin"))
+         $location.path(path);
+         else */
+        alert("Please check your details");
     };
 
     $scope.submit = function() {
@@ -866,7 +866,7 @@ module.controller('AppMainController', function($scope, $state, $modal, $log, ms
 
     $scope.selectedTab = function(tab) {
         tab.active = true;
-        $state.go('mss', {mssId: tab.route});
+        $state.go('dashboard.mss', {mssId: tab.route});
     },
             // add mss
             $scope.open = function(size) {
@@ -881,4 +881,24 @@ module.controller('AppMainController', function($scope, $state, $modal, $log, ms
                     $log.info('Modal dismissed at: ' + new Date());
                 });
             };
+});
+
+
+module.controller('LoginCtrl', function($scope, $state, AuthService, login) {
+    $scope.allvars = {};
+    $scope.login = function() {
+
+        var loginres = login.query({auth:$scope.allvars.usr+','+$scope.allvars.pwd});
+        loginres.$promise.then(function() {
+            //alert("result= " + loginres.status);
+            if(loginres.status==="success"){
+                AuthService.isLogged = true;
+                $state.go("dashboard");
+            }else
+                $scope.allvars.error = "Wrong username or password";
+        });
+
+    };
+
+
 });
