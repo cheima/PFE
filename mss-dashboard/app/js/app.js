@@ -35,7 +35,19 @@ angular.module('myApp', [
     //$urlRouterProvider.otherwise("/sigu");
     //
     // Now set up the states
+    
     $stateProvider
+             .state('index3', {
+                //abstract: true,
+                url: "/index3",
+                templateUrl: "index3.html"
+            })
+             .state('index', {
+         //abstract: true,
+                url: "/index",
+                templateUrl: "index.html",
+                controller: "ModalInstanceCtrl"
+            })
             .state('mss', {
                 //abstract: true,
                 url: "/mss/:mssId",
@@ -152,8 +164,12 @@ angular.module('myApp', [
         url: "/trafficout",
         templateUrl: "partials/trafficout.html",
         controller: 'MyCtrl6'
-    });
-
+    })
+    //;
+    .state('dashboard', {
+        url: "/dashboard",
+        templateUrl: "index3.html",
+        controller: 'ModalInstanceCtrl'});
     /* .state('state1.list', {
      url: "/list",
      templateUrl: "partials/state1.list.html",

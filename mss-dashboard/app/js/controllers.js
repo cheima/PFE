@@ -238,10 +238,8 @@ module.controller('CPUController', function($scope, $timeout, detailsService) {
         var c = $scope.mycalendar;
         c.show();
     };
-   // $scope.highchartsNG.title.text = "CPU usage";
-   // $scope.highchartsNGPie.title.text = "CPU usage";
-    $scope.highchartsNG.title.text = "Traffic IN";
-   $scope.highchartsNGPie.title.text = "Traffic IN";
+    $scope.highchartsNG.title.text = "CPU usage";
+    $scope.highchartsNGPie.title.text = "CPU usage";
     $scope.events.onChangeChartType = function(type) {
         if ($scope.highchartsNG) {
             $scope.highchartsNG.options.chart.type = type;
@@ -594,7 +592,9 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
         });
     };
 
-    // affichage des courbes es l'ouverture de la page
+    // affichage des courbes à l'ouverture de la page
+    $scope.highchartsNG.title.text = "Traffic IN";
+   $scope.highchartsNGPie.title.text = "Traffic IN";
     $scope.generalUpdate();
 }
 );
@@ -603,7 +603,8 @@ module.controller('BPController', function($scope, $timeout, detailsService) {
         var c = $scope.mycalendar;
         c.show();
     };
-
+    $scope.highchartsNG.title.text = "BandWidth";
+    $scope.highchartsNGPie.title.text = "BandWidth";
     $scope.onChangeChartType = function(type) {
         if ($scope.highchartsNG) {
             var series = $scope.highchartsNG.series;
@@ -736,7 +737,7 @@ module.controller('BPController', function($scope, $timeout, detailsService) {
                 siguincluded = true;
             else
                 for (var j = 0; j < $scope.allvars.selectedCarts.length; j++) {
-                    if ($scope.allvars.selectedCarts[j] == sigu.moduleid) {
+                    if ($scope.allvars.selectedCarts[j] === sigu.moduleid) {
                         siguincluded = true;
                         break;
                     }
@@ -810,18 +811,13 @@ module.controller('ModalInstanceCtrl', function($scope, $location, $modalInstanc
     $scope.allvars = {};
     $scope.selected = {
     };
-    
-   
+    var authentif = authentification.query();
     $scope.redirect = function(path){
-      /*  if(($scope.allvars.user === authentif.username) && ($scope.allvars.pwd === authentif.password))
+     //   if(($scope.allvars.user == authentif.username) && ($scope.allvars.pwd ===authentif.password))
+       /* if(($scope.allvars.user == "admin") && ($scope.allvars.pwd ==="admin"))
        $location.path(path);
-       else 
-       alert("Please check your details");*/
-        var authentification = $scope.allvars.user +","+$scope.allvars.pwd+",";
-        var authentif = authentification.$promise.query({authentification: authentification});
-         alert(authentif);
-         
-          $location.path(path);
+       else */
+       alert("Please check your details");
     };
 
     $scope.submit = function() {
@@ -837,7 +833,7 @@ module.controller('ModalInstanceCtrl', function($scope, $location, $modalInstanc
     };
 });
 
-module.controller('AppMainController', function($scope, $state, $modal, $log, login, mss) {
+module.controller('AppMainController', function($scope, $state, $modal, $log, mss) {
     $scope.mainvars = {};
     // $scope.allvars.Indi_Name = "MSS";
 
@@ -851,7 +847,7 @@ module.controller('AppMainController', function($scope, $state, $modal, $log, lo
         ];
         for (var msskey = 0; msskey < allmss.length; msskey++) {
             var thismss = allmss[msskey];
-            $scope.mainvars.tabs.push({heading: thismss.login, route: thismss.log, active: false});
+            $scope.mainvars.tabs.push({heading: thismss.login, route: thismss.id, active: false});
         }
     });
     $scope.go = function(route) {

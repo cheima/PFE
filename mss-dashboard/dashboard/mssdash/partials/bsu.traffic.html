@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div id="content" class="span10">
+    <div class="row-fluid sortable">
+        <div class="box span6">
+            <div class="box-header well">
+                <h2><i class="icon-th"></i> Options</h2>
+            </div>
+            <div class="box-content">
+
+                <tabset>
+                    <tab heading="All">Click SUBMIT to see all the traffic
+                        <input type = "submit" ng-click="" value="Submit" class="btn btn-primary" /></tab>
+                    <tab heading="Range">
+
+                        <select ng-model="siguSelected"  ng-change="update()">
+                            <option value="">-- choose BSU Name --</option>
+                            <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
+
+                        </select>  to :
+                        <select ng-model="siguSelected2" ng-change="update()">
+                            <option value="">-- choose BSU Name --</option>
+                            <option ng-repeat="onesigu in sigunames" value="{{onesigu.id}}">{{onesigu.siguName}}</option>          
+                        </select> 
+
+                        <input type = "submit" ng-click="updateRange()" class="btn btn-primary" value="Submitkkkk" />
+                 
+                    </tab>
+                    <tab heading="Top">Click the button TOP to see the top 10 SIGUs which have the most traffic
+                        <input type = "submit" ng-click=""value="TOP 10" />
+                    </tab>
+                    <tab heading="One">
+
+                        <P>Select the BSU you want to see</p>
+                       <select ng-model="siguSelected3"  ng-change="updateRange11(siguSelected3)">
+                        
+                            <option value="">-- choose BSU Name --</option>
+                            <option ng-repeat="onesigu in sigunames"  value="{{onesigu.id}}">{{onesigu.siguName}}</option>
+
+                        </select>
+                        <input type = "submit" ng-click="updateRange11(siguSelected3)" value="Submit" />
+                    </tab>
+                </tabset>
+
+                <hr />
+            </div>
+        </div><!--/span-->
+        <div class="row-fluid sortable">
+            <div class="box span6">
+                <div class="box-header well" data-original-title>
+                    <h2><i class="icon-th"></i>Date</h2>
+
+                </div>
+                <div class="box-content">
+                    
+                    
+                </div>
+            </div><!--/span-->
+        </div><!--/row-->
+        <div class="row-fluid sortable">
+            <div class="box span12">
+                <div class="box-header well" data-original-title>
+                    <h2><i class="icon-list-alt"></i> Realtime Traffic</h2>
+                </div>
+                <div class="box-content">
+                          <p>
+            <select id="chartType" ng-change="selectType(chartType)" ng-model="chartType" ng-options="c.typeName for c in chartTypes">
+            </select> 
+        </p>
+               <div g-chart></div>
+                    <div ui-view></div>
+                    <div id="realtimechart" style="height:190px;"></div>
+                    <p class="clearfix">You can update a chart periodically to get a real-time effect by using a timer to insert the new data in the plot and redraw it.</p>
+                    <p>Time between updates: <input id="updateInterval" type="text" value="" style="text-align: right; width:5em"> milliseconds</p>
+                </div>
+            </div><!--/span-->
+        </div><!--/row-->
+
+
+
+    </div>
+        <!-- content ends -->
+    </div><!--/#content.span10-->
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+  
+     
+

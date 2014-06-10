@@ -1,10 +1,18 @@
 'use strict';
 var trafficServices =angular.module('myApp.services', ['ngResource']);
+//var host = 'http://172.24.0.232:8080';
+//var host = '';
 var host = 'http://localhost:9999';
-
-trafficServices.factory('authentif',function($resource){
+ //register MSS
+ trafficServices.factory('login',function($resource){
+    return($resource(host+'/mss-dashboard-web/webresources/rest/login/:username',{username: '@username'},{
+      query:{method:'GET',isArray:true}  
+    }));
+});
+//authentification
+trafficServices.factory('authentification',function($resource){
    
-    return($resource(host+'/mss-dashboard-web/webresources/rest/authentif/:',{authentification: '@authentification'},{
+    return($resource(host+'/mss-dashboard-web/webresources/generic/login',{},{
       query:{method:'GET',isArray:true}  
     }));
 });

@@ -90,21 +90,24 @@ public class GenericResource {
         List<Trafficforsigu> entityList = pu.createQuery("select a from Trafficforsigu a ").getEntityList();
         return entityList;
     }*/
-   @Path("drop")
+ @Path("drop")
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-  
-    public void dropTables() {
- 
-        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
-      
-  
+    @Produces(MediaType.TEXT_PLAIN)
 
-    Query q3 = pu.createQuery("DELETE FROM client c");
-    Query q4 = pu.createQuery("DELETE FROM address a");
-    Query q1 = pu.createQuery("DELETE FROM loadpercentcpu l");
-    //Query q2 = pu.createQuery("DELETE FROM BomItem");             
+    public String dropTables() {
+
+        net.vpc.upa.PersistenceUnit pu = UPA.getPersistenceUnit();
+
+        Integer q1 = pu.createQuery("DELETE FROM timepoint").executeNonQuery();
+        Integer q2 = pu.createQuery("DELETE FROM loadpercentcpu").executeNonQuery();
+        Integer q3 = pu.createQuery("DELETE FROM SomTraffic").executeNonQuery();
+        Integer q4 = pu.createQuery("DELETE FROM TrafficForSigu").executeNonQuery();
+        Integer q5 = pu.createQuery("DELETE FROM TrafficTotal").executeNonQuery();
+
+        return "deleted: " + q1 + ", " + q2 + ", " + q3 + ", " + q4 + ", " + q5;
     }
+
+
     @Path("time")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
