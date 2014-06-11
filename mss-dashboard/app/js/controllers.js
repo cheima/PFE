@@ -884,11 +884,11 @@ module.controller('AppMainController', function($scope, $state, $modal, $log, ms
 });
 
 
-module.controller('LoginCtrl', function($scope, $state, AuthService, login) {
+module.controller('LoginCtrl', function($scope, $state, AuthService, authentif) {
     $scope.allvars = {};
     $scope.login = function() {
 
-        var loginres = login.query({auth:$scope.allvars.usr+','+$scope.allvars.pwd});
+        var loginres = authentif.query({auth:$scope.allvars.usr+','+$scope.allvars.pwd});
         loginres.$promise.then(function() {
             //alert("result= " + loginres.status);
             if(loginres.status==="success"){

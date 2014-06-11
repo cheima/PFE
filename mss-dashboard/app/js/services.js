@@ -2,7 +2,7 @@
 var trafficServices =angular.module('myApp.services', ['ngResource']);
 //var host = 'http://172.24.0.232:8080';
 //var host = '';
-var host = 'http://localhost:8080';
+var host = 'http://localhost:9999';
  //register MSS
  trafficServices.factory('login',function($resource){
     return($resource(host+'/mss-dashboard-web/webresources/rest/login/:username',{username: '@username'},{
@@ -127,8 +127,8 @@ trafficServices.factory('mss',function($resource){
       query:{method:'GET',isArray:true}  
     }));
 });
-//login
-trafficServices.factory('login',function($resource){
+// authentif
+trafficServices.factory('authentif',function($resource){
     return($resource(host+'/mss-dashboard-web/webresources/rest/authentif/:auth',{auth: '@auth'},{
       query:{method:'GET',isArray:false}  
     }));
