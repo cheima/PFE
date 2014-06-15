@@ -33,11 +33,11 @@ public class CmdExecuter {
         Calendar c = Calendar.getInstance();
         c.set(Calendar.MONTH, 0);
         c.set(Calendar.YEAR, 0);
-        long valeur_de_base = c.getTimeInMillis() / 1000;
+        long valeur_de_base = c.getTimeInMillis() / 5000;
         for (TrafficTotal traffic : allStats) {
             Random r = new Random();
-            int i = r.nextInt(200);
-            int i2 = r.nextInt(200);
+            int i = r.nextInt(30);
+            int i2 = r.nextInt(30);
             traffic.setTotalreceived(i + valeur_de_base);
             traffic.setTotalsent(i2 + valeur_de_base);
             traffic.setTotalsomme(i + i2 + 2 * valeur_de_base);
@@ -58,11 +58,11 @@ public class CmdExecuter {
         Calendar c = Calendar.getInstance();
         c.set(Calendar.MONTH, 0);
         c.set(Calendar.YEAR, 0);
-        long valeur_de_base = c.getTimeInMillis() / 1000;
+        long valeur_de_base = c.getTimeInMillis() / 5000;
         for (TrafficTotal traffic : allStats) {
             Random r = new Random();
-            int i = r.nextInt(200);
-            int i2 = r.nextInt(200);
+            int i = r.nextInt(30);
+            int i2 = r.nextInt(30);
             traffic.setTotalreceived(i + valeur_de_base);
             traffic.setTotalsent(i2 + valeur_de_base);
             traffic.setTotalsomme(i + i2 + 2 * valeur_de_base);
@@ -83,8 +83,8 @@ public class CmdExecuter {
         int valeur_de_base = c.get(Calendar.MINUTE);
         for (LoadPercentCpu cpu : allStats) {
             Random r = new Random();
-            int i = r.nextInt(5);
-            cpu.setLoadCPU(i + valeur_de_base);
+            int i = r.nextInt(40);
+            cpu.setLoadCPU(i);
         }
         return allStats;
     }

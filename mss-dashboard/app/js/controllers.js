@@ -172,7 +172,10 @@ module.controller('KPIController', function($scope, $filter, $timeout, allmodule
                 }
             },
             yAxis: {
-                opposite: false
+                opposite: false,
+                title: {
+                    text: ""
+                }
             },
             legend: {
                 enabled: true
@@ -240,6 +243,7 @@ module.controller('CPUController', function($scope, $timeout, detailsService) {
     };
     $scope.highchartsNG.title.text = "CPU usage";
     $scope.highchartsNGPie.title.text = "CPU usage";
+    $scope.highchartsNG.options.yAxis.title.text = "CPU usage in %";
     $scope.events.onChangeChartType = function(type) {
         if ($scope.highchartsNG) {
             $scope.highchartsNG.options.chart.type = type;
@@ -387,7 +391,11 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
                 }
             },
             yAxis: {
-                opposite: false
+                opposite: false,
+                title: {
+                    text: ""
+                }
+
             },
             legend: {
                 enabled: true
@@ -446,6 +454,9 @@ module.controller('TrafficController', function($scope, $timeout, detailsService
         },
         loading: false
     };
+
+    $scope.highchartsNG.options.yAxis.title.text = "Traffic en Mbit";
+    $scope.highchartsNG1.options.yAxis.title.text = "Traffic en Mbit";
 
     $scope.show = function() {
         var c = $scope.mycalendar;
@@ -605,6 +616,9 @@ module.controller('BPController', function($scope, $timeout, detailsService) {
     };
     $scope.highchartsNG.title.text = "BandWidth";
     $scope.highchartsNGPie.title.text = "BandWidth";
+    
+    $scope.highchartsNG.options.yAxis.title.text = "Bande passante en Mbps*300";
+    
     $scope.onChangeChartType = function(type) {
         if ($scope.highchartsNG) {
             var series = $scope.highchartsNG.series;
@@ -888,13 +902,13 @@ module.controller('LoginCtrl', function($scope, $state, AuthService, authentif) 
     $scope.allvars = {};
     $scope.login = function() {
 
-        var loginres = authentif.query({auth:$scope.allvars.usr+','+$scope.allvars.pwd});
+        var loginres = authentif.query({auth: $scope.allvars.usr + ',' + $scope.allvars.pwd});
         loginres.$promise.then(function() {
             //alert("result= " + loginres.status);
-            if(loginres.status==="success"){
+            if (loginres.status === "success") {
                 AuthService.isLogged = true;
                 $state.go("dashboard");
-            }else
+            } else
                 $scope.allvars.error = "Wrong username or password";
         });
 
